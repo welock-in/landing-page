@@ -25,11 +25,6 @@ export const faqs: Faq[] = [
       "iOS, macOS and Windows are here today. Android is coming soon.",
   },
   {
-    question: "What if I want a refund?",
-    answer:
-      "30-day money-back guarantee. One email is enough, no trick questions.",
-  },
-  {
     question: "Are you really students?",
     answer:
       "Yes. Three engineers between EPFL and Polytechnique Paris, fed up with paying a subscription just to focus.",

@@ -1,7 +1,5 @@
 export type Plan = {
-  id: "monthly" | "lifetime";
-  /** Toggle label. */
-  tab: string;
+  id: "lifetime";
   /** Small eyebrow above the plan name. */
   eyebrow: string;
   amount: string;
@@ -11,17 +9,8 @@ export type Plan = {
 };
 
 export const plans: Record<Plan["id"], Plan> = {
-  monthly: {
-    id: "monthly",
-    tab: "Monthly · $2/mo",
-    eyebrow: "No commitment",
-    amount: "$2",
-    cadence: "per month",
-    cta: "Get started — $2/mo",
-  },
   lifetime: {
     id: "lifetime",
-    tab: "Lifetime · $20",
     eyebrow: "Forever",
     amount: "$20",
     cadence: "one-time payment",
