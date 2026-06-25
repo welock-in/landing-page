@@ -1,0 +1,76 @@
+.section {
+  padding: 100px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 48px;
+}
+
+.item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  height: max-content;
+}
+
+.question {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 16.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.chev {
+  flex-shrink: 0;
+  display: inline-flex;
+  transition: transform 0.25s ease;
+  color: var(--red);
+}
+
+.itemOpen .chev {
+  transform: rotate(90deg);
+}
+
+/* 0fr -> 1fr reveal: animates height without measuring scrollHeight. */
+.answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s ease;
+}
+
+.itemOpen .answer {
+  grid-template-rows: 1fr;
+}
+
+.answer > p {
+  overflow: hidden;
+  min-height: 0;
+  padding: 0 24px;
+  color: var(--muted);
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+
+.itemOpen .answer > p {
+  padding-bottom: 22px;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

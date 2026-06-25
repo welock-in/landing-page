@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WeLockIn — Landing
 
-## Getting Started
+Marketing site for **WeLockIn**, the $20-for-life distraction blocker.
+Built with **Next.js 16 (App Router) · React 19 · TypeScript · Tailwind v4**,
+optimised for SEO and structured to scale.
 
-First, run the development server:
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env        # set NEXT_PUBLIC_SITE_URL
+npm run dev                 # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Scripts: `dev`, `build`, `start`, `lint`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Architecture
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                    # routes + SEO file conventions
+│   ├── layout.tsx          # fonts, <head> metadata, JSON-LD
+│   ├── page.tsx            # composes the landing sections
+│   ├── globals.css         # design tokens + base styles
+│   ├── sitemap.ts          # generated sitemap.xml
+│   ├── robots.ts           # generated robots.txt
+│   └── manifest.ts         # PWA web manifest
+├── components/
+│   ├── layout/             # Navbar, Footer
+│   ├── sections/           # one component per landing section (+ co-located .module.css)
+│   └── ui/                 # reusable primitives (Container, SectionHeading, icons)
+├── config/
+│   └── site.ts             # SINGLE SOURCE OF TRUTH — branding, nav, SEO copy
+├── content/                # typed content data (reviews, faqs, stats, pricing…)
+├── lib/
+│   ├── seo.ts              # buildMetadata() + structured-data helpers
+│   └── utils.ts            # cn(), absoluteUrl()
+└── types/  hooks/          # shared types & hooks (grow as needed)
+```
 
-## Learn More
+### Conventions
 
-To learn more about Next.js, take a look at the following resources:
+- **Content is data.** Copy lives in `src/content/*` as typed modules — edit text
+  without touching components. Add a review/FAQ/stat by appending to its array.
+- **Branding is centralised.** `src/config/site.ts` feeds metadata, sitemap,
+  robots, manifest and JSON-LD. Change it once, it propagates everywhere.
+- **Styling.** Brand palette as CSS custom properties in `globals.css` (also
+  exposed to Tailwind via `@theme`). Each section owns a co-located CSS Module —
+  faithful to the design and easy to maintain.
+- **Server-first.** Sections are React Server Components by default; only the
+  interactive ones (`Navbar`, `Stats`, `Pricing`, `Globe`, `Faq`) are
+  `"use client"`. The whole page prerenders to static HTML — great for SEO.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### SEO
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `metadataBase`, title template, canonical URLs, Open Graph & Twitter cards
+- `robots.ts`, `sitemap.ts`, `manifest.ts`
+- Organization + WebSite JSON-LD in the root layout
+- `prefers-reduced-motion` respected for all decorative animation
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Set `NEXT_PUBLIC_SITE_URL` per environment so canonicals/OG point at the right host.
