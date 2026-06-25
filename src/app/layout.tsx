@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Figtree, Playfair_Display } from "next/font/google";
 
 import { siteConfig, siteUrl } from "@/config/site";
 import { buildMetadata, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const figtree = Figtree({
+  variable: "--font-figtree",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
@@ -50,7 +50,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} antialiased`}
+      className={`${figtree.variable} ${playfair.variable} antialiased`}
       suppressHydrationWarning
     >
       <body className="bg-bg text-ink">

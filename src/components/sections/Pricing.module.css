@@ -102,7 +102,7 @@
 }
 
 .amount small {
-  font-family: var(--font-inter), "Inter", sans-serif;
+  font-family: var(--font-figtree), "Figtree", sans-serif;
   font-size: 16px;
   font-weight: 500;
   color: var(--muted);
