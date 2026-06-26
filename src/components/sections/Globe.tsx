@@ -38,7 +38,7 @@ export function Globe() {
       mapSamples: 16000,
       mapBrightness: 1.15,
       baseColor: [0.96, 0.94, 0.91],
-      markerColor: [192 / 255, 57 / 255, 43 / 255],
+      markerColor: [200 / 255, 64 / 255, 47 / 255],
       glowColor: [0.96, 0.94, 0.91],
       markers: globeMarkers,
       onRender: (state) => {

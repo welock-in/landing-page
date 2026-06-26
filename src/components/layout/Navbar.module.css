@@ -11,11 +11,11 @@
 }
 
 .stuck {
-  background: rgba(245, 240, 232, 0.82);
+  background: rgba(255, 254, 251, 0.82);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
-  box-shadow: 0 4px 24px rgba(13, 13, 13, 0.04);
+  box-shadow: 0 4px 24px rgba(26, 23, 20, 0.04);
 }
 
 .inner {
@@ -29,8 +29,9 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: 700;
-  font-size: 18px;
+  font-family: var(--font-eb-garamond), "EB Garamond", serif;
+  font-weight: 600;
+  font-size: 22px;
   letter-spacing: -0.01em;
 }
 

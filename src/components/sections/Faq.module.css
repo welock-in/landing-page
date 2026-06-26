@@ -12,7 +12,7 @@
 .item {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 14px;
   overflow: hidden;
   height: max-content;
 }

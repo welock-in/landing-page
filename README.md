@@ -48,8 +48,12 @@ src/
   exposed to Tailwind via `@theme`). Each section owns a co-located CSS Module —
   faithful to the design and easy to maintain.
 - **Server-first.** Sections are React Server Components by default; only the
-  interactive ones (`Navbar`, `Stats`, `Pricing`, `Globe`, `Faq`) are
-  `"use client"`. The whole page prerenders to static HTML — great for SEO.
+  interactive ones (`Navbar`, `HowItWorks`, `LockedEverywhere`, `Stats`,
+  `Globe`, `Faq`) are `"use client"`. The whole page prerenders to static
+  HTML — great for SEO.
+
+Sections, in order: `Hero` → `LogoCloud` → `HowItWorks` (scroll-driven sticky
+MacBook) → `LockedEverywhere` → `Stats` → `Globe` → `Faq` → `VideoStory`.
 
 ### SEO
 

@@ -47,7 +47,6 @@ export type SiteConfig = typeof siteConfig;
 /** Primary navigation — consumed by the header and the sitemap. */
 export const mainNav: { title: string; href: string }[] = [
   { title: "Features", href: "/#features" },
-  { title: "Pricing", href: "/#pricing" },
   { title: "FAQ", href: "/#faq" },
 ];
 

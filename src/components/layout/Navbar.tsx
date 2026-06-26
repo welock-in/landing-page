@@ -34,7 +34,7 @@ export function Navbar() {
           ))}
         </div>
 
-        <a className={styles.cta} href="#pricing">
+        <a className={styles.cta} href="#download">
           Download
           <AppleIcon />
         </a>

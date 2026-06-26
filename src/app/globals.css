@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 /**
- * WeLockIn design tokens.
+ * WeLockIn design tokens (brand book v1).
  * Single source of truth for the brand palette — consumed by component
  * CSS Modules via var(--*) and exposed to Tailwind utilities via @theme.
  */
 :root {
   --bg: #f5f0e8;
-  --ink: #0d0d0d;
-  --red: #c0392b;
-  --red-hover: #a93226;
-  --rose: #f5c6c2;
-  --card: #ffffff;
-  --border: #e8e3dc;
-  --muted: #6b6560;
-  --dark: #0d1a0f;
-  --ticker: #111111;
+  --ink: #1a1714;
+  --red: #c8402f;
+  --red-hover: #a93223;
+  --rose: #f0d4ca;
+  --card: #fbf8f2;
+  --border: rgba(26, 23, 20, 0.08);
+  --muted: #7a7164;
+  --dark: #1a1714;
+  --ticker: #1a1714;
 
   --max-width: 1200px;
   --gutter: 28px;
@@ -32,7 +32,7 @@
   --color-muted: var(--muted);
 
   --font-sans: var(--font-figtree);
-  --font-serif: var(--font-playfair);
+  --font-serif: var(--font-eb-garamond);
 }
 
 *,
@@ -54,11 +54,13 @@ body {
   line-height: 1.5;
 }
 
+/* Headings & numerals use the serif (EB Garamond), per the brand book. */
 h1,
 h2,
 h3,
 .serif {
-  font-family: var(--font-playfair), "Playfair Display", serif;
+  font-family: var(--font-eb-garamond), "EB Garamond", serif;
+  font-weight: 600;
 }
 
 a {

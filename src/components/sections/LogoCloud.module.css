@@ -1,0 +1,106 @@
+.logos {
+  padding: 56px 0;
+  background: var(--bg);
+}
+
+.label {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #8a8175;
+  margin-bottom: 32px;
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: logoScroll 90s linear infinite;
+}
+
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+
+@keyframes logoScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.logo {
+  flex-shrink: 0;
+  height: 68px;
+  margin-right: 64px;
+  display: flex;
+  align-items: center;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.logo:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.logo img {
+  height: 100%;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.wide {
+  height: 34px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px 40px;
+  }
+
+  .logo {
+    margin: 0;
+  }
+
+  .dupe {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    height: 52px;
+    margin-right: 44px;
+  }
+
+  .wide {
+    height: 26px;
+  }
+}

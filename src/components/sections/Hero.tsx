@@ -2,9 +2,10 @@ import Image from "next/image";
 
 import { Container } from "@/components/ui/Container";
 import { DownloadIcon } from "@/components/ui/icons";
+import { PeepIllustration } from "@/components/ui/PeepIllustration";
 import styles from "./Hero.module.css";
 
-const AVATAR_TINTS = ["#F5C6C2", "#E9B4AE", "#F0CFAA", "#D8C2B0", "#EBC6C0"];
+const AVATAR_TINTS = ["#f3d9cd", "#E9B4AE", "#F0CFAA", "#D8C2B0", "#EBC6C0"];
 
 // Word-by-word stagger. Delays are static so the hero stays a server component.
 const HEADLINE: { text: string; em?: boolean; breakAfter?: boolean }[] = [
@@ -20,15 +21,6 @@ const HEADLINE: { text: string; em?: boolean; breakAfter?: boolean }[] = [
 export function Hero() {
   return (
     <header className={styles.hero}>
-      <svg
-        className={styles.deco}
-        preserveAspectRatio="none"
-        viewBox="0 0 1440 760"
-        aria-hidden="true"
-      >
-        <path d="M-40 470 C 220 350, 380 600, 640 470 S 1080 250, 1320 430 S 1560 560, 1700 470" />
-      </svg>
-
       <Container className={styles.grid}>
         <div className={styles.text}>
           <h1 className={styles.headline}>
@@ -91,15 +83,7 @@ export function Hero() {
               <span className={styles.notch} />
             </div>
           </div>
-          <Image
-            className={styles.peep}
-            src="/images/peep-standing.svg"
-            alt=""
-            aria-hidden="true"
-            width={96}
-            height={316}
-            unoptimized
-          />
+          <PeepIllustration className={styles.peep} />
         </div>
       </Container>
     </header>

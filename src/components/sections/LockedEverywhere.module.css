@@ -1,0 +1,196 @@
+.locked {
+  background: var(--bg);
+  text-align: center;
+  padding: 96px 24px 100px;
+  overflow: hidden;
+}
+
+.inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-family: var(--font-eb-garamond), "EB Garamond", serif;
+  font-weight: 600;
+  color: var(--ink);
+  font-size: clamp(38px, 5.4vw, 62px);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  max-width: 16ch;
+}
+
+.sub {
+  margin-top: 22px;
+  max-width: 60ch;
+  font-size: clamp(16px, 1.5vw, 18.5px);
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.visual {
+  margin-top: 52px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.visual img {
+  width: 100%;
+  max-width: 940px;
+  height: auto;
+  display: block;
+}
+
+.avail {
+  margin-top: 58px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+}
+
+.availLabel {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.platforms {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px 44px;
+}
+
+.platform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+  min-width: 64px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  opacity: 0.82;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.icon img {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: 120px;
+  object-fit: contain;
+  filter: brightness(0) saturate(0);
+}
+
+.wordmark {
+  height: 22px;
+}
+
+.platform:hover .icon {
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+.platformName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.cta {
+  margin-top: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 56px;
+  padding: 0 32px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--font-figtree), "Figtree", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: 0 10px 24px rgba(26, 23, 20, 0.14);
+  transition: transform 0.18s, box-shadow 0.22s, background 0.18s;
+}
+
+.cta:hover {
+  transform: translateY(-1px);
+  background: var(--red-hover);
+  box-shadow: 0 16px 34px rgba(26, 23, 20, 0.2);
+}
+
+.cta:active {
+  transform: translateY(0);
+}
+
+/* fade-up reveal on enter */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.isIn .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.isIn .sub {
+  transition-delay: 0.08s;
+}
+
+.isIn .visual {
+  transition-delay: 0.16s;
+}
+
+.isIn .avail {
+  transition-delay: 0.26s;
+}
+
+.isIn .cta {
+  transition-delay: 0.34s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .locked {
+    padding: 64px 16px 72px;
+  }
+
+  .visual {
+    margin-top: 36px;
+  }
+
+  .platforms {
+    gap: 16px 30px;
+  }
+
+  .cta {
+    width: 100%;
+  }
+}

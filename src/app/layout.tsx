@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Figtree, Playfair_Display } from "next/font/google";
+import { Figtree, EB_Garamond } from "next/font/google";
 
 import { siteConfig, siteUrl } from "@/config/site";
 import { buildMetadata, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
@@ -12,10 +12,10 @@ const figtree = Figtree({
   display: "swap",
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const ebGaramond = EB_Garamond({
+  variable: "--font-eb-garamond",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
   display: "swap",
 });
@@ -34,10 +34,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
-  ],
+  themeColor: "#f5f0e8",
   width: "device-width",
   initialScale: 1,
 };
@@ -50,7 +47,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${figtree.variable} ${playfair.variable} antialiased`}
+      className={`${figtree.variable} ${ebGaramond.variable} antialiased`}
       suppressHydrationWarning
     >
       <body className="bg-bg text-ink">

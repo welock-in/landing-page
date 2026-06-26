@@ -1,14 +1,13 @@
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { Faq } from "@/components/sections/Faq";
-import { FinalCta } from "@/components/sections/FinalCta";
 import { Globe } from "@/components/sections/Globe";
 import { Hero } from "@/components/sections/Hero";
-import { Pricing } from "@/components/sections/Pricing";
-import { ProblemSolution } from "@/components/sections/ProblemSolution";
-import { Reviews } from "@/components/sections/Reviews";
+import { HowItWorks } from "@/components/sections/HowItWorks";
+import { LockedEverywhere } from "@/components/sections/LockedEverywhere";
+import { LogoCloud } from "@/components/sections/LogoCloud";
 import { Stats } from "@/components/sections/Stats";
-import { Ticker } from "@/components/sections/Ticker";
+import { VideoStory } from "@/components/sections/VideoStory";
 
 export default function HomePage() {
   return (
@@ -16,14 +15,13 @@ export default function HomePage() {
       <Navbar />
       <main>
         <Hero />
-        <Ticker />
-        <ProblemSolution />
+        <LogoCloud />
+        <HowItWorks />
+        <LockedEverywhere />
         <Stats />
-        <Reviews />
-        <Pricing />
         <Globe />
         <Faq />
-        <FinalCta />
+        <VideoStory />
       </main>
       <Footer />
     </>

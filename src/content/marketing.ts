@@ -1,27 +1,3 @@
-/** Scrolling ticker phrases under the hero. */
-export const tickerItems: string[] = [
-  "Deep Work",
-  "Exam Crunch",
-  "Night Mode",
-  "Social Blackout",
-  "1200+ users",
-  "macOS · iOS · Windows",
-  "$20 for life",
-];
-
-/** Problem (left) vs solution (right) lists. */
-export const problems: string[] = [
-  'You open Instagram "just for 2 minutes."',
-  "You reread the same lines without taking them in.",
-  "You go to bed having produced nothing.",
-];
-
-export const solutions: string[] = [
-  "One-click blocking, impossible to bypass.",
-  "Scheduled or on-demand sessions.",
-  "Synced across all your devices.",
-];
-
 /** Marker coordinates for the interactive community globe. */
 export type GlobeMarker = { location: [number, number]; size: number };
 
