@@ -59,8 +59,21 @@
   opacity: 1;
 }
 
+.compact {
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.compact .main,
+.compact .hover {
+  gap: 8px;
+}
+
 @media (max-width: 768px) {
-  .btn {
+  /* Section CTAs go full-width on mobile; the compact navbar button stays inline. */
+  .btn:not(.compact) {
     width: 100%;
   }
 }

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { DownloadButton } from "@/components/ui/DownloadButton";
 import { StarIcon } from "@/components/ui/icons";
+import { Peep } from "./Peep";
 import styles from "./Hero.module.css";
 
 // Overlapping social-proof avatars (warm tints to match the brand palette).
@@ -87,8 +88,7 @@ export function Hero() {
               <span className={styles.notch} />
             </div>
           </div>
-          {/* eslint-disable-next-line @next/next/no-img-element -- hand-drawn mascot, no layout shift concern */}
-          <img className={styles.peep} src="/images/peep-fez.png" alt="WeLockIn mascot" />
+          <Peep />
         </div>
       </Container>
     </header>

@@ -174,7 +174,9 @@
   height: auto;
   z-index: 3;
   transform-origin: bottom center;
+  /* Idle sway is the fallback; JS drives the cursor-dodge when motion is allowed. */
   animation: sway 4s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
 @keyframes sway {
@@ -183,6 +185,14 @@
   }
   to {
     transform: rotate(2deg);
+  }
+}
+
+/* When JS controls the mascot it sets an inline transform; cut the keyframe sway
+   so the two don't fight. Reduced-motion users keep the CSS sway. */
+@media (prefers-reduced-motion: no-preference) {
+  .peep[style] {
+    animation: none;
   }
 }
 

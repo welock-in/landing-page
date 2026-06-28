@@ -4,25 +4,40 @@
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 18px 0;
-  transition: background 0.3s ease, backdrop-filter 0.3s ease,
-    border-color 0.3s ease, box-shadow 0.3s ease;
-  border-bottom: 1px solid transparent;
+  padding: 16px 0;
 }
 
-.stuck {
-  background: rgba(255, 254, 251, 0.82);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 4px 24px rgba(26, 23, 20, 0.04);
-}
-
-.inner {
+.bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+}
+
+/* The whole bar is a floating, gray-bordered card, inset from the screen edges. */
+.inner {
+  width: min(var(--max-width), 100% - 48px);
+  margin: 0 auto;
+  padding: 10px 24px;
+  background: transparent;
+  border: 1px solid rgba(26, 23, 20, 0.22);
+  border-radius: 16px;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Collapsible mobile navigation panel — hidden on desktop. */
+.mobileMenu {
+  display: none;
+}
+
+/* Frost the card once the page is scrolled, or while the mobile menu is open. */
+.stuck .inner,
+.open .inner {
+  background: rgba(255, 254, 251, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 24px rgba(26, 23, 20, 0.06);
 }
 
 .brand {
@@ -61,22 +76,10 @@
   color: var(--red);
 }
 
-.cta {
-  display: inline-flex;
+/* Right-side actions: the download CTA. */
+.actions {
+  display: flex;
   align-items: center;
-  gap: 8px;
-  border: 1.5px solid var(--red);
-  color: var(--red);
-  padding: 9px 18px;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 14px;
-  transition: background 0.18s, color 0.18s;
-}
-
-.cta:hover {
-  background: var(--red);
-  color: #fff;
 }
 
 .menuBtn {
@@ -86,13 +89,80 @@
   cursor: pointer;
 }
 
+/* Compact "Download for iPhone" CTA — only shown on mobile. */
+.mobileCta {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .links,
-  .cta {
+  .actions {
     display: none;
   }
 
+  .inner {
+    width: calc(100% - 40px);
+    padding: 14px 24px;
+  }
+
+  .bar {
+    gap: 10px;
+  }
+
+  .mobileCta {
+    display: inline-flex;
+    margin-left: auto;
+  }
+
   .menuBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0;
+  }
+
+  /* Collapsible panel: animates open below the top bar, inside the card. */
+  .mobileMenu {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    overflow: hidden;
+    transition: grid-template-rows 0.32s ease, opacity 0.25s ease,
+      margin-top 0.32s ease;
+  }
+
+  .mobileMenuOpen {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 4px;
+  }
+
+  /* Inner wrapper required for the 0fr/1fr grid reveal trick. */
+  .mobileMenuInner {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .mobileMenuInner > .mobileLink:first-child {
+    border-top: 1px solid rgba(26, 23, 20, 0.08);
+  }
+
+  .mobileLink {
     display: block;
+    padding: 15px 2px;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    border-bottom: 1px solid rgba(26, 23, 20, 0.08);
+    transition: color 0.15s;
+  }
+
+  .mobileLink:last-child {
+    border-bottom: none;
+  }
+
+  .mobileLink:active {
+    color: var(--red);
   }
 }
