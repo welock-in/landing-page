@@ -431,9 +431,9 @@ export function Features() {
             <div className="bc-shot bc-apps-shot">
               <div className="apps-compose">
                 {/* eslint-disable-next-line @next/next/no-img-element -- absolutely-composed mockup */}
-                <img className="apps-phone" src="/images/phone-select-apps.png" alt="WeLockIn select-apps screen" loading="lazy" />
+                <img className="apps-phone" src="/images/phone-select-apps.png" alt="WeLockIn select-apps screen" loading="lazy" style={{ height: 360 }} />
                 {/* eslint-disable-next-line @next/next/no-img-element -- absolutely-composed mockup */}
-                <img className="apps-card" src="/images/card-websites.png" alt="Websites blocklist with Instagram and Reddit blocked" loading="lazy" />
+                <img className="apps-card" src="/images/card-websites.png" alt="Websites blocklist with Instagram and Reddit blocked" loading="lazy" style={{ margin: "0 0 38px 20px", width: 335 }} />
               </div>
             </div>
           </article>

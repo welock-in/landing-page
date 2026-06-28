@@ -182,12 +182,13 @@
 .visual {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .laptop {
   width: 100%;
   max-width: 440px;
+  margin-right: 92px;
   animation: float 3.2s ease-in-out infinite;
 }
 
