@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Focus week · drag to extend</title>
+<style>html,body{margin:0;padding:0;background:#efeae0;}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+.fw-wrap, .fw-wrap *{box-sizing:border-box;}
+.fw-wrap{font-family:"Figtree",-apple-system,BlinkMacSystemFont,sans-serif;}
+.fw-fit{width:100%;max-width:1280px;margin:0 auto;position:relative;overflow:hidden;border-radius:18px;}
+.fw-scene{width:1280px;height:720px;transform-origin:top left;background:#efeae0;color:#1a1714;position:relative;display:flex;flex-direction:column;padding:30px 38px 28px;-webkit-font-smoothing:antialiased;}
+.fw-focus{transition:box-shadow .16s ease, outline-color .16s ease, transform .16s ease;}
+.fw-lift{box-shadow:0 12px 26px rgba(90,125,184,0.32)!important;outline:2px solid rgba(90,125,184,0.6);outline-offset:0;transform:scale(1.012);z-index:5;}
+.fw-handle{position:absolute;left:50%;bottom:5px;transform:translateX(-50%);width:36px;height:5px;border-radius:99px;background:rgba(90,125,184,0.9);opacity:0;transition:opacity .15s;}
+.fw-cursor{position:absolute;left:0;top:0;z-index:60;pointer-events:none;will-change:transform,opacity;}
+.fw-cursor-inner{display:block;transform-origin:2px 2px;filter:drop-shadow(0 5px 7px rgba(0,0,0,0.30));}
+.fw-cursor-inner svg{display:block;}
+.fw-ring{position:absolute;left:0;top:0;width:54px;height:54px;margin-left:-27px;margin-top:-27px;border-radius:50%;border:3px solid #e07856;z-index:58;pointer-events:none;opacity:0;will-change:transform,opacity;}
+.fw-tip{position:absolute;left:0;top:0;z-index:62;background:#1a1714;color:#fffefb;font-weight:700;font-size:15px;line-height:1;padding:6px 11px;border-radius:9px;opacity:0;transition:opacity .16s;pointer-events:none;white-space:nowrap;box-shadow:0 5px 12px rgba(0,0,0,0.2);}
+</style>
+
+<div class="fw-wrap">
+ <div class="fw-fit" id="fwFit">
+  <div class="fw-scene" id="fwScene">
+
+   <div style="flex:none;display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+     <div style="display:flex;align-items:center;gap:14px;">
+       <div style="width:34px;height:34px;border-radius:9px;background:#e07856;display:flex;align-items:center;justify-content:center;flex:none;">
+         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fffefb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2.2"></rect><path d="M8 11 V8 a4 4 0 0 1 8 0 V11"></path></svg>
+       </div>
+       <div>
+         <div style="font-size:23px;font-weight:700;letter-spacing:-0.025em;line-height:1.1;">Focus week</div>
+         <div style="font-size:13.5px;color:#8a8175;font-weight:500;margin-top:2px;">December 1 &ndash; 7 &middot; 2025</div>
+       </div>
+     </div>
+     <div style="display:flex;align-items:center;gap:10px;">
+       <span id="fwPlanned" style="font-size:13px;font-weight:600;color:#8a8175;">37h planned</span>
+       <div style="display:flex;align-items:center;gap:2px;background:#fffefb;border:1px solid rgba(26,23,20,0.08);border-radius:999px;padding:5px;">
+         <span style="width:30px;height:30px;border-radius:999px;display:flex;align-items:center;justify-content:center;color:#5b5448;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></span>
+         <span style="font-size:13.5px;font-weight:600;padding:0 12px;color:#1a1714;">December</span>
+         <span style="width:30px;height:30px;border-radius:999px;display:flex;align-items:center;justify-content:center;color:#5b5448;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg></span>
+       </div>
+       <span style="background:#e07856;color:#fffefb;font-size:13.5px;font-weight:600;padding:9px 18px;border-radius:999px;">Week</span>
+     </div>
+   </div>
+
+   <div style="flex:1;min-height:0;background:#fffefb;border:1px solid rgba(26,23,20,0.07);border-radius:18px;box-shadow:0 2px 12px rgba(26,23,20,0.05);padding:24px 26px 22px;display:flex;flex-direction:column;">
+     <div style="flex:none;display:flex;margin-bottom:12px;">
+       <div style="width:62px;flex:none;"></div>
+       <div id="fwDayLabels" style="flex:1;display:flex;"></div>
+     </div>
+     <div style="flex:1;min-height:0;display:flex;">
+       <div id="fwAxis" style="width:62px;flex:none;position:relative;"></div>
+       <div id="fwCols" style="flex:1;display:flex;position:relative;"></div>
+     </div>
+   </div>
+
+   <div class="fw-ring" id="fwRing"></div>
+   <div class="fw-tip" id="fwTip">4h</div>
+   <div class="fw-cursor" id="fwCursor"><span class="fw-cursor-inner" id="fwCursorInner"><svg width="30" height="48" viewBox="-1 -1 14 22"><path d="M0 0 L0 16.8 L4.1 13.1 L6.8 19.1 L9.05 18.15 L6.43 12.27 L12 12.27 Z" fill="#111111" stroke="#ffffff" stroke-width="1.3" stroke-linejoin="round"></path></svg></span></div>
+
+  </div>
+ </div>
+</div>
+
+<script>
+(function(){
+  var scene=document.getElementById('fwScene');
+  if(!scene) return;
+  var fit=document.getElementById('fwFit');
+  var dayLabels=document.getElementById('fwDayLabels');
+  var axis=document.getElementById('fwAxis');
+  var cols=document.getElementById('fwCols');
+  var planned=document.getElementById('fwPlanned');
+  var cursor=document.getElementById('fwCursor');
+  var cursorInner=document.getElementById('fwCursorInner');
+  var ring=document.getElementById('fwRing');
+  var tip=document.getElementById('fwTip');
+
+  var START=8,ENDH=24,SPAN=16;
+  var COLORS={blue:['#dce8f3','#5a7db8'],green:['#ddefdc','#54a078'],purple:['#ede3f0','#8a6b96'],coral:['#fbe4e0','#b07a70'],yellow:['#fdf7d2','#a8995d'],orange:['#f9dfc7','#c27d54']};
+  var DATA=[
+    {wd:'Mon',dt:'1',s:[{t:'Deep work',a:8,b:12,c:'blue',lock:false,focus:true},{t:'Social detox',a:18,b:20,c:'green',lock:false}]},
+    {wd:'Tue',dt:'2',s:[{t:'Morning pages',a:9,b:11,c:'purple',lock:false},{t:'Side project',a:13,b:17,c:'coral',lock:true}]},
+    {wd:'Wed',dt:'3',s:[{t:'Mindful morning',a:8,b:10,c:'yellow',lock:false},{t:'Writing sprint',a:15,b:18,c:'orange',lock:true}]},
+    {wd:'Thu',dt:'4',s:[{t:'No-scroll focus',a:10,b:13,c:'coral',lock:true},{t:'Read & unwind',a:20,b:22,c:'blue',lock:false}]},
+    {wd:'Fri',dt:'5',s:[{t:'Deep work',a:9,b:12,c:'green',lock:true},{t:'Creative flow',a:16,b:18,c:'purple',lock:false}]},
+    {wd:'Sat',dt:'6',s:[{t:'Digital detox',a:11,b:14,c:'coral',lock:false},{t:'Phone-free dinner',a:21,b:23,c:'purple',lock:true}]},
+    {wd:'Sun',dt:'7',s:[{t:'Plan the week',a:10,b:12,c:'yellow',lock:false},{t:'Reading hour',a:14,b:17,c:'blue',lock:true}]}
+  ];
+  var focus=null,focusTime=null,focusHandle=null,monCol=null;
+
+  DATA.forEach(function(d){var el=document.createElement('div');el.style.cssText='flex:1;text-align:center;padding-bottom:2px;';el.innerHTML='<span style="font-size:14px;font-weight:600;color:#1a1714;letter-spacing:-0.01em;">'+d.wd+'</span><span style="font-size:14px;font-weight:500;color:#a39a8b;margin-left:6px;">'+d.dt+'</span>';dayLabels.appendChild(el);});
+
+  for(var h=START;h<=ENDH;h++){var pct=((h-START)/SPAN)*100;var a=document.createElement('div');a.style.cssText='position:absolute;left:0;right:14px;text-align:right;top:'+pct+'%;transform:translateY(-50%);font-size:12px;font-weight:500;color:#8a8175;letter-spacing:0.01em;';a.textContent=(h<10?'0'+h:''+h)+':00';axis.appendChild(a);}
+
+  for(var i=0;i<SPAN;i++){var l=document.createElement('div');l.style.cssText='position:absolute;left:0;right:0;top:'+((i/SPAN)*100)+'%;height:1px;background:rgba(26,23,20,0.05);pointer-events:none;';cols.appendChild(l);}
+
+  DATA.forEach(function(d,di){var col=document.createElement('div');col.style.cssText='flex:1;position:relative;'+(di===0?'':'border-left:1px solid rgba(26,23,20,0.07);');if(di===0)monCol=col;
+    d.s.forEach(function(s){var fillc=COLORS[s.c][0],txt=COLORS[s.c][1];var topPct=((s.a-START)/SPAN)*100,hPct=((s.b-s.a)/SPAN)*100;var ev=document.createElement('div');ev.className='fw-ev'+(s.focus?' fw-focus':'');ev.style.cssText='position:absolute;top:calc('+topPct+'% + 3px);height:calc('+hPct+'% - 6px);left:7px;right:7px;background:'+fillc+';color:'+txt+';border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;align-items:flex-start;overflow:hidden;';
+      var timeHtml=s.focus?'<span id="fwFocusTime">'+s.a+'–'+s.b+'</span>':(s.a+'–'+s.b);
+      ev.innerHTML='<div style="font-size:13px;font-weight:600;letter-spacing:-0.01em;line-height:1.2;">'+s.t+'</div><div style="font-size:11px;font-weight:500;margin-top:2px;opacity:0.72;">'+timeHtml+'</div>'+(s.lock?'<div style="align-self:flex-start;margin-top:auto;background:rgba(255,255,255,0.6);color:'+txt+';font-size:9.5px;font-weight:600;letter-spacing:0.04em;padding:2px 7px;border-radius:999px;white-space:nowrap;">Hard locked</div>':'');
+      if(s.focus){focus=ev;var hd=document.createElement('div');hd.className='fw-handle';ev.appendChild(hd);focusHandle=hd;}
+      col.appendChild(ev);
+    });
+    cols.appendChild(col);
+  });
+  focusTime=document.getElementById('fwFocusTime');
+
+  function doFit(){var w=fit.clientWidth||1280;var k=Math.min(1,w/1280);scene.style.transform='scale('+k+')';fit.style.height=(720*k)+'px';}
+  doFit();
+  if(window.ResizeObserver){new ResizeObserver(doFit).observe(fit);}else{window.addEventListener('resize',doFit);}
+
+  function clamp(v,a,b){return v<a?a:(v>b?b:v);}
+  function lerp(a,b,t){return a+(b-a)*t;}
+  function ease(p){p=clamp(p,0,1);return p<0.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;}
+  function localPos(el){var x=0,y=0,n=el;while(n&&n!==scene){x+=n.offsetLeft;y+=n.offsetTop;n=n.offsetParent;}return{x:x,y:y};}
+
+  var PRESS_S=1.0,ENTER_E=1.0,DRAG_S=1.25,DRAG_E=3.25,RELEASE_E=3.5,FADE_S=4.7,FADE_E=5.2,T=5.9;
+  function endAt(t){if(t<DRAG_S)return 12;if(t<DRAG_E)return 12+4*ease((t-DRAG_S)/(DRAG_E-DRAG_S));if(t<FADE_S)return 16;return 12;}
+  function ringFor(t){var pts=[PRESS_S,DRAG_E];for(var i=0;i<pts.length;i++){var t0=pts[i];if(t>=t0&&t<t0+0.5){var p=(t-t0)/0.5;return{scale:0.4+1.1*p,op:(1-p)*0.55};}}return null;}
+
+  var startTs=null;
+  function frame(ts){
+    if(startTs==null)startTs=ts;
+    var t=((ts-startTs)/1000)%T;
+    var end=endAt(t);
+    var hp=((end-START)/SPAN)*100;
+    if(focus)focus.style.height='calc('+hp+'% - 6px)';
+    var snap=clamp(Math.round(end),12,16);
+    if(focusTime)focusTime.textContent='8–'+snap;
+    if(planned)planned.textContent=(37+(snap-12))+'h planned';
+    var fp=localPos(focus),edgeY=fp.y+focus.offsetHeight;
+    var mp=localPos(monCol),grabX=mp.x+monCol.offsetWidth*0.5;
+    var sx=grabX+360,sy=edgeY+150,x,y;
+    if(t<ENTER_E){var e=ease(t/ENTER_E);x=lerp(sx,grabX,e);y=lerp(sy,edgeY,e);}else{x=grabX;y=edgeY;}
+    if(t>=FADE_S){var dd=ease(clamp((t-FADE_S)/(FADE_E-FADE_S),0,1));x+=44*dd;y-=30*dd;}
+    var pa=0;if(t>=PRESS_S&&t<RELEASE_E){pa=Math.min(1,(t-PRESS_S)/0.12);if(t>RELEASE_E-0.12)pa=Math.min(pa,(RELEASE_E-t)/0.12);}
+    cursor.style.transform='translate('+(x-2)+'px,'+(y-2)+'px)';
+    cursorInner.style.transform='scale('+(1-0.12*pa)+')';
+    var op;if(t<0.5)op=ease(t/0.5);else if(t<FADE_S)op=1;else if(t<FADE_E)op=1-ease((t-FADE_S)/(FADE_E-FADE_S));else op=0;
+    cursor.style.opacity=op;
+    var active=(t>=0.9&&t<RELEASE_E);
+    if(focus)focus.classList.toggle('fw-lift',active);
+    if(focusHandle)focusHandle.style.opacity=active?'1':'0';
+    var tipOn=(t>=1.1&&t<RELEASE_E);
+    tip.style.opacity=tipOn?'1':'0';
+    if(tipOn){tip.textContent=(snap-8)+'h';tip.style.transform='translate('+(x+20)+'px,'+(y+6)+'px)';}
+    var r=ringFor(t);
+    if(r){ring.style.opacity=r.op;ring.style.transform='translate('+grabX+'px,'+edgeY+'px) scale('+r.scale+')';}else ring.style.opacity='0';
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

@@ -78,6 +78,14 @@ export function ArrowRightIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+export function StarIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M12 2.4l2.95 5.98 6.6.96-4.77 4.65 1.13 6.57L12 17.5l-5.9 3.06 1.13-6.57L2.45 9.34l6.6-.96z" />
+    </svg>
+  );
+}
+
 export function ChevronIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg

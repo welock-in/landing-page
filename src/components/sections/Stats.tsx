@@ -54,7 +54,7 @@ export function Stats() {
   }, []);
 
   return (
-    <section className={styles.section} id="features">
+    <section className={styles.section} id="stats">
       <div className={styles.container} ref={containerRef}>
         <div className={styles.inner}>
           <div className={styles.header} ref={headerRef}>

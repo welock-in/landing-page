@@ -1,11 +1,17 @@
 import Image from "next/image";
 
 import { Container } from "@/components/ui/Container";
-import { DownloadIcon } from "@/components/ui/icons";
-import { PeepIllustration } from "@/components/ui/PeepIllustration";
+import { AppleIcon, ArrowRightIcon, StarIcon } from "@/components/ui/icons";
 import styles from "./Hero.module.css";
 
-const AVATAR_TINTS = ["#f3d9cd", "#E9B4AE", "#F0CFAA", "#D8C2B0", "#EBC6C0"];
+// Overlapping social-proof avatars (warm tints to match the brand palette).
+const AVATARS = [
+  "https://api.dicebear.com/10.x/notionists/svg?seed=Mira&backgroundColor=dce8f3&radius=50",
+  "https://api.dicebear.com/10.x/notionists/svg?seed=Theo&backgroundColor=ddefdc&radius=50",
+  "https://api.dicebear.com/10.x/notionists/svg?seed=Lina&backgroundColor=ede3f0&radius=50",
+  "https://api.dicebear.com/10.x/notionists/svg?seed=Omar&backgroundColor=fbe4e0&radius=50",
+  "https://api.dicebear.com/10.x/notionists/svg?seed=Yuki&backgroundColor=fdf7d2&radius=50",
+];
 
 // Word-by-word stagger. Delays are static so the hero stays a server component.
 const HEADLINE: { text: string; em?: boolean; breakAfter?: boolean }[] = [
@@ -38,32 +44,39 @@ export function Hero() {
           </h1>
 
           <p className={styles.subtitle}>
-            WeLockIn blocks the apps that steal your attention. Once and for
-            all. For $20.
+            WeLockIn shuts out the apps that hijack your focus, so the deep work
+            finally happens.
           </p>
 
           <div className={styles.ctaRow}>
             <button className={styles.btnPrimary} type="button">
-              <span className={styles.dl}>
-                <DownloadIcon />
+              <span className={styles.ihbMain}>
+                <AppleIcon width={18} height={18} />
+                <span>Download for macOS</span>
               </span>
-              Download for macOS, free for 7 days
+              <span className={styles.ihbHover} aria-hidden="true">
+                <AppleIcon width={18} height={18} />
+                <span>Download for macOS</span>
+                <ArrowRightIcon width={18} height={18} strokeWidth={2.4} />
+              </span>
             </button>
           </div>
 
           <div className={styles.socialProof}>
             <div className={styles.avatars}>
-              {AVATAR_TINTS.map((tint) => (
-                <span
-                  key={tint}
-                  className={styles.av}
-                  style={{ background: tint }}
-                />
+              {AVATARS.map((src) => (
+                // eslint-disable-next-line @next/next/no-img-element -- decorative remote avatars
+                <img key={src} className={styles.av} src={src} alt="" width={44} height={44} />
               ))}
             </div>
-            <span>
-              <b>1,200+</b> students focused every day
-            </span>
+            <div className={styles.spText}>
+              <div className={styles.spStars} aria-label="5 out of 5 stars">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon key={i} width={20} height={20} />
+                ))}
+              </div>
+              <div className={styles.spLine}>17,335 locked in</div>
+            </div>
           </div>
         </div>
 
@@ -83,7 +96,8 @@ export function Hero() {
               <span className={styles.notch} />
             </div>
           </div>
-          <PeepIllustration className={styles.peep} />
+          {/* eslint-disable-next-line @next/next/no-img-element -- hand-drawn mascot, no layout shift concern */}
+          <img className={styles.peep} src="/images/peep-fez.png" alt="WeLockIn mascot" />
         </div>
       </Container>
     </header>

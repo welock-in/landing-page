@@ -45,6 +45,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Keep anchored sections clear of the fixed navbar. */
+#how,
+#features,
+#download,
+#stats,
+#faq {
+  scroll-margin-top: 90px;
+}
+
 body {
   background: var(--bg);
   color: var(--ink);

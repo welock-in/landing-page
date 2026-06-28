@@ -1,6 +1,7 @@
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { Faq } from "@/components/sections/Faq";
+import { Features } from "@/components/sections/Features";
 import { Globe } from "@/components/sections/Globe";
 import { Hero } from "@/components/sections/Hero";
 import { HowItWorks } from "@/components/sections/HowItWorks";
@@ -17,6 +18,7 @@ export default function HomePage() {
         <Hero />
         <LogoCloud />
         <HowItWorks />
+        <Features />
         <LockedEverywhere />
         <Stats />
         <Globe />
