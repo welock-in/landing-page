@@ -1,0 +1,66 @@
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  padding: 0 30px;
+  border-radius: 16px;
+  overflow: hidden;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+  background: #f3ddd6;
+  border: 2px solid var(--ink);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background: var(--red);
+  border-color: var(--red);
+  box-shadow: 0 12px 30px rgba(200, 64, 47, 0.3);
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  white-space: nowrap;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.btn:hover .main {
+  transform: translateX(44px);
+  opacity: 0;
+}
+
+.hover {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  color: #fff;
+  white-space: nowrap;
+  transform: translateX(-44px);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.btn:hover .hover {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    width: 100%;
+  }
+}

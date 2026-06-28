@@ -33,8 +33,10 @@
 .track {
   display: flex;
   align-items: center;
+  gap: 64px;
   width: max-content;
   animation: logoScroll 90s linear infinite;
+  will-change: transform;
 }
 
 .marquee:hover .track {
@@ -52,10 +54,11 @@
 
 .logo {
   flex-shrink: 0;
-  height: 68px;
-  margin-right: 64px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 68px;
   opacity: 0.85;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
@@ -66,9 +69,11 @@
 }
 
 .logo img {
-  height: 100%;
-  width: auto;
   display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
   object-fit: contain;
 }
 
@@ -85,9 +90,6 @@
     gap: 28px 40px;
   }
 
-  .logo {
-    margin: 0;
-  }
 
   .dupe {
     display: none;
@@ -95,9 +97,13 @@
 }
 
 @media (max-width: 768px) {
+  .track {
+    gap: 44px;
+  }
+
   .logo {
+    width: 100px;
     height: 52px;
-    margin-right: 44px;
   }
 
   .wide {

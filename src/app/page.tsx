@@ -7,7 +7,7 @@ import { Hero } from "@/components/sections/Hero";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { LockedEverywhere } from "@/components/sections/LockedEverywhere";
 import { LogoCloud } from "@/components/sections/LogoCloud";
-import { Stats } from "@/components/sections/Stats";
+import { Results } from "@/components/sections/Results";
 import { VideoStory } from "@/components/sections/VideoStory";
 
 export default function HomePage() {
@@ -17,10 +17,10 @@ export default function HomePage() {
       <main>
         <Hero />
         <LogoCloud />
-        <HowItWorks />
         <Features />
+        <Results />
+        <HowItWorks />
         <LockedEverywhere />
-        <Stats />
         <Globe />
         <Faq />
         <VideoStory />

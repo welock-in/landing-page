@@ -23,7 +23,9 @@ export function Navbar() {
       <Container className={styles.inner}>
         <a className={styles.brand} href="#" aria-label={siteConfig.name}>
           <LogoIcon />
-          <span>welock.in</span>
+          <span>
+            welock<span className={styles.brandAccent}>.in</span>
+          </span>
         </a>
 
         <div className={styles.links}>

@@ -151,7 +151,7 @@ function StrictnessWidget() {
           </svg>
         </span>
         <span className="sw-title">{STRICTNESS_COPY[copy].title}</span>
-        <span className="sw-badge">Recommended</span>
+        <span className="sw-badge">Extreme</span>
       </div>
 
       <p className="sw-tag">{STRICTNESS_COPY[copy].tag}</p>
@@ -425,7 +425,7 @@ export function Features() {
         <div className="bento-grid" ref={gridRef}>
           <article className="bento-card grad-1 card-apps">
             <div className="bc-text">
-              <h3>Apps &amp; websites</h3>
+              <h3>Block Apps &amp; websites</h3>
               <p>Block any app or site. Bundle them for work, study or sleep.</p>
             </div>
             <div className="bc-shot bc-apps-shot">
@@ -440,7 +440,7 @@ export function Features() {
 
           <article className="bento-card grad-2 card-strict">
             <div className="bc-text">
-              <h3>Your strictness</h3>
+              <h3>Select your strictness</h3>
               <p>From a gentle nudge to the nuclear lock. You choose how hard.</p>
             </div>
             <div className="bc-widget">

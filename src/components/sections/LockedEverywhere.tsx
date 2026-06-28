@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-import { ArrowRightIcon } from "@/components/ui/icons";
+import { DownloadButton } from "@/components/ui/DownloadButton";
 import { platforms } from "@/content/platforms";
 import { cn } from "@/lib/utils";
 import styles from "./LockedEverywhere.module.css";
@@ -81,10 +81,9 @@ export function LockedEverywhere() {
           </div>
         </div>
 
-        <button className={cn(styles.cta, styles.reveal)} type="button">
-          <ArrowRightIcon />
-          Start focusing for free
-        </button>
+        <div className={cn(styles.cta, styles.reveal)}>
+          <DownloadButton />
+        </div>
       </div>
     </section>
   );

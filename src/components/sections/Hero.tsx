@@ -1,7 +1,8 @@
 import Image from "next/image";
 
 import { Container } from "@/components/ui/Container";
-import { AppleIcon, ArrowRightIcon, StarIcon } from "@/components/ui/icons";
+import { DownloadButton } from "@/components/ui/DownloadButton";
+import { StarIcon } from "@/components/ui/icons";
 import styles from "./Hero.module.css";
 
 // Overlapping social-proof avatars (warm tints to match the brand palette).
@@ -49,17 +50,7 @@ export function Hero() {
           </p>
 
           <div className={styles.ctaRow}>
-            <button className={styles.btnPrimary} type="button">
-              <span className={styles.ihbMain}>
-                <AppleIcon width={18} height={18} />
-                <span>Download for macOS</span>
-              </span>
-              <span className={styles.ihbHover} aria-hidden="true">
-                <AppleIcon width={18} height={18} />
-                <span>Download for macOS</span>
-                <ArrowRightIcon width={18} height={18} strokeWidth={2.4} />
-              </span>
-            </button>
+            <DownloadButton />
           </div>
 
           <div className={styles.socialProof}>

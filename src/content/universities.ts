@@ -11,6 +11,7 @@ export const universities: University[] = [
   { file: "05_Harvard.png", name: "Harvard" },
   { file: "01_MIT.png", name: "MIT" },
   { file: "03_Stanford.png", name: "Stanford" },
+  {file: "26_X.png", name: "Polytechnique Paris"},
   { file: "04_Oxford.png", name: "Oxford" },
   { file: "06_Cambridge.png", name: "Cambridge" },
   { file: "07_ETH.png", name: "ETH Zürich", wide: true },
@@ -29,8 +30,6 @@ export const universities: University[] = [
   { file: "08_NUS.png", name: "NUS" },
   { file: "12_NTU.png", name: "NTU Singapore" },
   { file: "11_HKU.png", name: "HKU" },
-  { file: "17_Tsinghua.png", name: "Tsinghua" },
-  { file: "14_Peking.png", name: "Peking University" },
   { file: "19_Melbourne.png", name: "University of Melbourne" },
   { file: "20_UNSW.png", name: "UNSW Sydney" },
 ];

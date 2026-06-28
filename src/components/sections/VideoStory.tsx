@@ -1,5 +1,5 @@
 import { Container } from "@/components/ui/Container";
-import { ArrowRightIcon } from "@/components/ui/icons";
+import { DownloadButton } from "@/components/ui/DownloadButton";
 import styles from "./VideoStory.module.css";
 
 export function VideoStory() {
@@ -30,12 +30,7 @@ export function VideoStory() {
             <h2 className={styles.headline}>
               Now it&rsquo;s <em>your turn.</em>
             </h2>
-            <a className={styles.cta} href="#download">
-              Try for free
-              <span className={styles.ctaIc}>
-                <ArrowRightIcon width={16} height={16} strokeWidth={2.4} />
-              </span>
-            </a>
+            <DownloadButton />
           </figcaption>
         </figure>
       </Container>

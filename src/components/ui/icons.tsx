@@ -3,16 +3,19 @@ import type { SVGProps } from "react";
 /** Brand lock mark. */
 export function LogoIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" {...props}>
-      <rect x="4" y="10.5" width="16" height="11" rx="2.6" fill="#C0392B" />
-      <path
-        d="M7.5 10.5V8a4.5 4.5 0 0 1 9 0v2.5"
-        stroke="#C0392B"
-        strokeWidth="2.1"
-        strokeLinecap="round"
-      />
-      <circle cx="12" cy="15.6" r="1.7" fill="#fff" />
-      <rect x="11.2" y="16.4" width="1.6" height="3" rx=".8" fill="#fff" />
+    <svg
+      width="26"
+      height="26"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#a42b1b"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <rect x="4" y="10.5" width="16" height="10" rx="2.5" />
+      <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
     </svg>
   );
 }

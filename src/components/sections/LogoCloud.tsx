@@ -23,7 +23,14 @@ export function LogoCloud() {
                 aria-hidden={isDupe}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element -- variable-ratio crests in a decorative marquee */}
-                <img src={`/images/logos/${u.file}`} alt={isDupe ? "" : u.name} />
+                <img
+                  src={`/images/logos/${u.file}`}
+                  alt={isDupe ? "" : u.name}
+                  width={120}
+                  height={u.wide ? 34 : 68}
+                  loading="eager"
+                  decoding="async"
+                />
               </span>
             )),
           )}

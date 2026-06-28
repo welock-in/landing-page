@@ -113,31 +113,6 @@
 .cta {
   margin-top: 52px;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  height: 56px;
-  padding: 0 32px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  background: var(--red);
-  color: #fff;
-  font-family: var(--font-figtree), "Figtree", sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  box-shadow: 0 10px 24px rgba(26, 23, 20, 0.14);
-  transition: transform 0.18s, box-shadow 0.22s, background 0.18s;
-}
-
-.cta:hover {
-  transform: translateY(-1px);
-  background: var(--red-hover);
-  box-shadow: 0 16px 34px rgba(26, 23, 20, 0.2);
-}
-
-.cta:active {
-  transform: translateY(0);
 }
 
 /* fade-up reveal on enter */
