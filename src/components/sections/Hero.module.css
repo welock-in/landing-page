@@ -117,7 +117,7 @@
   font-weight: 700;
 }
 
-/* ---- laptop mockup ---- */
+/* ---- demo video frame ---- */
 .visual {
   position: relative;
   display: flex;
@@ -127,7 +127,7 @@
 .stage {
   position: relative;
   width: 100%;
-  max-width: 440px;
+  max-width: 480px;
   margin-right: 92px;
 }
 
@@ -158,39 +158,32 @@
   margin-top: -2px;
 }
 
-.laptop {
+.frame {
+  position: relative;
   display: block;
   width: 100%;
   margin: 0;
   padding: 0;
-  border: none;
-  background: none;
-  font: inherit;
-  color: inherit;
-  text-align: inherit;
+  border: 1px solid rgba(26, 23, 20, 0.1);
+  background: #1f1a17;
+  border-radius: 20px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
   cursor: pointer;
+  box-shadow: 0 30px 60px rgba(26, 23, 20, 0.2);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
-.laptop:focus-visible {
-  outline: none;
+.frame:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 36px 70px rgba(26, 23, 20, 0.24);
 }
 
-.laptop:focus-visible .screen {
+.frame:focus-visible {
+  outline: none;
   box-shadow: 0 30px 60px rgba(26, 23, 20, 0.2),
     0 0 0 3px var(--bg), 0 0 0 6px var(--red);
-}
-
-.screen {
-  position: relative;
-  display: block;
-  background: #1f1a17;
-  border: 8px solid #1f1a17;
-  border-radius: 18px 18px 4px 4px;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  box-shadow: 0 30px 60px rgba(26, 23, 20, 0.2);
-  transition: box-shadow 0.25s ease;
 }
 
 .shot {
@@ -204,8 +197,8 @@
   transition: filter 0.25s ease;
 }
 
-.laptop:hover .shot,
-.laptop:focus-visible .shot {
+.frame:hover .shot,
+.frame:focus-visible .shot {
   filter: brightness(0.9);
 }
 
@@ -230,32 +223,10 @@
   transition: background 0.22s ease, transform 0.22s ease;
 }
 
-.laptop:hover .expandChip,
-.laptop:focus-visible .expandChip {
+.frame:hover .expandChip,
+.frame:focus-visible .expandChip {
   background: var(--red);
   transform: scale(1.08);
-}
-
-.base {
-  display: block;
-  position: relative;
-  height: 15px;
-  width: 118%;
-  margin-left: -9%;
-  background: linear-gradient(#d8d3ca, #bfb9ae);
-  border-radius: 0 0 14px 14px;
-  box-shadow: 0 8px 14px rgba(26, 23, 20, 0.18);
-}
-
-.notch {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 84px;
-  height: 7px;
-  background: #a9a298;
-  border-radius: 0 0 7px 7px;
 }
 
 .peep {

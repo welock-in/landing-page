@@ -8,9 +8,10 @@ const VIDEO_SRC = "/videos/welock-draft.mp4";
 const POSTER = "/images/app-dashboard.jpeg";
 
 /**
- * The hero laptop mockup. Plays a muted, looping ambient preview; clicking it
- * opens the clip full-screen with sound. A hand-drawn Caveat annotation (same
- * language as the "watch it climb!" cue in Results) signals it's clickable.
+ * The hero demo video in a clean rounded frame. Plays a muted, looping ambient
+ * preview; clicking it opens the clip full-screen with sound. A hand-drawn
+ * Caveat annotation (same language as the "watch it climb!" cue in Results)
+ * signals it's clickable.
  */
 export function HeroVideo() {
   const [open, setOpen] = useState(false);
@@ -64,44 +65,39 @@ export function HeroVideo() {
         </span>
 
         <button
-          className={styles.laptop}
+          className={styles.frame}
           type="button"
           onClick={() => setOpen(true)}
           aria-label="Play the WeLockIn demo video"
         >
-          <span className={styles.screen}>
-            <video
-              ref={ambientRef}
-              className={styles.shot}
-              src={VIDEO_SRC}
-              poster={POSTER}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
-            />
-            <span className={styles.expandChip}>
-              <svg
-                width="17"
-                height="17"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M8 3H5a2 2 0 0 0-2 2v3" />
-                <path d="M16 3h3a2 2 0 0 1 2 2v3" />
-                <path d="M8 21H5a2 2 0 0 1-2-2v-3" />
-                <path d="M16 21h3a2 2 0 0 0 2-2v-3" />
-              </svg>
-            </span>
-          </span>
-          <span className={styles.base}>
-            <span className={styles.notch} />
+          <video
+            ref={ambientRef}
+            className={styles.shot}
+            src={VIDEO_SRC}
+            poster={POSTER}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+          />
+          <span className={styles.expandChip}>
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M8 3H5a2 2 0 0 0-2 2v3" />
+              <path d="M16 3h3a2 2 0 0 1 2 2v3" />
+              <path d="M8 21H5a2 2 0 0 1-2-2v-3" />
+              <path d="M16 21h3a2 2 0 0 0 2-2v-3" />
+            </svg>
           </span>
         </button>
       </div>
