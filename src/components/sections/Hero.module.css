@@ -124,28 +124,120 @@
   justify-content: flex-start;
 }
 
-.laptop {
+.stage {
+  position: relative;
   width: 100%;
   max-width: 440px;
   margin-right: 92px;
 }
 
+/* Hand-drawn "see it in action" cue, same language as the Results annotation. */
+.annot {
+  position: absolute;
+  top: -42px;
+  left: -78px;
+  z-index: 4;
+  width: 150px;
+  pointer-events: none;
+  transition: transform 0.25s ease;
+}
+
+.annotText {
+  display: inline-block;
+  margin-left: 30px;
+  font-family: var(--font-caveat), "Caveat", cursive;
+  font-weight: 700;
+  font-size: 26px;
+  color: #e07856;
+  transform: rotate(-5deg);
+  white-space: nowrap;
+}
+
+.annot svg {
+  display: block;
+  margin-top: -2px;
+}
+
+.laptop {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.laptop:focus-visible {
+  outline: none;
+}
+
+.laptop:focus-visible .screen {
+  box-shadow: 0 30px 60px rgba(26, 23, 20, 0.2),
+    0 0 0 3px var(--bg), 0 0 0 6px var(--red);
+}
+
 .screen {
   position: relative;
+  display: block;
   background: #1f1a17;
   border: 8px solid #1f1a17;
   border-radius: 18px 18px 4px 4px;
   aspect-ratio: 16 / 10;
   overflow: hidden;
   box-shadow: 0 30px 60px rgba(26, 23, 20, 0.2);
+  transition: box-shadow 0.25s ease;
 }
 
 .shot {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: top left;
+  display: block;
+  transition: filter 0.25s ease;
+}
+
+.laptop:hover .shot,
+.laptop:focus-visible .shot {
+  filter: brightness(0.9);
+}
+
+/* Discreet "open full screen" cue — the clip already plays, so we invite to
+   expand rather than slap a big play button over the product shot. */
+.expandChip {
+  position: absolute;
+  right: 11px;
+  bottom: 11px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  color: #fff;
+  background: rgba(26, 23, 20, 0.46);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  transition: background 0.22s ease, transform 0.22s ease;
+}
+
+.laptop:hover .expandChip,
+.laptop:focus-visible .expandChip {
+  background: var(--red);
+  transform: scale(1.08);
 }
 
 .base {
+  display: block;
   position: relative;
   height: 15px;
   width: 118%;
@@ -196,6 +288,95 @@
   }
 }
 
+/* ---- fullscreen video lightbox ---- */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(20, 17, 14, 0.62);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: modalFade 0.22s ease;
+}
+
+@keyframes modalFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalInner {
+  position: relative;
+  width: 100%;
+  max-width: 1040px;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.5);
+  animation: modalPop 0.32s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@keyframes modalPop {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modalVideo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.modalClose {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.modalClose:hover {
+  background: rgba(255, 255, 255, 0.26);
+  transform: scale(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal,
+  .modalInner {
+    animation: none;
+  }
+  .playBtn::before {
+    animation: none;
+  }
+}
+
 @media (max-width: 920px) {
   .grid {
     grid-template-columns: 1fr;
@@ -205,11 +386,36 @@
   .visual {
     order: 2;
   }
+
+  .annot {
+    top: -38px;
+    left: -54px;
+  }
 }
 
 @media (max-width: 768px) {
   .ctaRow {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .annot {
+    top: -34px;
+    left: -8px;
+  }
+
+  .annotText {
+    font-size: 22px;
+    margin-left: 18px;
+  }
+
+  .annot svg {
+    width: 84px;
+    height: 50px;
+  }
+
+  .modalClose {
+    top: 14px;
+    right: 14px;
   }
 }

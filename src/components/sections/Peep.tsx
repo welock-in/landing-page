@@ -28,6 +28,7 @@ export function Peep() {
     let curTy = 0;
     let curRot = 0;
     let raf = 0;
+    let running = false;
 
     const onMove = (e: PointerEvent) => {
       mouse.x = e.clientX;
@@ -39,6 +40,8 @@ export function Peep() {
     };
 
     const frame = (now: number) => {
+      if (!running) return;
+
       const rect = el.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
@@ -74,12 +77,34 @@ export function Peep() {
       raf = requestAnimationFrame(frame);
     };
 
+    const start = () => {
+      if (running) return;
+      running = true;
+      raf = requestAnimationFrame(frame);
+    };
+
+    const stop = () => {
+      running = false;
+      cancelAnimationFrame(raf);
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) start();
+          else stop();
+        });
+      },
+      { rootMargin: "80px 0px", threshold: 0 },
+    );
+
     window.addEventListener("pointermove", onMove, { passive: true });
     document.addEventListener("pointerleave", onLeave);
-    raf = requestAnimationFrame(frame);
+    io.observe(el);
 
     return () => {
-      cancelAnimationFrame(raf);
+      stop();
+      io.disconnect();
       window.removeEventListener("pointermove", onMove);
       document.removeEventListener("pointerleave", onLeave);
     };

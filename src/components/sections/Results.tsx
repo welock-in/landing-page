@@ -137,39 +137,67 @@ export function Results() {
     if (!nums.length) return;
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const rafs: number[] = [];
-    const timeouts: ReturnType<typeof setTimeout>[] = [];
+    let rafId = 0;
     let started = false;
+
+    type Counter = {
+      el: HTMLElement;
+      target: number;
+      format: "int" | "time";
+      suffix: string;
+      delay: number;
+      lastText: string;
+    };
 
     const run = () => {
       if (started) return;
       started = true;
-      nums.forEach((el, i) => {
-        const target = parseFloat(el.dataset.target ?? "0");
-        const format = (el.dataset.format as "int" | "time") ?? "int";
-        const suffix = el.dataset.suffix ?? "";
-        if (reduce) {
-          el.textContent = fmt(format, target, suffix);
-          return;
-        }
-        const dur = 1100;
-        const delay = i * 80;
-        let t0: number | null = null;
-        const tick = (now: number) => {
-          if (t0 === null) t0 = now;
-          const p = Math.min((now - t0) / dur, 1);
-          el.textContent = fmt(format, target * ease(p), suffix);
-          if (p < 1) rafs.push(requestAnimationFrame(tick));
-          else el.textContent = fmt(format, target, suffix);
-        };
-        timeouts.push(setTimeout(() => rafs.push(requestAnimationFrame(tick)), delay));
-      });
-    };
 
-    if (reduce) {
-      run();
-      return;
-    }
+      if (reduce) {
+        nums.forEach((el) => {
+          const target = parseFloat(el.dataset.target ?? "0");
+          const format = (el.dataset.format as "int" | "time") ?? "int";
+          const suffix = el.dataset.suffix ?? "";
+          el.textContent = fmt(format, target, suffix);
+        });
+        return;
+      }
+
+      const dur = 1100;
+      const counters: Counter[] = nums.map((el, i) => ({
+        el,
+        target: parseFloat(el.dataset.target ?? "0"),
+        format: (el.dataset.format as "int" | "time") ?? "int",
+        suffix: el.dataset.suffix ?? "",
+        delay: i * 80,
+        lastText: el.textContent ?? "",
+      }));
+
+      let t0: number | null = null;
+      const tick = (now: number) => {
+        if (t0 === null) t0 = now;
+        let running = false;
+
+        for (const c of counters) {
+          const elapsed = now - t0 - c.delay;
+          if (elapsed < 0) {
+            running = true;
+            continue;
+          }
+          const p = Math.min(elapsed / dur, 1);
+          const text = fmt(c.format, c.target * ease(p), c.suffix);
+          if (text !== c.lastText) {
+            c.el.textContent = text;
+            c.lastText = text;
+          }
+          if (p < 1) running = true;
+        }
+
+        if (running) rafId = requestAnimationFrame(tick);
+      };
+
+      rafId = requestAnimationFrame(tick);
+    };
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -186,8 +214,7 @@ export function Results() {
 
     return () => {
       io.disconnect();
-      rafs.forEach(cancelAnimationFrame);
-      timeouts.forEach(clearTimeout);
+      cancelAnimationFrame(rafId);
     };
   }, []);
 

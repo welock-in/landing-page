@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type RefObject } from "react";
 
 import "./Features.css";
 
@@ -9,6 +9,35 @@ type Mode = "soft" | "nuclear";
 const reduced = () =>
   typeof window !== "undefined" &&
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/** Run timed steps; returns a cleanup that cancels all pending timeouts. */
+function runSequence(steps: Array<{ ms: number; fn: () => void }>): () => void {
+  const ids = steps.map(({ ms, fn }) => setTimeout(fn, ms));
+  return () => ids.forEach(clearTimeout);
+}
+
+/** IntersectionObserver helper — fires when the element is meaningfully on screen. */
+function useInView(
+  ref: RefObject<HTMLElement | null>,
+  onEnter: () => void,
+  onLeave: () => void,
+) {
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || reduced()) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) onEnter();
+          else onLeave();
+        });
+      },
+      { threshold: 0.35 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [ref, onEnter, onLeave]);
+}
 
 const STRICTNESS_COPY: Record<Mode, { title: string; tag: string; foot: string }> = {
   soft: {
@@ -40,13 +69,16 @@ function StrictnessWidget() {
   const [mode, setMode] = useState<Mode>("soft");
   const [copy, setCopy] = useState<Mode>("soft");
   const [swapping, setSwapping] = useState(false);
+  const [hint, setHint] = useState(false);
 
   const ref = useRef<HTMLDivElement>(null);
   const modeRef = useRef<Mode>("soft");
   const stopped = useRef(false);
   const hovering = useRef(false);
   const visible = useRef(false);
-  const timer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const demoPlayed = useRef(false);
+  const cleanup = useRef<(() => void) | null>(null);
+  const idleTimer = useRef<ReturnType<typeof setInterval> | null>(null);
   const swapT = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const apply = useCallback((next: Mode) => {
@@ -65,56 +97,75 @@ function StrictnessWidget() {
     }, 180);
   }, []);
 
-  const cycle = useCallback(() => {
-    apply(modeRef.current === "nuclear" ? "soft" : "nuclear");
-  }, [apply]);
-
-  const stop = useCallback(() => {
-    if (timer.current) {
-      clearInterval(timer.current);
-      timer.current = null;
+  const cancelAll = useCallback(() => {
+    cleanup.current?.();
+    cleanup.current = null;
+    if (idleTimer.current) {
+      clearInterval(idleTimer.current);
+      idleTimer.current = null;
     }
   }, []);
 
-  const start = useCallback(() => {
-    if (timer.current || stopped.current || hovering.current || !visible.current || reduced()) return;
-    timer.current = setInterval(cycle, 5000);
-  }, [cycle]);
+  const startIdle = useCallback(() => {
+    if (idleTimer.current || stopped.current || hovering.current || !visible.current || reduced()) return;
+    idleTimer.current = setInterval(() => {
+      apply(modeRef.current === "nuclear" ? "soft" : "nuclear");
+    }, 5000);
+  }, [apply]);
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || reduced()) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          visible.current = e.isIntersecting;
-          if (e.isIntersecting) start();
-          else stop();
-        });
-      },
-      { threshold: 0.4 },
-    );
-    io.observe(el);
-    return () => {
-      io.disconnect();
-      stop();
-    };
-  }, [start, stop]);
+  const playDemo = useCallback(() => {
+    if (demoPlayed.current || stopped.current || reduced()) return;
+    cancelAll();
+    // Choreographed intro: pulse → soft→nuclear → nuclear→soft, then gentle idle loop.
+    cleanup.current = runSequence([
+      { ms: 350, fn: () => setHint(true) },
+      { ms: 750, fn: () => { setHint(false); apply("nuclear"); } },
+      { ms: 2400, fn: () => apply("soft") },
+      { ms: 3800, fn: () => {
+        demoPlayed.current = true;
+        if (!stopped.current && !hovering.current && visible.current) startIdle();
+      } },
+    ]);
+  }, [apply, cancelAll, startIdle]);
+
+  const onEnter = useCallback(() => {
+    visible.current = true;
+    if (!demoPlayed.current) playDemo();
+    else startIdle();
+  }, [playDemo, startIdle]);
+
+  const onLeave = useCallback(() => {
+    visible.current = false;
+    setHint(false);
+    cancelAll();
+    if (!demoPlayed.current) {
+      modeRef.current = "soft";
+      setMode("soft");
+      setCopy("soft");
+    }
+  }, [cancelAll]);
+
+  useInView(ref, onEnter, onLeave);
+
+  useEffect(() => () => {
+    cancelAll();
+    if (swapT.current) clearTimeout(swapT.current);
+  }, [cancelAll]);
 
   return (
     <div
-      className={`sw${swapping ? " swapping" : ""}`}
+      className={`sw${swapping ? " swapping" : ""}${hint ? " sw-hint" : ""}`}
       data-mode={mode}
       role="group"
       aria-label="Lock intensity"
       ref={ref}
       onMouseEnter={() => {
         hovering.current = true;
-        stop();
+        cancelAll();
       }}
       onMouseLeave={() => {
         hovering.current = false;
-        start();
+        if (visible.current && demoPlayed.current) startIdle();
       }}
     >
       <div className="sw-seg">
@@ -124,7 +175,8 @@ function StrictnessWidget() {
           className="sw-soft"
           onClick={() => {
             stopped.current = true;
-            stop();
+            cancelAll();
+            setHint(false);
             apply("soft");
           }}
         >
@@ -135,7 +187,8 @@ function StrictnessWidget() {
           className="sw-nuc"
           onClick={() => {
             stopped.current = true;
-            stop();
+            cancelAll();
+            setHint(false);
             apply("nuclear");
           }}
         >
@@ -218,71 +271,91 @@ const DEVICES = [
   },
 ];
 
-const SYNC_STATES: boolean[][] = [
-  [true, true, true],
+const SYNC_IDLE: boolean[][] = [
   [true, true, false],
-  [true, false, false],
-  [true, false, true],
   [true, true, true],
 ];
 
 function SyncWidget() {
   const [pressed, setPressed] = useState<boolean[]>([true, true, true]);
+  const [hint, setHint] = useState(false);
 
   const ref = useRef<HTMLDivElement>(null);
   const stopped = useRef(false);
   const hovering = useRef(false);
   const visible = useRef(false);
-  const idx = useRef(0);
-  const timer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const demoPlayed = useRef(false);
+  const cleanup = useRef<(() => void) | null>(null);
+  const idleTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const idleIdx = useRef(0);
 
-  const stop = useCallback(() => {
-    if (timer.current) {
-      clearInterval(timer.current);
-      timer.current = null;
+  const cancelAll = useCallback(() => {
+    cleanup.current?.();
+    cleanup.current = null;
+    if (idleTimer.current) {
+      clearInterval(idleTimer.current);
+      idleTimer.current = null;
     }
   }, []);
 
-  const start = useCallback(() => {
-    if (timer.current || stopped.current || hovering.current || !visible.current || reduced()) return;
-    timer.current = setInterval(() => {
-      const s = SYNC_STATES[idx.current % SYNC_STATES.length];
+  const startIdle = useCallback(() => {
+    if (idleTimer.current || stopped.current || hovering.current || !visible.current || reduced()) return;
+    idleTimer.current = setInterval(() => {
+      const s = SYNC_IDLE[idleIdx.current % SYNC_IDLE.length];
       setPressed([...s]);
-      idx.current += 1;
-    }, 2000);
+      idleIdx.current += 1;
+    }, 3000);
   }, []);
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || reduced()) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          visible.current = e.isIntersecting;
-          if (e.isIntersecting) start();
-          else stop();
-        });
-      },
-      { threshold: 0.4 },
-    );
-    io.observe(el);
-    return () => {
-      io.disconnect();
-      stop();
-    };
-  }, [start, stop]);
+  const playDemo = useCallback(() => {
+    if (demoPlayed.current || stopped.current || reduced()) return;
+    cancelAll();
+    // Staggered 600 ms after strictness so the two demos don't compete for attention.
+    cleanup.current = runSequence([
+      { ms: 600, fn: () => setHint(true) },
+      { ms: 950, fn: () => { setHint(false); setPressed([true, true, false]); } },
+      { ms: 1700, fn: () => setPressed([true, false, false]) },
+      { ms: 2450, fn: () => setPressed([true, true, false]) },
+      { ms: 3200, fn: () => setPressed([true, true, true]) },
+      { ms: 4300, fn: () => {
+        demoPlayed.current = true;
+        if (!stopped.current && !hovering.current && visible.current) startIdle();
+      } },
+    ]);
+  }, [cancelAll, startIdle]);
+
+  const onEnter = useCallback(() => {
+    visible.current = true;
+    if (!demoPlayed.current) playDemo();
+    else startIdle();
+  }, [playDemo, startIdle]);
+
+  const onLeave = useCallback(() => {
+    visible.current = false;
+    setHint(false);
+    cancelAll();
+    if (!demoPlayed.current) setPressed([true, true, true]);
+  }, [cancelAll]);
+
+  useInView(ref, onEnter, onLeave);
+
+  useEffect(() => () => cancelAll(), [cancelAll]);
 
   return (
     <div className="bc-sync">
       <p className="sync-label">Devices</p>
-      <div className="sync-list" role="group" aria-label="Synced devices" ref={ref}
+      <div
+        className={`sync-list${hint ? " sync-hint" : ""}`}
+        role="group"
+        aria-label="Synced devices"
+        ref={ref}
         onMouseEnter={() => {
           hovering.current = true;
-          stop();
+          cancelAll();
         }}
         onMouseLeave={() => {
           hovering.current = false;
-          start();
+          if (visible.current && demoPlayed.current) startIdle();
         }}
       >
         {DEVICES.map((d, n) => (
@@ -293,7 +366,8 @@ function SyncWidget() {
             aria-pressed={pressed[n] ? "true" : "false"}
             onClick={() => {
               stopped.current = true;
-              stop();
+              cancelAll();
+              setHint(false);
               setPressed((prev) => prev.map((v, i) => (i === n ? !v : v)));
             }}
           >
@@ -375,6 +449,23 @@ const MORE_FEATURES = [
 export function Features() {
   const gridRef = useRef<HTMLDivElement>(null);
   const moreRef = useRef<HTMLDivElement>(null);
+  const schedRef = useRef<HTMLDivElement>(null);
+  const [schedSrc, setSchedSrc] = useState<string | null>(null);
+
+  useEffect(() => {
+    const el = schedRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          setSchedSrc(e.isIntersecting ? "/focus-week-drag.html" : null);
+        });
+      },
+      { rootMargin: "120px 0px", threshold: 0.05 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
     const reveal = (parent: HTMLElement | null, childSel: string, step: number) => {
@@ -461,10 +552,17 @@ export function Features() {
               <h3>Scheduling</h3>
               <p>Recurring focus blocks. Lock in automatically, every day.</p>
             </div>
-            <div className="bc-sched-mac">
+            <div className="bc-sched-mac" ref={schedRef}>
               <div className="mac" aria-hidden="true">
                 <div className="mac-screen">
-                  <iframe className="sched-frame" src="/focus-week-drag.html" title="Focus week schedule" scrolling="no" loading="lazy" />
+                  {schedSrc ? (
+                    <iframe
+                      className="sched-frame"
+                      src={schedSrc}
+                      title="Focus week schedule"
+                      scrolling="no"
+                    />
+                  ) : null}
                 </div>
                 <div className="mac-base" />
               </div>

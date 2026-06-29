@@ -1,8 +1,7 @@
-import Image from "next/image";
-
 import { Container } from "@/components/ui/Container";
 import { DownloadButton } from "@/components/ui/DownloadButton";
 import { StarIcon } from "@/components/ui/icons";
+import { HeroVideo } from "./HeroVideo";
 import { Peep } from "./Peep";
 import styles from "./Hero.module.css";
 
@@ -73,21 +72,7 @@ export function Hero() {
         </div>
 
         <div className={styles.visual}>
-          <div className={styles.laptop}>
-            <div className={styles.screen}>
-              <Image
-                src="/images/app-dashboard.jpeg"
-                alt="WeLockIn app dashboard showing focus sessions and blocklists"
-                fill
-                sizes="(max-width: 920px) 90vw, 440px"
-                className={styles.shot}
-                priority
-              />
-            </div>
-            <div className={styles.base}>
-              <span className={styles.notch} />
-            </div>
-          </div>
+          <HeroVideo />
           <Peep />
         </div>
       </Container>

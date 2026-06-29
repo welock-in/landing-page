@@ -65,6 +65,8 @@ section.results {
   line-height: 1;
   color: var(--ink);
   letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  min-width: 2.5ch;
 }
 .rs-label {
   font-family: var(--font-figtree), "Figtree", sans-serif;
