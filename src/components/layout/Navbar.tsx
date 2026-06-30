@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { DownloadButton } from "@/components/ui/DownloadButton";
-import { CloseIcon, LogoIcon, MenuIcon } from "@/components/ui/icons";
+import { AppleIcon, LogoIcon } from "@/components/ui/icons";
 import { mainNav, siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import styles from "./Navbar.module.css";
@@ -20,13 +20,14 @@ export function Navbar() {
   }, []);
 
   return (
-    <nav className={cn(styles.nav, stuck && styles.stuck, open && styles.open)}>
+    <nav className={cn(styles.nav, stuck && styles.stuck)}>
       <div className={styles.inner}>
         <div className={styles.bar}>
-          <a className={styles.brand} href="#" aria-label={siteConfig.name}>
-            <LogoIcon />
+          <a className={styles.brand} href="/" aria-label={siteConfig.name}>
+            <LogoIcon className={styles.brandMark} />
             <span>
-              welock<span className={styles.brandAccent}>.in</span>
+              <span className={styles.brandWord}>welock</span>
+              <span className={styles.brandAccent}>.in</span>
             </span>
           </a>
 
@@ -42,38 +43,41 @@ export function Navbar() {
             <DownloadButton label="Download for macOS" size="compact" />
           </div>
 
-          <DownloadButton
-            className={styles.mobileCta}
-            label="Download for iPhone"
-            size="compact"
-          />
+          <button className={styles.mobileCta} type="button">
+            <AppleIcon width={15} height={15} />
+            <span>Download for iPhone</span>
+          </button>
 
           <button
-            className={styles.menuBtn}
+            className={cn(styles.menuBtn, open && styles.menuBtnOpen)}
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
-            {open ? <CloseIcon /> : <MenuIcon />}
+            <span className={styles.burger}>
+              <span className={styles.burgerBar} />
+              <span className={styles.burgerBar} />
+              <span className={styles.burgerBar} />
+            </span>
           </button>
         </div>
-
-        <div className={cn(styles.mobileMenu, open && styles.mobileMenuOpen)}>
-          <div className={styles.mobileMenuInner}>
-            {mainNav.map((item) => (
-              <a
-                key={item.href}
-                className={styles.mobileLink}
-                href={item.href}
-                onClick={() => setOpen(false)}
-              >
-                {item.title}
-              </a>
-            ))}
-          </div>
-        </div>
       </div>
+
+      {open && (
+        <div className={styles.mobileMenu}>
+          {mainNav.map((item) => (
+            <a
+              key={item.href}
+              className={styles.mobileLink}
+              href={item.href}
+              onClick={() => setOpen(false)}
+            >
+              {item.title}
+            </a>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }

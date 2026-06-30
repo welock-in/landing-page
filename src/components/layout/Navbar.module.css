@@ -26,14 +26,13 @@
     box-shadow 0.3s ease;
 }
 
-/* Collapsible mobile navigation panel — hidden on desktop. */
+/* Mobile navigation panel — separate dropdown card, hidden on desktop. */
 .mobileMenu {
   display: none;
 }
 
-/* Frost the card once the page is scrolled, or while the mobile menu is open. */
-.stuck .inner,
-.open .inner {
+/* Frost the bar once the page is scrolled. */
+.stuck .inner {
   background: rgba(255, 254, 251, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -55,8 +54,13 @@
   color: #a42b1b;
 }
 
-.brand svg {
+.brandMark {
   display: block;
+  flex-shrink: 0;
+}
+
+.brandWord {
+  /* Hidden on mobile — only the padlock + ".in" show in the bar. */
 }
 
 .links {
@@ -84,14 +88,94 @@
 
 .menuBtn {
   display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
   background: none;
   border: none;
   cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Three-bar hamburger that morphs into an X when open. */
+.burger {
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 14px;
+}
+
+.burgerBar {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--ink);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.burgerBar:nth-child(1) {
+  top: 0;
+}
+
+.burgerBar:nth-child(2) {
+  top: 6px;
+}
+
+.burgerBar:nth-child(3) {
+  top: 12px;
+}
+
+.menuBtnOpen .burgerBar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menuBtnOpen .burgerBar:nth-child(2) {
+  opacity: 0;
+}
+
+.menuBtnOpen .burgerBar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 /* Compact "Download for iPhone" CTA — only shown on mobile. */
 .mobileCta {
   display: none;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  padding: 9px 16px;
+  background: #f3ddd2;
+  color: var(--ink);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1;
+  border: 1.5px solid var(--ink);
+  border-radius: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.12s ease;
+}
+
+.mobileCta:active {
+  transform: scale(0.98);
+}
+
+@keyframes menuDropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
@@ -101,8 +185,31 @@
   }
 
   .inner {
-    width: calc(100% - 40px);
-    padding: 14px 24px;
+    width: calc(100% - 32px);
+    padding: 10px 16px 10px 20px;
+    background: #f4ece1;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 18px;
+    box-shadow: 0 1px 2px rgba(26, 23, 20, 0.04);
+  }
+
+  .stuck .inner {
+    background: #f4ece1;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: 0 1px 2px rgba(26, 23, 20, 0.04);
+  }
+
+  .brandWord {
+    display: none;
+  }
+
+  .brand {
+    gap: 6px;
+  }
+
+  .brandMark {
+    stroke: var(--ink) !important;
   }
 
   .bar {
@@ -111,50 +218,32 @@
 
   .mobileCta {
     display: inline-flex;
-    margin-left: auto;
   }
 
   .menuBtn {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    padding: 0;
   }
 
-  /* Collapsible panel: animates open below the top bar, inside the card. */
+  /* Separate dropdown card that falls below the bar when the menu opens. */
   .mobileMenu {
-    display: grid;
-    grid-template-rows: 0fr;
-    opacity: 0;
-    overflow: hidden;
-    transition: grid-template-rows 0.32s ease, opacity 0.25s ease,
-      margin-top 0.32s ease;
-  }
-
-  .mobileMenuOpen {
-    grid-template-rows: 1fr;
-    opacity: 1;
-    margin-top: 4px;
-  }
-
-  /* Inner wrapper required for the 0fr/1fr grid reveal trick. */
-  .mobileMenuInner {
-    min-height: 0;
-    overflow: hidden;
-  }
-
-  .mobileMenuInner > .mobileLink:first-child {
-    border-top: 1px solid rgba(26, 23, 20, 0.08);
+    display: block;
+    width: calc(100% - 32px);
+    margin: 8px auto 0;
+    padding: 6px 8px;
+    background: #fffefb;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 18px;
+    box-shadow: 0 6px 24px rgba(26, 23, 20, 0.07);
+    animation: menuDropIn 0.2s ease both;
   }
 
   .mobileLink {
     display: block;
-    padding: 15px 2px;
+    padding: 14px;
     font-size: 17px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--ink);
-    border-bottom: 1px solid rgba(26, 23, 20, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     transition: color 0.15s;
   }
 
@@ -164,5 +253,13 @@
 
   .mobileLink:active {
     color: var(--red);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .burgerBar,
+  .mobileMenu {
+    transition: none;
+    animation: none;
   }
 }

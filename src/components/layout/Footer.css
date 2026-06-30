@@ -1,0 +1,323 @@
+/* Ported from WeLockIn Footer.dc.html */
+
+.wlf {
+  font-family: var(--font-figtree), "Figtree", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: var(--ink);
+  line-height: 1.4;
+  background: var(--bg);
+  width: 100%;
+  overflow: hidden;
+}
+
+.wlf a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wlf-inner {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 56px);
+}
+
+.wlf-news {
+  padding: 46px 0 30px;
+}
+
+.wlf-news-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.wlf-news-copy {
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.45;
+}
+
+.wlf-devices {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  flex-wrap: wrap;
+}
+
+.wlf-devices-label {
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #8a8175;
+}
+
+.wlf-device-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #8a8175;
+  transition: color 0.15s ease;
+}
+
+.wlf-device-btn.on {
+  color: var(--ink);
+}
+
+.wlf-device-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex: none;
+  border: 1.6px solid #a89e8e;
+  background: transparent;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.wlf-device-btn.on .wlf-device-dot {
+  border-color: #a42b1b;
+  background: radial-gradient(circle, #a42b1b 0 42%, transparent 46%);
+}
+
+.wlf-form {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: clamp(36px, 7vw, 104px);
+}
+
+.wlf-email {
+  flex: 1;
+  min-width: 0;
+  appearance: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-eb-garamond), "EB Garamond", serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  font-size: clamp(38px, 6.6vw, 92px);
+  color: var(--ink);
+}
+
+.wlf-email::placeholder {
+  color: rgba(26, 23, 20, 0.28);
+}
+
+.wlf-success {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-eb-garamond), "EB Garamond", serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  font-size: clamp(38px, 6.6vw, 92px);
+  color: var(--ink);
+}
+
+.wlf-arrow {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(56px, 6vw, 86px);
+  height: clamp(56px, 6vw, 86px);
+  border-radius: 50%;
+  cursor: pointer;
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid rgba(26, 23, 20, 0.3);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.wlf-arrow:hover {
+  background: #a42b1b;
+  color: #fff;
+  border-color: #a42b1b;
+  transform: scale(1.05);
+}
+
+.wlf-rule {
+  border-top: 1px solid rgba(26, 23, 20, 0.16);
+}
+
+.wlf-cols {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) 0.9fr;
+  gap: 0;
+  padding-top: 40px;
+}
+
+.wlf-col {
+  padding: 0 26px 30px 0;
+}
+
+.wlf-col-title {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #8a8175;
+  margin-bottom: 22px;
+}
+
+.wlf-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.wlf-col a {
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transition: color 0.15s ease;
+}
+
+.wlf-col a:hover {
+  color: #a42b1b;
+}
+
+.wlf-social-col {
+  padding: 0 0 30px 30px;
+  border-left: 1px solid rgba(26, 23, 20, 0.16);
+}
+
+.wlf-socials {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.wlf-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: var(--ink);
+  border: 1px solid rgba(26, 23, 20, 0.18);
+  transition:
+    color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.wlf-social:hover {
+  color: #a42b1b;
+  border-color: #a42b1b;
+  transform: translateY(-2px);
+}
+
+.wlf-price-note {
+  margin: 26px 0 0;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  color: #8a8175;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  max-width: 20ch;
+}
+
+.wlf-bottom {
+  border-top: 1px solid rgba(26, 23, 20, 0.16);
+  margin-top: 18px;
+  padding: 26px 0 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.wlf-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.wlf-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.wlf-brand-accent {
+  color: #a42b1b;
+}
+
+.wlf-tagline {
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #8a8175;
+}
+
+.wlf-copy {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+@media (max-width: 1024px) {
+  .wlf-cols {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .wlf-social-col {
+    grid-column: 1 / -1;
+    border-left: none;
+    padding-left: 0;
+    padding-top: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .wlf-cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .wlf-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .wlf-arrow {
+    align-self: flex-end;
+  }
+}

@@ -48,8 +48,8 @@ export type SiteConfig = typeof siteConfig;
 export const mainNav: { title: string; href: string }[] = [
   { title: "How it works", href: "/#how" },
   { title: "Features", href: "/#features" },
+  { title: "Protection", href: "/protection" },
   { title: "Devices", href: "/#download" },
-  { title: "Impact", href: "/#stats" },
   { title: "FAQ", href: "/#faq" },
 ];
 
