@@ -44,13 +44,23 @@ export const siteConfig = {
 
 export type SiteConfig = typeof siteConfig;
 
-/** Primary navigation — consumed by the header and the sitemap. */
-export const mainNav: { title: string; href: string }[] = [
+/** Desktop header links — shorter set for the floating navbar. */
+export const desktopNav: { title: string; href: string }[] = [
+  { title: "Features", href: "/#features" },
+  { title: "Protection", href: "/protection" },
+  { title: "How it works", href: "/#how" },
+];
+
+/** Mobile menu links — full section list (unchanged from the app navbar). */
+export const mobileNav: { title: string; href: string }[] = [
   { title: "How it works", href: "/#how" },
   { title: "Features", href: "/#features" },
   { title: "Devices", href: "/#download" },
   { title: "Impact", href: "/#stats" },
   { title: "FAQ", href: "/#faq" },
 ];
+
+/** @deprecated Use desktopNav / mobileNav — kept for sitemap-style consumers. */
+export const mainNav = mobileNav;
 
 export const socialLinks: { label: string; href: string }[] = [];

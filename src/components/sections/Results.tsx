@@ -35,7 +35,7 @@ const CARDS: Card[] = [
     target: 2,
     format: "time",
     label: "hours focused daily",
-    bg: "#fdf7d2",
+    bg: "#fbf8f2",
     mark: { src: LOGO("22_EPFL.png"), alt: "EPFL" },
   },
   {
@@ -44,7 +44,7 @@ const CARDS: Card[] = [
     format: "int",
     suffix: "+",
     label: "sessions this month",
-    bg: "#ddefdc",
+    bg: "#f7f4ee",
     mark: { src: LOGO("07_ETH.png"), alt: "ETH Zürich" },
   },
   {
@@ -71,7 +71,7 @@ const CARDS: Card[] = [
     format: "int",
     suffix: "%",
     label: "sessions completed",
-    bg: "#fdf7d2",
+    bg: "#fbf8f2",
     mark: { src: POLY, alt: "Polytechnique", height: 38 },
   },
   {
@@ -79,7 +79,7 @@ const CARDS: Card[] = [
     target: 5,
     format: "int",
     label: "day streak",
-    bg: "#fbe4e0",
+    bg: "#f7f4ee",
     mark: { src: LOGO("04_Oxford.png"), alt: "University of Oxford" },
   },
   {
@@ -88,7 +88,7 @@ const CARDS: Card[] = [
     format: "int",
     suffix: "x",
     label: "more deep work",
-    bg: "#e1e5f4",
+    bg: "#fbf8f2",
     mark: { src: LOGO("23_TUM.png"), alt: "TU Munich" },
   },
   {
@@ -97,7 +97,7 @@ const CARDS: Card[] = [
     format: "int",
     suffix: "%",
     label: "less screen time",
-    bg: "#f9dfc7",
+    bg: "#f7f4ee",
     mark: { src: LOGO("06_Cambridge.png"), alt: "University of Cambridge" },
   },
   {
@@ -275,7 +275,7 @@ export function Results() {
             ) : (
               <article
                 className="rs-card span2"
-                style={{ background: "#faf7f1" }}
+                style={{ background: "#faf8f3" }}
                 key={i}
               >
                 <p className="rs-quote">&ldquo;{card.quote}&rdquo;</p>
