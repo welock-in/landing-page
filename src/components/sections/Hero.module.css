@@ -58,6 +58,22 @@
   margin-bottom: 30px;
 }
 
+.howLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 15.5px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.15s ease, gap 0.2s ease;
+}
+
+.howLink:hover {
+  color: var(--red);
+  gap: 12px;
+}
+
 .socialProof {
   display: flex;
   align-items: center;

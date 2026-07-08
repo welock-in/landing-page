@@ -97,6 +97,12 @@
   font-weight: 600;
   font-size: 15.5px;
   color: var(--ink);
+  transition: color 0.15s ease, gap 0.2s ease;
+}
+
+.prot-link:hover {
+  color: #a42b1b;
+  gap: 12px;
 }
 
 @keyframes protFloat {
