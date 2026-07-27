@@ -83,7 +83,7 @@
 }
 
 .macScreen {
-  background: #1f1a17;
+  background: #f3efe6;
   border: 9px solid #1f1a17;
   border-radius: 20px 20px 5px 5px;
   aspect-ratio: 16 / 10;
@@ -96,20 +96,26 @@
   position: absolute;
   inset: 0;
   opacity: 0;
-  transform: scale(1.014);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+  transition: opacity 0.15s ease;
   pointer-events: none;
 }
 
 .macShotActive {
   opacity: 1;
-  transform: none;
   pointer-events: auto;
 }
 
-.shotImg {
+/* Step 1 is a full-bleed capture; steps 2 and 3 are narrower panels the design
+   insets slightly so they don't touch the bezel. */
+.shotCover {
   object-fit: cover;
-  object-position: top left;
+  object-position: top center;
+}
+
+.shotContain {
+  object-fit: contain;
+  object-position: center center;
+  padding: 10px;
 }
 
 .macBase {
@@ -167,7 +173,7 @@
 }
 
 .step h3 {
-  font-family: var(--font-eb-garamond), "EB Garamond", serif;
+  font-family: var(--font-figtree), "Figtree", sans-serif;
   font-size: clamp(30px, 3.6vw, 46px);
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -225,7 +231,7 @@
   }
 
   .mobileHead h2 {
-    font-family: var(--font-eb-garamond), "EB Garamond", serif;
+    font-family: var(--font-figtree), "Figtree", sans-serif;
     font-weight: 600;
     letter-spacing: -0.02em;
     line-height: 1.05;
@@ -260,7 +266,7 @@
   }
 
   .mobileText h3 {
-    font-family: var(--font-eb-garamond), "EB Garamond", serif;
+    font-family: var(--font-figtree), "Figtree", sans-serif;
     font-weight: 600;
     letter-spacing: -0.02em;
     line-height: 1.08;

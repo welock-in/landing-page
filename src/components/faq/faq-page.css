@@ -1,0 +1,384 @@
+/* Full FAQ page. Standalone chrome: a back bar instead of the site navbar. */
+.fqTop {
+  padding: 22px 0;
+}
+
+.fq-topBar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.fq-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #2a2723;
+  transition: color 0.15s ease;
+}
+
+.fq-back svg {
+  transition: transform 0.2s ease;
+}
+
+.fq-back:hover {
+  color: var(--red);
+}
+
+.fq-back:hover svg {
+  transform: translateX(-3px);
+}
+
+.fq-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.fq-brandAccent {
+  color: #a42b1b;
+}
+
+/* ---- page head ---- */
+.fq {
+  padding: 44px 0 110px;
+}
+
+.fq-wrap {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.fq-title {
+  font-size: clamp(36px, 5.4vw, 56px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.06;
+  text-align: center;
+  margin: 0 0 14px;
+}
+
+.fq-sub {
+  text-align: center;
+  color: var(--muted);
+  font-size: 18px;
+  margin: 0 0 36px;
+}
+
+/* ---- search ---- */
+.fq-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0 0 44px;
+}
+
+.fq-searchIcon {
+  position: absolute;
+  left: 22px;
+  display: inline-flex;
+  color: #a89e90;
+  pointer-events: none;
+}
+
+.fq-input {
+  width: 100%;
+  height: 62px;
+  padding: 0 58px;
+  border-radius: 31px;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  font-family: inherit;
+  font-size: 16.5px;
+  font-weight: 500;
+  color: var(--ink);
+  outline: none;
+  box-shadow: 0 2px 10px rgba(26, 23, 20, 0.04);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.fq-input::placeholder {
+  color: #a89e90;
+  font-weight: 400;
+}
+
+/* We render our own clear button — hide WebKit's so the two don't stack. */
+.fq-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.fq-input:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 4px rgba(200, 64, 47, 0.14);
+}
+
+.fq-clear {
+  position: absolute;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  color: #a89e90;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.fq-clear:hover {
+  color: var(--red);
+  background: rgba(200, 64, 47, 0.08);
+}
+
+/* ---- categories ---- */
+.fq-cats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fq-cat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.fq-catHead {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  padding: 24px 28px;
+}
+
+.fq-catHead:focus-visible,
+.fq-qBtn:focus-visible,
+.fq-input:focus-visible,
+.fq-clear:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+.fq-catName {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.fq-catMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.fq-catCount {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  background: rgba(26, 23, 20, 0.05);
+  border-radius: 999px;
+  padding: 4px 11px;
+}
+
+.fq-catChev {
+  display: inline-flex;
+  color: var(--red);
+  transition: transform 0.25s ease;
+}
+
+.fq-cat.open .fq-catChev {
+  transform: rotate(90deg);
+}
+
+/* 0fr -> 1fr reveal: animates height without measuring scrollHeight. */
+.fq-catBody {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.fq-cat.open .fq-catBody {
+  grid-template-rows: 1fr;
+}
+
+.fq-catBodyIn {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.fq-catList {
+  padding: 0 28px 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- questions ---- */
+.fq-q {
+  border-top: 1px solid var(--border);
+}
+
+.fq-qBtn {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  padding: 18px 2px;
+  font-size: 16.5px;
+  font-weight: 600;
+  color: var(--ink);
+  transition: color 0.15s ease;
+}
+
+.fq-qBtn:hover {
+  color: var(--red);
+}
+
+.fq-qChev {
+  flex-shrink: 0;
+  display: inline-flex;
+  margin-top: 3px;
+  color: var(--red);
+  transition: transform 0.25s ease;
+}
+
+.fq-q.open .fq-qChev {
+  transform: rotate(90deg);
+}
+
+.fq-qAns {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s ease;
+}
+
+.fq-q.open .fq-qAns {
+  grid-template-rows: 1fr;
+}
+
+.fq-qAns > p {
+  overflow: hidden;
+  min-height: 0;
+  margin: 0;
+  padding: 0 26px 0 2px;
+  color: var(--muted);
+  font-size: 15.5px;
+  line-height: 1.65;
+}
+
+.fq-q.open .fq-qAns > p {
+  padding-bottom: 20px;
+}
+
+/* ---- empty state ---- */
+.fq-empty {
+  text-align: center;
+  padding: 48px 24px 28px;
+}
+
+.fq-empty img {
+  width: 88px;
+  height: auto;
+  margin-bottom: 18px;
+}
+
+.fq-emptyTitle {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.fq-emptyText {
+  color: var(--muted);
+  font-size: 16px;
+  margin: 0;
+}
+
+.fq-emptyText a {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.fq-emptyText a:hover {
+  color: var(--red-hover);
+  text-decoration: underline;
+}
+
+/* ---- contact line ---- */
+.fq-contact {
+  text-align: center;
+  color: var(--muted);
+  font-size: 16px;
+  margin: 52px 0 0;
+}
+
+.fq-contact a {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.fq-contact a:hover {
+  color: var(--red-hover);
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .fq-topBar {
+    padding: 0 20px;
+  }
+
+  .fq {
+    padding: 28px 0 80px;
+  }
+
+  .fq-input {
+    height: 56px;
+    padding: 0 52px;
+    font-size: 16px;
+  }
+
+  .fq-catHead {
+    padding: 20px 20px;
+  }
+
+  .fq-catName {
+    font-size: 18px;
+  }
+
+  .fq-catList {
+    padding: 0 20px 12px;
+  }
+
+  .fq-catCount {
+    display: none;
+  }
+}

@@ -1,0 +1,17 @@
+/* Centered section CTA row. */
+.row {
+  display: flex;
+  justify-content: center;
+  margin-top: 52px;
+}
+
+/* Peep pokes out above the pill, so that variant needs more headroom. */
+.peep {
+  margin-top: 76px;
+}
+
+@media (max-width: 768px) {
+  .row:not(.peep) {
+    margin-top: 40px;
+  }
+}

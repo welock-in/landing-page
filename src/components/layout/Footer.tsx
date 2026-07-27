@@ -157,7 +157,6 @@ export function Footer() {
                 </a>
               ))}
             </div>
-            <p className="wlf-price-note">$20 once. Yours for life. No subscription.</p>
           </nav>
         </div>
 

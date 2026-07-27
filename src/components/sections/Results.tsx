@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from "react";
 
+import { CtaRow } from "@/components/ui/CtaRow";
+import { LockInButton } from "@/components/ui/LockInButton";
 import "./Results.css";
 
 type StatCard = {
@@ -227,27 +229,6 @@ export function Results() {
           real students
         </h2>
 
-        <div className="rs-annot" aria-hidden="true">
-          <span>watch it climb!</span>
-          <svg width="118" height="70" viewBox="0 0 118 70" fill="none">
-            <path
-              d="M14 8 C30 30, 44 44, 70 52 C80 55, 90 56, 100 56"
-              stroke="#a42b1b"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              fill="none"
-            />
-            <path
-              d="M90 49 L101 56 L91 63"
-              stroke="#e07856"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              fill="none"
-            />
-          </svg>
-        </div>
-
         <div className="rs-grid" ref={gridRef}>
           {CARDS.map((card, i) =>
             card.kind === "stat" ? (
@@ -303,6 +284,10 @@ export function Results() {
             ),
           )}
         </div>
+
+        <CtaRow variant="peep">
+          <LockInButton label="Join the locked-in" />
+        </CtaRow>
       </div>
     </section>
   );

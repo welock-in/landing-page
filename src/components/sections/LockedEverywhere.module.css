@@ -14,7 +14,7 @@
 }
 
 .title {
-  font-family: var(--font-eb-garamond), "EB Garamond", serif;
+  font-family: var(--font-figtree), "Figtree", sans-serif;
   font-weight: 600;
   color: var(--ink);
   font-size: clamp(38px, 5.4vw, 62px);

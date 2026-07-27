@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-import { DownloadButton } from "@/components/ui/DownloadButton";
+import { LockInButton } from "@/components/ui/LockInButton";
 import { platforms } from "@/content/platforms";
 import { cn } from "@/lib/utils";
 import styles from "./LockedEverywhere.module.css";
@@ -61,6 +61,9 @@ export function LockedEverywhere() {
             width={940}
             height={627}
             sizes="(max-width: 768px) 92vw, 940px"
+            // The reveal fires at threshold 0.18; lazy-loading leaves an empty
+            // slot fading up while the cutout is still decoding.
+            loading="eager"
           />
         </div>
 
@@ -82,7 +85,7 @@ export function LockedEverywhere() {
         </div>
 
         <div className={cn(styles.cta, styles.reveal)}>
-          <DownloadButton />
+          <LockInButton label="Lock every device" />
         </div>
       </div>
     </section>

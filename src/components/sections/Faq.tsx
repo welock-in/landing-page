@@ -1,10 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 import { Container } from "@/components/ui/Container";
+import { CtaRow } from "@/components/ui/CtaRow";
+import { DownloadButton } from "@/components/ui/DownloadButton";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ChevronIcon } from "@/components/ui/icons";
+import { ArrowRightIcon, ChevronIcon } from "@/components/ui/icons";
 import { faqs } from "@/content/faqs";
 import { cn } from "@/lib/utils";
 import styles from "./Faq.module.css";
@@ -41,7 +44,19 @@ export function Faq() {
               </div>
             );
           })}
+
+          {/* Sixth tile: the escape hatch to the full FAQ page. */}
+          <Link href="/faq" className={cn(styles.item, styles.cta)}>
+            More questions
+            <span className={styles.ctaArrow}>
+              <ArrowRightIcon width={18} height={18} strokeWidth={2.4} />
+            </span>
+          </Link>
         </div>
+
+        <CtaRow>
+          <DownloadButton icon="lock" label="Enough questions — lock in" />
+        </CtaRow>
       </Container>
     </section>
   );

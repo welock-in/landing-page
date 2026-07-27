@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Figtree, EB_Garamond, Caveat } from "next/font/google";
+import { Figtree, EB_Garamond } from "next/font/google";
 
 import { siteConfig, siteUrl } from "@/config/site";
 import { buildMetadata, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
@@ -8,7 +8,8 @@ import "./globals.css";
 const figtree = Figtree({
   variable: "--font-figtree",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  // 800 is used by the Protection page headlines.
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -17,13 +18,6 @@ const ebGaramond = EB_Garamond({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   style: ["normal", "italic"],
-  display: "swap",
-});
-
-const caveat = Caveat({
-  variable: "--font-caveat",
-  subsets: ["latin"],
-  weight: ["600", "700"],
   display: "swap",
 });
 
@@ -54,7 +48,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${figtree.variable} ${ebGaramond.variable} ${caveat.variable} antialiased`}
+      className={`${figtree.variable} ${ebGaramond.variable} antialiased`}
       suppressHydrationWarning
     >
       <body className="bg-bg text-ink">

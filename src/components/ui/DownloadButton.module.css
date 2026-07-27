@@ -59,6 +59,11 @@
   opacity: 1;
 }
 
+.btn:focus-visible {
+  outline: 2.5px solid var(--red);
+  outline-offset: 3px;
+}
+
 .compact {
   height: 44px;
   padding: 0 18px;
@@ -66,9 +71,44 @@
   font-size: 14px;
 }
 
+.appleIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.lockIcon {
+  width: 20px;
+  height: 20px;
+}
+
 .compact .main,
 .compact .hover {
   gap: 8px;
+}
+
+/* Compact shrinks the Apple mark only — the padlock stays at 20px. */
+.compact .appleIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.lg {
+  height: 64px;
+  padding: 0 38px;
+  font-size: 18px;
+  border-radius: 18px;
+}
+
+/* Sits on the dark share card, so the resting fill is the light card colour. */
+.onDark {
+  background: #fbf8f2;
+  border-color: #fbf8f2;
+}
+
+.onDark:hover {
+  background: var(--red);
+  border-color: var(--red);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
 @media (max-width: 768px) {

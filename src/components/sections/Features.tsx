@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState, type RefObject } from "react";
 
+import { CtaRow } from "@/components/ui/CtaRow";
+import { LockInButton } from "@/components/ui/LockInButton";
 import "./Features.css";
 
 type Mode = "soft" | "nuclear";
@@ -452,13 +454,18 @@ export function Features() {
   const schedRef = useRef<HTMLDivElement>(null);
   const [schedSrc, setSchedSrc] = useState<string | null>(null);
 
+  // The design ships this iframe inline from page load; we defer it until the
+  // card is near the viewport, then keep it mounted for good — unmounting it on
+  // scroll-out would restart the drag animation every time you come back.
   useEffect(() => {
     const el = schedRef.current;
     if (!el) return;
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          setSchedSrc(e.isIntersecting ? "/focus-week-drag.html" : null);
+          if (!e.isIntersecting) return;
+          setSchedSrc("/focus-week-drag.html");
+          io.disconnect();
         });
       },
       { rootMargin: "120px 0px", threshold: 0.05 },
@@ -582,6 +589,10 @@ export function Features() {
             </div>
           ))}
         </div>
+
+        <CtaRow variant="peep">
+          <LockInButton label="Lock in now" />
+        </CtaRow>
       </div>
     </section>
   );

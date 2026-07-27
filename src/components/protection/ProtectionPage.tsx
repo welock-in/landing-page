@@ -42,6 +42,46 @@ function useInView(
   }, [ref, onEnter, onLeave, threshold]);
 }
 
+/**
+ * The design fades every major element up as it scrolls in, each with its own delay
+ * measured from the moment that element intersects. The hidden state lives in CSS
+ * (`.prot-page [data-rv]`) so nothing flashes before hydration; this only flips the class.
+ */
+function useReveal(rootRef: RefObject<HTMLElement | null>) {
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const els = Array.from(root.querySelectorAll<HTMLElement>("[data-rv]"));
+    if (!els.length) return;
+
+    // Reduced motion is served by CSS; mark everything in so the class state still matches.
+    if (reduced()) {
+      els.forEach((el) => el.classList.add("rv-in"));
+      return;
+    }
+
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          const el = e.target as HTMLElement;
+          const delay = Number(el.dataset.rvDelay ?? 0);
+          timers.push(setTimeout(() => el.classList.add("rv-in"), delay));
+          io.unobserve(el);
+        });
+      },
+      { threshold: 0.18, rootMargin: "0px 0px -8% 0px" },
+    );
+    els.forEach((el) => io.observe(el));
+
+    return () => {
+      io.disconnect();
+      timers.forEach(clearTimeout);
+    };
+  }, [rootRef]);
+}
+
 function useAutoCycle(
   count: number,
   intervalMs: number,
@@ -234,6 +274,47 @@ const CATEGORIES = [
   },
 ];
 
+const NUKE_CHIPS = [
+  {
+    label: "Can't be disabled early",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#e0795f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="9" />
+        <line x1="5.6" y1="5.6" x2="18.4" y2="18.4" />
+      </svg>
+    ),
+  },
+  {
+    label: "No emergency unlock",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#e0795f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="8" cy="15" r="3.4" />
+        <path d="M10.4 12.6 19 4M16 7l2.6 2.6M13.8 9.2l2.4 2.4" />
+        <line x1="4" y1="20" x2="20" y2="4" />
+      </svg>
+    ),
+  },
+  {
+    label: "Locked on every device",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#e0795f" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2.5" y="5" width="13" height="9.5" rx="1.6" />
+        <path d="M6 18h6" />
+        <rect x="17.5" y="9" width="4.5" height="10" rx="1.4" />
+      </svg>
+    ),
+  },
+  {
+    label: "You set the date — then it's out of your hands",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#e0795f" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4" y="5.5" width="16" height="15" rx="2.5" />
+        <path d="M4 9.5h16M8 3v4M16 3v4" />
+      </svg>
+    ),
+  },
+];
+
 function SignalBars({ bars }: { bars: number[] }) {
   const heights = [4, 6.5, 9, 11];
   const ys = [7, 4.5, 2, 0];
@@ -256,20 +337,23 @@ function SignalBars({ bars }: { bars: number[] }) {
 }
 
 function PadlockMini() {
+  // The resting (open) transform lives in protection.css — as an inline style it would
+  // out-specify the :hover rule and the padlock could never snap shut.
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <rect x="5" y="11" width="14" height="9.5" rx="2.2" />
-      <path data-shackle d="M8 11V8a4 4 0 0 1 8 0v3" style={{ transform: "translateY(-3px) scaleY(1.18)" }} />
+      <path data-shackle d="M8 11V8a4 4 0 0 1 8 0v3" />
     </svg>
   );
 }
 
 function HeroMockup() {
   const ref = useRef<HTMLDivElement>(null);
-  const { selected, bind } = useAutoCycle(HERO_METHODS.length, 2200, ref);
+  // The hero preview cycles on its own — unlike the ladder it does not pause on hover.
+  const { selected } = useAutoCycle(HERO_METHODS.length, 2000, ref);
 
   return (
-    <div className="prot-mockup-wrap">
+    <div className="prot-mockup-wrap" data-rv data-rv-delay="200">
       <div className="prot-mockup-float">
         <div className="prot-mockup">
           <div className="prot-mockup-bar">
@@ -303,7 +387,7 @@ function HeroMockup() {
               </span>
             </div>
 
-            <div className="prot-hero-methods" ref={ref} {...bind}>
+            <div className="prot-hero-methods" ref={ref}>
               {HERO_METHODS.map((m, i) => (
                 <div key={m.label} className={`prot-hero-method ${selected === i ? "sel" : "unsel"}`}>
                   <span className="prot-hero-chip">{m.icon}</span>
@@ -333,61 +417,53 @@ function StatsBand() {
     const nums = Array.from(grid.querySelectorAll<HTMLElement>("[data-count]"));
     if (!nums.length) return;
 
-    const setFinal = (el: HTMLElement) => {
-      const target = parseFloat(el.dataset.target ?? "0");
-      const suffix = el.dataset.suffix ?? "";
-      el.textContent = `${Math.round(target)}${suffix}`;
-    };
+    const fmt = (v: number, suffix: string) => `${Math.round(v)}${suffix}`;
 
     if (reduced()) {
-      nums.forEach(setFinal);
+      nums.forEach((el) => {
+        el.textContent = fmt(parseFloat(el.dataset.target ?? "0"), el.dataset.suffix ?? "");
+      });
       return;
     }
 
-    let rafId = 0;
-    let started = false;
+    // One live frame request per counter — replaced each tick, not accumulated.
+    const rafs = new Map<HTMLElement, number>();
     const dur = 1100;
 
-    const run = () => {
-      if (started) return;
-      started = true;
+    // Each numeral counts up on its own the moment it scrolls in — no cross-cell stagger.
+    const run = (el: HTMLElement) => {
+      const target = parseFloat(el.dataset.target ?? "0");
+      const suffix = el.dataset.suffix ?? "";
       let t0: number | null = null;
+      let last = el.textContent;
       const tick = (now: number) => {
         if (t0 === null) t0 = now;
-        let running = false;
-        nums.forEach((el, i) => {
-          const target = parseFloat(el.dataset.target ?? "0");
-          const suffix = el.dataset.suffix ?? "";
-          const delay = i * 80;
-          const elapsed = now - t0! - delay;
-          if (elapsed < 0) {
-            running = true;
-            return;
-          }
-          const p = Math.min(elapsed / dur, 1);
-          el.textContent = `${Math.round(target * ease(p))}${suffix}`;
-          if (p < 1) running = true;
-        });
-        if (running) rafId = requestAnimationFrame(tick);
+        const p = Math.min((now - t0) / dur, 1);
+        const text = fmt(target * ease(p), suffix);
+        if (text !== last) {
+          el.textContent = text;
+          last = text;
+        }
+        if (p < 1) rafs.set(el, requestAnimationFrame(tick));
+        else rafs.delete(el);
       };
-      rafId = requestAnimationFrame(tick);
+      rafs.set(el, requestAnimationFrame(tick));
     };
 
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) {
-            run();
-            io.disconnect();
-          }
+          if (!e.isIntersecting) return;
+          run(e.target as HTMLElement);
+          io.unobserve(e.target);
         });
       },
       { threshold: 0.5 },
     );
-    io.observe(grid);
+    nums.forEach((el) => io.observe(el));
     return () => {
       io.disconnect();
-      cancelAnimationFrame(rafId);
+      rafs.forEach((id) => cancelAnimationFrame(id));
     };
   }, []);
 
@@ -395,19 +471,19 @@ function StatsBand() {
     <section className="prot-stats">
       <div className="prot-wrap">
         <div className="prot-stats-grid" ref={gridRef}>
-          <div className="prot-stat">
+          <div className="prot-stat" data-rv data-rv-delay="0">
             <div className="prot-stat-num">24/7</div>
             <div className="prot-stat-label">ALWAYS-ON PROTECTION</div>
           </div>
-          <div className="prot-stat">
+          <div className="prot-stat" data-rv data-rv-delay="80">
             <div className="prot-stat-num" data-count data-target="5">0</div>
             <div className="prot-stat-label">UNLOCK DIFFICULTY LEVELS</div>
           </div>
-          <div className="prot-stat">
+          <div className="prot-stat" data-rv data-rv-delay="160">
             <div className="prot-stat-num" data-count data-target="100" data-suffix="%">0%</div>
             <div className="prot-stat-label">ON-DEVICE &amp; PRIVATE</div>
           </div>
-          <div className="prot-stat">
+          <div className="prot-stat" data-rv data-rv-delay="240">
             <div className="prot-stat-num">All</div>
             <div className="prot-stat-label">YOUR DEVICES, SYNCED</div>
           </div>
@@ -422,14 +498,16 @@ function UnlockLadder() {
   const { selected, setSelected, bind } = useAutoCycle(UNLOCK_METHODS.length, 2200, ref);
 
   return (
-    <section className="prot-ladder-wrap">
+    <section id="levels" className="prot-ladder-wrap">
       <div style={{ textAlign: "center", maxWidth: "40ch", margin: "0 auto 40px" }}>
-        <h2 className="prot-section-title">Make quitting as hard as you need.</h2>
-        <p className="prot-section-sub" style={{ marginTop: 14 }}>
+        <h2 className="prot-section-title prot-ladder-title" data-rv data-rv-delay="0">
+          Make quitting as hard as you need.
+        </h2>
+        <p className="prot-section-sub" style={{ marginTop: 14 }} data-rv data-rv-delay="70">
           Five levels of resolve, from a quick tap to truly no way out.
         </p>
       </div>
-      <div className="prot-methods" ref={ref} {...bind}>
+      <div className="prot-methods" ref={ref} data-rv data-rv-delay="120" {...bind}>
         {UNLOCK_METHODS.map((m, i) => (
           <button
             key={m.title}
@@ -488,8 +566,8 @@ function NuclearBlock() {
   }, []);
 
   return (
-    <section className="prot-nuke-section" ref={ref}>
-      <div className="prot-nuke">
+    <section id="nuclear" className="prot-nuke-section" ref={ref}>
+      <div className="prot-nuke" data-rv data-rv-delay="0">
         <span className="prot-nuke-glow" aria-hidden="true" />
         <div style={{ position: "relative", zIndex: 1 }}>
           <span className="prot-nuke-eyebrow">
@@ -502,18 +580,14 @@ function NuclearBlock() {
           <h2 className="prot-nuke-title">Set it once. There&apos;s no going back.</h2>
           <p className="prot-nuke-body">
             Pick a date, and until that day comes, nothing turns it off. No PIN. No override. No
-            &ldquo;just five minutes.&rdquo; Once it&apos;s armed, the door is sealed — and the
+            &quot;just five minutes.&quot; Once it&apos;s armed, the door is sealed — and the
             addiction doesn&apos;t get a second chance.
           </p>
           <div className="prot-nuke-chips">
-            {[
-              "Can't be disabled early",
-              "No emergency unlock",
-              "Locked on every device",
-              "You set the date — then it's out of your hands",
-            ].map((chip) => (
-              <span key={chip} className="prot-nuke-chip">
-                {chip}
+            {NUKE_CHIPS.map((chip) => (
+              <span key={chip.label} className="prot-nuke-chip">
+                {chip.icon}
+                {chip.label}
               </span>
             ))}
           </div>
@@ -538,31 +612,34 @@ function NuclearBlock() {
 }
 
 export function ProtectionPage() {
+  const rootRef = useRef<HTMLElement>(null);
+  useReveal(rootRef);
+
   return (
-    <main className="prot-page">
+    <main className="prot-page" ref={rootRef}>
       <section className="prot-hero">
         <div className="prot-wrap prot-hero-grid">
           <div>
-            <span className="prot-eyebrow">
+            <span className="prot-eyebrow" data-rv data-rv-delay="0">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="5" y="11" width="14" height="9.5" rx="2.2" />
                 <path d="M8 11V8a4 4 0 0 1 8 0v3" />
               </svg>
               PROTECTION
             </span>
-            <h1 className="prot-headline">
+            <h1 className="prot-headline" data-rv data-rv-delay="80">
               Block it
               <br />
               for <span className="prot-accent">good.</span>
             </h1>
-            <p className="prot-sub">
+            <p className="prot-sub" data-rv data-rv-delay="170">
               Adult content, gambling, dating apps, mature games — locked across all your devices,
               for as long as you decide. No willpower required.
             </p>
-            <div className="prot-cta-row">
-              <button type="button" className="prot-btn-primary">
+            <div className="prot-cta-row" data-rv data-rv-delay="260">
+              <Link href="#cta" className="prot-btn-primary">
                 Get Protected
-              </button>
+              </Link>
               <Link href="#how" className="prot-link">
                 See how it works
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -577,15 +654,19 @@ export function ProtectionPage() {
 
       <StatsBand />
 
-      <section className="prot-section">
+      <section id="block" className="prot-section">
         <div className="prot-wrap">
           <div className="prot-section-head">
-            <h2 className="prot-section-title">What you can block</h2>
-            <p className="prot-section-sub">Pick a category and it&apos;s gone — everywhere, instantly.</p>
+            <h2 className="prot-section-title" data-rv data-rv-delay="0">
+              What you can block
+            </h2>
+            <p className="prot-section-sub" data-rv data-rv-delay="70">
+              Pick a category and it&apos;s gone — everywhere, instantly.
+            </p>
           </div>
           <div className="prot-cat-grid">
-            {CATEGORIES.map((c) => (
-              <article key={c.title} className="prot-cat-card">
+            {CATEGORIES.map((c, i) => (
+              <article key={c.title} className="prot-cat-card" data-rv data-rv-delay={i * 90}>
                 <span className="prot-cat-pad" aria-hidden="true">
                   <PadlockMini />
                 </span>
@@ -604,7 +685,7 @@ export function ProtectionPage() {
             <span style={{ display: "block", fontSize: 11, fontWeight: 700, letterSpacing: "0.18em", color: "#9d9384" }}>
               HOW IT WORKS
             </span>
-            <h2 className="prot-section-title" style={{ marginTop: 12 }}>
+            <h2 className="prot-section-title" style={{ marginTop: 12 }} data-rv data-rv-delay="0">
               Protected in three steps.
             </h2>
           </div>
@@ -613,8 +694,8 @@ export function ProtectionPage() {
               { n: "01", title: "Choose what to block", body: "Pick your categories — adult sites, gambling, dating, games." },
               { n: "02", title: "Set how hard it is to quit", body: "From a simple PIN to a date you can't undo." },
               { n: "03", title: "Stay protected everywhere", body: "Always on, synced across every device you own." },
-            ].map((s) => (
-              <article key={s.n} className="prot-step">
+            ].map((s, i) => (
+              <article key={s.n} className="prot-step" data-rv data-rv-delay={i * 120}>
                 <div className="prot-step-num">{s.n}</div>
                 <div className="prot-step-title">{s.title}</div>
                 <p className="prot-step-body">{s.body}</p>
@@ -629,7 +710,7 @@ export function ProtectionPage() {
 
       <section className="prot-privacy">
         <div className="prot-wrap">
-          <div className="prot-privacy-bar">
+          <div className="prot-privacy-bar" data-rv data-rv-delay="0">
             <span className="prot-privacy-icon">
               <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 3l18 18" />
@@ -648,9 +729,9 @@ export function ProtectionPage() {
         </div>
       </section>
 
-      <section className="prot-cta-section">
+      <section id="cta" className="prot-cta-section">
         <div className="prot-wrap">
-          <div className="prot-cta-card">
+          <div className="prot-cta-card" data-rv data-rv-delay="0">
             <span className="prot-cta-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="5" y="11" width="14" height="9.5" rx="2.2" />

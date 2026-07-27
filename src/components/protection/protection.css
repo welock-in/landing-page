@@ -4,10 +4,42 @@
   font-family: var(--font-figtree), "Figtree", sans-serif;
   color: var(--ink);
   overflow: hidden;
+  /* The design ships no line-height reset, so every element it leaves unset renders at
+     `normal`. globals.css sets body{line-height:1.5}, which would loosen the step titles,
+     the difficulty badges, the nuclear chips and the mockup's status text. Reset once here;
+     the rules below that DO declare a line-height still win. */
+  line-height: normal;
 }
 
 .prot-accent {
   color: #a42b1b;
+}
+
+/* Scroll reveal. Uses `translate` rather than `transform` so it composes with the
+   hover lifts and float animations that live on the same elements. */
+.prot-page [data-rv] {
+  opacity: 0;
+  translate: 0 18px;
+  transition:
+    opacity 0.6s cubic-bezier(0.2, 0.7, 0.2, 1),
+    translate 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, translate;
+}
+
+.prot-page [data-rv].rv-in {
+  opacity: 1;
+  translate: none;
+}
+
+/* The hidden state is stamped by CSS rather than by JS (the prototype hides after a 60ms
+   timeout, which flashes). That trade means the reveal never runs without scripting, so
+   hand the content back when scripting is off. */
+@media (scripting: none) {
+  .prot-page [data-rv] {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
 }
 
 .prot-wrap {
@@ -19,7 +51,7 @@
 
 /* ---- hero ---- */
 .prot-hero {
-  padding: 148px 0 34px;
+  padding: 132px 0 34px;
 }
 
 .prot-hero-grid {
@@ -37,6 +69,7 @@
   font-weight: 700;
   letter-spacing: 0.2em;
   color: #a42b1b;
+  line-height: normal;
   margin: 0 0 20px;
 }
 
@@ -97,12 +130,6 @@
   font-weight: 600;
   font-size: 15.5px;
   color: var(--ink);
-  transition: color 0.15s ease, gap 0.2s ease;
-}
-
-.prot-link:hover {
-  color: #a42b1b;
-  gap: 12px;
 }
 
 @keyframes protFloat {
@@ -111,6 +138,16 @@
   }
   to {
     transform: rotate(-2.4deg) translateY(-14px);
+  }
+}
+
+/* Mobile drops the tilt and shortens the travel. */
+@keyframes protFloatM {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-8px);
   }
 }
 
@@ -253,14 +290,14 @@
   background: #161616;
   border-color: #161616;
   --hfg: #fff;
-  --hchip: rgba(255, 255, 255, 0.12);
+  --hchip: rgba(255, 255, 255, 0.14);
   --hchip-s: #fff;
   --hcheck: 1;
   --hradio: 0;
 }
 
 .prot-hero-method.unsel {
-  background: transparent;
+  background: #fff;
   border-color: #ece7de;
   --hfg: #1a1714;
   --hchip: #efe7da;
@@ -318,12 +355,12 @@
 
 /* ---- stats ---- */
 .prot-stats {
-  padding: 38px 0 44px;
+  padding: 46px 0;
 }
 
 .prot-stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1px;
   background: #e6dfd2;
   border: 1px solid #e6dfd2;
@@ -333,17 +370,15 @@
 
 .prot-stat {
   background: #faf6ee;
-  padding: 24px 18px;
+  padding: 30px 24px;
   text-align: center;
 }
 
 .prot-stat-num {
-  font-family: var(--font-eb-garamond), "EB Garamond", serif;
-  font-size: clamp(36px, 4.4vw, 54px);
+  font-family: var(--font-figtree), "Figtree", sans-serif;
+  font-size: clamp(40px, 5vw, 62px);
   font-weight: 500;
   line-height: 0.9;
-  letter-spacing: -0.01em;
-  font-variant-numeric: tabular-nums;
   color: var(--ink);
 }
 
@@ -351,14 +386,9 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
+  line-height: normal;
   color: #9d9384;
-  margin-top: 10px;
-}
-
-@media (max-width: 640px) {
-  .prot-stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  margin-top: 12px;
 }
 
 /* ---- sections ---- */
@@ -377,12 +407,21 @@
   font-size: clamp(30px, 3.6vw, 42px);
   font-weight: 800;
   letter-spacing: -0.025em;
+  line-height: normal;
   margin: 0;
   color: var(--ink);
 }
 
+/* The ladder heading runs one step larger and tighter than the other section titles. */
+.prot-ladder-title {
+  font-size: clamp(30px, 3.6vw, 44px);
+  letter-spacing: -0.028em;
+  line-height: 1.03;
+}
+
 .prot-section-sub {
   font-size: 16px;
+  line-height: normal;
   color: #8a8175;
   margin: 12px 0 0;
 }
@@ -393,13 +432,19 @@
   gap: 18px;
 }
 
-.prot-cat-card {
+/* Scoped to .prot-page so it outranks the generic [data-rv] transition: the card has to
+   drive both its own hover lift and the reveal, at different speeds. */
+.prot-page .prot-cat-card {
   position: relative;
   padding: 26px 24px 24px;
   background: #fbf8f2;
   border: 1px solid #ece7de;
   border-radius: 18px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    opacity 0.6s cubic-bezier(0.2, 0.7, 0.2, 1),
+    translate 0.6s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .prot-cat-card:hover {
@@ -414,9 +459,11 @@
   color: #cdc4b4;
 }
 
+/* At rest the shackle hangs open; hovering the card snaps it shut. */
 .prot-cat-pad path[data-shackle] {
   transform-box: fill-box;
   transform-origin: 50% 100%;
+  transform: translateY(-3px) scaleY(1.18);
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -440,11 +487,13 @@
   font-size: 17px;
   font-weight: 700;
   letter-spacing: -0.01em;
+  line-height: normal;
   color: var(--ink);
 }
 
 .prot-cat-desc {
   font-size: 13.5px;
+  line-height: normal;
   color: #8a8175;
   margin-top: 5px;
 }
@@ -463,7 +512,7 @@
 }
 
 .prot-step-num {
-  font-family: var(--font-eb-garamond), "EB Garamond", serif;
+  font-family: var(--font-figtree), "Figtree", sans-serif;
   font-size: 34px;
   font-weight: 500;
   color: #a42b1b;
@@ -498,13 +547,17 @@
   gap: 12px;
 }
 
+/* Rows are <button>s for keyboard access — reset the UA button chrome the design's
+   <div>s never had. */
 .prot-method {
+  appearance: none;
   display: flex;
   align-items: center;
   gap: 16px;
   padding: 17px 20px;
   border: 1px solid;
   border-radius: 16px;
+  text-align: left;
   cursor: pointer;
   transition:
     background 0.5s cubic-bezier(0.65, 0, 0.35, 1),
@@ -563,12 +616,14 @@
   font-size: 16.5px;
   font-weight: 700;
   letter-spacing: -0.01em;
+  line-height: normal;
   color: var(--fg);
   transition: color 0.5s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .prot-method-desc {
   font-size: 13px;
+  line-height: normal;
   color: var(--sub);
   margin-top: 2px;
   transition: color 0.5s cubic-bezier(0.65, 0, 0.35, 1);
@@ -644,6 +699,7 @@
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.22em;
+  line-height: normal;
   color: #e0795f;
   margin-bottom: 18px;
 }
@@ -690,6 +746,7 @@
   font-size: 16.5px;
   font-weight: 700;
   letter-spacing: -0.01em;
+  line-height: normal;
   color: #fff;
   margin: 28px 0 0;
 }
@@ -804,6 +861,7 @@
 
 .prot-cta-sub {
   font-size: 17px;
+  line-height: normal;
   color: #8a8175;
   margin: 14px auto 30px;
   max-width: 40ch;
@@ -815,11 +873,11 @@
   font-size: 17px;
 }
 
-@media (max-width: 920px) {
-  .prot-hero {
-    padding-top: 120px;
-  }
+.prot-cta-btn:hover {
+  box-shadow: 0 16px 34px -10px rgba(26, 23, 20, 0.45);
+}
 
+@media (max-width: 920px) {
   .prot-hero-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -831,6 +889,149 @@
   }
 }
 
+@media (max-width: 768px) {
+  .prot-page h1,
+  .prot-page h2 {
+    text-wrap: balance;
+  }
+
+  /* 20px gutters everywhere — sections carry their own horizontal padding. */
+  .prot-wrap,
+  .prot-ladder-wrap,
+  .prot-nuke-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .prot-hero {
+    padding-top: calc(104px + env(safe-area-inset-top));
+    padding-bottom: 22px;
+  }
+
+  .prot-headline {
+    font-size: clamp(2.6rem, 13vw, 4.5rem);
+  }
+
+  .prot-sub {
+    font-size: 16.5px;
+    max-width: 34ch;
+  }
+
+  .prot-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .prot-cta-row > * {
+    width: 100%;
+  }
+
+  .prot-cta-row > .prot-link {
+    justify-content: center;
+  }
+
+  .prot-mockup-float {
+    max-width: 100%;
+    animation: protFloatM 6s ease-in-out infinite alternate;
+  }
+
+  .prot-stats {
+    padding: 30px 0;
+  }
+
+  .prot-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .prot-stat {
+    padding: 22px 12px;
+  }
+
+  .prot-stat-num {
+    font-size: clamp(34px, 9.5vw, 48px);
+  }
+
+  .prot-section {
+    padding: 40px 0;
+  }
+
+  .prot-ladder-wrap {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .prot-nuke-section {
+    padding-top: 14px;
+    padding-bottom: 44px;
+  }
+
+  .prot-nuke {
+    gap: 28px;
+    padding: 38px 22px;
+  }
+
+  .prot-nuke-title {
+    font-size: clamp(29px, 8.5vw, 40px);
+  }
+
+  .prot-nuke-chips {
+    gap: 9px;
+  }
+
+  .prot-nuke-chip {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .prot-nuke-lock-wrap {
+    min-height: 150px;
+  }
+
+  /* Ladder rows re-flow so the difficulty badge drops beneath the title
+     instead of fighting it for width. */
+  .prot-method {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 6px 12px;
+    padding: 14px 15px;
+  }
+
+  .prot-method-chip {
+    grid-column: 1;
+    grid-row: 1 / 3;
+  }
+
+  .prot-method-text {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .prot-badge {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  .prot-method-check {
+    grid-column: 3;
+    grid-row: 1 / 3;
+  }
+
+  .prot-cta-section {
+    padding-bottom: 76px;
+  }
+
+  .prot-cta-card {
+    padding: 44px 22px;
+  }
+
+  .prot-page [data-rv]:not(.rv-in) {
+    translate: 0 12px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .prot-mockup-float {
     animation: none !important;
@@ -838,5 +1039,17 @@
 
   .prot-live-dot {
     animation: none !important;
+  }
+
+  .prot-page [data-rv] {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+
+  /* Padlocks sit shut and never animate. */
+  .prot-cat-pad path[data-shackle] {
+    transform: none;
+    transition: none;
   }
 }

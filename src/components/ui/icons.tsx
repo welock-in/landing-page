@@ -28,6 +28,30 @@ export function AppleIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+/** Closed padlock used on the "lock in" CTAs. */
+export function LockIcon({
+  shackleClassName,
+  ...props
+}: SVGProps<SVGSVGElement> & { shackleClassName?: string }) {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      <rect x="5" y="11" width="14" height="10" rx="2.2" />
+      <path className={shackleClassName} d="M8 11V8a4 4 0 0 1 8 0v3" />
+    </svg>
+  );
+}
+
 export function DownloadIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg

@@ -8,7 +8,7 @@ import { HowItWorks } from "@/components/sections/HowItWorks";
 import { LockedEverywhere } from "@/components/sections/LockedEverywhere";
 import { LogoCloud } from "@/components/sections/LogoCloud";
 import { Results } from "@/components/sections/Results";
-import { VideoStory } from "@/components/sections/VideoStory";
+import { ShareBand } from "@/components/sections/ShareBand";
 
 export default function HomePage() {
   return (
@@ -23,7 +23,7 @@ export default function HomePage() {
         <LockedEverywhere />
         <Globe />
         <Faq />
-        <VideoStory />
+        <ShareBand />
       </main>
       <Footer />
     </>

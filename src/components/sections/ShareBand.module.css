@@ -1,0 +1,160 @@
+.band {
+  padding: 40px 0 100px;
+}
+
+.card {
+  position: relative;
+  margin: 0;
+  border-radius: 26px;
+  overflow: hidden;
+  background: radial-gradient(
+    120% 130% at 50% 30%,
+    #4a2d24 0%,
+    #2c1c15 52%,
+    #150f0c 100%
+  );
+  box-shadow: 0 30px 70px rgba(26, 23, 20, 0.2);
+  isolation: isolate;
+  padding: clamp(40px, 5.5vw, 60px) 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(52px);
+  will-change: transform;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.o1 {
+  width: 52%;
+  height: 150%;
+  left: 50%;
+  top: -25%;
+  background: #c8402f;
+  opacity: 0.34;
+  animation: drift1 16s ease-in-out infinite alternate;
+}
+
+.o2 {
+  width: 34%;
+  height: 120%;
+  left: 12%;
+  top: -10%;
+  background: #d24a38;
+  opacity: 0.22;
+  animation: drift2 19s ease-in-out infinite alternate;
+}
+
+.o3 {
+  width: 30%;
+  height: 110%;
+  right: 8%;
+  bottom: -20%;
+  background: #f0d4ca;
+  opacity: 0.14;
+  animation: drift3 22s ease-in-out infinite alternate;
+}
+
+@keyframes drift1 {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(14%, 8%) scale(1.12);
+  }
+}
+
+@keyframes drift2 {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-12%, 10%) scale(1.15);
+  }
+}
+
+@keyframes drift3 {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(8%, -12%) scale(1.1);
+  }
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.bubbles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.bub {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2.5px solid #f6efe6;
+  margin-left: -12px;
+  overflow: hidden;
+  background: #ece6dc;
+  box-shadow: 0 3px 10px rgba(13, 10, 9, 0.35);
+}
+
+.bub:first-child {
+  margin-left: 0;
+}
+
+/* The padlock sits between the two friends — the point of the whole band. */
+.lock {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2.5px solid #f6efe6;
+  margin-left: -12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #b8442e;
+  color: #f6efe6;
+  box-shadow: 0 3px 12px rgba(184, 68, 46, 0.5);
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-family: var(--font-figtree), "Figtree", sans-serif;
+  font-weight: 600;
+  color: #fffdfa;
+  font-size: clamp(30px, 4.2vw, 50px);
+  line-height: 1.03;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.sub {
+  color: rgba(255, 254, 251, 0.82);
+  font-size: clamp(15px, 1.7vw, 20px);
+  font-weight: 450;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.cta {
+  margin-top: 14px;
+}

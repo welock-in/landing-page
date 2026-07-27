@@ -1,130 +1,167 @@
 "use client";
 
-import createGlobe from "cobe";
 import { useEffect, useRef } from "react";
 
 import { Container } from "@/components/ui/Container";
+import { CtaRow } from "@/components/ui/CtaRow";
+import { LockInButton } from "@/components/ui/LockInButton";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { globeMarkers } from "@/content/marketing";
 import styles from "./Globe.module.css";
 
-type GlobeInstance = ReturnType<typeof createGlobe>;
+type GlobeInstance = ReturnType<typeof import("cobe").default>;
+
+/** Pixels of horizontal drag per radian of extra rotation. */
+const MOVEMENT_DAMPING = 1400;
+
+/** Critically-ish damped spring the drag feeds into: mass 1, damping 30, stiffness 100. */
+function makeSpring() {
+  const mass = 1;
+  const damping = 30;
+  const stiffness = 100;
+  let value = 0;
+  let velocity = 0;
+  let target = 0;
+
+  return {
+    set(v: number) {
+      target = v;
+    },
+    get() {
+      return value;
+    },
+    tick(dt: number) {
+      const force = -stiffness * (value - target) - damping * velocity;
+      velocity += (force / mass) * dt;
+      value += velocity * dt;
+    },
+  };
+}
 
 export function Globe() {
-  const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const globeRef = useRef<GlobeInstance | null>(null);
 
   useEffect(() => {
-    const wrap = wrapRef.current;
     const canvas = canvasRef.current;
-    if (!wrap || !canvas) return;
+    if (!canvas) return;
 
-    let phi = 0;
-    let width = 0;
-    let pointerInteracting: number | null = null;
-    let rotation = 0;
-    let curRotation = 0;
+    let created = false;
+    let disposed = false;
+    let teardown: (() => void) | null = null;
 
-    const onResize = () => {
-      width = canvas.offsetWidth;
-    };
+    const create = () => {
+      // cobe is pulled in only once the section is near the viewport, so the
+      // WebGL bundle never lands in the page's initial JS.
+      import("cobe")
+        .then(({ default: createGlobe }) => {
+          if (disposed) return;
 
-    const setGrab = (grabbing: boolean) => {
-      canvas.style.cursor = grabbing ? "grabbing" : "grab";
-    };
+          let phi = 0;
+          // offsetWidth reads 0 while the section is display:none-adjacent;
+          // fall back rather than build a zero-size draw buffer.
+          let width = canvas.offsetWidth || 600;
+          let pointerInteracting: number | null = null;
+          const rotation = makeSpring();
+          let lastTime = performance.now();
 
-    const onPointerDown = (e: PointerEvent) => {
-      pointerInteracting = e.clientX;
-      setGrab(true);
-    };
-    const onPointerUp = () => {
-      pointerInteracting = null;
-      setGrab(false);
-    };
-    const onPointerMove = (e: PointerEvent) => {
-      if (pointerInteracting !== null) {
-        rotation = (e.clientX - pointerInteracting) / 200;
-      }
-    };
-    const onTouchMove = (e: TouchEvent) => {
-      if (pointerInteracting !== null && e.touches[0]) {
-        rotation = (e.touches[0].clientX - pointerInteracting) / 100;
-      }
-    };
+          const onResize = () => {
+            width = canvas.offsetWidth || width;
+          };
+          const setGrab = (grabbing: boolean) => {
+            canvas.style.cursor = grabbing ? "grabbing" : "grab";
+          };
+          const onPointerDown = (e: PointerEvent) => {
+            pointerInteracting = e.clientX;
+            setGrab(true);
+          };
+          const onPointerUp = () => {
+            pointerInteracting = null;
+            setGrab(false);
+          };
+          // The grab origin is never re-baselined, so every move event adds its
+          // whole offset again — the drag accelerates the further you pull.
+          const onPointerMove = (e: PointerEvent) => {
+            if (pointerInteracting === null) return;
+            const delta = e.clientX - pointerInteracting;
+            rotation.set(rotation.get() + delta / MOVEMENT_DAMPING);
+          };
+          const onTouchMove = (e: TouchEvent) => {
+            const touch = e.touches[0];
+            if (!touch || pointerInteracting === null) return;
+            const delta = touch.clientX - pointerInteracting;
+            rotation.set(rotation.get() + delta / MOVEMENT_DAMPING);
+          };
 
-    const attachInput = () => {
-      window.addEventListener("resize", onResize);
-      canvas.addEventListener("pointerdown", onPointerDown);
-      window.addEventListener("pointerup", onPointerUp);
-      window.addEventListener("pointerout", onPointerUp);
-      window.addEventListener("pointermove", onPointerMove);
-      canvas.addEventListener("touchmove", onTouchMove, { passive: true });
-    };
+          window.addEventListener("resize", onResize);
+          canvas.addEventListener("pointerdown", onPointerDown);
+          window.addEventListener("pointerup", onPointerUp);
+          window.addEventListener("pointerout", onPointerUp);
+          window.addEventListener("pointermove", onPointerMove);
+          canvas.addEventListener("touchmove", onTouchMove, { passive: true });
 
-    const detachInput = () => {
-      window.removeEventListener("resize", onResize);
-      canvas.removeEventListener("pointerdown", onPointerDown);
-      window.removeEventListener("pointerup", onPointerUp);
-      window.removeEventListener("pointerout", onPointerUp);
-      window.removeEventListener("pointermove", onPointerMove);
-      canvas.removeEventListener("touchmove", onTouchMove);
-    };
+          const globe: GlobeInstance = createGlobe(canvas, {
+            devicePixelRatio: Math.min(window.devicePixelRatio, 2),
+            width: width * 2,
+            height: width * 2,
+            phi: 0,
+            theta: 0.3,
+            dark: 0,
+            diffuse: 0.4,
+            mapSamples: 16000,
+            mapBrightness: 1.2,
+            baseColor: [1, 1, 1],
+            markerColor: [251 / 255, 100 / 255, 21 / 255],
+            glowColor: [1, 1, 1],
+            markers: globeMarkers,
+            onRender: (state) => {
+              const now = performance.now();
+              // Clamp so a backgrounded tab does not fling the spring on return.
+              const dt = Math.min((now - lastTime) / 1000, 0.05);
+              lastTime = now;
+              rotation.tick(dt);
+              if (!pointerInteracting) phi += 0.005;
+              state.phi = phi + rotation.get();
+              state.width = width * 2;
+              state.height = width * 2;
+            },
+          });
 
-    const destroyGlobe = () => {
-      detachInput();
-      globeRef.current?.destroy();
-      globeRef.current = null;
-      canvas.style.opacity = "0";
-    };
+          requestAnimationFrame(() => {
+            canvas.style.opacity = "1";
+          });
 
-    const createGlobeInstance = () => {
-      if (globeRef.current) return;
-      onResize();
-      attachInput();
-
-      globeRef.current = createGlobe(canvas, {
-        devicePixelRatio: Math.min(window.devicePixelRatio, 1.5),
-        width: width * 2,
-        height: width * 2,
-        phi: 0,
-        theta: 0.28,
-        dark: 0,
-        diffuse: 0.45,
-        mapSamples: 8000,
-        mapBrightness: 1.15,
-        baseColor: [0.96, 0.94, 0.91],
-        markerColor: [200 / 255, 64 / 255, 47 / 255],
-        glowColor: [0.96, 0.94, 0.91],
-        markers: globeMarkers,
-        onRender: (state) => {
-          if (!pointerInteracting) phi += 0.005;
-          curRotation += (rotation - curRotation) * 0.08;
-          state.phi = phi + curRotation;
-          state.width = width * 2;
-          state.height = width * 2;
-        },
-      });
-
-      requestAnimationFrame(() => {
-        canvas.style.opacity = "1";
-      });
+          teardown = () => {
+            window.removeEventListener("resize", onResize);
+            canvas.removeEventListener("pointerdown", onPointerDown);
+            window.removeEventListener("pointerup", onPointerUp);
+            window.removeEventListener("pointerout", onPointerUp);
+            window.removeEventListener("pointermove", onPointerMove);
+            canvas.removeEventListener("touchmove", onTouchMove);
+            globe.destroy();
+          };
+        })
+        .catch(() => {});
     };
 
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) createGlobeInstance();
-          else destroyGlobe();
+          // Built once for the page's lifetime — destroying on scroll-out would
+          // reset the accumulated longitude and re-run the fade-in every pass.
+          if (e.isIntersecting && !created) {
+            created = true;
+            create();
+          }
         });
       },
       { rootMargin: "200px 0px", threshold: 0.05 },
     );
-    io.observe(wrap);
+    io.observe(canvas);
 
     return () => {
+      disposed = true;
       io.disconnect();
-      destroyGlobe();
+      teardown?.();
     };
   }, []);
 
@@ -137,10 +174,14 @@ export function Globe() {
           description="From Lausanne to Tokyo, students are focusing with WeLockIn right now."
           className={styles.head}
         />
-        <div className={styles.wrap} ref={wrapRef}>
+        <div className={styles.wrap}>
           <canvas className={styles.canvas} ref={canvasRef} />
           <div className={styles.fade} />
         </div>
+
+        <CtaRow variant="peep">
+          <LockInButton label="Lock in with them" />
+        </CtaRow>
       </Container>
     </section>
   );

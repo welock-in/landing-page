@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Fragment, useEffect, useRef, useState } from "react";
 
 import { Container } from "@/components/ui/Container";
+import { CtaRow } from "@/components/ui/CtaRow";
+import { DownloadButton } from "@/components/ui/DownloadButton";
 import { howSteps } from "@/content/howItWorks";
 import { cn } from "@/lib/utils";
 import styles from "./HowItWorks.module.css";
@@ -59,7 +61,7 @@ export function HowItWorks() {
                 alt={step.alt}
                 fill
                 sizes="(max-width: 1024px) 74vw, 540px"
-                className={styles.shotImg}
+                className={step.fit === "cover" ? styles.shotCover : styles.shotContain}
               />
             </div>
           ))}
@@ -111,6 +113,10 @@ export function HowItWorks() {
             ))}
           </div>
         </div>
+
+        <CtaRow>
+          <DownloadButton icon="lock" label="Take step one" />
+        </CtaRow>
       </Container>
     </section>
   );

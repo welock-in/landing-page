@@ -15,7 +15,6 @@
   --border: rgba(26, 23, 20, 0.08);
   --muted: #7a7164;
   --dark: #1a1714;
-  --ticker: #1a1714;
 
   --max-width: 1200px;
   --gutter: 28px;
@@ -54,6 +53,14 @@ html {
   scroll-margin-top: 90px;
 }
 
+/* Protection page anchors sit a touch lower, per its own design. */
+#block,
+#levels,
+#nuclear,
+#cta {
+  scroll-margin-top: 96px;
+}
+
 body {
   background: var(--bg);
   color: var(--ink);
@@ -63,12 +70,13 @@ body {
   line-height: 1.5;
 }
 
-/* Headings & numerals use the serif (EB Garamond), per the brand book. */
+/* Headings run on Figtree — the brand dropped the serif display face; the
+   only EB Garamond left on the site is the footer's newsletter field. */
 h1,
 h2,
 h3,
 .serif {
-  font-family: var(--font-eb-garamond), "EB Garamond", serif;
+  font-family: var(--font-figtree), "Figtree", sans-serif;
   font-weight: 600;
 }
 

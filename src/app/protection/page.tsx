@@ -20,10 +20,17 @@ export const metadata: Metadata = buildMetadata({
   ],
 });
 
+/** This page advertises its own sections instead of the landing page's. */
+const protectionNav = [
+  { title: "What you block", href: "#block" },
+  { title: "Lock levels", href: "#levels" },
+  { title: "Nuclear mode", href: "#nuclear" },
+];
+
 export default function ProtectionRoute() {
   return (
     <>
-      <Navbar />
+      <Navbar links={protectionNav} />
       <ProtectionPage />
       <Footer />
     </>

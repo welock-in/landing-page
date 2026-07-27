@@ -58,22 +58,6 @@
   margin-bottom: 30px;
 }
 
-.howLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 600;
-  font-size: 15.5px;
-  color: var(--ink);
-  text-decoration: none;
-  transition: color 0.15s ease, gap 0.2s ease;
-}
-
-.howLink:hover {
-  color: var(--red);
-  gap: 12px;
-}
-
 .socialProof {
   display: flex;
   align-items: center;
@@ -128,11 +112,6 @@
   line-height: 1.2;
 }
 
-.spLine b {
-  color: var(--ink);
-  font-weight: 700;
-}
-
 /* ---- demo video frame ---- */
 .visual {
   position: relative;
@@ -145,33 +124,6 @@
   width: 100%;
   max-width: 480px;
   margin-right: 92px;
-}
-
-/* Hand-drawn "see it in action" cue, same language as the Results annotation. */
-.annot {
-  position: absolute;
-  top: -42px;
-  left: -78px;
-  z-index: 4;
-  width: 150px;
-  pointer-events: none;
-  transition: transform 0.25s ease;
-}
-
-.annotText {
-  display: inline-block;
-  margin-left: 30px;
-  font-family: var(--font-caveat), "Caveat", cursive;
-  font-weight: 700;
-  font-size: 26px;
-  color: #e07856;
-  transform: rotate(-5deg);
-  white-space: nowrap;
-}
-
-.annot svg {
-  display: block;
-  margin-top: -2px;
 }
 
 .frame {
@@ -268,11 +220,10 @@
 }
 
 /* When JS controls the mascot it sets an inline transform; cut the keyframe sway
-   so the two don't fight. Reduced-motion users keep the CSS sway. */
-@media (prefers-reduced-motion: no-preference) {
-  .peep[style] {
-    animation: none;
-  }
+   so the two don't fight. Under reduced motion the script never runs, so no
+   inline style is ever written and this never matches. */
+.peep[style] {
+  animation: none;
 }
 
 /* ---- fullscreen video lightbox ---- */
@@ -354,16 +305,6 @@
   transform: scale(1.06);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .modal,
-  .modalInner {
-    animation: none;
-  }
-  .playBtn::before {
-    animation: none;
-  }
-}
-
 @media (max-width: 920px) {
   .grid {
     grid-template-columns: 1fr;
@@ -373,32 +314,12 @@
   .visual {
     order: 2;
   }
-
-  .annot {
-    top: -38px;
-    left: -54px;
-  }
 }
 
 @media (max-width: 768px) {
   .ctaRow {
     flex-direction: column;
     align-items: stretch;
-  }
-
-  .annot {
-    top: -34px;
-    left: -8px;
-  }
-
-  .annotText {
-    font-size: 22px;
-    margin-left: 18px;
-  }
-
-  .annot svg {
-    width: 84px;
-    height: 50px;
   }
 
   .modalClose {

@@ -22,7 +22,10 @@
   opacity: 0;
   transition: opacity 0.6s ease;
   touch-action: none;
-  contain: layout paint size;
+  /* The sphere is drawn at full buffer size and shrunk visually, which keeps
+     the markers crisp while leaving air around it inside the 620px wrap. */
+  transform: scale(0.78);
+  transform-origin: center center;
 }
 
 .fade {

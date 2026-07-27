@@ -1,0 +1,72 @@
+/* The in-app block screen. Deliberately bare — the product promise is "a simple
+   'this is locked' moment rather than a nagging wall of text". */
+.blk {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #efe9df;
+  padding: 48px 32px;
+  gap: 40px;
+}
+
+.blk-lock {
+  animation: blkPop 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.blk-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: blkRise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.12s both;
+}
+
+.blk-title {
+  margin: 0;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: clamp(38px, 4.8vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.018em;
+  color: #2a2622;
+  overflow-wrap: anywhere;
+}
+
+.blk-sub {
+  margin: 0;
+  font-weight: 400;
+  font-size: clamp(17px, 1.9vw, 22px);
+  color: #8a8175;
+  letter-spacing: 0.1px;
+}
+
+.blk-brand {
+  font-weight: 600;
+  color: #5d564c;
+}
+
+@keyframes blkPop {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes blkRise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

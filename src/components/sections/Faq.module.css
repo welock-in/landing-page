@@ -69,6 +69,46 @@
   padding-bottom: 22px;
 }
 
+/* The "More questions" tile reuses the card chrome but reads as a link. */
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px;
+  background: #f3ddd6;
+  border: 1.5px solid rgba(200, 64, 47, 0.4);
+  font-size: 16.5px;
+  font-weight: 600;
+  color: var(--ink);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.cta:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.cta:focus-visible {
+  outline: 2.5px solid var(--red);
+  outline-offset: 3px;
+}
+
+.ctaArrow {
+  flex-shrink: 0;
+  display: inline-flex;
+  color: var(--red);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.cta:hover .ctaArrow {
+  color: #fff;
+  transform: translateX(4px);
+}
+
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;

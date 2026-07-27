@@ -9,22 +9,25 @@ const POSTER = "/images/app-dashboard.jpeg";
 
 /**
  * The hero demo video in a clean rounded frame. Plays a muted, looping ambient
- * preview; clicking it opens the clip full-screen with sound. A hand-drawn
- * Caveat annotation (same language as the "watch it climb!" cue in Results)
- * signals it's clickable.
+ * preview; clicking it opens the clip full-screen with sound. The expand chip
+ * in the corner is the only affordance — the design dropped the hand-drawn cue.
  */
 export function HeroVideo() {
   const [open, setOpen] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
   const ambientRef = useRef<HTMLVideoElement>(null);
+  // Only we may restart the preview — on first paint the `autoplay` attribute
+  // owns it, so a browser (or user) that declined autoplay stays declined.
+  const wasOpen = useRef(false);
 
   useEffect(() => {
     const ambient = ambientRef.current;
     if (!open) {
       // Resume the ambient preview once the lightbox closes.
-      ambient?.play().catch(() => {});
+      if (wasOpen.current) ambient?.play().catch(() => {});
       return;
     }
+    wasOpen.current = true;
     // Pause the in-Mac preview while the full-screen clip is playing.
     ambient?.pause();
     const onKey = (e: KeyboardEvent) => {
@@ -43,27 +46,6 @@ export function HeroVideo() {
   return (
     <>
       <div className={styles.stage}>
-        <span className={styles.annot} aria-hidden="true">
-          <span className={styles.annotText}>see it in action</span>
-          <svg width="104" height="62" viewBox="0 0 104 62" fill="none">
-            <path
-              d="M10 6 C26 26, 40 40, 66 48 C76 51, 84 51, 92 50"
-              stroke="#a42b1b"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              fill="none"
-            />
-            <path
-              d="M82 43 L93 50 L83 57"
-              stroke="#e07856"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              fill="none"
-            />
-          </svg>
-        </span>
-
         <button
           className={styles.frame}
           type="button"
