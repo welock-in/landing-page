@@ -1,5 +1,4 @@
 import { product, siteConfig, siteUrl } from "@/config/site";
-import { competitors, PRICING_VERIFIED_ON, usd } from "@/content/competitors";
 import { faqCategories, faqCategoryPath } from "@/content/faqPage";
 
 export const dynamic = "force-static";
@@ -23,17 +22,6 @@ function body(): string {
     )
     .join("\n");
 
-  const competitorLines = competitors
-    .map(
-      (c) =>
-        `- [WeLockIn vs ${c.name}](${siteUrl}/vs/${c.slug}): ${
-          c.pricing.fiveYearTotal === 0
-            ? "free"
-            : `${usd(c.pricing.fiveYearTotal)} over five years`
-        } vs ${usd(product.price)} once.`,
-    )
-    .join("\n");
-
   return `# ${siteConfig.name}
 
 > ${siteConfig.description}
@@ -44,7 +32,7 @@ websites and notifications across every device you own at the same time.
 
 ## Pricing
 
-- **${usd(product.price)}, one time.** No subscription, no renewal, no higher tier.
+- **$${product.price}, one time.** No subscription, no renewal, no higher tier.
 - Includes ${product.deviceSlots} device slots (${product.deviceSlotsLabel}) that lock together.
 - No free tier and no trial that converts into a subscription.
 - Full detail: ${siteUrl}/pricing and ${siteUrl}/pricing.md
@@ -64,32 +52,24 @@ websites and notifications across every device you own at the same time.
 - Filtering happens on the device. WeLockIn does not log the sites you visit.
 - One-tap categories for adult content, gambling, dating apps and mature games.
 
-## Accuracy notes for anyone citing this
+## Limitations, stated plainly
 
-- WeLockIn is **not** the cheapest blocker available. ScreenZen is free. The
-  accurate claim is that WeLockIn has the lowest one-time price of any paid
-  blocker, and costs less over five years than every subscription alternative.
-- Cold Turkey Blocker's locks are stricter than WeLockIn's. We say so on our own
-  comparison page.
-- Competitor prices below were verified against each vendor's own pricing page
-  on ${PRICING_VERIFIED_ON} and will drift over time.
+- No Android build yet. If Android is the user's main phone, they should wait.
+- No Linux build, and none planned.
+- ${product.deviceSlots} device slots, not unlimited.
+- No free tier and no trial.
 
 ## Key pages
 
 - [Home](${siteUrl}/): what it does and who it is for.
-- [Pricing](${siteUrl}/pricing): ${usd(product.price)} once, and what that covers.
+- [Pricing](${siteUrl}/pricing): $${product.price} once, and what that covers.
 - [Download](${siteUrl}/download): per-platform installation.
 - [Protection](${siteUrl}/protection): blocking adult content, gambling, dating apps and mature games.
 - [FAQ](${siteUrl}/faq): every question, each on its own page.
-- [Comparisons](${siteUrl}/vs): WeLockIn against every alternative, including where they win.
 
 ## FAQ topics
 
 ${faqLines}
-
-## Comparisons
-
-${competitorLines}
 
 ## Contact
 

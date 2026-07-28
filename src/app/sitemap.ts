@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
 
-import { competitorPath, competitors } from "@/content/competitors";
 import {
   allFaqEntries,
   faqCategories,
@@ -45,8 +44,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/download", 0.9, "monthly"),
     entry("/pricing", 0.9, "monthly"),
     entry("/protection", 0.9, "monthly"),
-    entry("/vs", 0.8, "monthly"),
-    ...competitors.map((c) => entry(competitorPath(c.slug), 0.7, "monthly")),
     entry("/faq", 0.8, "weekly"),
     ...faqCategories.map((category) =>
       entry(faqCategoryPath(category.slug), 0.6, "monthly"),

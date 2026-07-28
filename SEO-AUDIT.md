@@ -19,12 +19,17 @@ at the wrong places.
 | 4 | `/icon.png` returned 404, breaking the Organization logo and the PWA manifest | High | Fixed |
 | 5 | The primary CTA was a `<button>` with no handler — it went nowhere | **Critical** | Fixed |
 | 6 | All 25 footer links were `href="#"` | High | Fixed |
-| 7 | Only 3 indexable pages existed | High | Now 70 |
+| 7 | Only 3 indexable pages existed | High | Now 61 |
 | 8 | 48 FAQ answers were locked inside `<button>` elements with no headings and no URLs | High | Fixed |
 | 9 | No product, price, breadcrumb or FAQ structured data anywhere | High | Fixed |
 | 10 | No `llms.txt`, no machine-readable pricing, no AI crawler rules | Medium | Fixed |
 
-**Site went from 3 indexable URLs to 70**, all statically prerendered.
+**Site went from 3 indexable URLs to 61**, all statically prerendered.
+
+> **Update:** the competitor comparison cluster (`/vs` and eight `/vs/{competitor}`
+> pages) was built and then removed at your request. The pricing page keeps the
+> one-time-payment positioning without naming anyone. See
+> [Positioning, after removing the comparisons](#positioning-after-removing-the-comparisons).
 
 ---
 
@@ -82,8 +87,13 @@ link shared to WhatsApp, iMessage, X or LinkedIn rendered with no preview image.
 
 **Fix:** [src/lib/og.tsx](src/lib/og.tsx) generates a branded 1200×630 card at build time
 (cream, ink, one red accent, Figtree loaded from Google Fonts with a graceful
-fallback so a font outage cannot fail a deploy). `public/icon.png` is a real
-512×512 brand mark.
+fallback so a font outage cannot fail a deploy).
+
+For `/icon.png` I generated a placeholder, then found that a parallel session had
+meanwhile committed the real mascot icon set (`src/app/icon.png`, `icon-192.png`,
+`icon-maskable.png`) in `c948150`. Next serves `/icon.png` from `src/app/icon.png`,
+so mine was shadowing the real brand asset — I removed it. **Their icon is the one
+that ships.**
 
 ### 5. The download CTA led nowhere
 
@@ -108,10 +118,8 @@ per platform.
 ```
 /                                          Home
 ├── /download                              Per-platform install
-├── /pricing                               $20 once + 5-year cost table
+├── /pricing                               $20 once, and why one payment
 ├── /protection                            (existing)
-├── /vs                                    Comparison hub
-│   └── /vs/{competitor}                   × 8
 └── /faq                                   FAQ index — 48 questions linked
     └── /faq/{category}                    × 8 category hubs
         └── /faq/{category}/{question}     × 48 answer pages
@@ -125,13 +133,13 @@ Every page is ≤ 3 clicks from the homepage. Every page has breadcrumbs, a
 - **Navbar** now ships 5 real routes on every page (was 4 in-page anchors, so the
   header linked nowhere but `/`).
 - **Footer** rebuilt as 25 real links across Product / Download / Answers /
-  Compare / Support.
+  How it locks / Support.
 - **Homepage FAQ** teasers now link into the FAQ cluster — 5 links from the
   strongest page on the site.
 - **Related questions** on each answer page link 2 siblings plus 3 cross-category
   questions, rotated by position so the links spread across all 48 pages instead
   of piling onto the same four.
-- **Verified: zero broken internal links** across `/`, `/faq`, `/pricing`, `/vs`
+- **Verified: zero broken internal links** across `/`, `/faq`, `/pricing`
   and `/download`. A typical answer page carries 40 unique internal links.
 
 The only placeholder links left are the 4 social icons in the footer. Give me
@@ -153,7 +161,7 @@ pricing is what decides whether an assistant shortlists you at all. What shipped
   *Caveat, stated honestly:* since 2023 Google only shows FAQ rich results for
   government and health sites, so this wins no rich snippet. It is here because
   ChatGPT, Perplexity and Claude do parse it.
-- **`BreadcrumbList`** on all 70 pages.
+- **`BreadcrumbList`** on all 61 pages.
 - **One `@graph` per page** with stable `@id`s, so Organization, WebSite and the
   product resolve as one connected entity instead of disconnected snippets.
 - **`/llms.txt`** and **`/pricing.md`** — both generated from the same modules the
@@ -168,50 +176,44 @@ pricing is what decides whether an assistant shortlists you at all. What shipped
 
 ---
 
-## The pricing claim — please read this one
+## Positioning, after removing the comparisons
 
-You asked to be positioned as "le moins cher du marché". **That claim is not
-true, and publishing it would cost you more than it earns.**
+You asked for the comparison pages to be removed, so `/vs` and the eight
+`/vs/{competitor}` pages are gone, along with `src/content/competitors.ts` and
+every competitor name on the site.
 
-I verified all eight competitors against their own pricing pages on 2026-07-28:
+That is a defensible call — comparison pages need their prices re-checked
+whenever a competitor changes them, and a stale price is worse than no page.
+But it is worth being clear about what it costs, because comparison content is
+roughly a third of all AI citations and `"<competitor> alternative"` is the
+highest-intent query in this category. You have traded that traffic for zero
+maintenance burden.
 
-| App | 5-year cost | vs $20 |
-|---|---|---|
-| **WeLockIn** | **$20** | — |
-| ScreenZen | **free** | cheaper than you |
-| Cold Turkey | $45 once | 2.3× |
-| Focus (heyfocus) | $49 once | 2.5× |
-| one sec | $99.95 | 5× |
-| BlockSite | $149.95 | 7.5× |
-| Forest | $179.95 | 9× |
-| Freedom | $199.80 | 10× |
-| Opal | $499.95 | 25× |
+**What replaced it.** The pricing page keeps the positioning without naming
+anyone:
 
-**ScreenZen is genuinely free**, on four platforms, with a real lock mode. A
-"cheapest blocker" claim is one search away from being disproved — and an AI
-assistant that catches you overstating one fact discounts every other fact on
-your site. That is the expensive part.
+> Focus apps typically charge somewhere between $20 and $100 every year; this is
+> $20, once.
 
-The claim I shipped instead is true, checkable, and nearly as strong:
+That range is true — I verified all eight competitors against their own pricing
+pages on 2026-07-28, and the cheapest subscription was $19.99/year while the
+most expensive was $99.99/year. It is checkable, it carries the argument, and
+nothing on the page goes stale when a competitor changes its price.
 
-> **The lowest one-time price of any paid blocker — and less over five years
-> than every subscription alternative.**
+The page also now has a **"Why one payment, not a subscription"** section making
+the argument the price alone does not: blocks that are not tied to a billing
+status cannot lapse when a card expires, there is nothing to cancel, and Nuclear
+Mode is not gated behind a higher tier.
 
-Each `/vs/` page also has a **"Where {competitor} is the better choice"** section.
-That is not politeness: comparison pages that concede something get cited;
-pages that only flatter themselves get skipped. `/vs/screenzen` says outright
-that ScreenZen is free and worth trying first. `/vs/cold-turkey` says their
-locks are stricter than yours. Both are true, and both make every other claim
-on the site more credible.
+**One thing to avoid.** Do not claim to be "the cheapest blocker on the market"
+anywhere. **ScreenZen is genuinely free**, on four platforms, with a real lock
+mode. That claim is one search away from being disproved, and an AI assistant
+that catches an overstatement discounts every other fact on your site. The
+accurate version — *the lowest one-time price of any paid blocker* — is nearly
+as strong and cannot be dismantled.
 
-Two prices are also hedged on their pages because the vendors make them
-unstable: Forest refuses to publish USD figures, and BlockSite A/B-tests its
-lifetime price between roughly $29.99 and $79.99.
-
-I did not build a Serene page — `sereneapp.com` now redirects to its parent
-agency, so the product is discontinued and a live comparison would be false.
-
----
+If you ever want the comparison cluster back, the verified pricing research is
+preserved in this file's git history at commit `959c01c`.
 
 ## Still outstanding
 
@@ -244,8 +246,8 @@ agency, so the product is discontinued and a live comparison would be false.
 - `npx tsc --noEmit` — clean
 - `npm run lint` — clean
 - `npm run build` — 82 pages prerendered, no errors
-- `sitemap.xml` — 70 URLs, all on `https://www.welock.in`
+- `sitemap.xml` — 61 URLs, all on `https://www.welock.in`
 - Canonicals spot-checked across all 7 page types — all correct
 - JSON-LD parsed and validated on all 7 page types
-- Internal links crawled across 5 hub pages — zero non-200s
+- Internal links crawled across every hub page — zero non-200s
 - `/opengraph-image` and `/icon.png` — both 200, rendered and inspected

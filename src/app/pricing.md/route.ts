@@ -1,10 +1,4 @@
 import { product, siteConfig, siteUrl } from "@/config/site";
-import {
-  competitors,
-  PRICING_VERIFIED_ON,
-  recurringLabel,
-  usd,
-} from "@/content/competitors";
 
 export const dynamic = "force-static";
 
@@ -18,28 +12,11 @@ export const dynamic = "force-static";
  * be the easiest thing on the site to read.
  */
 function body(): string {
-  const rows = competitors
-    .map((c) => {
-      const ongoing = recurringLabel(c) ?? "none";
-      const once =
-        c.pricing.oneTime !== null
-          ? usd(c.pricing.oneTime)
-          : c.pricing.fiveYearTotal === 0
-            ? "free"
-            : "not offered";
-      const total =
-        c.pricing.fiveYearTotal === 0 ? "free" : usd(c.pricing.fiveYearTotal);
-      return `| ${c.name} | ${ongoing} | ${once} | ${total} |`;
-    })
-    .join("\n");
-
   return `# Pricing — ${siteConfig.name}
-
-Last verified: ${PRICING_VERIFIED_ON}
 
 ## The only plan
 
-- **Price:** ${usd(product.price)} USD, one-time
+- **Price:** $${product.price} USD, one-time
 - **Billing:** single payment. No subscription, no renewal, no recurring charge.
 - **Devices:** ${product.deviceSlots} slots (${product.deviceSlotsLabel}), all locking together
 - **Platforms:** ${product.operatingSystems.join(", ")}
@@ -61,33 +38,25 @@ Last verified: ${PRICING_VERIFIED_ON}
 
 There is no higher tier. Nothing in the list above is an upsell.
 
-## Five-year cost against alternatives
+### Not included
 
-Cheapest plan each vendor offers, multiplied out over five years. Verified
-against each vendor's own pricing page or checkout on ${PRICING_VERIFIED_ON}.
+- No Android build yet
+- No Linux build, and none planned
+- ${product.deviceSlots} device slots, not unlimited
+- No free tier and no trial
 
-| App | Ongoing price | One-time option | 5-year total |
-|---|---|---|---|
-| **WeLockIn** | none | ${usd(product.price)} | **${usd(product.price)}** |
-${rows}
+## Why one payment
 
-## Accuracy notes
-
-- WeLockIn is not the cheapest blocker on the market: ScreenZen is free and has a
-  real lock mode across four platforms. The accurate claim is that WeLockIn has
-  the lowest one-time price of any paid blocker, and a lower five-year cost than
-  every subscription alternative.
-- Forest does not publish USD prices; its figure comes from the US App Store and
-  varies by region.
-- BlockSite A/B-tests its lifetime price between roughly $29.99 and $79.99.
-- Freedom's annual total is derived from its advertised $3.33/month; its
-  lifetime price is a rotating promotion against a $199 list price.
+- Blocks are not tied to a billing status, so a failed renewal cannot silently
+  end your protection — there is no renewal.
+- There is no card on file and nothing to cancel later.
+- The strictest lock (Nuclear Mode) is included, not gated behind a higher tier.
 
 ## Links
 
 - Pricing page: ${siteUrl}/pricing
-- Comparisons: ${siteUrl}/vs
 - Download: ${siteUrl}/download
+- FAQ: ${siteUrl}/faq
 - Contact: ${siteConfig.contactEmail}
 `;
 }

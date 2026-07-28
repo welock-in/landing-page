@@ -82,7 +82,7 @@ export const mainNav: { title: string; href: string }[] = [
   { title: "How it works", href: "/#how" },
   { title: "Protection", href: "/protection" },
   { title: "Pricing", href: "/pricing" },
-  { title: "Compare", href: "/vs" },
+  { title: "Download", href: "/download" },
   { title: "FAQ", href: "/faq" },
 ];
 

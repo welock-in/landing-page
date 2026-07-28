@@ -25,7 +25,7 @@ const COLUMNS = [
       { label: "Protection", href: "/protection" },
       { label: "Pricing", href: "/pricing" },
       { label: "Download", href: "/download" },
-      { label: "Compare", href: "/vs" },
+      { label: "What you can block", href: "/faq/what-you-can-block" },
     ],
   },
   {
@@ -49,13 +49,19 @@ const COLUMNS = [
     ],
   },
   {
-    title: "Compare",
+    title: "How it locks",
     links: [
-      { label: "vs Freedom", href: "/vs/freedom" },
-      { label: "vs Cold Turkey", href: "/vs/cold-turkey" },
-      { label: "vs Opal", href: "/vs/opal" },
-      { label: "vs Forest", href: "/vs/forest" },
-      { label: "All comparisons", href: "/vs" },
+      { label: "The five lock levels", href: "/faq/unlock-difficulty-levels" },
+      { label: "Nuclear Mode", href: "/faq/nuclear-mode" },
+      {
+        label: "Soft vs Nuclear lock",
+        href: "/faq/unlock-difficulty-levels/soft-lock-vs-nuclear-lock",
+      },
+      {
+        label: "Can it be bypassed?",
+        href: "/faq/nuclear-mode/bypass-by-deleting-the-app",
+      },
+      { label: "Which level to choose", href: "/faq/unlock-difficulty-levels/which-level-to-choose" },
     ],
   },
   {

@@ -213,34 +213,6 @@ export function faqPageJsonLd(
   };
 }
 
-/** A page that exists to compare WeLockIn against one named alternative. */
-export function comparisonJsonLd({
-  path,
-  headline,
-  description,
-  competitor,
-}: {
-  path: string;
-  headline: string;
-  description: string;
-  competitor: string;
-}): JsonLd {
-  const url = new URL(path, siteUrl).toString();
-  return {
-    "@type": "WebPage",
-    "@id": url,
-    url,
-    name: headline,
-    description,
-    isPartOf: { "@id": SITE_ID },
-    about: { "@id": APP_ID },
-    mentions: [
-      { "@type": "SoftwareApplication", name: competitor },
-      { "@id": APP_ID },
-    ],
-  };
-}
-
 /** Wrap nodes into one `@graph` so they resolve as a single connected entity. */
 export function jsonLdGraph(...nodes: JsonLd[]): string {
   return JSON.stringify({ "@context": "https://schema.org", "@graph": nodes });
