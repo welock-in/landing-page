@@ -11,9 +11,19 @@
   margin-bottom: 32px;
 }
 
+/* Scrolls itself, and can also be dragged or swiped. The scrollbar is hidden
+   because the drift already signals it moves. */
 .marquee {
   width: 100%;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* html sets scroll-behavior:smooth; the per-frame drift needs it off here. */
+  scroll-behavior: auto;
+  /* Stops a horizontal swipe from triggering the browser's back gesture. */
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
   -webkit-mask-image: linear-gradient(
     90deg,
     transparent,
@@ -30,26 +40,22 @@
   );
 }
 
+.marquee::-webkit-scrollbar {
+  display: none;
+}
+
+.dragging {
+  cursor: grabbing;
+}
+
 .track {
   display: flex;
   align-items: center;
   gap: 64px;
   width: max-content;
-  animation: logoScroll 90s linear infinite;
-  will-change: transform;
-}
-
-.marquee:hover .track {
-  animation-play-state: paused;
-}
-
-@keyframes logoScroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  /* Without this a drag selects the alt text instead of moving the row. */
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .logo {
@@ -75,15 +81,22 @@
   width: auto;
   height: auto;
   object-fit: contain;
+  /* Otherwise a drag picks the crest up as a native image drag. */
+  -webkit-user-drag: none;
 }
 
 .wide {
   height: 34px;
 }
 
+/* No drift: lay the crests out as a static wrapped grid instead. */
 @media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: hidden;
+    cursor: auto;
+  }
+
   .track {
-    animation: none;
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;

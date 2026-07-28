@@ -52,11 +52,11 @@ const CARDS: Card[] = [
   {
     kind: "quote",
     quote:
-      "WeLockIn got me through my finals. I finish what I start now, and the doomscrolling is just gone.",
-    avatar: "https://i.pravatar.cc/80?img=5",
-    name: "Camille Beguin",
-    role: "MSc Life Sciences",
-    mark: { src: LOGO("22_EPFL.png"), alt: "EPFL" },
+      "I used to finish at 4am, not because the work was hard but because my phone ate the whole evening. Now it's locked while I work.",
+    avatar: "/images/testimonials/sarah-fourati.jpg",
+    name: "Sarah Fourati",
+    role: "MiM",
+    mark: { src: LOGO("27_HEC.png"), alt: "HEC Paris" },
   },
   {
     kind: "quote",

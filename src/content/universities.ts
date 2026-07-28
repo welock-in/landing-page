@@ -16,6 +16,7 @@ export const universities: University[] = [
   { file: "06_Cambridge.png", name: "Cambridge" },
   { file: "07_ETH.png", name: "ETH Zürich", wide: true },
   { file: "22_EPFL.png", name: "EPFL", wide: true },
+  { file: "27_HEC.png", name: "HEC Paris" },
   { file: "21_Yale.png", name: "Yale" },
   { file: "25_Princeton.png", name: "Princeton" },
   { file: "02_Imperial.png", name: "Imperial College London" },
