@@ -31,8 +31,8 @@ export default function HomePage() {
       <Footer />
 
       {/* The product entity belongs on the page most likely to be crawled and
-          quoted first. Its Offer is what lets an assistant state the price as
-          $20 one-time rather than assume a subscription. */}
+          quoted first. It carries no Offer — the site publishes no price — so
+          what an assistant can quote here is the feature list and the FAQ. */}
       <JsonLd
         graph={jsonLdGraph(
           softwareApplicationJsonLd(),

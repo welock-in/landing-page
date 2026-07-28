@@ -20,7 +20,7 @@ import styles from "./download.module.css";
 export const metadata: Metadata = buildMetadata({
   title: "Download WeLockIn for Mac, iPhone, iPad and Windows",
   description:
-    "Get WeLockIn on macOS, iPhone, iPad and Windows. One $20 purchase covers three devices that lock together. Android coming soon.",
+    "Get WeLockIn on macOS, iPhone, iPad and Windows. Three device slots lock together as one. Android coming soon.",
   path: "/download",
   keywords: [
     "download WeLockIn",
@@ -54,14 +54,13 @@ export default function DownloadPage() {
             <p className="cp-eyebrow">Download</p>
             <h1 className="cp-h1">Download WeLockIn</h1>
             <p className="cp-lead">
-              One purchase of ${product.price} covers{" "}
-              {product.deviceSlotsLabel} — {product.deviceSlots} devices that all
-              lock at the same time. Install it on each one and a single session
-              shuts everything down at once.
+              You get {product.deviceSlotsLabel} — {product.deviceSlots} devices
+              that all lock at the same time. Install it on each one and a single
+              session shuts everything down at once.
             </p>
             <p className="cp-sub">
-              No subscription, no renewal, no trial that quietly turns into a
-              bill. <Link href="/pricing">See exactly what ${product.price} includes</Link>.
+              A blocker that covers your laptop but not your phone is a blocker
+              with a door in it, so cover everything before your first hard lock.
             </p>
 
             <h2 className="cp-h2">Pick your platform</h2>

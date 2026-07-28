@@ -58,14 +58,14 @@ export const faqCategories: FaqCategory[] = [
         slug: "what-is-welockin",
         question: "What is WeLockIn?",
         answer:
-          "WeLockIn blocks distracting and addictive apps and websites across all your devices at once. You pick what to block, choose how hard it is to turn off — from a simple PIN to a lock that cannot be undone until a date you set — and it stays blocked everywhere until then. It costs $20 once, for life.",
+          "WeLockIn blocks distracting and addictive apps and websites across all your devices at once. You pick what to block, choose how hard it is to turn off — from a simple PIN to a lock that cannot be undone until a date you set — and it stays blocked everywhere until then.",
         detail: [
           "It runs on macOS, iOS, iPadOS and Windows today, with Android on the way.",
-          "One purchase covers three device slots, so a Mac, a phone and a tablet lock together.",
+          "Three device slots are included, so a Mac, a phone and a tablet lock together.",
           "It is built for two jobs at once: deep focus for work and study, and quitting genuinely addictive habits like porn, gambling or endless scrolling.",
         ],
         description:
-          "WeLockIn blocks distracting apps and sites across all your devices, with five unlock difficulty levels. $20 once, for life — no subscription.",
+          "WeLockIn blocks distracting apps and sites across every device you own, with five unlock difficulty levels up to a lock nothing lifts early.",
         keywords: "about app blocker focus what is welockin",
       },
       {
@@ -114,27 +114,27 @@ export const faqCategories: FaqCategory[] = [
         slug: "what-makes-it-different",
         question: "What makes WeLockIn different?",
         answer:
-          "Two things. It is $20 once, for life — no subscription, no renewal, no bill quietly landing every year. And it locks for real: Nuclear Mode is genuinely un-bypassable, with no override, no back door and no 'just five minutes'. Most focus apps give you an escape hatch, and that escape hatch is how people relapse.",
+          "It locks for real. Nuclear Mode is genuinely un-bypassable — no override, no back door, no 'just five minutes' — and it survives restarts and uninstalling the app. Most focus apps leave you an escape hatch, and that escape hatch is how people relapse. Removing it is the entire product.",
         detail: [
-          "Most competitors charge a recurring subscription, which over five years costs many times a single $20 purchase.",
           "A lock that survives a restart and an uninstall is rare — plenty of blockers are defeated by deleting the app.",
-          "Your blocks are not tied to a billing status, so a failed renewal can never quietly unlock you.",
+          "Five escalating difficulty levels, so the friction matches the habit rather than one setting for everyone.",
+          "One session covers your computer, phone and tablet at the same time, closing the switch-devices loophole.",
         ],
         description:
-          "$20 once instead of a subscription, and a Nuclear Mode with no override and no back door. Most blockers leave you an escape hatch.",
+          "A Nuclear Mode with no override and no back door, that survives uninstalling the app. Most blockers leave you an escape hatch.",
         keywords: "different unique why choose alternative special",
       },
       {
         slug: "built-by-students",
         question: "Are you really students?",
         answer:
-          "Yes. A small team of engineering students from EPFL in Lausanne and Polytechnique Paris, who got tired of paying a subscription just to be able to focus. Built by students, for students — that is the whole idea, and it is why the price is a one-time $20 rather than a recurring bill.",
+          "Yes. A small team of engineering students from EPFL in Lausanne and Polytechnique Paris, who got tired of every focus app either being too easy to switch off or asking too much of a student budget. Built by students, for students — that is the whole idea.",
         detail: [
           "Support emails are answered by the people who wrote the code, usually between lectures.",
-          "The pricing is a direct consequence of the team: students who resented subscriptions built something they would actually buy.",
+          "It is used across 25+ universities, which is where most of the early feedback comes from.",
         ],
         description:
-          "Yes — engineering students from EPFL Lausanne and Polytechnique Paris, who got tired of paying a subscription just to focus.",
+          "Yes — engineering students from EPFL Lausanne and Polytechnique Paris who wanted a blocker that actually holds.",
         keywords: "students team founders who makes epfl polytechnique",
       },
       {
@@ -472,7 +472,7 @@ export const faqCategories: FaqCategory[] = [
           "The lock applies on every device you have synced — it is locked everywhere at once, not just where you armed it. You cannot sidestep it by switching from your laptop to your phone, which is the most common way a single-device blocker gets defeated in practice.",
         detail: [
           "Add every device you own before arming Nuclear Mode; an unsynced device is an open door.",
-          "One purchase covers three device slots: a computer, a phone and a tablet.",
+          "Three device slots are included: a computer, a phone and a tablet.",
         ],
         description:
           "It locks every synced device at once. Switching from laptop to phone is not a way out.",
@@ -556,20 +556,20 @@ export const faqCategories: FaqCategory[] = [
     intro:
       "Which operating systems WeLockIn runs on today, what is coming, and how one session locks a Mac, a phone and a tablet at the same time.",
     description:
-      "WeLockIn runs on macOS, iOS, iPadOS and Windows, with Android coming. One purchase covers three device slots that lock together.",
+      "WeLockIn runs on macOS, iOS, iPadOS and Windows, with Android coming. Three device slots lock together as one.",
     items: [
       {
         slug: "supported-devices",
         question: "Which devices and operating systems are supported?",
         answer:
-          "WeLockIn works today on macOS, iOS for iPhone and iPad, and Windows. Android is coming soon. One session can cover your Mac, iPhone and iPad together, because a single purchase includes three device slots that all lock at the same time.",
+          "WeLockIn works today on macOS, iOS for iPhone and iPad, and Windows. Android is coming soon. One session can cover your Mac, iPhone and iPad together, because three device slots all lock at the same time.",
         detail: [
           "Three device slots are included: one computer, one phone, one tablet.",
           "Linux is not supported and is not currently on the roadmap.",
-          "Devices can be added at any time after purchase — you do not have to decide up front.",
+          "Devices can be added at any time — you do not have to decide up front.",
         ],
         description:
-          "macOS, iOS, iPadOS and Windows today; Android coming. One purchase covers three device slots that all lock together.",
+          "macOS, iOS, iPadOS and Windows today; Android coming. Three device slots all lock together.",
         keywords:
           "devices platforms mac macos ios iphone ipad windows pc supported",
       },
@@ -577,7 +577,7 @@ export const faqCategories: FaqCategory[] = [
         slug: "android-support",
         question: "Is it on Android yet?",
         answer:
-          "Not yet — Android is on the way. Today WeLockIn runs on macOS, iOS, iPadOS and Windows. If Android is your main device, it is worth waiting rather than buying now, since a blocker that misses your primary phone leaves the door open.",
+          "Not yet — Android is on the way. Today WeLockIn runs on macOS, iOS, iPadOS and Windows. If Android is your main device, it is worth waiting, since a blocker that misses your primary phone leaves the door open.",
         detail: [
           "A blocker that does not cover your main phone is not much of a blocker — that is the honest answer.",
           "Windows and macOS coverage is complete today, so a desktop-only setup works now.",
@@ -648,71 +648,6 @@ export const faqCategories: FaqCategory[] = [
         description:
           "Block-or-allow decisions happen locally on your device, not on a server. Your activity stays with you — including from us.",
         keywords: "on-device local filtering server privacy secure",
-      },
-    ],
-  },
-  {
-    slug: "pricing",
-    name: "Pricing",
-    headline: "Pricing: $20 once, for life",
-    intro:
-      "WeLockIn is a one-time $20 purchase with no subscription and no renewal. Here is exactly what that covers and what happens over time.",
-    description:
-      "WeLockIn costs $20 once, for life. No subscription, no renewal, no recurring charge. Everything that single purchase includes.",
-    items: [
-      {
-        slug: "how-much-does-it-cost",
-        question: "How much does WeLockIn cost?",
-        answer:
-          "$20, once. That is it — you own it for life, with no subscription and no renewal. It is a deliberate contrast to focus apps that bill you every year, where five years of use can cost several times what WeLockIn costs in total.",
-        detail: [
-          "One purchase, three device slots: a computer, a phone and a tablet.",
-          "No tier above it — the $20 is the whole product, not an entry plan.",
-          "No free tier, and no trial that quietly converts into a subscription.",
-        ],
-        description:
-          "$20 once, for life. No subscription, no renewal — a deliberate contrast to focus apps that bill you every single year.",
-        keywords: "price cost money how much cheap pay refund",
-      },
-      {
-        slug: "one-time-payment-not-subscription",
-        question: "Is it really a one-time payment, not a subscription?",
-        answer:
-          "Yes. $20 once, yours for life, no subscription. You are not signed up for a recurring charge, there is nothing to cancel later, and there is no annual renewal that lapses if a card expires. The price you pay is the total you will ever pay.",
-        detail: [
-          "There is no card on file waiting to be charged again.",
-          "Because there is no renewal, there is also no failed-renewal state that could unlock your blocks.",
-        ],
-        description:
-          "Yes — $20 once, nothing recurring, nothing to cancel. The price you pay is the total you will ever pay.",
-        keywords: "subscription one-time payment recurring billing cancel refund",
-      },
-      {
-        slug: "what-the-20-dollars-includes",
-        question: "What do I get for the $20?",
-        answer:
-          "The full product: block any app, site or category; all five unlock difficulty levels including Nuclear Mode; multi-device sync across supported platforms; scheduling, focus sounds and everything else — for life. Nothing is held back for a higher tier, because there is no higher tier.",
-        detail: [
-          "All five difficulty levels, including Nuclear Mode — the hardest lock is not an upsell.",
-          "Three device slots, syncing together.",
-          "Scheduling, bundles, focus sounds, notification blocking and settings lock, all included.",
-        ],
-        description:
-          "Everything: every block type, all five difficulty levels including Nuclear Mode, three synced devices, scheduling and focus sounds.",
-        keywords: "included what get features full lifetime",
-      },
-      {
-        slug: "if-i-stop-paying",
-        question: "If I stop paying, do my active blocks turn off?",
-        answer:
-          "There is nothing to stop paying — WeLockIn is a one-time purchase, not a subscription. Your blocks, including a Nuclear lock, are not tied to an ongoing bill and cannot lapse because a renewal failed. There is no renewal, so there is no way for billing to unlock you.",
-        detail: [
-          "With subscription blockers, an expired card can quietly end your protection. That failure mode does not exist here.",
-          "This matters most for Nuclear Mode: a lock that a billing error could lift would not be a lock.",
-        ],
-        description:
-          "There's nothing to stop paying. Blocks aren't tied to a bill, so a failed renewal can never quietly unlock you.",
-        keywords: "stop paying lapse expire renewal billing nuclear",
       },
     ],
   },

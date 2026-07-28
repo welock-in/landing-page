@@ -1,7 +1,4 @@
-import Link from "next/link";
-
 import { DownloadButton } from "@/components/ui/DownloadButton";
-import { product } from "@/config/site";
 
 /**
  * The closing call to action on every written page.
@@ -12,7 +9,7 @@ import { product } from "@/config/site";
  */
 export function CtaBand({
   title = "Ready to lock in?",
-  subtitle = `Block what's stealing your attention on every device you own. $${product.price} once, yours for life — no subscription.`,
+  subtitle = "Block what's stealing your attention on every device you own, with a lock that holds until you said it would.",
 }: {
   title?: string;
   subtitle?: string;
@@ -22,10 +19,7 @@ export function CtaBand({
       <p className="cp-cta-title">{title}</p>
       <p className="cp-cta-sub">{subtitle}</p>
       <DownloadButton className="cp-cta-btn" tone="onDark" />
-      <p className="cp-cta-fine">
-        Works on macOS, iPhone, iPad and Windows ·{" "}
-        <Link href="/pricing">See what ${product.price} includes</Link>
-      </p>
+      <p className="cp-cta-fine">Works on macOS, iPhone, iPad and Windows</p>
     </aside>
   );
 }

@@ -20,7 +20,7 @@ type DownloadButtonProps = {
    */
   href?: string;
   /**
-   * Fixed label, e.g. "Lock in for life". Omit it to get the download CTA,
+   * Fixed label, e.g. "Lock in". Omit it to get the download CTA,
    * which names the visitor's own platform.
    */
   label?: string;

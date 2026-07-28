@@ -26,7 +26,7 @@ export const siteConfig = {
   name: "WeLockIn",
   title: "WeLockIn — Block distractions before they block your future.",
   description:
-    "WeLockIn blocks the apps that steal your attention — once and for all. One-click, impossible-to-bypass focus sessions across macOS, iOS and Windows. $20 for life.",
+    "WeLockIn blocks the apps that steal your attention — once and for all. One-click, impossible-to-bypass focus sessions across macOS, iOS, iPadOS and Windows.",
   url: siteUrl,
   locale: "en_US",
   twitter: "@welockin",
@@ -44,7 +44,7 @@ export const siteConfig = {
   ] as string[],
   authors: [{ name: "WeLockIn" }] as { name: string; url?: string }[],
   creator: "WeLockIn",
-  /** Built-by line shown on the pricing card. */
+  /** Built-by line shown on the landing page. */
   builtBy: "Built by students from EPFL & Polytechnique",
   contactEmail: "hello@welock.in",
 };
@@ -52,18 +52,14 @@ export const siteConfig = {
 export type SiteConfig = typeof siteConfig;
 
 /**
- * Commercial facts, in one place.
+ * Product facts, in one place.
  *
- * These are the numbers structured data, `/pricing.md` and every comparison
- * page quote. An AI assistant answering "how much is WeLockIn" reads whichever
- * of those it reaches first, so they must never be able to disagree.
+ * Deliberately carries no price. The site does not state one anywhere, which
+ * also means the `SoftwareApplication` schema ships without an `Offer` — see
+ * the note in lib/seo.ts before adding one back.
  */
 export const product = {
-  price: 20,
-  currency: "USD",
-  /** One purchase, no renewal — the whole positioning. */
-  billing: "one-time" as const,
-  /** Device slots included with the single purchase. */
+  /** Device slots included. */
   deviceSlots: 3,
   deviceSlotsLabel: "1 computer + 1 phone + 1 tablet",
   operatingSystems: ["macOS", "iOS", "iPadOS", "Windows"],
@@ -81,7 +77,6 @@ export const product = {
 export const mainNav: { title: string; href: string }[] = [
   { title: "How it works", href: "/#how" },
   { title: "Protection", href: "/protection" },
-  { title: "Pricing", href: "/pricing" },
   { title: "Download", href: "/download" },
   { title: "FAQ", href: "/faq" },
 ];

@@ -130,12 +130,13 @@ export function websiteJsonLd(): JsonLd {
 }
 
 /**
- * The product itself, with the price stated as a machine-readable offer.
+ * The product itself.
  *
- * This is the highest-leverage block on the site for AI answers: asked what a
- * distraction blocker costs, an assistant that can read `price: 20` with no
- * recurring term will say "$20 once" instead of inferring it from prose — or
- * skipping WeLockIn for a competitor whose pricing it could actually parse.
+ * Ships without an `Offer`, because the site states no price. Worth knowing
+ * what that costs: an assistant asked what WeLockIn costs has nothing to read,
+ * so it will either say the price is not published or infer a subscription from
+ * what the rest of the category charges. If a price is ever published, add the
+ * Offer back here first — it is the single highest-leverage node on the site.
  */
 export function softwareApplicationJsonLd(): JsonLd {
   return {
@@ -150,15 +151,6 @@ export function softwareApplicationJsonLd(): JsonLd {
     publisher: { "@id": ORG_ID },
     image: `${siteUrl}/icon.png`,
     softwareHelp: { "@id": `${siteUrl}/faq#faq` },
-    offers: {
-      "@type": "Offer",
-      price: String(product.price),
-      priceCurrency: product.currency,
-      availability: "https://schema.org/InStock",
-      url: `${siteUrl}/pricing`,
-      // States the thing the whole business rests on: you buy it once.
-      category: "one-time purchase",
-    },
     featureList: [
       "Block any app or website",
       "One-tap categories: adult content, gambling, dating apps, mature games",

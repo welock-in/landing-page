@@ -49,7 +49,7 @@ export function ShareBand() {
               size="lg"
               tone="onDark"
               icon="lock"
-              label="Lock in for life"
+              label="Lock in"
               className={styles.cta}
             />
           </div>

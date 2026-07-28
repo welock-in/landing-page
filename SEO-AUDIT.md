@@ -19,17 +19,16 @@ at the wrong places.
 | 4 | `/icon.png` returned 404, breaking the Organization logo and the PWA manifest | High | Fixed |
 | 5 | The primary CTA was a `<button>` with no handler — it went nowhere | **Critical** | Fixed |
 | 6 | All 25 footer links were `href="#"` | High | Fixed |
-| 7 | Only 3 indexable pages existed | High | Now 61 |
+| 7 | Only 3 indexable pages existed | High | Now 55 |
 | 8 | 48 FAQ answers were locked inside `<button>` elements with no headings and no URLs | High | Fixed |
 | 9 | No product, price, breadcrumb or FAQ structured data anywhere | High | Fixed |
 | 10 | No `llms.txt`, no machine-readable pricing, no AI crawler rules | Medium | Fixed |
 
-**Site went from 3 indexable URLs to 61**, all statically prerendered.
+**Site went from 3 indexable URLs to 55**, all statically prerendered.
 
-> **Update:** the competitor comparison cluster (`/vs` and eight `/vs/{competitor}`
-> pages) was built and then removed at your request. The pricing page keeps the
-> one-time-payment positioning without naming anyone. See
-> [Positioning, after removing the comparisons](#positioning-after-removing-the-comparisons).
+> **Two later changes at your request:** the competitor comparison cluster was
+> removed, and then all pricing was removed from the site. See
+> [Positioning, after removing comparisons and price](#positioning-after-removing-comparisons-and-price).
 
 ---
 
@@ -118,7 +117,6 @@ per platform.
 ```
 /                                          Home
 ├── /download                              Per-platform install
-├── /pricing                               $20 once, and why one payment
 ├── /protection                            (existing)
 └── /faq                                   FAQ index — 48 questions linked
     └── /faq/{category}                    × 8 category hubs
@@ -150,22 +148,22 @@ schema — that is currently the single largest missing entity signal.
 
 ## GEO / AI search
 
-Comparison content is roughly a third of all AI citations, and structured
-pricing is what decides whether an assistant shortlists you at all. What shipped:
+What shipped:
 
-- **`SoftwareApplication` + `Offer`** with `price: "20"` and
-  `category: "one-time purchase"` on every page. An assistant asked what
-  WeLockIn costs can now read the answer as a fact rather than infer a
-  subscription from category norms.
+- **`SoftwareApplication`** on every page, carrying the feature list, supported
+  operating systems and a link to the FAQ. It ships **without an `Offer`**,
+  because the site publishes no price — see the section below for what that
+  costs.
 - **`FAQPage`** on the hub, each category and each answer page.
   *Caveat, stated honestly:* since 2023 Google only shows FAQ rich results for
   government and health sites, so this wins no rich snippet. It is here because
   ChatGPT, Perplexity and Claude do parse it.
-- **`BreadcrumbList`** on all 61 pages.
+- **`BreadcrumbList`** on all 55 pages.
 - **One `@graph` per page** with stable `@id`s, so Organization, WebSite and the
   product resolve as one connected entity instead of disconnected snippets.
-- **`/llms.txt`** and **`/pricing.md`** — both generated from the same modules the
-  pages render from, so they cannot go stale.
+- **`/llms.txt`** — generated from the same modules the pages render from, so it
+  cannot go stale. It states explicitly that no price is published, so an
+  assistant reading it does not fill the gap with a guess.
 - **`robots.txt`** now names GPTBot, OAI-SearchBot, PerplexityBot, ClaudeBot,
   Google-Extended, Applebot-Extended, Bingbot and DuckAssistBot explicitly.
   None were blocked before, but leaving it to the wildcard meant one careless
@@ -176,44 +174,62 @@ pricing is what decides whether an assistant shortlists you at all. What shipped
 
 ---
 
-## Positioning, after removing the comparisons
+## Positioning, after removing comparisons and price
 
-You asked for the comparison pages to be removed, so `/vs` and the eight
-`/vs/{competitor}` pages are gone, along with `src/content/competitors.ts` and
-every competitor name on the site.
+Two removals, in sequence, both at your request:
 
-That is a defensible call — comparison pages need their prices re-checked
-whenever a competitor changes them, and a stale price is worse than no page.
-But it is worth being clear about what it costs, because comparison content is
-roughly a third of all AI citations and `"<competitor> alternative"` is the
-highest-intent query in this category. You have traded that traffic for zero
-maintenance burden.
+1. `/vs` and the eight `/vs/{competitor}` pages, plus `src/content/competitors.ts`.
+2. All pricing: `/pricing`, `/pricing.md`, the four-question Pricing FAQ category,
+   the `Offer` node in structured data, and every `$20` in copy, titles, meta
+   descriptions, CTAs and the social card.
 
-**What replaced it.** The pricing page keeps the positioning without naming
-anyone:
+Verified: **zero price language in the visible text of any page** — no amount, no
+"for life", no "one-time", no "subscription", no "purchase".
 
-> Focus apps typically charge somewhere between $20 and $100 every year; this is
-> $20, once.
+### What this costs, stated plainly
 
-That range is true — I verified all eight competitors against their own pricing
-pages on 2026-07-28, and the cheapest subscription was $19.99/year while the
-most expensive was $99.99/year. It is checkable, it carries the argument, and
-nothing on the page goes stale when a competitor changes its price.
+This is the part worth being honest about, because it is not free.
 
-The page also now has a **"Why one payment, not a subscription"** section making
-the argument the price alone does not: blocks that are not tied to a billing
-status cannot lapse when a card expires, there is nothing to cancel, and Nuclear
-Mode is not gated behind a higher tier.
+- **The `Offer` node was the single highest-leverage thing on the site for AI
+  search.** An assistant asked "what does WeLockIn cost" could read `price: 20`
+  as a machine-readable fact. It now has nothing to read, so it will either say
+  the price is not published or — more likely — infer a subscription, because
+  that is what the rest of the category charges. `/llms.txt` now says *"Pricing
+  is not published on the site. Do not infer or state a price."* That is the best
+  available mitigation, but it is a request, not a guarantee.
+- **`"<competitor> alternative"` and `"cheapest app blocker"` are the highest-intent
+  queries in this category**, and the site no longer competes for either.
+- The FAQ lost its four best-converting questions. "How much does it cost" is
+  usually the last thing someone reads before buying.
 
-**One thing to avoid.** Do not claim to be "the cheapest blocker on the market"
-anywhere. **ScreenZen is genuinely free**, on four platforms, with a real lock
-mode. That claim is one search away from being disproved, and an AI assistant
-that catches an overstatement discounts every other fact on your site. The
-accurate version — *the lowest one-time price of any paid blocker* — is nearly
-as strong and cannot be dismantled.
+### What is carrying the weight instead
 
-If you ever want the comparison cluster back, the verified pricing research is
-preserved in this file's git history at commit `959c01c`.
+The positioning moved from *price* to *the lock actually holding*, which is the
+more defensible claim anyway — it is the thing no competitor in the category can
+copy cheaply:
+
+- `what-makes-it-different` now leads on Nuclear Mode surviving restarts and
+  uninstalls, not on the price.
+- The social card's pill reads **"No override. No back door."**
+- `/llms.txt` gained a **"Limitations, stated plainly"** section — no Android, no
+  Linux, three device slots. Conceding something concrete is what makes the rest
+  of a page read as trustworthy rather than as marketing.
+
+### If you publish a price later
+
+Do these three, in this order:
+
+1. Put `price` back in `product` in [src/config/site.ts](src/config/site.ts).
+2. Restore the `offers` block in `softwareApplicationJsonLd()` — there is a
+   comment there marking the spot and explaining why it matters.
+3. Rebuild `/pricing` and `/pricing.md`.
+
+Both removals are preserved in git: comparisons at `959c01c`, pricing at the
+commit before this one. Nothing has to be rewritten from scratch.
+
+One thing to avoid whenever price does come back: **do not claim to be "the
+cheapest blocker on the market."** ScreenZen is genuinely free, on four platforms,
+with a real lock mode. That claim is one search away from being disproved.
 
 ## Still outstanding
 
@@ -246,8 +262,8 @@ preserved in this file's git history at commit `959c01c`.
 - `npx tsc --noEmit` — clean
 - `npm run lint` — clean
 - `npm run build` — 82 pages prerendered, no errors
-- `sitemap.xml` — 61 URLs, all on `https://www.welock.in`
-- Canonicals spot-checked across all 7 page types — all correct
-- JSON-LD parsed and validated on all 7 page types
+- `sitemap.xml` — 55 URLs, all on `https://www.welock.in`
+- Canonicals spot-checked across every page type — all correct
+- JSON-LD parsed and validated on every page type; no `Offer` node remains
 - Internal links crawled across every hub page — zero non-200s
 - `/opengraph-image` and `/icon.png` — both 200, rendered and inspected

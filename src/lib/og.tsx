@@ -216,7 +216,7 @@ export async function ogCard({ title, eyebrow, subtitle }: OgCardInput) {
                 display: "flex",
               }}
             />
-            $20 once. Yours for life.
+            No override. No back door.
           </div>
 
           <div style={{ fontSize: 22, color: STONE }}>macOS · iOS · Windows</div>

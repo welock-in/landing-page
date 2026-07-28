@@ -23,7 +23,6 @@ const COLUMNS = [
     links: [
       { label: "How it works", href: "/#how" },
       { label: "Protection", href: "/protection" },
-      { label: "Pricing", href: "/pricing" },
       { label: "Download", href: "/download" },
       { label: "What you can block", href: "/faq/what-you-can-block" },
     ],
@@ -43,8 +42,7 @@ const COLUMNS = [
     links: [
       { label: "Full FAQ", href: "/faq" },
       { label: "Getting started", href: "/faq/getting-started" },
-      { label: "Nuclear Mode", href: "/faq/nuclear-mode" },
-      { label: "Unlock levels", href: "/faq/unlock-difficulty-levels" },
+      { label: "Devices & platforms", href: "/faq/devices-and-platforms" },
       { label: "Troubleshooting", href: "/faq/troubleshooting" },
     ],
   },
@@ -61,7 +59,10 @@ const COLUMNS = [
         label: "Can it be bypassed?",
         href: "/faq/nuclear-mode/bypass-by-deleting-the-app",
       },
-      { label: "Which level to choose", href: "/faq/unlock-difficulty-levels/which-level-to-choose" },
+      {
+        label: "Which level to choose",
+        href: "/faq/unlock-difficulty-levels/which-level-to-choose",
+      },
     ],
   },
   {
@@ -70,8 +71,8 @@ const COLUMNS = [
       { label: "Contact us", href: "mailto:hello@welock.in" },
       { label: "Report a bug", href: "/faq/troubleshooting/contact-support" },
       { label: "Setup guide", href: "/faq/getting-started/first-time-setup" },
-      { label: "Privacy", href: "/faq/privacy" },
       { label: "Built by students", href: "/faq/getting-started/built-by-students" },
+      { label: "Privacy", href: "/faq/privacy" },
     ],
   },
 ] as const;

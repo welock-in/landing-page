@@ -42,7 +42,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     entry("/", 1, "weekly"),
     entry("/download", 0.9, "monthly"),
-    entry("/pricing", 0.9, "monthly"),
     entry("/protection", 0.9, "monthly"),
     entry("/faq", 0.8, "weekly"),
     ...faqCategories.map((category) =>

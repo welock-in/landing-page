@@ -17,14 +17,14 @@ import {
 export const metadata: Metadata = buildMetadata({
   title: "FAQ — Everything about locking in",
   description:
-    "How WeLockIn blocks apps and sites, the five unlock difficulty levels, Nuclear Mode, supported devices, privacy and pricing — all answered.",
+    "How WeLockIn blocks apps and sites, the five unlock difficulty levels, Nuclear Mode, supported devices, privacy and troubleshooting — answered.",
   path: "/faq",
   keywords: [
     "WeLockIn FAQ",
     "app blocker questions",
     "nuclear mode",
     "unlock difficulty levels",
-    "one-time payment focus app",
+    "app blocker that cannot be bypassed",
   ],
 });
 
