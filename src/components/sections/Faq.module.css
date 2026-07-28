@@ -114,3 +114,12 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Link out of a teaser answer to that question's own page. */
+.more {
+  color: var(--red);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}

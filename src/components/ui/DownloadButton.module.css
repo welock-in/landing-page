@@ -11,6 +11,9 @@
   font-weight: 700;
   font-size: 16px;
   font-family: inherit;
+  /* Renders as an <a> now, so the underline and inherited link colour that
+     come with that have to be turned off explicitly. */
+  text-decoration: none;
   cursor: pointer;
   background: #f3ddd6;
   border: 2px solid var(--ink);

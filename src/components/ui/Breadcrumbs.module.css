@@ -1,0 +1,42 @@
+.wrap {
+  margin-bottom: 22px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.item a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.item a:hover {
+  color: var(--red);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.item [aria-current="page"] {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.sep {
+  margin: 0 9px;
+  opacity: 0.45;
+}

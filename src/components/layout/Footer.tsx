@@ -1,30 +1,72 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 import { LogoIcon } from "@/components/ui/icons";
 import "./Footer.css";
 
+/**
+ * Footer navigation.
+ *
+ * Every one of these used to be `href="#"` — twenty-five links on every page of
+ * the site that went nowhere. That is a dead end for a reader and, worse, it
+ * meant the footer passed no link equity at all to the pages it names.
+ *
+ * The rule here is now: a link exists only if its page exists. Nothing is
+ * listed to look complete. Where a page is genuinely missing (privacy, terms),
+ * it is absent rather than linked to a 404 — see the audit notes.
+ */
 const COLUMNS = [
   {
     title: "Product",
-    links: ["How it works", "Features", "All devices", "Pricing", "FAQ"],
+    links: [
+      { label: "How it works", href: "/#how" },
+      { label: "Protection", href: "/protection" },
+      { label: "Pricing", href: "/pricing" },
+      { label: "Download", href: "/download" },
+      { label: "Compare", href: "/vs" },
+    ],
   },
   {
     title: "Download",
-    links: ["macOS", "iPhone & iPad", "Windows", "Android", "Linux"],
+    links: [
+      { label: "macOS", href: "/download#macos" },
+      { label: "iPhone & iPad", href: "/download#ios" },
+      { label: "Windows", href: "/download#windows" },
+      { label: "Android — coming soon", href: "/faq/devices-and-platforms/android-support" },
+      { label: "All devices", href: "/faq/devices-and-platforms/supported-devices" },
+    ],
+  },
+  {
+    title: "Answers",
+    links: [
+      { label: "Full FAQ", href: "/faq" },
+      { label: "Getting started", href: "/faq/getting-started" },
+      { label: "Nuclear Mode", href: "/faq/nuclear-mode" },
+      { label: "Unlock levels", href: "/faq/unlock-difficulty-levels" },
+      { label: "Troubleshooting", href: "/faq/troubleshooting" },
+    ],
+  },
+  {
+    title: "Compare",
+    links: [
+      { label: "vs Freedom", href: "/vs/freedom" },
+      { label: "vs Cold Turkey", href: "/vs/cold-turkey" },
+      { label: "vs Opal", href: "/vs/opal" },
+      { label: "vs Forest", href: "/vs/forest" },
+      { label: "All comparisons", href: "/vs" },
+    ],
   },
   {
     title: "Support",
-    links: ["Help center", "Contact us", "Setup guide", "Report a bug", "System status"],
-  },
-  {
-    title: "Company",
-    links: ["Our story", "The students behind it", "Student reviews", "Press kit", "Affiliates"],
-  },
-  {
-    title: "Legal",
-    links: ["Privacy policy", "Terms of use", "Cookie policy", "Cookie settings", "Refund policy"],
+    links: [
+      { label: "Contact us", href: "mailto:hello@welock.in" },
+      { label: "Report a bug", href: "/faq/troubleshooting/contact-support" },
+      { label: "Setup guide", href: "/faq/getting-started/first-time-setup" },
+      { label: "Privacy", href: "/faq/privacy" },
+      { label: "Built by students", href: "/faq/getting-started/built-by-students" },
+    ],
   },
 ] as const;
 
@@ -136,19 +178,26 @@ export function Footer() {
 
         <div className="wlf-cols">
           {COLUMNS.map((col) => (
-            <nav key={col.title} className="wlf-col">
+            <nav key={col.title} className="wlf-col" aria-label={col.title}>
               <div className="wlf-col-title">{col.title}</div>
               <ul>
-                {col.links.map((label) => (
-                  <li key={label}>
-                    <a href="#">{label}</a>
+                {col.links.map((link) => (
+                  <li key={link.href}>
+                    {link.href.startsWith("mailto:") ? (
+                      <a href={link.href}>{link.label}</a>
+                    ) : (
+                      <Link href={link.href}>{link.label}</Link>
+                    )}
                   </li>
                 ))}
               </ul>
             </nav>
           ))}
 
-          <nav className="wlf-social-col">
+          {/* TODO: the only placeholder links left on the site. Swap each `#`
+              for the real profile URL, then add the same URLs to `sameAs` in
+              organizationJsonLd() so the accounts resolve to this brand. */}
+          <nav className="wlf-social-col" aria-label="Social media">
             <div className="wlf-col-title">Follow us</div>
             <div className="wlf-socials">
               {SOCIALS.map(({ name, icon: Icon }) => (

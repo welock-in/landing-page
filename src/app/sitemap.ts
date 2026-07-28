@@ -1,31 +1,58 @@
 import type { MetadataRoute } from "next";
 
+import { competitorPath, competitors } from "@/content/competitors";
+import {
+  allFaqEntries,
+  faqCategories,
+  faqCategoryPath,
+  faqEntryPath,
+} from "@/content/faqPage";
 import { absoluteUrl } from "@/lib/utils";
 
 /**
- * Sitemap. One entry per marketing route. As routes are added (e.g. /blog,
- * /changelog), push them here — or derive from the data layer for
- * large/dynamic sets.
+ * The date the content behind these URLs last meaningfully changed.
+ *
+ * Deliberately a constant rather than `new Date()`. Stamping every entry with
+ * build time told crawlers the whole site changed on every deploy, including
+ * deploys that touched one CSS file — which trains them to stop believing
+ * `lastmod` at all. Bump this when the content actually changes.
+ */
+const CONTENT_UPDATED = new Date("2026-07-28T00:00:00.000Z");
+
+type ChangeFrequency = MetadataRoute.Sitemap[number]["changeFrequency"];
+
+/**
+ * Sitemap, derived from the same data that builds the routes.
+ *
+ * Nothing is listed by hand: adding an FAQ entry or a comparison adds its URL
+ * here automatically, so the sitemap cannot fall behind the site — which is
+ * how it came to advertise three URLs on a domain that does not resolve.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
+  const entry = (
+    path: string,
+    priority: number,
+    changeFrequency: ChangeFrequency,
+  ) => ({
+    url: absoluteUrl(path),
+    lastModified: CONTENT_UPDATED,
+    changeFrequency,
+    priority,
+  });
+
   return [
-    {
-      url: absoluteUrl("/"),
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: absoluteUrl("/protection"),
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl("/faq"),
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    entry("/", 1, "weekly"),
+    entry("/download", 0.9, "monthly"),
+    entry("/pricing", 0.9, "monthly"),
+    entry("/protection", 0.9, "monthly"),
+    entry("/vs", 0.8, "monthly"),
+    ...competitors.map((c) => entry(competitorPath(c.slug), 0.7, "monthly")),
+    entry("/faq", 0.8, "weekly"),
+    ...faqCategories.map((category) =>
+      entry(faqCategoryPath(category.slug), 0.6, "monthly"),
+    ),
+    ...allFaqEntries.map(({ category, entry: item }) =>
+      entry(faqEntryPath(category.slug, item.slug), 0.5, "monthly"),
+    ),
   ];
 }

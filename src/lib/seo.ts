@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 
-import { siteConfig, siteUrl } from "@/config/site";
+import { product, siteConfig, siteUrl } from "@/config/site";
 
 type SeoInput = {
   title?: string;
   description?: string;
   /** Site-relative path, e.g. "/pricing". Becomes the canonical URL. */
   path?: string;
+  /**
+   * Absolute URL of a social image. Omit it and the `opengraph-image` file
+   * convention supplies one, with the correct dimensions and alt text — which
+   * is why this is no longer defaulted here.
+   */
   image?: string;
   noIndex?: boolean;
   keywords?: string[];
@@ -21,17 +26,22 @@ export function buildMetadata({
   title,
   description = siteConfig.description,
   path = "/",
-  image = siteConfig.ogImage,
+  image,
   noIndex = false,
-  keywords = siteConfig.keywords,
+  keywords,
 }: SeoInput = {}): Metadata {
   const url = new URL(path, siteUrl).toString();
   const resolvedTitle = title ?? siteConfig.title;
+  const images = image
+    ? [{ url: image, width: 1200, height: 630, alt: resolvedTitle }]
+    : undefined;
 
   return {
     title: resolvedTitle,
     description,
-    keywords,
+    // Only set where a page has genuinely distinct terms. Repeating one global
+    // list on every page says nothing about any of them.
+    ...(keywords ? { keywords } : {}),
     alternates: { canonical: url },
     openGraph: {
       type: "website",
@@ -40,13 +50,13 @@ export function buildMetadata({
       url,
       title: resolvedTitle,
       description,
-      images: [{ url: image, width: 1200, height: 630, alt: resolvedTitle }],
+      ...(images ? { images } : {}),
     },
     twitter: {
       card: "summary_large_image",
       title: resolvedTitle,
       description,
-      images: [image],
+      ...(image ? { images: [image] } : {}),
       creator: siteConfig.twitter,
     },
     robots: noIndex
@@ -65,23 +75,173 @@ export function buildMetadata({
   };
 }
 
-/** JSON-LD Organization schema for rich results. */
-export function organizationJsonLd() {
+/* -------------------------------------------------------------------------- */
+/*  Structured data                                                            */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Stable node identifiers.
+ *
+ * Every schema block on the site points at these rather than repeating the
+ * organisation and product inline. That is what turns a scatter of unrelated
+ * JSON-LD snippets into one graph a search engine — or a language model — can
+ * actually resolve: the FAQ on a question page knows which product it is about,
+ * and the product knows who publishes it.
+ */
+const ORG_ID = `${siteUrl}/#organization`;
+const SITE_ID = `${siteUrl}/#website`;
+const APP_ID = `${siteUrl}/#software`;
+
+type JsonLd = Record<string, unknown>;
+
+export function organizationJsonLd(): JsonLd {
   return {
-    "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": ORG_ID,
     name: siteConfig.name,
-    url: siteConfig.url,
-    logo: `${siteUrl}/icon.png`,
+    url: `${siteUrl}/`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteUrl}/icon.png`,
+      width: 512,
+      height: 512,
+    },
+    description: siteConfig.description,
+    email: siteConfig.contactEmail,
+    foundingLocation: { "@type": "Place", name: "Lausanne, Switzerland" },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      email: siteConfig.contactEmail,
+      availableLanguage: ["English", "French"],
+    },
   };
 }
 
-/** JSON-LD WebSite schema. */
-export function websiteJsonLd() {
+export function websiteJsonLd(): JsonLd {
   return {
-    "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": SITE_ID,
     name: siteConfig.name,
-    url: siteConfig.url,
+    url: `${siteUrl}/`,
+    publisher: { "@id": ORG_ID },
+    inLanguage: "en",
   };
+}
+
+/**
+ * The product itself, with the price stated as a machine-readable offer.
+ *
+ * This is the highest-leverage block on the site for AI answers: asked what a
+ * distraction blocker costs, an assistant that can read `price: 20` with no
+ * recurring term will say "$20 once" instead of inferring it from prose — or
+ * skipping WeLockIn for a competitor whose pricing it could actually parse.
+ */
+export function softwareApplicationJsonLd(): JsonLd {
+  return {
+    "@type": "SoftwareApplication",
+    "@id": APP_ID,
+    name: siteConfig.name,
+    url: `${siteUrl}/`,
+    applicationCategory: product.category,
+    applicationSubCategory: "Distraction blocker",
+    operatingSystem: product.operatingSystems.join(", "),
+    description: siteConfig.description,
+    publisher: { "@id": ORG_ID },
+    image: `${siteUrl}/icon.png`,
+    softwareHelp: { "@id": `${siteUrl}/faq#faq` },
+    offers: {
+      "@type": "Offer",
+      price: String(product.price),
+      priceCurrency: product.currency,
+      availability: "https://schema.org/InStock",
+      url: `${siteUrl}/pricing`,
+      // States the thing the whole business rests on: you buy it once.
+      category: "one-time purchase",
+    },
+    featureList: [
+      "Block any app or website",
+      "One-tap categories: adult content, gambling, dating apps, mature games",
+      "Five unlock difficulty levels",
+      "Nuclear Mode — locks until a date you set, with no override",
+      "Survives restarts and uninstalling the app",
+      "Syncs across three devices",
+      "Recurring schedules",
+      "Notification blocking",
+      "On-device filtering — no browsing logs",
+      "Focus sounds",
+    ],
+  };
+}
+
+export function breadcrumbJsonLd(trail: { name: string; path: string }[]): JsonLd {
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: trail.map((crumb, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: crumb.name,
+      item: new URL(crumb.path, siteUrl).toString(),
+    })),
+  };
+}
+
+/**
+ * FAQ structured data.
+ *
+ * Worth being clear-eyed about: since 2023 Google has only shown FAQ rich
+ * results for government and health sites, so this will not win a rich snippet.
+ * It earns its place because ChatGPT, Perplexity and Claude do parse it, and a
+ * question marked up as a question is the most extractable shape there is.
+ */
+export function faqPageJsonLd(
+  items: { question: string; answer: string }[],
+  path: string,
+): JsonLd {
+  const url = new URL(path, siteUrl).toString();
+  return {
+    "@type": "FAQPage",
+    "@id": `${url}#faq`,
+    url,
+    isPartOf: { "@id": SITE_ID },
+    about: { "@id": APP_ID },
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
+}
+
+/** A page that exists to compare WeLockIn against one named alternative. */
+export function comparisonJsonLd({
+  path,
+  headline,
+  description,
+  competitor,
+}: {
+  path: string;
+  headline: string;
+  description: string;
+  competitor: string;
+}): JsonLd {
+  const url = new URL(path, siteUrl).toString();
+  return {
+    "@type": "WebPage",
+    "@id": url,
+    url,
+    name: headline,
+    description,
+    isPartOf: { "@id": SITE_ID },
+    about: { "@id": APP_ID },
+    mentions: [
+      { "@type": "SoftwareApplication", name: competitor },
+      { "@id": APP_ID },
+    ],
+  };
+}
+
+/** Wrap nodes into one `@graph` so they resolve as a single connected entity. */
+export function jsonLdGraph(...nodes: JsonLd[]): string {
+  return JSON.stringify({ "@context": "https://schema.org", "@graph": nodes });
 }

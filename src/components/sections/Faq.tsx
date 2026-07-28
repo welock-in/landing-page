@@ -8,10 +8,20 @@ import { CtaRow } from "@/components/ui/CtaRow";
 import { DownloadButton } from "@/components/ui/DownloadButton";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ArrowRightIcon, ChevronIcon } from "@/components/ui/icons";
-import { faqs } from "@/content/faqs";
+import { homeFaqs } from "@/content/faqs";
+import { faqEntryPath } from "@/content/faqPage";
 import { cn } from "@/lib/utils";
 import styles from "./Faq.module.css";
 
+/**
+ * The landing page's FAQ teaser.
+ *
+ * The five questions are pulled from the same source as the FAQ pages rather
+ * than kept as a separate copy — the copy had already drifted, so the homepage
+ * and `/faq` were answering the same question two different ways. Each answer
+ * now also links to its own page, which is five crawlable links into the FAQ
+ * cluster from the site's strongest page.
+ */
 export function Faq() {
   const [open, setOpen] = useState<number | null>(null);
 
@@ -20,11 +30,11 @@ export function Faq() {
       <Container>
         <SectionHeading eyebrow="FAQ" title="Frequently asked questions" />
         <div className={styles.grid}>
-          {faqs.map((faq, i) => {
+          {homeFaqs.map((faq, i) => {
             const isOpen = open === i;
             return (
               <div
-                key={faq.question}
+                key={faq.entry.slug}
                 className={cn(styles.item, isOpen && styles.itemOpen)}
               >
                 <button
@@ -33,13 +43,21 @@ export function Faq() {
                   aria-expanded={isOpen}
                   onClick={() => setOpen(isOpen ? null : i)}
                 >
-                  {faq.question}
+                  {faq.entry.question}
                   <span className={styles.chev}>
                     <ChevronIcon />
                   </span>
                 </button>
                 <div className={styles.answer}>
-                  <p>{faq.answer}</p>
+                  <p>
+                    {faq.entry.answer}{" "}
+                    <Link
+                      className={styles.more}
+                      href={faqEntryPath(faq.categorySlug, faq.entry.slug)}
+                    >
+                      More on this
+                    </Link>
+                  </p>
                 </div>
               </div>
             );

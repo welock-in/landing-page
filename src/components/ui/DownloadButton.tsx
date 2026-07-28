@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import {
   AppleIcon,
   ArrowRightIcon,
@@ -9,6 +11,14 @@ import styles from "./DownloadButton.module.css";
 
 type DownloadButtonProps = {
   className?: string;
+  /**
+   * Where the CTA goes. Defaults to `/download`.
+   *
+   * This used to render a `<button>` with no handler, so the site's primary
+   * call to action led nowhere at all — no conversion, and no internal link
+   * from any page to the one page that matters most.
+   */
+  href?: string;
   /**
    * Fixed label, e.g. "Lock in for life". Omit it to get the download CTA,
    * which names the visitor's own platform.
@@ -39,6 +49,7 @@ type DownloadButtonProps = {
  */
 export function DownloadButton({
   className,
+  href = "/download",
   label,
   size = "default",
   icon = "apple",
@@ -86,7 +97,8 @@ export function DownloadButton({
   );
 
   return (
-    <button
+    <Link
+      href={href}
       className={cn(
         styles.btn,
         size === "compact" && styles.compact,
@@ -94,13 +106,12 @@ export function DownloadButton({
         tone === "onDark" && styles.onDark,
         className,
       )}
-      type="button"
     >
       <span className={styles.main}>{content}</span>
       <span className={styles.hover} aria-hidden="true">
         {content}
         <ArrowRightIcon width={16} height={16} strokeWidth={2.4} />
       </span>
-    </button>
+    </Link>
   );
 }

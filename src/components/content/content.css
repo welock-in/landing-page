@@ -1,0 +1,261 @@
+/**
+ * Shared chrome for the written pages — FAQ hubs, question pages, pricing and
+ * comparisons. Warm paper, ink type, one red accent, matching the landing page
+ * rather than inventing a second visual language for the long-tail pages.
+ */
+
+.cp {
+  padding: 120px 0 96px;
+}
+
+.cp-wrap {
+  width: min(100% - calc(var(--gutter) * 2), 820px);
+  margin: 0 auto;
+}
+
+/* Comparison tables and the pricing grid need more room than reading width. */
+.cp-wrap-wide {
+  width: min(100% - calc(var(--gutter) * 2), 1080px);
+  margin: 0 auto;
+}
+
+.cp-eyebrow {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--rose);
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.cp-h1 {
+  margin: 0 0 18px;
+  font-size: clamp(32px, 5vw, 50px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.cp-lead {
+  margin: 0 0 14px;
+  font-size: clamp(18px, 2.2vw, 21px);
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.cp-sub {
+  margin: 0 0 40px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* The direct answer, set apart so it reads as the answer and can be lifted
+   out of the page whole — by a reader skimming or by anything parsing it. */
+.cp-answer {
+  margin: 0 0 36px;
+  padding: 26px 28px;
+  border-left: 3px solid var(--red);
+  border-radius: 0 16px 16px 0;
+  background: var(--card);
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.cp-h2 {
+  margin: 48px 0 18px;
+  font-size: clamp(23px, 3vw, 29px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.cp-h3 {
+  margin: 32px 0 12px;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.cp-p {
+  margin: 0 0 16px;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.cp-list {
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.cp-list li {
+  position: relative;
+  margin-bottom: 12px;
+  padding-left: 26px;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.cp-list li::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--red);
+}
+
+/* ---- link cards (related questions, category grids) ---- */
+
+.cp-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
+  gap: 14px;
+  margin: 0 0 20px;
+}
+
+.cp-card {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 20px 22px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.cp-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--red);
+  box-shadow: 0 10px 26px rgba(26, 23, 20, 0.08);
+}
+
+.cp-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.cp-card-meta {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ---- tables ---- */
+
+.cp-table-scroll {
+  overflow-x: auto;
+  margin: 0 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+}
+
+.cp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.cp-table th,
+.cp-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.cp-table thead th {
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.cp-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.cp-table .cp-us {
+  font-weight: 700;
+}
+
+.cp-table tr.cp-row-us {
+  background: var(--rose);
+}
+
+.cp-note {
+  margin: 0 0 32px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* ---- closing CTA band ---- */
+
+.cp-cta {
+  margin-top: 56px;
+  padding: 40px 32px;
+  border-radius: 24px;
+  background: var(--ink);
+  color: var(--card);
+  text-align: center;
+}
+
+.cp-cta-title {
+  margin: 0 0 8px;
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 600;
+  color: var(--card);
+}
+
+.cp-cta-sub {
+  margin: 0 0 24px;
+  font-size: 16px;
+  color: rgba(251, 248, 242, 0.72);
+}
+
+.cp-cta-btn {
+  display: inline-flex;
+}
+
+.cp-cta-fine {
+  margin: 18px 0 0;
+  font-size: 13px;
+  color: rgba(251, 248, 242, 0.55);
+}
+
+.cp-cta-fine a {
+  color: rgba(251, 248, 242, 0.85);
+}
+
+/* ---- inline prose links ---- */
+
+.cp-p a,
+.cp-list a,
+.cp-sub a {
+  color: var(--red);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .cp {
+    padding: 100px 0 72px;
+  }
+
+  .cp-answer {
+    padding: 20px 20px;
+    font-size: 17px;
+  }
+}

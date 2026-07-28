@@ -1,9 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import { Figtree, EB_Garamond } from "next/font/google";
 
+import { JsonLd } from "@/components/ui/JsonLd";
 import { siteConfig, siteUrl } from "@/config/site";
 import { OS_DETECT_SCRIPT } from "@/lib/platform";
-import { buildMetadata, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
+import {
+  buildMetadata,
+  jsonLdGraph,
+  organizationJsonLd,
+  websiteJsonLd,
+} from "@/lib/seo";
 import "./globals.css";
 
 const figtree = Figtree({
@@ -57,13 +63,10 @@ export default function RootLayout({
             platform label — see OS_DETECT_SCRIPT. */}
         <script dangerouslySetInnerHTML={{ __html: OS_DETECT_SCRIPT }} />
         {children}
-        <script
-          type="application/ld+json"
-          // Structured data for search engines.
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([organizationJsonLd(), websiteJsonLd()]),
-          }}
-        />
+        {/* Site-wide entities. Individual pages add their own nodes — product,
+            breadcrumbs, FAQ — which reference these two by @id rather than
+            restating them. */}
+        <JsonLd graph={jsonLdGraph(organizationJsonLd(), websiteJsonLd())} />
       </body>
     </html>
   );

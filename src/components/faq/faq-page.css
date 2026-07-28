@@ -1,57 +1,12 @@
-/* Full FAQ page. Standalone chrome: a back bar instead of the site navbar. */
-.fqTop {
-  padding: 22px 0;
-}
-
-.fq-topBar {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.fq-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #2a2723;
-  transition: color 0.15s ease;
-}
-
-.fq-back svg {
-  transition: transform 0.2s ease;
-}
-
-.fq-back:hover {
-  color: var(--red);
-}
-
-.fq-back:hover svg {
-  transform: translateX(-3px);
-}
-
-.fq-brand {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  font-weight: 700;
-  font-size: 20px;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-}
-
-.fq-brandAccent {
-  color: #a42b1b;
-}
+/* Full FAQ page.
+   The standalone back-bar chrome this file used to carry is gone — the page
+   now uses the site navbar, so it carries the download CTA and the links to
+   every other hub like every other page does. */
 
 /* ---- page head ---- */
 .fq {
-  padding: 44px 0 110px;
+  /* Clears the fixed navbar. */
+  padding: 120px 0 96px;
 }
 
 .fq-wrap {
@@ -160,21 +115,15 @@
 }
 
 .fq-catHead {
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-  text-align: left;
-  padding: 24px 28px;
+  padding: 22px 28px 14px;
 }
 
 .fq-catHead:focus-visible,
-.fq-qBtn:focus-visible,
+.fq-qLink:focus-visible,
 .fq-input:focus-visible,
 .fq-clear:focus-visible {
   outline: 2px solid var(--red);
@@ -182,20 +131,25 @@
 }
 
 .fq-catName {
+  margin: 0;
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--ink);
 }
 
-.fq-catMeta {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
+.fq-catName a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.fq-catName a:hover {
+  color: var(--red);
 }
 
 .fq-catCount {
+  flex-shrink: 0;
   font-size: 13px;
   font-weight: 600;
   color: var(--muted);
@@ -204,99 +158,45 @@
   padding: 4px 11px;
 }
 
-.fq-catChev {
-  display: inline-flex;
-  color: var(--red);
-  transition: transform 0.25s ease;
+/* ---- questions ----
+   Every question is a link to its own page rather than an accordion that
+   opens in place, so the hub actually routes people (and crawlers) onward
+   instead of ending the journey here. */
+
+.fq-qList {
+  margin: 0;
+  padding: 0 28px 10px;
+  list-style: none;
 }
 
-.fq-cat.open .fq-catChev {
-  transform: rotate(90deg);
-}
-
-/* 0fr -> 1fr reveal: animates height without measuring scrollHeight. */
-.fq-catBody {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s ease;
-}
-
-.fq-cat.open .fq-catBody {
-  grid-template-rows: 1fr;
-}
-
-.fq-catBodyIn {
-  overflow: hidden;
-  min-height: 0;
-}
-
-.fq-catList {
-  padding: 0 28px 14px;
-  display: flex;
-  flex-direction: column;
-}
-
-/* ---- questions ---- */
-.fq-q {
+.fq-qList li {
   border-top: 1px solid var(--border);
 }
 
-.fq-qBtn {
-  width: 100%;
+.fq-qLink {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-  text-align: left;
-  padding: 18px 2px;
-  font-size: 16.5px;
-  font-weight: 600;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 2px;
+  text-decoration: none;
   color: var(--ink);
   transition: color 0.15s ease;
 }
 
-.fq-qBtn:hover {
+.fq-qLink:hover {
   color: var(--red);
 }
 
-.fq-qChev {
-  flex-shrink: 0;
-  display: inline-flex;
-  margin-top: 3px;
-  color: var(--red);
-  transition: transform 0.25s ease;
+.fq-qText {
+  font-size: 16.5px;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
-.fq-q.open .fq-qChev {
-  transform: rotate(90deg);
-}
-
-.fq-qAns {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.28s ease;
-}
-
-.fq-q.open .fq-qAns {
-  grid-template-rows: 1fr;
-}
-
-.fq-qAns > p {
-  overflow: hidden;
-  min-height: 0;
-  margin: 0;
-  padding: 0 26px 0 2px;
+.fq-qTeaser {
+  font-size: 14.5px;
+  line-height: 1.55;
   color: var(--muted);
-  font-size: 15.5px;
-  line-height: 1.65;
-}
-
-.fq-q.open .fq-qAns > p {
-  padding-bottom: 20px;
 }
 
 /* ---- empty state ---- */
