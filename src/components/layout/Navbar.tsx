@@ -65,7 +65,7 @@ export function Navbar({ links = mainNav }: { links?: NavLink[] }) {
           </div>
 
           <div className={styles.actions}>
-            <DownloadButton label="Download for macOS" size="compact" />
+            <DownloadButton size="compact" />
           </div>
 
           <button
@@ -101,10 +101,7 @@ export function Navbar({ links = mainNav }: { links?: NavLink[] }) {
             </a>
           ))}
           <div className={styles.ovCta}>
-            <DownloadButton
-              className={styles.ovCtaBtn}
-              label="Download for macOS"
-            />
+            <DownloadButton className={styles.ovCtaBtn} />
           </div>
         </div>
       </div>

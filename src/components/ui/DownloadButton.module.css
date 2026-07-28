@@ -74,6 +74,35 @@
 .appleIcon {
   width: 24px;
   height: 24px;
+  display: block;
+}
+
+/* ---- adaptive download label ----
+   All three wordings are in the markup; `data-os` on <html> (set inline before
+   paint) picks one. macOS is the default, so a visitor on Android, Linux or
+   with JS off still gets a sensible CTA. */
+.forIos,
+.forWin,
+.glyphWindows {
+  display: none;
+}
+
+:global(html[data-os="ios"]) .forMac,
+:global(html[data-os="windows"]) .forMac {
+  display: none;
+}
+
+:global(html[data-os="ios"]) .forIos,
+:global(html[data-os="windows"]) .forWin {
+  display: inline;
+}
+
+:global(html[data-os="windows"]) .glyphApple {
+  display: none;
+}
+
+:global(html[data-os="windows"]) .glyphWindows {
+  display: block;
 }
 
 .lockIcon {

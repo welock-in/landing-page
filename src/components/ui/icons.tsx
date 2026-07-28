@@ -52,6 +52,14 @@ export function LockIcon({
   );
 }
 
+export function WindowsIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M3 5.6l7.6-1v7.1H3zM11.5 4.5L21 3.2v8.5h-9.5zM3 12.4h7.6v7.1L3 18.4zM11.5 12.4H21v8.4l-9.5-1.3z" />
+    </svg>
+  );
+}
+
 export function DownloadIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Figtree, EB_Garamond } from "next/font/google";
 
 import { siteConfig, siteUrl } from "@/config/site";
+import { OS_DETECT_SCRIPT } from "@/lib/platform";
 import { buildMetadata, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
@@ -52,6 +53,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="bg-bg text-ink">
+        {/* First thing in the body so the download CTA paints with the right
+            platform label — see OS_DETECT_SCRIPT. */}
+        <script dangerouslySetInnerHTML={{ __html: OS_DETECT_SCRIPT }} />
         {children}
         <script
           type="application/ld+json"
