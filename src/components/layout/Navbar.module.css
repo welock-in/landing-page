@@ -88,6 +88,11 @@
   align-items: center;
 }
 
+/* The same CTA for mobile, where .actions collapses into the menu button. */
+.mobileCta {
+  display: none;
+}
+
 .menuBtn {
   display: none;
   background: none;
@@ -154,6 +159,19 @@
     height: 19px;
   }
 
+  .mobileCta {
+    display: flex;
+    /* Takes the slack so the brand stays left and the menu button stays right. */
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  /* Brand + CTA + menu button is a tight fit in a 375px bar; the CTA gives up
+     its side padding first. */
+  .mobileCta button {
+    padding: 0 13px;
+  }
+
   .menuBtn {
     display: flex;
     align-items: center;
@@ -162,7 +180,6 @@
     padding: 0;
     min-width: 44px;
     min-height: 44px;
-    margin-left: auto;
   }
 
   /* Kept mounted at opacity 0 so it can fade back out, not just disappear. */
@@ -266,5 +283,19 @@
   .ovCta {
     transition: none !important;
     transform: none !important;
+  }
+}
+
+/* Narrower than this the three of them stop fitting at all, so the CTA drops
+   to its glyph. The label is the first thing to go — the brand is the domain
+   name and the menu button is the only way into the nav. */
+@media (max-width: 339px) {
+  .mobileCta button {
+    padding: 0;
+    width: 44px;
+  }
+
+  .mobileCta button > span > span {
+    display: none;
   }
 }

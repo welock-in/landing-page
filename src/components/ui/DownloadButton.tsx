@@ -16,8 +16,12 @@ type DownloadButtonProps = {
   label?: string;
   /** "compact" trims height/padding for tight spots like the navbar; "lg" is the share-card CTA. */
   size?: "default" | "compact" | "lg";
-  /** Leading glyph for a fixed label: the Apple mark, or a padlock for "lock in" CTAs. */
-  icon?: "apple" | "lock";
+  /**
+   * Leading glyph for a fixed label: the Apple mark, a padlock for "lock in"
+   * CTAs, or "auto" to follow the visitor's platform where the full adaptive
+   * wording would not fit.
+   */
+  icon?: "apple" | "lock" | "auto";
   /** "onDark" swaps the cream fill in for use on the dark share card. */
   tone?: "default" | "onDark";
 };
@@ -42,16 +46,8 @@ export function DownloadButton({
 }: DownloadButtonProps) {
   const appleSize = size === "compact" ? 18 : 24;
 
-  const content = label ? (
-    <>
-      {icon === "lock" ? (
-        <LockIcon className={styles.lockIcon} width={20} height={20} />
-      ) : (
-        <AppleIcon className={styles.appleIcon} width={appleSize} height={appleSize} />
-      )}
-      <span>{label}</span>
-    </>
-  ) : (
+  /** Apple mark and Windows logo both ship; `data-os` shows one. */
+  const platformGlyphs = (
     <>
       <AppleIcon
         className={cn(styles.appleIcon, styles.glyphApple)}
@@ -63,6 +59,26 @@ export function DownloadButton({
         width={appleSize}
         height={appleSize}
       />
+    </>
+  );
+
+  const glyph =
+    icon === "lock" ? (
+      <LockIcon className={styles.lockIcon} width={20} height={20} />
+    ) : icon === "auto" ? (
+      platformGlyphs
+    ) : (
+      <AppleIcon className={styles.appleIcon} width={appleSize} height={appleSize} />
+    );
+
+  const content = label ? (
+    <>
+      {glyph}
+      <span>{label}</span>
+    </>
+  ) : (
+    <>
+      {platformGlyphs}
       <span className={styles.forMac}>Download for macOS</span>
       <span className={styles.forIos}>Download for iPhone</span>
       <span className={styles.forWin}>Download for Windows</span>

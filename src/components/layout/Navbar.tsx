@@ -68,6 +68,13 @@ export function Navbar({ links = mainNav }: { links?: NavLink[] }) {
             <DownloadButton size="compact" />
           </div>
 
+          {/* Mobile keeps a CTA in the bar itself, so downloading never costs
+              a trip through the menu. The bar has room for the glyph but not
+              for "Download for iPhone", so only the wording is cut. */}
+          <div className={styles.mobileCta}>
+            <DownloadButton size="compact" icon="auto" label="Download" />
+          </div>
+
           <button
             className={styles.menuBtn}
             type="button"
