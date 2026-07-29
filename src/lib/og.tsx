@@ -1,3 +1,6 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
+
 import { ImageResponse } from "next/og";
 
 /** Every social card is 1200×630 — the size both Open Graph and X expect. */
@@ -83,6 +86,26 @@ function LockMark({ size = 46 }: { size?: number }) {
   );
 }
 
+/**
+ * The mascot, as a data URI.
+ *
+ * Satori cannot fetch a relative URL, and pointing it at the deployed origin
+ * would make every card build depend on the site already being up. Read off
+ * disk once per process instead — these cards are generated at build time.
+ */
+let peepDataUri: string | null | undefined;
+async function peep(): Promise<string | null> {
+  if (peepDataUri !== undefined) return peepDataUri;
+  try {
+    const bytes = await readFile(join(process.cwd(), "public/images/peep-mark.png"));
+    peepDataUri = `data:image/png;base64,${bytes.toString("base64")}`;
+  } catch {
+    // A card without the mascot still beats a card that failed to render.
+    peepDataUri = null;
+  }
+  return peepDataUri;
+}
+
 type OgCardInput = {
   /** The headline. Keep it under ~70 characters so it stays on three lines. */
   title: string;
@@ -100,7 +123,7 @@ type OgCardInput = {
  * word of it.
  */
 export async function ogCard({ title, eyebrow, subtitle }: OgCardInput) {
-  const fonts = await brandFonts();
+  const [fonts, peepSrc] = await Promise.all([brandFonts(), peep()]);
   // Headlines run on Figtree, not the serif — globals.css notes the brand
   // dropped the display serif, so a serif card would be off-brand now.
   const sans = fonts.length ? "Figtree" : undefined;
@@ -216,11 +239,27 @@ export async function ogCard({ title, eyebrow, subtitle }: OgCardInput) {
                 display: "flex",
               }}
             />
-            No override. No back door.
+            Block your distractions when you need to focus.
           </div>
 
-          <div style={{ fontSize: 22, color: STONE }}>macOS · iOS · Windows</div>
+          {/* The platform list used to sit here. Peep now owns this corner,
+              and the subtitle already names the platforms — two lines saying
+              the same thing, one of them behind a fez, helped nobody. */}
         </div>
+
+        {/* Peep looks over the bottom edge, the same way he does on the site.
+            It is the one element that identifies the card before the type is
+            legible, which in a feed is most of the job. */}
+        {peepSrc ? (
+          // eslint-disable-next-line @next/next/no-img-element -- satori renders this, not the browser
+          <img
+            src={peepSrc}
+            alt=""
+            width={210}
+            height={193}
+            style={{ position: "absolute", right: 64, bottom: 28, zIndex: 0 }}
+          />
+        ) : null}
       </div>
     ),
     { ...OG_SIZE, fonts: fonts.length ? fonts : undefined },

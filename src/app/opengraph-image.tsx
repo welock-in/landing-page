@@ -1,7 +1,7 @@
 import { ogCard, OG_CONTENT_TYPE, OG_SIZE } from "@/lib/og";
 
 export const alt =
-  "WeLockIn — block distractions before they block your future. No override, no back door.";
+  "WeLockIn — block your distractions when you need to focus.";
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 
