@@ -23,9 +23,12 @@ const figtree = Figtree({
 const ebGaramond = EB_Garamond({
   variable: "--font-eb-garamond",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
+  // The only serif left on the site is the footer's newsletter field, so one
+  // upright weight covers it. Preloading it put ~63kB of font for a field
+  // nobody sees until they reach the bottom on the critical path.
+  weight: ["600"],
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {

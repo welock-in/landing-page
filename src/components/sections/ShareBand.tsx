@@ -2,10 +2,8 @@ import { Container } from "@/components/ui/Container";
 import { DownloadButton } from "@/components/ui/DownloadButton";
 import styles from "./ShareBand.module.css";
 
-const BUBBLES = [
-  "https://api.dicebear.com/10.x/notionists/svg?seed=Mira&backgroundColor=dce8f3&radius=50",
-  "https://api.dicebear.com/10.x/notionists/svg?seed=Theo&backgroundColor=ddefdc&radius=50",
-];
+// Same committed avatars the hero uses — no third-party fetch.
+const BUBBLES = ["/images/avatars/mira.svg", "/images/avatars/theo.svg"];
 
 /** Closing band: a warm, dark card that nudges you to pass WeLockIn on. */
 export function ShareBand() {

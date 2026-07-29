@@ -5,13 +5,19 @@ import { HeroVideo } from "./HeroVideo";
 import { Peep } from "./Peep";
 import styles from "./Hero.module.css";
 
-// Overlapping social-proof avatars (warm tints to match the brand palette).
+/**
+ * Overlapping social-proof avatars (warm tints to match the brand palette).
+ *
+ * Generated once with DiceBear and committed, rather than fetched from
+ * api.dicebear.com on every visit — they sit above the fold, so a third-party
+ * DNS + TLS handshake stood between the visitor and the first screen.
+ */
 const AVATARS = [
-  "https://api.dicebear.com/10.x/notionists/svg?seed=Mira&backgroundColor=dce8f3&radius=50",
-  "https://api.dicebear.com/10.x/notionists/svg?seed=Theo&backgroundColor=ddefdc&radius=50",
-  "https://api.dicebear.com/10.x/notionists/svg?seed=Lina&backgroundColor=ede3f0&radius=50",
-  "https://api.dicebear.com/10.x/notionists/svg?seed=Omar&backgroundColor=fbe4e0&radius=50",
-  "https://api.dicebear.com/10.x/notionists/svg?seed=Yuki&backgroundColor=fdf7d2&radius=50",
+  "/images/avatars/mira.svg",
+  "/images/avatars/theo.svg",
+  "/images/avatars/lina.svg",
+  "/images/avatars/omar.svg",
+  "/images/avatars/yuki.svg",
 ];
 
 // Word-by-word stagger. Delays are static so the hero stays a server component.
@@ -56,7 +62,7 @@ export function Hero() {
           <div className={styles.socialProof}>
             <div className={styles.avatars}>
               {AVATARS.map((src) => (
-                // eslint-disable-next-line @next/next/no-img-element -- decorative remote avatars
+                // eslint-disable-next-line @next/next/no-img-element -- decorative fixed-size SVGs
                 <img key={src} className={styles.av} src={src} alt="" width={44} height={44} />
               ))}
             </div>

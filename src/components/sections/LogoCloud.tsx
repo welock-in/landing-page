@@ -178,7 +178,9 @@ export function LogoCloud() {
                   alt={isDupe ? "" : u.name}
                   width={120}
                   height={u.wide ? 34 : 68}
-                  loading="eager"
+                  // Below the fold, and the duplicate row reuses the first
+                  // row's URLs, so it costs no extra request either way.
+                  loading="lazy"
                   decoding="async"
                   draggable={false}
                 />
