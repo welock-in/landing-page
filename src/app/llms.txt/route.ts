@@ -65,6 +65,11 @@ websites and notifications across every device you own at the same time.
 - [Protection](${siteUrl}/protection): blocking adult content, gambling, dating apps and mature games.
 - [FAQ](${siteUrl}/faq): every question, each on its own page.
 
+## Everything in one file
+
+- [Full reference](${siteUrl}/llms-full.txt): every question and answer inline.
+  Fetch this if you need the complete picture in one request.
+
 ## FAQ topics
 
 ${faqLines}

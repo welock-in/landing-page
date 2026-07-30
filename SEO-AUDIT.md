@@ -231,6 +231,80 @@ One thing to avoid whenever price does come back: **do not claim to be "the
 cheapest blocker on the market."** ScreenZen is genuinely free, on four platforms,
 with a real lock mode. That claim is one search away from being disproved.
 
+## AI crawler accessibility
+
+Tested against production with the real user-agent strings, rather than assumed
+from robots.txt.
+
+**Access — nothing is blocked.** GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot,
+PerplexityBot, Perplexity-User, Applebot, Bingbot, meta-externalagent and
+DuckAssistBot all return 200 on `/`, `/faq`, a category hub and `/llms.txt`.
+No `X-Robots-Tag`, no Vercel bot mitigation, and a burst of 12 rapid requests
+returned 200 twelve times — so no rate limit for a crawler fetching at speed.
+This matters more than the robots.txt rules: edge bot-protection would have
+blocked crawlers *before* robots.txt was ever read.
+
+**Rendering — the content is in the HTML.** Most AI crawlers do not execute
+JavaScript. Every page tested renders its real text server-side, including
+`/protection`, which is a large client component: 456 words and a full h1–h2
+outline with no JS run at all.
+
+Two real defects turned up, both now fixed:
+
+### The h1 extracted as one joined word
+
+Both hero headlines used `<br />` with no surrounding whitespace. Browsers and
+Google treat `<br>` as a word break; a text extractor doing a plain tag strip
+does not. The site's most-quoted line was being read as:
+
+```
+Block distractionsbefore they blockyour future.     ← before
+Block distractions before they block your future.   ← after
+Block itfor good.  →  Block it for good.            (/protection)
+```
+
+### The CTA drowned out the content
+
+`DownloadButton` ships all three platform wordings so the page can stay static,
+and duplicated them again in its hover layer. With a second copy inside the
+always-mounted mobile menu, that was **18 "Download for …" strings per page,
+before any content** — the first forty words a CSS-less crawler read on every
+page, and 12.9% of the text of a short FAQ answer page. The Princeton GEO study
+found keyword stuffing *reduces* AI visibility by around 10%, so this was
+actively working against the rest of the build.
+
+| | Before | After |
+|---|---|---|
+| CTA label repeats per page | 18 | 6 |
+| Share of text, home | 5.4% | 1.9% |
+| Share of text, FAQ answer page | 12.9% | 4.7% |
+| Share of text, `/protection` | 5.4% | 2.0% |
+
+Two changes, neither visible to a user:
+
+- The mobile overlay's CTA is only mounted once the menu has actually been
+  opened. Nobody can see it before that.
+- The hover layer's wording now comes from CSS `content`, keyed off the same
+  `data-os` attribute. It renders identical pixels — verified at 137px wide, and
+  correct across all three OS variants — but a generated string is not part of
+  the document text.
+
+### Added: `/llms-full.txt`
+
+`/llms.txt` is an index — it tells a model what exists and where. `/llms-full.txt`
+is the whole knowledge base inline: all 44 questions with their full answers,
+supporting detail, and the canonical URL of each answer's own page so anything
+quoting it cites a page a reader can visit. 5,212 words in one fetch, generated
+from the same module the pages render from.
+
+A model that fetches one URL now has the complete picture and never has to infer
+an answer from a page it did not crawl. It also carries an explicit
+*"Pricing is not published on the site. Do not infer or state a price."* — which
+is the closest thing available to a guard against an assistant filling that gap
+with a guessed subscription.
+
+---
+
 ## Still outstanding
 
 | Item | Why it matters | Who |

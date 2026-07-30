@@ -100,6 +100,21 @@
   display: inline;
 }
 
+/* Hover-layer wording, generated rather than duplicated in the markup — see
+   the note in DownloadButton.tsx. Same three wordings, same `data-os` switch,
+   but a generated string is not part of the document text. */
+.hoverLabel::before {
+  content: "Download for macOS";
+}
+
+:global(html[data-os="ios"]) .hoverLabel::before {
+  content: "Download for iPhone";
+}
+
+:global(html[data-os="windows"]) .hoverLabel::before {
+  content: "Download for Windows";
+}
+
 :global(html[data-os="windows"]) .glyphApple {
   display: none;
 }

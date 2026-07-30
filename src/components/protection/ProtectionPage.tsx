@@ -627,9 +627,11 @@ export function ProtectionPage() {
               </svg>
               PROTECTION
             </span>
+            {/* The space after <br/> is deliberate — see the note in Hero.tsx.
+                Without it this h1 extracts as "Block itfor good." */}
             <h1 className="prot-headline" data-rv data-rv-delay="80">
               Block it
-              <br />
+              <br />{" "}
               for <span className="prot-accent">good.</span>
             </h1>
             <p className="prot-sub" data-rv data-rv-delay="170">

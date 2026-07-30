@@ -19,6 +19,19 @@ export function Navbar({ links = mainNav }: { links?: NavLink[] }) {
   const pathname = usePathname();
   const [stuck, setStuck] = useState(false);
   const [open, setOpen] = useState(false);
+  /**
+   * The mobile overlay's CTA is only mounted once the menu has actually been
+   * opened.
+   *
+   * It is a second copy of the header CTA, and that button ships all three
+   * platform wordings twice over — so rendering it up front put eighteen
+   * "Download for …" strings into every page before any content. A crawler
+   * that reads the HTML without applying CSS saw those as the first forty
+   * words of every page, which is 13% of a short FAQ answer page and reads
+   * exactly like keyword stuffing. Nobody can see it before the menu opens,
+   * so nothing needs to be in the document before then.
+   */
+  const [menuUsed, setMenuUsed] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setStuck(window.scrollY > 60);
@@ -80,7 +93,10 @@ export function Navbar({ links = mainNav }: { links?: NavLink[] }) {
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => {
+              setMenuUsed(true);
+              setOpen((v) => !v);
+            }}
           >
             <span className={styles.iconMenu}>
               <MenuIcon />
@@ -108,7 +124,7 @@ export function Navbar({ links = mainNav }: { links?: NavLink[] }) {
             </a>
           ))}
           <div className={styles.ovCta}>
-            <DownloadButton className={styles.ovCtaBtn} />
+            {menuUsed ? <DownloadButton className={styles.ovCtaBtn} /> : null}
           </div>
         </div>
       </div>

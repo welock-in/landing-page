@@ -96,6 +96,30 @@ export function DownloadButton({
     </>
   );
 
+  /**
+   * The hover layer is a decorative second copy of the label that slides in
+   * from the left. It looks identical, but it doubled every wording in the
+   * document — and for the adaptive CTA that meant six "Download for …"
+   * strings per button, before any of the page's actual content.
+   *
+   * For the adaptive CTA the wording is therefore drawn from CSS `content`
+   * instead: it renders the same pixels, keyed off the same `data-os`, but a
+   * generated string is not part of the document text, so a crawler reading
+   * the HTML sees the label once rather than twice. Fixed labels are passed in
+   * by the caller and cannot come from a stylesheet, so those still duplicate.
+   */
+  const hoverContent = label ? (
+    <>
+      {glyph}
+      <span>{label}</span>
+    </>
+  ) : (
+    <>
+      {platformGlyphs}
+      <span className={styles.hoverLabel} />
+    </>
+  );
+
   return (
     <Link
       href={href}
@@ -109,7 +133,7 @@ export function DownloadButton({
     >
       <span className={styles.main}>{content}</span>
       <span className={styles.hover} aria-hidden="true">
-        {content}
+        {hoverContent}
         <ArrowRightIcon width={16} height={16} strokeWidth={2.4} />
       </span>
     </Link>

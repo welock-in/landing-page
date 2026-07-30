@@ -45,7 +45,17 @@ export function Hero() {
                 >
                   {word.em ? <em>{word.text}</em> : word.text}
                 </span>
-                {word.breakAfter ? <br /> : " "}
+                {/* The space is deliberate on both branches. A bare <br/>
+                    renders identically, but a text extractor that strips tags
+                    without treating <br> as whitespace joins the words either
+                    side — turning the site's most-quoted line into
+                    "Block distractionsbefore they blockyour future." */}
+                {word.breakAfter ? (
+                  <>
+                    <br /> </>
+                ) : (
+                  " "
+                )}
               </span>
             ))}
           </h1>
