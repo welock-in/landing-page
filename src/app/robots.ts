@@ -33,14 +33,16 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        // `/blocked` is the in-app interstitial, already `noindex`; keeping
-        // crawlers off it saves them the round trip.
-        disallow: ["/api/", "/blocked"],
+        // `/blocked` is the in-app interstitial and `/reset-password` is
+        // reached from a one-time email link carrying a token — both are
+        // already `noindex`, and keeping crawlers off them saves the round
+        // trip.
+        disallow: ["/api/", "/blocked", "/reset-password"],
       },
       ...AI_SEARCH_AGENTS.map((userAgent) => ({
         userAgent,
         allow: "/",
-        disallow: ["/api/", "/blocked"],
+        disallow: ["/api/", "/blocked", "/reset-password"],
       })),
     ],
     sitemap: absoluteUrl("/sitemap.xml"),
