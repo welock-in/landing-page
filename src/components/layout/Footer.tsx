@@ -73,6 +73,10 @@ const COLUMNS = [
       { label: "Setup guide", href: "/faq/getting-started/first-time-setup" },
       { label: "Built by students", href: "/faq/getting-started/built-by-students" },
       { label: "Privacy", href: "/faq/privacy" },
+      // The legal pages, distinct from the FAQ category above: the stores link
+      // to these exact URLs, so they must stay reachable from every page.
+      { label: "Privacy policy", href: "/privacy" },
+      { label: "Delete your account", href: "/delete-account" },
     ],
   },
 ] as const;

@@ -50,5 +50,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...allFaqEntries.map(({ category, entry: item }) =>
       entry(faqEntryPath(category.slug, item.slug), 0.5, "monthly"),
     ),
+    // Legal pages. Listed low and yearly: Play Console and the App Store need
+    // them to resolve, crawlers do not need to revisit them.
+    entry("/privacy", 0.3, "yearly"),
+    entry("/delete-account", 0.3, "yearly"),
   ];
 }
