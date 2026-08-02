@@ -68,13 +68,21 @@ const COLUMNS = [
   {
     title: "Support",
     links: [
-      { label: "Contact us", href: "mailto:hello@welock.in" },
-      { label: "Report a bug", href: "/faq/troubleshooting/contact-support" },
+      // The real pages first — /contact is a page with a working form now, so
+      // it outranks the bare mailto it replaced.
+      { label: "Help centre", href: "/help" },
+      { label: "Contact us", href: "/contact" },
+      { label: "Support", href: "/support" },
       { label: "Setup guide", href: "/faq/getting-started/first-time-setup" },
       { label: "Built by students", href: "/faq/getting-started/built-by-students" },
-      { label: "Privacy", href: "/faq/privacy" },
-      // The legal pages, distinct from the FAQ category above: the stores link
-      // to these exact URLs, so they must stay reachable from every page.
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      // The stores link to these exact URLs, so they must stay reachable from
+      // every page.
+      { label: "Terms of service", href: "/terms" },
       { label: "Privacy policy", href: "/privacy" },
       { label: "Delete your account", href: "/delete-account" },
     ],
@@ -86,46 +94,6 @@ const DEVICES = [
   { id: "windows", label: "Windows" },
 ] as const;
 
-function InstagramIcon() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <line x1="17.5" y1="6.5" x2="17.5" y2="6.5" />
-    </svg>
-  );
-}
-
-function XIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M18.2 2.5h3.3l-7.2 8.2L23 21.5h-6.6l-5.2-6.8-5.9 6.8H1.9l7.7-8.8L1.2 2.5h6.8l4.7 6.2zm-1.2 17h1.8L7.1 4.4H5.2z" />
-    </svg>
-  );
-}
-
-function TikTokIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M16.5 2.5c.3 2.2 1.6 3.9 3.8 4.2v2.7c-1.4.1-2.7-.3-3.9-1v6.1c0 3.5-2.6 6.1-6 6.1-3.3 0-5.7-2.7-5.4-6 .3-2.7 2.5-4.8 5.2-4.8.4 0 .8 0 1.2.1v2.9c-.4-.1-.7-.2-1.1-.2-1.4 0-2.6 1.2-2.5 2.7.1 1.4 1.2 2.4 2.6 2.4 1.5 0 2.6-1.1 2.6-2.7V2.5z" />
-    </svg>
-  );
-}
-
-function YouTubeIcon() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M22.5 7.2a2.8 2.8 0 0 0-1.9-2C18.9 4.7 12 4.7 12 4.7s-6.9 0-8.6.5a2.8 2.8 0 0 0-1.9 2C1 8.9 1 12 1 12s0 3.1.5 4.8a2.8 2.8 0 0 0 1.9 2c1.7.5 8.6.5 8.6.5s6.9 0 8.6-.5a2.8 2.8 0 0 0 1.9-2c.5-1.7.5-4.8.5-4.8s0-3.1-.5-4.8zM9.8 15.3V8.7l5.7 3.3z" />
-    </svg>
-  );
-}
-
-const SOCIALS = [
-  { name: "Instagram", icon: InstagramIcon },
-  { name: "X", icon: XIcon },
-  { name: "TikTok", icon: TikTokIcon },
-  { name: "YouTube", icon: YouTubeIcon },
-] as const;
 
 export function Footer() {
   const [device, setDevice] = useState<(typeof DEVICES)[number]["id"]>("macos");
@@ -205,19 +173,12 @@ export function Footer() {
             </nav>
           ))}
 
-          {/* TODO: the only placeholder links left on the site. Swap each `#`
-              for the real profile URL, then add the same URLs to `sameAs` in
+          {/* Social icons removed, not hidden: they were `href="#"` placeholders
+              — dead links on every page — and no real profile URLs exist yet.
+              To bring them back: recover the SOCIALS list + icon components
+              from git history (Footer.tsx before the landing redesign), put the
+              real URLs in it, and add the same URLs to `sameAs` in
               organizationJsonLd() so the accounts resolve to this brand. */}
-          <nav className="wlf-social-col" aria-label="Social media">
-            <div className="wlf-col-title">Follow us</div>
-            <div className="wlf-socials">
-              {SOCIALS.map(({ name, icon: Icon }) => (
-                <a key={name} href="#" className="wlf-social" aria-label={name}>
-                  <Icon />
-                </a>
-              ))}
-            </div>
-          </nav>
         </div>
 
         <div className="wlf-bottom">

@@ -163,7 +163,9 @@
 
 .wlf-cols {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr)) 0.9fr;
+  /* Six link columns since Legal split out of Support — the social column that
+     used to take the sixth track is gone (its links never existed). */
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 0;
   padding-top: 40px;
 }

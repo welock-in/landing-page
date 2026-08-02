@@ -51,13 +51,21 @@ export function Navbar({ links = mainNav }: { links?: NavLink[] }) {
   }, [open]);
 
   // On the landing page the brand just returns to the top; elsewhere it links home.
-  const brandHref = pathname === "/" ? "#" : "/";
+  // Always a real URL — `href="#"` was the site's last dead link. On the home
+  // page the click is intercepted to scroll to the top instead of reloading.
+  const brandHref = "/";
+  const onBrandClick = (e: React.MouseEvent) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <nav className={cn(styles.nav, stuck && styles.stuck, open && styles.open)}>
       <div className={styles.inner}>
         <div className={styles.bar}>
-          <a className={styles.brand} href={brandHref} aria-label={siteConfig.name}>
+          <a className={styles.brand} href={brandHref} onClick={onBrandClick} aria-label={siteConfig.name}>
             <LogoIcon className={styles.brandMark} />
             <span>
               <span>welock</span>
