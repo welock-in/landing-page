@@ -14,6 +14,22 @@ const UNAVAILABLE =
   "The service is temporarily unavailable. Please try again in a moment.";
 
 /**
+ * The backend, with a working default.
+ *
+ * This used to REQUIRE `NEXT_PUBLIC_API_BASE_URL` and answer 500 without it —
+ * which is exactly what happened: the site deployed, the page rendered a clean
+ * 200, and only the two proxy routes failed, so the reset flow looked healthy
+ * and was not. `NEXT_PUBLIC_*` is inlined at BUILD time, so setting the variable
+ * after a deploy silently changes nothing until the next build, which makes that
+ * failure mode particularly easy to chase in the wrong direction.
+ *
+ * The value is a public constant — the same in every environment, and not a
+ * secret — so demanding configuration for it bought no safety and cost an
+ * outage. The override still exists for pointing a preview at a local backend.
+ */
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || "https://app.connect.welock.in/api";
+
+/**
  * Forward a POST to the WeLockIn API and relay its answer verbatim.
  *
  * The browser talks to this route rather than to the API directly so the call
@@ -24,11 +40,7 @@ export async function proxyPost(
   request: NextRequest,
   path: string,
 ): Promise<Response> {
-  const base = process.env.NEXT_PUBLIC_API_BASE_URL;
-  if (!base) {
-    console.error(`NEXT_PUBLIC_API_BASE_URL is not set — cannot proxy ${path}.`);
-    return Response.json({ error: UNAVAILABLE }, { status: 500 });
-  }
+  const base = API_BASE;
 
   const headers = new Headers({ "content-type": "application/json" });
   for (const name of RELAYED_HEADERS) {
