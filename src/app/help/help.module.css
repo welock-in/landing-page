@@ -1,0 +1,28 @@
+/* The "contact us" button on the dark closing band — a light fill so it
+   reads against the ink background, turning red on hover like every other
+   primary action on the site. */
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  padding: 0 28px;
+  border-radius: 14px;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.ctaBtn:hover {
+  background: var(--red);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.ctaBtn:focus-visible {
+  outline: 2.5px solid var(--red);
+  outline-offset: 3px;
+}
