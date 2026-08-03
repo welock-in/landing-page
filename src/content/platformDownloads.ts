@@ -1,10 +1,10 @@
 /**
  * The platforms `/download` advertises.
  *
- * `href` is deliberately null everywhere: no real download or App Store URL
- * exists in this repo yet, and inventing one would ship a broken primary
- * conversion path that looks like it works. Fill each in as it goes live and
- * the page turns that card into a working button with no other change.
+ * `href` stays null until a platform genuinely has somewhere to send people:
+ * inventing a URL would ship a broken primary conversion path that looks like it
+ * works. Filling one in turns that card into a working button with no other
+ * change. Windows is live; the rest are still waiting on a real URL.
  */
 
 export type PlatformDownload = {
@@ -43,10 +43,15 @@ export const platformDownloads: PlatformDownload[] = [
     slug: "windows",
     name: "Windows",
     requirement: "For Windows 10 and 11",
-    href: null,
+    // Deliberately not the storage URL the file actually sits at: that one
+    // carries the version number, so it would be wrong the day the next build
+    // ships. This link redirects to whichever release is currently live, which
+    // also means a build pulled after a bad release stops being handed out here
+    // without anyone editing the site.
+    href: "https://app.connect.welock.in/api/updates/download",
     status: "available",
     detects: "windows",
-    note: "Full desktop blocking with the same five unlock difficulty levels.",
+    note: "Full desktop blocking with the same five unlock difficulty levels. Windows may warn about an unknown publisher the first time you run it — choose More info, then Run anyway.",
   },
   {
     slug: "android",
