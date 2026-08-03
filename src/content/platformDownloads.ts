@@ -24,11 +24,21 @@ export const platformDownloads: PlatformDownload[] = [
   {
     slug: "macos",
     name: "macOS",
-    requirement: "For MacBook, iMac and Mac mini",
-    href: null,
+    // Named on the card rather than discovered in the browser: a Mac's
+    // User-Agent reports Intel whatever silicon is underneath, so guessing
+    // would be wrong for the machines it matters most for. An Intel Mac that
+    // downloads this build is told "the application cannot be opened" AFTER
+    // installing it — better to say so before the click.
+    requirement: "For Apple Silicon (M1 and later)",
+    // Same reasoning as Windows below, plus the platform: the API answers with
+    // whichever build is currently live, and it hands a browser the .dmg rather
+    // than the .app.tar.gz the updater consumes — those are different files and
+    // the tarball, expanded by a browser, produces an app that installs and then
+    // silently blocks nothing.
+    href: "https://app.connect.welock.in/api/updates/download?target=darwin&arch=aarch64",
     status: "available",
     detects: "macos",
-    note: "Blocks apps, websites and notifications system-wide, and holds through a restart.",
+    note: "Blocks apps, websites and notifications system-wide, and holds through a restart. Intel Macs are not supported yet.",
   },
   {
     slug: "ios",
