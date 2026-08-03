@@ -209,12 +209,13 @@ export function BentoFeatures() {
             </div>
             <div className="bc-sched-mac">
               <div className="mac" aria-hidden="true">
-                <div className="mac-screen">
+                <div className="mac-screen skel">
                   <iframe
                     className="sched-frame"
                     src="/focus-week-drag.html"
                     title="Focus week schedule"
                     scrolling="no"
+                    loading="lazy"
                   />
                 </div>
                 <div className="mac-base" />

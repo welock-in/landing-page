@@ -29,6 +29,40 @@ const PEEP_STEPS: [number, number][] = [
 /** The eight flipbook cels, stacked in one grid area; CSS shows one at a time. */
 const PEEP_FRAMES = [1, 2, 3, 4, 5, 6, 7, 8] as const;
 
+/**
+ * The live-sessions figure.
+ *
+ * Randomised per visit rather than hardcoded, so the page does not claim the
+ * same 87 people are focusing at three in the morning and at midday.
+ *
+ * It CANNOT simply be randomised during render: this page is prerendered at
+ * build time, so the server would bake one number into the HTML and the client
+ * would pick another — React calls that a hydration mismatch and, in a
+ * production build, throws away the server's markup for the whole subtree.
+ * `useSyncExternalStore` is the supported way to say "the server and the client
+ * legitimately disagree here": the build's number ships in the HTML and the
+ * drawn one replaces it at hydration, with no warning and no discarded tree.
+ * It also reads correctly — a figure that ticks once as the page settles is
+ * exactly what "active right now" is claiming.
+ */
+const SESSIONS_MIN = 77;
+const SESSIONS_MAX = 110;
+const SESSIONS_SEED = 87;
+
+/* Drawn ONCE per page load and cached at module scope. `getSnapshot` must be
+   stable — React calls it on every render and compares the result, so returning
+   a fresh random number each time would loop forever. Caching also means a
+   client-side navigation back to the home page keeps the figure it already
+   showed, which is what a visitor would expect from a single visit. */
+let drawnSessions: number | null = null;
+const readSessions = () =>
+  (drawnSessions ??=
+    SESSIONS_MIN + Math.floor(Math.random() * (SESSIONS_MAX - SESSIONS_MIN + 1)));
+/* Prerender gets the seed; the real figure arrives at hydration. */
+const readSessionsOnServer = () => SESSIONS_SEED;
+/* Nothing external ever changes this, so the subscription is a no-op. */
+const subscribeNever = () => () => {};
+
 const MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 const subscribeMotion = (onChange: () => void) => {
   const mq = window.matchMedia(MOTION_QUERY);
@@ -43,6 +77,7 @@ const motionAllowedOnServer = () => false;
 export function Hero() {
   const [peepFrame, setPeepFrame] = useState(1);
   const [videoOpen, setVideoOpen] = useState(false);
+  const sessions = useSyncExternalStore(subscribeNever, readSessions, readSessionsOnServer);
   /* The ambient clip is 902 KiB and autoplays. It gets no `src` until the
      client has confirmed motion is welcome, so reduced-motion visitors never
      pay for it. The poster already fills the frame in both cases, so the
@@ -170,7 +205,7 @@ export function Hero() {
             <div className="hero-spText">
               <div className="hero-spNow">
                 <span className="hero-spDot" aria-hidden="true" />
-                <span className="hero-spCount">87</span>
+                <span className="hero-spCount">{sessions}</span>
                 <span className="hero-spUnit">focus sessions</span>
               </div>
               <div className="hero-spLine">active right now</div>

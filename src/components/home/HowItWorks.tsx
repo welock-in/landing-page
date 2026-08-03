@@ -103,7 +103,7 @@ export function HowItWorks() {
               ])}
             </div>
             <div className="hiw-mac">
-              <div className="hiw-macScreen">
+              <div className="hiw-macScreen skel">
                 {SHOT_STYLES.map((style, i) => (
                   <div
                     key={SHOT_LABELS[i]}

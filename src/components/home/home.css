@@ -440,3 +440,37 @@ a.home-dl{font-size:17.5px;}
 a.home-dl-lg{font-size:19.5px;}
 /* The design's share-band CTA carries style="margin-top:14px" inline. */
 .home-share-cta{margin-top:14px;}
+
+/* ============ SKELETONS ============
+   Placeholders for the three things that arrive AFTER the document, not for the
+   page itself: this route is prerendered, so its text and layout are already in
+   the HTML and have nothing to wait for.
+
+   Applied to the CONTAINER and covered by the child on load, so no JavaScript
+   is involved and nothing has to be told when loading finished — the iframe and
+   the images paint over it themselves.
+
+   Deliberately NOT applied to devices-cutout (49% transparent), the phone shot
+   (16%) or the Polytechnique mark (96%): those are cut-outs, so a shimmer
+   underneath would keep showing through their holes forever, which is worse
+   than the blank they replace. Only opaque children get one. */
+@keyframes skelSweep{from{background-position:200% 0;}to{background-position:-200% 0;}}
+.skel{
+  background-color:#ece6dc;
+  background-image:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.55) 50%,transparent 100%);
+  background-size:200% 100%;
+  background-repeat:no-repeat;
+  animation:skelSweep 1.6s ease-in-out infinite;
+}
+/* A still placeholder still reserves the box and still reads as "loading"; the
+   sweep is the only part anyone asked motion for. */
+@media(prefers-reduced-motion:reduce){.skel{animation:none;}}
+
+/* The scheduling widget is a separate document — the slowest child on the page
+   and the one whose empty state is a bare dark rectangle. */
+.bc-sched-mac .mac-screen{background-color:#efeae0;}
+.bc-sched-mac .sched-frame{position:relative;z-index:1;}
+
+/* The how-it-works screenshots are opaque and lazy: whichever step is active
+   when the reader arrives may still be decoding. */
+.hiw-macScreen{background-color:#F3EFE6;}
