@@ -8,14 +8,14 @@ import { LockInLink } from "./LockInLink";
 /** The three mac screenshots, one per step, with the design's per-slot fit. */
 const SHOT_STYLES: React.CSSProperties[] = [
   {
-    backgroundImage: "url(/images/hiw-1.png)",
+    backgroundImage: "url(/images/hiw-1.webp)",
     backgroundSize: "cover",
     backgroundPosition: "top center",
     width: "100%",
     height: "100%",
   },
   {
-    backgroundImage: "url(/images/hiw-2.png)",
+    backgroundImage: "url(/images/hiw-2.webp)",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center center",
@@ -26,7 +26,7 @@ const SHOT_STYLES: React.CSSProperties[] = [
     height: "100%",
   },
   {
-    backgroundImage: "url(/images/hiw-3.png)",
+    backgroundImage: "url(/images/hiw-3.webp)",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center center",

@@ -52,10 +52,12 @@ export function LockedEverywhere() {
         </p>
         <div className="le-visual le-reveal">
           <img
-            src="/images/devices-cutout.png"
+            src="/images/devices-cutout.webp"
             alt="A desktop, laptop, tablet and phone each showing an app blocked by welock.in"
-            width={940}
-            height={627}
+            width={1536}
+            height={1024}
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="le-avail le-reveal">

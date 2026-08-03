@@ -165,14 +165,22 @@ export function BentoFeatures() {
               <div className="apps-compose">
                 <img
                   className="apps-phone"
-                  src="/images/phone-select-apps.png"
+                  src="/images/phone-select-apps.webp"
                   alt="Welockin select-apps screen"
+                  width={540}
+                  height={720}
+                  loading="lazy"
+                  decoding="async"
                   style={{ height: "360px" }}
                 />
                 <img
                   className="apps-card"
-                  src="/images/card-websites.png"
+                  src="/images/card-websites.webp"
                   alt="Websites blocklist with Instagram and Reddit blocked"
+                  width={670}
+                  height={381}
+                  loading="lazy"
+                  decoding="async"
                   style={{ margin: "0 0 38px 20px", width: "335px" }}
                 />
               </div>

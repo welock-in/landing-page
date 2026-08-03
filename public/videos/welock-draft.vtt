@@ -1,0 +1,40 @@
+WEBVTT
+
+NOTE
+welock-draft.mp4 carries no audio stream at all (one h264 video stream, no
+audio), so there is no speech or sound to caption. What the film does have is a
+sequence of burned-in title cards. These cues transcribe those cards, timed to
+the frames they appear on, with a leading cue that tells a viewer who switched
+captions on that they are not missing any narration.
+
+silent
+00:00:00.000 --> 00:00:00.800
+(no audio — this demo is silent)
+
+card-1
+00:00:00.800 --> 00:00:03.000
+Shouldn't you be working?
+
+card-2
+00:00:05.500 --> 00:00:07.000
+Select your time.
+
+card-3
+00:00:07.000 --> 00:00:09.000
+Choose what to block.
+
+card-4
+00:00:09.000 --> 00:00:11.000
+Lock it in.
+
+card-5
+00:00:11.000 --> 00:00:14.000
+Select your devices.
+
+card-6
+00:00:16.800 --> 00:00:20.000
+No way out until the timer ends.
+
+card-7
+00:00:25.000 --> 00:00:32.000
+Blocked. Everywhere.

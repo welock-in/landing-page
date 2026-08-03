@@ -2,7 +2,7 @@
 
 /* eslint-disable @next/next/no-img-element -- flipbook frames and mascot are plain <img>, matching the design byte-for-byte */
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import { DownloadButton } from "@/components/ui/DownloadButton";
 
@@ -26,9 +26,32 @@ const PEEP_STEPS: [number, number][] = [
   [5, 220], // quick extra glance right, then back
 ];
 
+/** The eight flipbook cels, stacked in one grid area; CSS shows one at a time. */
+const PEEP_FRAMES = [1, 2, 3, 4, 5, 6, 7, 8] as const;
+
+const MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+const subscribeMotion = (onChange: () => void) => {
+  const mq = window.matchMedia(MOTION_QUERY);
+  mq.addEventListener("change", onChange);
+  return () => mq.removeEventListener("change", onChange);
+};
+const motionAllowed = () => !window.matchMedia(MOTION_QUERY).matches;
+/* Server render: no `src`, so the 902 KiB ambient clip is never in the
+   initial HTML and never competes with the critical render. */
+const motionAllowedOnServer = () => false;
+
 export function Hero() {
   const [peepFrame, setPeepFrame] = useState(1);
   const [videoOpen, setVideoOpen] = useState(false);
+  /* The ambient clip is 902 KiB and autoplays. It gets no `src` until the
+     client has confirmed motion is welcome, so reduced-motion visitors never
+     pay for it. The poster already fills the frame in both cases, so the
+     only difference is whether it then starts moving. */
+  const ambientOn = useSyncExternalStore(
+    subscribeMotion,
+    motionAllowed,
+    motionAllowedOnServer,
+  );
   const ambientRef = useRef<HTMLVideoElement>(null);
 
   /* Flipbook runner — effect-scoped so StrictMode's mount→cleanup→mount
@@ -137,11 +160,12 @@ export function Hero() {
           <div className="hero-socialProof">
             <img
               className="hero-spPeep"
-              src="/images/peep-laptop.png"
+              src="/images/peep-laptop.webp"
               alt=""
               aria-hidden="true"
-              width={72}
-              height={73}
+              width={144}
+              height={145}
+              decoding="async"
             />
             <div className="hero-spText">
               <div className="hero-spNow">
@@ -165,14 +189,29 @@ export function Hero() {
               <video
                 ref={ambientRef}
                 className="hero-shot"
-                src="/videos/welock-draft.mp4"
+                src={ambientOn ? "/videos/welock-draft.mp4" : undefined}
                 poster="/images/app-dashboard.jpeg"
-                autoPlay
+                autoPlay={ambientOn}
                 loop
                 muted
                 playsInline
                 preload="metadata"
-              />
+                /* Decoration: this silent loop is the button's thumbnail, and the
+                   button already announces itself ("Play the Welockin demo
+                   video"). Hiding it keeps screen readers from meeting a second,
+                   nameless media element inside the same control. */
+                aria-hidden="true"
+              >
+                {/* Not `default`: welock-draft.mp4 has no audio stream, the cues
+                    only transcribe its burned-in title cards, and rendering them
+                    would print that text twice over the frame. */}
+                <track
+                  kind="captions"
+                  srcLang="en"
+                  label="English (silent — on-screen text)"
+                  src="/videos/welock-draft.vtt"
+                />
+              </video>
               <span className="hero-expandChip">
                 <svg
                   width="17"
@@ -193,14 +232,17 @@ export function Hero() {
               </span>
             </button>
             <span className="hero-peep" aria-hidden="true" data-frame={peepFrame}>
-              <img className="hero-peepImg" src="/images/peep-anim/frame_01.png" alt="" />
-              <img className="hero-peepImg" src="/images/peep-anim/frame_02.png" alt="" />
-              <img className="hero-peepImg" src="/images/peep-anim/frame_03.png" alt="" />
-              <img className="hero-peepImg" src="/images/peep-anim/frame_04.png" alt="" />
-              <img className="hero-peepImg" src="/images/peep-anim/frame_05.png" alt="" />
-              <img className="hero-peepImg" src="/images/peep-anim/frame_06.png" alt="" />
-              <img className="hero-peepImg" src="/images/peep-anim/frame_07.png" alt="" />
-              <img className="hero-peepImg" src="/images/peep-anim/frame_08.png" alt="" />
+              {PEEP_FRAMES.map((n) => (
+                <img
+                  key={n}
+                  className="hero-peepImg"
+                  src={`/images/peep-anim/frame_0${n}.webp`}
+                  alt=""
+                  width={372}
+                  height={288}
+                  decoding="async"
+                />
+              ))}
             </span>
           </div>
         </div>
@@ -241,7 +283,17 @@ export function Hero() {
               autoPlay
               loop
               playsInline
-            />
+            >
+              {/* Offered in the native captions menu, not forced on: the film is
+                  silent and its cues transcribe title cards that are already
+                  burned into the picture. */}
+              <track
+                kind="captions"
+                srcLang="en"
+                label="English (silent — on-screen text)"
+                src="/videos/welock-draft.vtt"
+              />
+            </video>
           </div>
         </div>
       )}

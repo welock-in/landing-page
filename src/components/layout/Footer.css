@@ -53,7 +53,7 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: #8a8175;
+  color: #6f6759;
 }
 
 .wlf-device-btn {
@@ -69,7 +69,7 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: #8a8175;
+  color: #6f6759;
   transition: color 0.15s ease;
 }
 
@@ -82,7 +82,7 @@
   height: 14px;
   border-radius: 50%;
   flex: none;
-  border: 1.6px solid #a89e8e;
+  border: 1.6px solid #8a8175;
   background: transparent;
   transition: border-color 0.15s ease, background 0.15s ease;
 }
@@ -179,7 +179,7 @@
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #8a8175;
+  color: #6f6759;
   margin-bottom: 22px;
 }
 
@@ -203,38 +203,6 @@
 
 .wlf-col a:hover {
   color: #a42b1b;
-}
-
-.wlf-social-col {
-  padding: 0 0 30px 30px;
-  border-left: 1px solid rgba(26, 23, 20, 0.16);
-}
-
-.wlf-socials {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.wlf-social {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  color: var(--ink);
-  border: 1px solid rgba(26, 23, 20, 0.18);
-  transition:
-    color 0.18s ease,
-    border-color 0.18s ease,
-    transform 0.18s ease;
-}
-
-.wlf-social:hover {
-  color: #a42b1b;
-  border-color: #a42b1b;
-  transform: translateY(-2px);
 }
 
 .wlf-bottom {
@@ -274,7 +242,7 @@
   font-weight: 500;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #8a8175;
+  color: #6f6759;
 }
 
 .wlf-copy {
@@ -288,13 +256,6 @@
 @media (max-width: 1024px) {
   .wlf-cols {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .wlf-social-col {
-    grid-column: 1 / -1;
-    border-left: none;
-    padding-left: 0;
-    padding-top: 10px;
   }
 }
 

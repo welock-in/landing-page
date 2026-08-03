@@ -116,7 +116,7 @@ export function Results() {
             <div className="rs-label">hours focused daily</div>
             <div style={{ flex: 1 }} />
             <div className="rs-mark">
-              <img src="/images/logos/22_EPFL.png" alt="EPFL" />
+              <img src="/images/logos/22_EPFL.webp" alt="EPFL" width={236} height={80} loading="lazy" decoding="async" />
             </div>
           </article>
           <article className="rs-card" style={{ background: "#e9f7e5" }}>
@@ -126,7 +126,7 @@ export function Results() {
             <div className="rs-label">sessions this month</div>
             <div style={{ flex: 1 }} />
             <div className="rs-mark">
-              <img src="/images/logos/07_ETH.png" alt="ETH Zürich" />
+              <img src="/images/logos/07_ETH.webp" alt="ETH Zürich" width={240} height={54} loading="lazy" decoding="async" />
             </div>
           </article>
           <article className="rs-card span2" style={{ background: "#faf7f1" }}>
@@ -142,14 +142,14 @@ export function Results() {
                 target="_blank"
                 rel="noopener"
               >
-                <img className="rs-av" src="/images/people/hedi-fourati.png" alt="Hedi Fourati" />
+                <img className="rs-av" src="/images/people/hedi-fourati.webp" alt="Hedi Fourati" width={96} height={96} loading="lazy" decoding="async" />
                 <div>
                   <b>Hedi Fourati</b>
                   <em>BSc Computer Science</em>
                 </div>
               </a>
               <div className="rs-mark">
-                <img src="/images/logos/22_EPFL.png" alt="EPFL" />
+                <img src="/images/logos/22_EPFL.webp" alt="EPFL" width={236} height={80} loading="lazy" decoding="async" />
               </div>
             </div>
           </article>
@@ -161,14 +161,14 @@ export function Results() {
             <div style={{ flex: 1 }} />
             <div className="rs-foot">
               <div className="rs-who">
-                <img className="rs-av" src="/images/avatars/theo.svg" alt="" />
+                <img className="rs-av" src="/images/avatars/theo.svg" alt="" width={96} height={96} loading="lazy" decoding="async" />
                 <div>
                   <b>Theo Marchand</b>
                   <em>Prepa MP*</em>
                 </div>
               </div>
               <div className="rs-mark">
-                <img src="/images/polytechnique.png" alt="Polytechnique" style={{ height: "26px" }} />
+                <img src="/images/polytechnique.webp" alt="Polytechnique" width={68} height={96} loading="lazy" decoding="async" style={{ height: "26px" }} />
               </div>
             </div>
           </article>
@@ -179,7 +179,7 @@ export function Results() {
             <div className="rs-label">sessions completed</div>
             <div style={{ flex: 1 }} />
             <div className="rs-mark">
-              <img src="/images/polytechnique.png" alt="Polytechnique" style={{ height: "38px" }} />
+              <img src="/images/polytechnique.webp" alt="Polytechnique" width={68} height={96} loading="lazy" decoding="async" style={{ height: "38px" }} />
             </div>
           </article>
           <article className="rs-card" style={{ background: "#fceef6" }}>
@@ -189,7 +189,7 @@ export function Results() {
             <div className="rs-label">day streak</div>
             <div style={{ flex: 1 }} />
             <div className="rs-mark">
-              <img src="/images/logos/04_Oxford.png" alt="University of Oxford" />
+              <img src="/images/logos/04_Oxford.webp" alt="University of Oxford" width={114} height={136} loading="lazy" decoding="async" />
             </div>
           </article>
           <article className="rs-card" style={{ background: "#f0effb" }}>
@@ -199,7 +199,7 @@ export function Results() {
             <div className="rs-label">more deep work</div>
             <div style={{ flex: 1 }} />
             <div className="rs-mark">
-              <img src="/images/logos/23_TUM.png" alt="TU Munich" />
+              <img src="/images/logos/23_TUM.webp" alt="TU Munich" width={136} height={77} loading="lazy" decoding="async" />
             </div>
           </article>
           <article className="rs-card" style={{ background: "#fceef6" }}>
@@ -209,7 +209,7 @@ export function Results() {
             <div className="rs-label">less screen time</div>
             <div style={{ flex: 1 }} />
             <div className="rs-mark">
-              <img src="/images/logos/06_Cambridge.png" alt="University of Cambridge" />
+              <img src="/images/logos/06_Cambridge.webp" alt="University of Cambridge" width={110} height={136} loading="lazy" decoding="async" />
             </div>
           </article>
           <article className="rs-card span2" style={{ background: "#faf7f1" }}>
@@ -225,14 +225,14 @@ export function Results() {
                 target="_blank"
                 rel="noopener"
               >
-                <img className="rs-av" src="/images/people/karim-assaf.png" alt="Karim Assaf" />
+                <img className="rs-av" src="/images/people/karim-assaf.webp" alt="Karim Assaf" width={96} height={96} loading="lazy" decoding="async" />
                 <div>
                   <b>Karim Assaf</b>
                   <em>MSc Nuclear Engineering</em>
                 </div>
               </a>
               <div className="rs-mark">
-                <img src="/images/logos/07_ETH.png" alt="ETH Zürich" />
+                <img src="/images/logos/07_ETH.webp" alt="ETH Zürich" width={240} height={54} loading="lazy" decoding="async" />
               </div>
             </div>
           </article>

@@ -86,7 +86,7 @@
 .prot-sub {
   font-size: 18.5px;
   line-height: 1.55;
-  color: #8a8175;
+  color: #6f6759;
   margin: 26px 0 0;
   max-width: 44ch;
 }
@@ -422,7 +422,7 @@
 .prot-section-sub {
   font-size: 16px;
   line-height: normal;
-  color: #8a8175;
+  color: #6f6759;
   margin: 12px 0 0;
 }
 
@@ -494,7 +494,7 @@
 .prot-cat-desc {
   font-size: 13.5px;
   line-height: normal;
-  color: #8a8175;
+  color: #6f6759;
   margin-top: 5px;
 }
 
@@ -530,7 +530,7 @@
 .prot-step-body {
   font-size: 14.5px;
   line-height: 1.5;
-  color: #8a8175;
+  color: #6f6759;
   margin: 0;
 }
 
@@ -582,11 +582,11 @@
   background: #fbf8f2;
   border-color: #ece7de;
   --fg: #1a1714;
-  --sub: #8a8175;
+  --sub: #6f6759;
   --chip: #efe7da;
   --chip-stroke: #5d564c;
   --badge-bg: rgba(0, 0, 0, 0.05);
-  --badge-fg: #8a8175;
+  --badge-fg: #6f6759;
   --bar-on: #1a1714;
   --bar-off: rgba(26, 23, 20, 0.2);
   --check-op: 0;
@@ -862,7 +862,7 @@
 .prot-cta-sub {
   font-size: 17px;
   line-height: normal;
-  color: #8a8175;
+  color: #6f6759;
   margin: 14px auto 30px;
   max-width: 40ch;
 }

@@ -27,9 +27,9 @@ src/
 │   ├── robots.ts           # generated robots.txt
 │   └── manifest.ts         # PWA web manifest
 ├── components/
-│   ├── layout/             # Navbar, Footer
-│   ├── sections/           # one component per landing section (+ co-located .module.css)
-│   └── ui/                 # reusable primitives (Container, SectionHeading, icons)
+│   ├── layout/             # Navbar, Footer, LegalPage shell
+│   ├── home/               # one component per landing section (+ shared home.css)
+│   └── ui/                 # reusable primitives (Container, Breadcrumbs, DownloadButton, icons)
 ├── config/
 │   └── site.ts             # SINGLE SOURCE OF TRUTH — branding, nav, SEO copy
 ├── content/                # typed content data (reviews, faqs, stats, pricing…)

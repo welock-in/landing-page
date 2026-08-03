@@ -16,7 +16,15 @@ export function ShareBand() {
           <span className="share-orb share-o3" aria-hidden="true" />
           <div className="share-inner">
             <div className="share-bubbles" aria-hidden="true">
-              <img className="share-bub" src="/images/avatars/mira.svg" alt="" width={46} height={46} />
+              <img
+                className="share-bub"
+                src="/images/avatars/mira.svg"
+                alt=""
+                width={46}
+                height={46}
+                loading="lazy"
+                decoding="async"
+              />
               <span className="share-lock">
                 <svg
                   width="20"
@@ -32,7 +40,15 @@ export function ShareBand() {
                   <path d="M8 11V8a4 4 0 0 1 8 0v3" />
                 </svg>
               </span>
-              <img className="share-bub" src="/images/avatars/theo.svg" alt="" width={46} height={46} />
+              <img
+                className="share-bub"
+                src="/images/avatars/theo.svg"
+                alt=""
+                width={46}
+                height={46}
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <h2 className="share-title">Focus is contagious.</h2>
             <p className="share-sub">Join the team of successful students.</p>

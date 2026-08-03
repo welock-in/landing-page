@@ -13,12 +13,6 @@
   margin: 0 auto;
 }
 
-/* Comparison tables and the pricing grid need more room than reading width. */
-.cp-wrap-wide {
-  width: min(100% - calc(var(--gutter) * 2), 1080px);
-  margin: 0 auto;
-}
-
 .cp-eyebrow {
   display: inline-block;
   margin-bottom: 16px;
@@ -147,57 +141,6 @@
 
 .cp-card-meta {
   font-size: 13px;
-  color: var(--muted);
-}
-
-/* ---- tables ---- */
-
-.cp-table-scroll {
-  overflow-x: auto;
-  margin: 0 0 12px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: var(--card);
-}
-
-.cp-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 15px;
-}
-
-.cp-table th,
-.cp-table td {
-  padding: 14px 18px;
-  text-align: left;
-  border-bottom: 1px solid var(--border);
-  white-space: nowrap;
-}
-
-.cp-table thead th {
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.cp-table tbody tr:last-child td {
-  border-bottom: none;
-}
-
-.cp-table .cp-us {
-  font-weight: 700;
-}
-
-.cp-table tr.cp-row-us {
-  background: var(--rose);
-}
-
-.cp-note {
-  margin: 0 0 32px;
-  font-size: 14px;
-  line-height: 1.55;
   color: var(--muted);
 }
 

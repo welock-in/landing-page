@@ -155,6 +155,10 @@ export function FaqPage() {
               <img
                 src="/images/peep-fez.png"
                 alt="Peep, the WeLockIn mascot, looking apologetic"
+                width={200}
+                height={492}
+                loading="lazy"
+                decoding="async"
               />
               <p className="fq-emptyTitle">No results for &ldquo;{query}&rdquo;</p>
               <p className="fq-emptyText">

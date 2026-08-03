@@ -333,7 +333,15 @@ export function TeaStream({ mainRef }: { mainRef: RefObject<HTMLElement | null> 
         <path className="tea-pour" d="" />
       </svg>
       {/* eslint-disable-next-line @next/next/no-img-element -- decorative teapot, positioned by the stream geometry */}
-      <img className="tea-pot" src="/images/teapot-small.png" alt="" aria-hidden="true" />
+      <img
+        className="tea-pot"
+        src="/images/teapot-small.webp"
+        alt=""
+        aria-hidden="true"
+        width={300}
+        height={300}
+        decoding="async"
+      />
     </>
   );
 }

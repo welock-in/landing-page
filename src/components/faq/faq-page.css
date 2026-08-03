@@ -252,10 +252,6 @@
 }
 
 @media (max-width: 640px) {
-  .fq-topBar {
-    padding: 0 20px;
-  }
-
   .fq {
     padding: 28px 0 80px;
   }
@@ -272,10 +268,6 @@
 
   .fq-catName {
     font-size: 18px;
-  }
-
-  .fq-catList {
-    padding: 0 20px 12px;
   }
 
   .fq-catCount {
