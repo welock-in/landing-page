@@ -58,7 +58,7 @@ export const platformDownloads: PlatformDownload[] = [
     // ships. This link redirects to whichever release is currently live, which
     // also means a build pulled after a bad release stops being handed out here
     // without anyone editing the site.
-    href: "https://app.connect.welock.in/api/updates/download",
+    href: "https://app.connect.welock.in/api/updates/download/windows",
     status: "available",
     detects: "windows",
     note: "Full desktop blocking with the same five unlock difficulty levels. Windows may warn about an unknown publisher the first time you run it — choose More info, then Run anyway.",
