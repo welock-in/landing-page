@@ -35,7 +35,7 @@ export const platformDownloads: PlatformDownload[] = [
     // than the .app.tar.gz the updater consumes — those are different files and
     // the tarball, expanded by a browser, produces an app that installs and then
     // silently blocks nothing.
-    href: "https://app.connect.welock.in/api/updates/download?target=darwin&arch=aarch64",
+    href: "https://app.connect.welock.in/api/updates/download/macos",
     status: "available",
     detects: "macos",
     note: "Blocks apps, websites and notifications system-wide, and holds through a restart. Intel Macs are not supported yet.",
