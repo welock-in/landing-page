@@ -1,0 +1,77 @@
+/**
+ * Post-checkout bridge — one narrow card on the brand paper background.
+ * Same page rhythm as the reset-password card: navbar clearance, centred
+ * column, sized for a message rather than prose.
+ */
+.page {
+  padding: 140px 0 96px;
+}
+
+.card {
+  max-width: 470px;
+  margin: 0 auto;
+  padding: 34px 34px 32px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: clamp(26px, 5vw, 32px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+
+.lead {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.open {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 26px;
+  margin-top: 26px;
+  border: none;
+  border-radius: 13px;
+  background: var(--red);
+  color: #fff;
+  font-family: inherit;
+  font-size: 15.5px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.open:hover {
+  filter: brightness(0.94);
+}
+
+.open:focus-visible {
+  outline: 2.5px solid var(--red);
+  outline-offset: 2px;
+}
+
+.fallback {
+  margin: 18px 0 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}
