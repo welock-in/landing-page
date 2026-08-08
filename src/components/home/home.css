@@ -40,9 +40,6 @@ main{position:relative;}
 .hero-subtitle{font-size:19.5px;color:var(--muted);max-width:540px;margin:0 0 32px;line-height:1.55;}
 .hero-ctaRow{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:30px;}
 .hero-socialProof{display:flex;align-items:center;gap:14px;}
-.hero-spPeep{flex:none;width:72px;height:auto;display:block;transform-origin:52% 88%;animation:peepPivot 9s ease-in-out infinite;}
-@keyframes peepPivot{0%{transform:rotate(-2.2deg) translateY(0);}25%{transform:rotate(0.8deg) translateY(-1px);}50%{transform:rotate(2.4deg) translateY(0);}75%{transform:rotate(-0.6deg) translateY(-1.5px);}100%{transform:rotate(-2.2deg) translateY(0);}}
-@media(prefers-reduced-motion:reduce){.hero-spPeep{animation-duration:16s;}}
 .hero-spText{display:flex;flex-direction:column;gap:3px;}
 .hero-spNow{display:flex;align-items:baseline;gap:8px;line-height:1;}
 /* The live-dot halo used to animate box-shadow spread (0 -> 8px), which Chrome

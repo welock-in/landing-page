@@ -193,15 +193,6 @@ export function Hero() {
             <DownloadButton className="home-dl" />
           </div>
           <div className="hero-socialProof">
-            <img
-              className="hero-spPeep"
-              src="/images/peep-laptop.webp"
-              alt=""
-              aria-hidden="true"
-              width={144}
-              height={145}
-              decoding="async"
-            />
             <div className="hero-spText">
               <div className="hero-spNow">
                 <span className="hero-spDot" aria-hidden="true" />
