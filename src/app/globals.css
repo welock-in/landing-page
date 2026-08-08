@@ -42,10 +42,12 @@
 
 html {
   scroll-behavior: smooth;
-  /* The page must never pan sideways. body carries the same guard, but iOS
-     Safari ignores it unless the root element is guarded too. `clip` (where
-     supported) blocks even programmatic sideways scrolling without creating
-     a scroll container; `hidden` is the fallback for older engines. */
+  /* The page must never pan sideways. The guard lives on the root ONLY:
+     `clip` (where supported) blocks panning without creating a scroll
+     container, `hidden` is the fallback. Do NOT also put overflow-x on
+     body — once the root has any overflow value, body's stops propagating
+     to the viewport and body becomes its own clip container, which breaks
+     every position:sticky on the site (the how-it-works stage). */
   overflow-x: hidden;
   overflow-x: clip;
 }
@@ -72,7 +74,6 @@ body {
   color: var(--ink);
   font-family: var(--font-figtree), "Figtree", sans-serif;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
   line-height: 1.5;
 }
 
