@@ -52,6 +52,9 @@ html {
      container, which breaks every position:sticky on the site (the
      how-it-works stage). */
   overflow-x: hidden;
+  /* And even if an engine still finds sideways room mid-animation, refuse
+     the horizontal overscroll gesture outright. */
+  overscroll-behavior-x: none;
 }
 
 /* Keep anchored sections clear of the fixed navbar. */

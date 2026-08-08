@@ -82,9 +82,13 @@ main{position:relative;}
 @media(max-width:768px){.hero-ctaRow{flex-direction:column;align-items:stretch;}.hero-annot{top:-34px;left:-8px;}.hero-annotText{font-size:23.5px;margin-left:18px;}.hero-annot svg{width:84px;height:50px;}.hero-modalClose{top:14px;right:14px;}}
 
 /* logo cloud */
-.lc{padding:56px 0;background:var(--bg);overflow:hidden;max-width:100%;}
+.lc{position:relative;padding:56px 0;background:var(--bg);overflow:hidden;max-width:100%;}
 .lc-label{text-align:center;font-size:16.5px;font-weight:600;color:var(--muted);margin-bottom:32px;}
-.lc-marquee{width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);}
+/* position + contain + translateZ: iOS WebKit lets a composited child layer
+   (the 6900px animated track) extend the pannable area unless the clipping
+   element is positioned AND composited itself — this trio pins the clip at
+   composite time, so the marquee can never widen the page mid-animation. */
+.lc-marquee{position:relative;width:100%;overflow:hidden;contain:paint;transform:translateZ(0);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);}
 .lc-track{display:flex;align-items:center;gap:64px;width:max-content;animation:logoScroll 90s linear infinite;will-change:transform;}
 .lc-marquee:hover .lc-track{animation-play-state:paused;}
 .lc-logo{flex-shrink:0;display:flex;align-items:center;justify-content:center;width:120px;height:68px;opacity:0.85;transition:opacity .2s ease,transform .2s ease;}
@@ -282,7 +286,7 @@ a.rs-who:focus-visible{outline:2.5px solid var(--red);outline-offset:3px;}
 }
 
 /* locked everywhere */
-.le{background:var(--bg);text-align:center;padding:96px 24px 100px;overflow:hidden;}
+.le{position:relative;background:var(--bg);text-align:center;padding:96px 24px 100px;overflow:hidden;}
 .le-inner{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;align-items:center;}
 .le-title{font-family:var(--font-figtree),"Figtree",sans-serif;font-weight:600;color:var(--ink);font-size:clamp(42px,5.725vw,67.5px);line-height:1.04;letter-spacing:-0.015em;text-wrap:balance;max-width:16ch;margin:0;}
 .le-sub{margin-top:22px;max-width:60ch;font-size:clamp(17.5px,1.59vw,20px);line-height:1.6;color:var(--muted);}
@@ -371,7 +375,7 @@ a.rs-who:focus-visible{outline:2.5px solid var(--red);outline-offset:3px;}
 
 /* share band */
 .vs{padding:40px 0 100px;}
-.share-card{position:relative;margin:0;border-radius:26px;overflow:hidden;background:radial-gradient(120% 130% at 50% 30%,#4a2d24 0%,#2c1c15 52%,#150f0c 100%);box-shadow:0 30px 70px rgba(26,23,20,0.2);isolation:isolate;padding:clamp(40px,5.5vw,60px) 28px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;}
+.share-card{position:relative;margin:0;border-radius:26px;overflow:hidden;contain:paint;background:radial-gradient(120% 130% at 50% 30%,#4a2d24 0%,#2c1c15 52%,#150f0c 100%);box-shadow:0 30px 70px rgba(26,23,20,0.2);isolation:isolate;padding:clamp(40px,5.5vw,60px) 28px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;}
 .share-orb{position:absolute;border-radius:50%;filter:blur(52px);will-change:transform;pointer-events:none;z-index:0;}
 .share-o1{width:52%;height:150%;left:50%;top:-25%;transform:translateX(-50%);background:#c8402f;opacity:0.34;animation:drift1 16s ease-in-out infinite alternate;}
 .share-o2{width:34%;height:120%;left:12%;top:-10%;background:#d24a38;opacity:0.22;animation:drift2 19s ease-in-out infinite alternate;}
