@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /**
- * WeLockIn design tokens (brand book v1).
+ * Welockin design tokens (brand book v1).
  * Single source of truth for the brand palette — consumed by component
  * CSS Modules via var(--*) and exposed to Tailwind utilities via @theme.
  */
@@ -42,6 +42,12 @@
 
 html {
   scroll-behavior: smooth;
+  /* The page must never pan sideways. body carries the same guard, but iOS
+     Safari ignores it unless the root element is guarded too. `clip` (where
+     supported) blocks even programmatic sideways scrolling without creating
+     a scroll container; `hidden` is the fallback for older engines. */
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Keep anchored sections clear of the fixed navbar. */
