@@ -80,6 +80,13 @@ body {
   font-family: var(--font-figtree), "Figtree", sans-serif;
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
+  /* Gesture-level lock: the page itself only ever pans vertically (pinch
+     still zooms). Elements that scroll sideways on purpose — the university
+     marquee, the legal tables — implement their own pan, so this does not
+     affect them: per the pointer-events model, a touch on a scroll container
+     is resolved by that container, not by body. This holds even where a
+     WebKit compositing quirk thinks the page has sideways room. */
+  touch-action: pan-y pinch-zoom;
 }
 
 /* Headings run on Figtree — the brand dropped the serif display face; the

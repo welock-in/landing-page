@@ -43,7 +43,9 @@
   background: var(--bg);
   color: var(--ink);
   font-family: inherit;
-  font-size: 15.5px;
+  /* 16px minimum: any smaller and iOS zooms the viewport on focus, which
+     leaves the whole page pannable sideways until the user pinches out. */
+  font-size: 16px;
   transition: border-color 0.2s ease;
 }
 
