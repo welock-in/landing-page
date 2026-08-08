@@ -44,7 +44,12 @@ export function FaqSection() {
                 </span>
               </button>
               <div className="faq-answer">
-                <p>{f.answer}</p>
+                <p>
+                  {f.answer}{" "}
+                  <Link className="faq-more" href={f.more}>
+                    Read the full answer
+                  </Link>
+                </p>
               </div>
             </div>
           ))}

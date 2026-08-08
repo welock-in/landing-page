@@ -47,30 +47,37 @@ export const HOW_STEPS: { title: string; body: string }[] = [
   },
 ];
 
-export const FAQS: { question: string; answer: string }[] = [
+// `more` points each item at its full answer under /faq — the internal link is
+// what lets a crawler get from the accordion to the indexable page.
+export const FAQS: { question: string; answer: string; more: string }[] = [
   {
     question: "How does Welockin actually work?",
     answer:
       "Three steps: pick the apps and sites you want gone, choose how strict the lock should be, hit start. Under a minute from install to locked in — on every synced device at once.",
+    more: "/faq/getting-started/how-it-works",
   },
   {
     question: "Is it really impossible to bypass?",
     answer:
       "With a Nuclear lock: yes. It survives restarts and even uninstalling the app — nothing turns it off before the timer or date you set.",
+    more: "/faq/nuclear-mode/is-it-really-permanent",
   },
   {
     question: "Which apps and sites can I block?",
     answer:
       "All of them. Apps, websites and notifications — you decide what gets through and what goes quiet.",
+    more: "/faq/what-you-can-block/what-can-i-block",
   },
   {
     question: "Is it available on mobile?",
     answer: "iOS, macOS and Windows are here today. Android is coming soon.",
+    more: "/faq/devices-and-platforms/android-support",
   },
   {
     question: "Are you really students?",
     answer:
       "Yes. Three engineers between EPFL and Polytechnique Paris, fed up with paying a subscription just to focus.",
+    more: "/faq/getting-started/built-by-students",
   },
 ];
 
