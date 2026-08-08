@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 /**
- * The red "Lock in" CTA with the looping shackle-snap animation.
+ * The salmon "Lock in" CTA with the looping shackle-snap animation.
  * A real link to /download — the design's dead <button> made clickable.
  */
 export function LockInLink({ label }: { label: string }) {
