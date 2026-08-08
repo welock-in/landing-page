@@ -1,4 +1,4 @@
-import { product, siteConfig, siteUrl } from "@/config/site";
+import { siteConfig, siteUrl } from "@/config/site";
 import { faqCategories, faqEntryPath } from "@/content/faqPage";
 import { platformDownloads } from "@/content/platformDownloads";
 

@@ -6,7 +6,6 @@ import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { Breadcrumbs, type Crumb } from "@/components/ui/Breadcrumbs";
 import { JsonLd } from "@/components/ui/JsonLd";
-import { product } from "@/config/site";
 import { faqCategoryPath, faqEntryPath } from "@/content/faqPage";
 import { platformDownloads } from "@/content/platformDownloads";
 import {
