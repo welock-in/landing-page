@@ -63,16 +63,8 @@ main{position:relative;}
 .hero-frame:hover .hero-shot{filter:brightness(0.9);}
 .hero-expandChip{position:absolute;right:11px;bottom:11px;z-index:2;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;color:#fff;background:rgba(26,23,20,0.46);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 4px 14px rgba(0,0,0,0.22);transition:background .22s ease,transform .22s ease;}
 .hero-frame:hover .hero-expandChip{background:var(--red);transform:scale(1.08);}
-.hero-peep{position:absolute;left:0;right:0;bottom:calc(100% - 5px);margin:0 auto;width:186px;z-index:3;pointer-events:none;display:grid;}
-.hero-peepImg{display:block;width:100%;height:auto;grid-area:1/1;opacity:0;}
-.hero-peep[data-frame="1"] .hero-peepImg:nth-of-type(1),
-.hero-peep[data-frame="2"] .hero-peepImg:nth-of-type(2),
-.hero-peep[data-frame="3"] .hero-peepImg:nth-of-type(3),
-.hero-peep[data-frame="4"] .hero-peepImg:nth-of-type(4),
-.hero-peep[data-frame="5"] .hero-peepImg:nth-of-type(5),
-.hero-peep[data-frame="6"] .hero-peepImg:nth-of-type(6),
-.hero-peep[data-frame="7"] .hero-peepImg:nth-of-type(7),
-.hero-peep[data-frame="8"] .hero-peepImg:nth-of-type(8){opacity:1;}
+.hero-peep{position:absolute;left:0;right:0;bottom:calc(100% - 5px);margin:0 auto;width:186px;z-index:3;pointer-events:none;}
+.hero-peepImg{display:block;width:100%;height:auto;}
 .hero-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(20,17,14,0.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);animation:modalFade .22s ease;}
 .hero-modalInner{position:relative;width:100%;max-width:1040px;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 40px 90px rgba(0,0,0,0.5);animation:modalPop .32s cubic-bezier(.2,.7,.2,1);}
 .hero-modalVideo{width:100%;height:100%;display:block;object-fit:contain;}
@@ -84,13 +76,14 @@ main{position:relative;}
 /* logo cloud */
 .lc{position:relative;padding:56px 0;background:var(--bg);overflow:hidden;max-width:100%;}
 .lc-label{text-align:center;font-size:16.5px;font-weight:600;color:var(--muted);margin-bottom:32px;}
-/* position + contain + translateZ: iOS WebKit lets a composited child layer
-   (the 6900px animated track) extend the pannable area unless the clipping
-   element is positioned AND composited itself — this trio pins the clip at
-   composite time, so the marquee can never widen the page mid-animation. */
-.lc-marquee{position:relative;width:100%;overflow:hidden;contain:paint;transform:translateZ(0);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);}
-.lc-track{display:flex;align-items:center;gap:64px;width:max-content;animation:logoScroll 90s linear infinite;will-change:transform;}
-.lc-marquee:hover .lc-track{animation-play-state:paused;}
+/* A real scroll container, not an animated transform: it owns its overflow,
+   so the wide track can never widen the page — and it is swipeable/draggable.
+   The drift is written to scrollLeft from LogoCloud.tsx. */
+.lc-marquee{position:relative;width:100%;overflow-x:auto;overflow-y:hidden;scroll-behavior:auto;overscroll-behavior-x:contain;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);}
+.lc-marquee::-webkit-scrollbar{display:none;}
+.lc-dragging{cursor:grabbing;}
+.lc-track{display:flex;align-items:center;gap:64px;width:max-content;user-select:none;-webkit-user-select:none;}
+.lc-logo img{-webkit-user-drag:none;}
 .lc-logo{flex-shrink:0;display:flex;align-items:center;justify-content:center;width:120px;height:68px;opacity:0.85;transition:opacity .2s ease,transform .2s ease;}
 .lc-logo:hover{opacity:1;transform:scale(1.05);}
 .lc-logo img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;}
@@ -392,7 +385,6 @@ a.rs-who:focus-visible{outline:2.5px solid var(--red);outline-offset:3px;}
 
 @keyframes wordIn{to{opacity:1;transform:translateY(0);}}
 @keyframes sway{from{transform:rotate(-2deg);}to{transform:rotate(2deg);}}
-@keyframes logoScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 @keyframes modalFade{from{opacity:0;}to{opacity:1;}}
 @keyframes modalPop{from{transform:scale(0.92);opacity:0;}to{transform:scale(1);opacity:1;}}
 @keyframes drift1{from{transform:translate(0,0) scale(1);}to{transform:translate(14%,8%) scale(1.12);}}
