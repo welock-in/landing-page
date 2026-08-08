@@ -1,7 +1,3 @@
-"use client";
-
-import { useRef } from "react";
-
 import "./home.css";
 import { BentoFeatures } from "./BentoFeatures";
 import { FaqSection } from "./FaqSection";
@@ -11,19 +7,14 @@ import { LockedEverywhere } from "./LockedEverywhere";
 import { LogoCloud } from "./LogoCloud";
 import { Results } from "./Results";
 import { ShareBand } from "./ShareBand";
-import { TeaStream } from "./TeaStream";
 
 /**
- * The home page client tree — every section of the design's <main>, plus the
- * scroll-revealed tea stream that runs down the whole page. The navbar and
+ * The home page tree — every section of the design's <main>. The navbar and
  * footer stay outside; the server page renders them around this.
  */
 export function HomePage() {
-  const mainRef = useRef<HTMLElement>(null);
-
   return (
-    <main ref={mainRef}>
-      <TeaStream mainRef={mainRef} />
+    <main>
       <Hero />
       <LogoCloud />
       <BentoFeatures />
