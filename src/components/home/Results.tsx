@@ -138,18 +138,18 @@ export function Results() {
             <div className="rs-foot">
               <a
                 className="rs-who"
-                href="https://www.linkedin.com/in/hedi-fourati-816304218/"
+                href="https://www.linkedin.com/in/sarah-fourati-7784b9293/"
                 target="_blank"
                 rel="noopener"
               >
-                <img className="rs-av" src="/images/people/hedi-fourati.webp" alt="Hedi Fourati" width={96} height={96} loading="lazy" decoding="async" />
+                <img className="rs-av" src="/images/people/sarah-fourati.webp" alt="Sarah Fourati" width={96} height={96} loading="lazy" decoding="async" />
                 <div>
-                  <b>Hedi Fourati</b>
-                  <em>BSc Computer Science</em>
+                  <b>Sarah Fourati</b>
+                  <em>MSc Business and Management</em>
                 </div>
               </a>
               <div className="rs-mark">
-                <img src="/images/logos/22_EPFL.webp" alt="EPFL" width={236} height={80} loading="lazy" decoding="async" />
+                <img src="/images/logos/27_HEC.webp" alt="HEC Paris" width={240} height={108} loading="lazy" decoding="async" />
               </div>
             </div>
           </article>
