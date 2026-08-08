@@ -86,7 +86,6 @@ export const PLATFORMS: { name: string; file: string; wordmark?: boolean }[] = [
   { name: "iOS", file: "ios.webp", wordmark: true },
   { name: "Windows", file: "windows.webp" },
   { name: "Android", file: "android.webp" },
-  { name: "Linux", file: "linux.webp" },
 ];
 
 export const SW_COPY = {
