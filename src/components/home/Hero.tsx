@@ -6,28 +6,9 @@ import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "
 
 import { DownloadButton } from "@/components/ui/DownloadButton";
 
-/**
- * Peep's flipbook timeline — [frame, holdMs]; 3s pauses on the three gaze
- * poses (down, up-left, up-right), then a quick extra glance right.
- */
-const PEEP_STEPS: [number, number][] = [
-  [4, 300],
-  [2, 200],
-  [3, 3000], // looks down — pause
-  [2, 200],
-  [4, 260],
-  [1, 3000], // looks up-left — pause
-  [4, 220],
-  [5, 200],
-  [7, 200],
-  [6, 3000], // looks up-right — pause
-  [8, 240],
-  [7, 200],
-  [5, 220], // quick extra glance right, then back
-];
-
-/** The eight flipbook cels, stacked in one grid area; CSS shows one at a time. */
-const PEEP_FRAMES = [1, 2, 3, 4, 5, 6, 7, 8] as const;
+/* Peep is a single animated image (peep-anim/peep.webp) — the flipbook
+   timeline is baked into the file itself, so no JS timer and no re-render
+   is involved in animating the character. */
 
 /**
  * The live-sessions figure.
@@ -75,7 +56,6 @@ const motionAllowed = () => !window.matchMedia(MOTION_QUERY).matches;
 const motionAllowedOnServer = () => false;
 
 export function Hero() {
-  const [peepFrame, setPeepFrame] = useState(1);
   const [videoOpen, setVideoOpen] = useState(false);
   const sessions = useSyncExternalStore(subscribeNever, readSessions, readSessionsOnServer);
   /* The ambient clip is 902 KiB and autoplays. It gets no `src` until the
@@ -88,19 +68,6 @@ export function Hero() {
     motionAllowedOnServer,
   );
   const ambientRef = useRef<HTMLVideoElement>(null);
-
-  /* Flipbook runner — effect-scoped so StrictMode's mount→cleanup→mount
-     never leaves a stray timer (the design used a window.__peepFlip global). */
-  useEffect(() => {
-    let pos = 0;
-    let timer = window.setTimeout(step, PEEP_STEPS[0][1]);
-    function step() {
-      pos = (pos + 1) % PEEP_STEPS.length;
-      setPeepFrame(PEEP_STEPS[pos][0]);
-      timer = window.setTimeout(step, PEEP_STEPS[pos][1]);
-    }
-    return () => clearTimeout(timer);
-  }, []);
 
   const openVideo = () => {
     const amb = ambientRef.current;
@@ -257,18 +224,15 @@ export function Hero() {
                 </svg>
               </span>
             </button>
-            <span className="hero-peep" aria-hidden="true" data-frame={peepFrame}>
-              {PEEP_FRAMES.map((n) => (
-                <img
-                  key={n}
-                  className="hero-peepImg"
-                  src={`/images/peep-anim/frame_0${n}.webp`}
-                  alt=""
-                  width={372}
-                  height={288}
-                  decoding="async"
-                />
-              ))}
+            <span className="hero-peep" aria-hidden="true">
+              <img
+                className="hero-peepImg"
+                src="/images/peep-anim/peep.webp"
+                alt=""
+                width={372}
+                height={288}
+                decoding="async"
+              />
             </span>
           </div>
         </div>
