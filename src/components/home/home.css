@@ -82,7 +82,7 @@ main{position:relative;}
 @media(max-width:768px){.hero-ctaRow{flex-direction:column;align-items:stretch;}.hero-annot{top:-34px;left:-8px;}.hero-annotText{font-size:23.5px;margin-left:18px;}.hero-annot svg{width:84px;height:50px;}.hero-modalClose{top:14px;right:14px;}}
 
 /* logo cloud */
-.lc{padding:56px 0;background:var(--bg);}
+.lc{padding:56px 0;background:var(--bg);overflow:hidden;max-width:100%;}
 .lc-label{text-align:center;font-size:16.5px;font-weight:600;color:var(--muted);margin-bottom:32px;}
 .lc-marquee{width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);}
 .lc-track{display:flex;align-items:center;gap:64px;width:max-content;animation:logoScroll 90s linear infinite;will-change:transform;}
