@@ -89,14 +89,7 @@ const COLUMNS = [
   },
 ] as const;
 
-const DEVICES = [
-  { id: "macos", label: "macOS" },
-  { id: "windows", label: "Windows" },
-] as const;
-
-
 export function Footer() {
-  const [device, setDevice] = useState<(typeof DEVICES)[number]["id"]>("macos");
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
@@ -112,20 +105,6 @@ export function Footer() {
             <div className="wlf-news-copy">
               <div>Don&apos;t miss a focus session.</div>
               <div>Get study tips &amp; updates in your inbox</div>
-            </div>
-            <div className="wlf-devices">
-              <span className="wlf-devices-label">I&apos;m on:</span>
-              {DEVICES.map((d) => (
-                <button
-                  key={d.id}
-                  type="button"
-                  className={`wlf-device-btn${device === d.id ? " on" : ""}`}
-                  onClick={() => setDevice(d.id)}
-                >
-                  <span className="wlf-device-dot" aria-hidden="true" />
-                  {d.label}
-                </button>
-              ))}
             </div>
           </div>
 
