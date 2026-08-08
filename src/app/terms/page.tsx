@@ -92,8 +92,8 @@ export default function TermsPage() {
         <h2>The lifetime licence</h2>
         <p>
           WeLockIn is sold as a <strong>one-time purchase</strong>, not a
-          subscription. A lifetime licence covers the device slots included
-          with the product for as long as we operate the service, including
+          subscription. A lifetime licence covers every device linked to your
+          account for as long as we operate the service, including
           updates we ship to it. It is personal to your account and not
           transferable or resellable.
         </p>

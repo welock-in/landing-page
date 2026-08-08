@@ -66,7 +66,7 @@ set.
 
 ${platforms}
 
-Device slots: ${product.deviceSlots} (${product.deviceSlotsLabel}), locking together as one.
+Device limit: none — link as many devices as you want, locking together as one.
 
 ## Facts worth getting right
 

@@ -20,7 +20,7 @@ import styles from "./download.module.css";
 export const metadata: Metadata = buildMetadata({
   title: "Download WeLockIn for Mac, iPhone, iPad and Windows",
   description:
-    "Get WeLockIn on macOS, iPhone, iPad and Windows. Three device slots lock together as one. Android coming soon.",
+    "Get WeLockIn on macOS, iPhone, iPad and Windows. Link as many devices as you want — they all lock together as one. Android coming soon.",
   path: "/download",
   keywords: [
     "download WeLockIn",
@@ -54,9 +54,9 @@ export default function DownloadPage() {
             <p className="cp-eyebrow">Download</p>
             <h1 className="cp-h1">Download WeLockIn</h1>
             <p className="cp-lead">
-              You get {product.deviceSlotsLabel} — {product.deviceSlots} devices
-              that all lock at the same time. Install it on each one and a single
-              session shuts everything down at once.
+              You can link as many devices as you want — they all lock at the
+              same time. Install it on each one and a single session shuts
+              everything down at once.
             </p>
             <p className="cp-sub">
               A blocker that covers your laptop but not your phone is a blocker

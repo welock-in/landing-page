@@ -137,8 +137,8 @@ export default function HelpPage() {
               </li>
               <li>
                 <strong>The lifetime licence.</strong> WeLockIn is a one-time
-                purchase, not a subscription. Buy it once and it covers your
-                device slots for good, updates included.
+                purchase, not a subscription. Buy it once and it covers all your
+                devices for good, updates included.
               </li>
               <li>
                 <strong>Refunds.</strong> Handled through the store you bought

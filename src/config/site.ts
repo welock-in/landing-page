@@ -59,9 +59,9 @@ export type SiteConfig = typeof siteConfig;
  * the note in lib/seo.ts before adding one back.
  */
 export const product = {
-  /** Device slots included. */
-  deviceSlots: 3,
-  deviceSlotsLabel: "1 computer + 1 phone + 1 tablet",
+  /** No device cap — link as many devices as you want; they all lock together. */
+  deviceSlots: "unlimited",
+  deviceSlotsLabel: "as many devices as you want",
   operatingSystems: ["macOS", "iOS", "iPadOS", "Windows"],
   comingSoon: ["Android"],
   category: "ProductivityApplication",

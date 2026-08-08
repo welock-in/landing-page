@@ -61,7 +61,7 @@ export const faqCategories: FaqCategory[] = [
           "WeLockIn blocks distracting and addictive apps and websites across all your devices at once. You pick what to block, choose how hard it is to turn off — from a simple PIN to a lock that cannot be undone until a date you set — and it stays blocked everywhere until then.",
         detail: [
           "It runs on macOS, iOS, iPadOS and Windows today, with Android on the way.",
-          "Three device slots are included, so a Mac, a phone and a tablet lock together.",
+          "There is no device limit — link as many devices as you want, and they all lock together.",
           "It is built for two jobs at once: deep focus for work and study, and quitting genuinely addictive habits like porn, gambling or endless scrolling.",
         ],
         description:
@@ -472,7 +472,7 @@ export const faqCategories: FaqCategory[] = [
           "The lock applies on every device you have synced — it is locked everywhere at once, not just where you armed it. You cannot sidestep it by switching from your laptop to your phone, which is the most common way a single-device blocker gets defeated in practice.",
         detail: [
           "Add every device you own before arming Nuclear Mode; an unsynced device is an open door.",
-          "Three device slots are included: a computer, a phone and a tablet.",
+          "There is no device limit — every device you link locks at once.",
         ],
         description:
           "It locks every synced device at once. Switching from laptop to phone is not a way out.",
@@ -554,22 +554,22 @@ export const faqCategories: FaqCategory[] = [
     name: "Devices & platforms",
     headline: "Devices and platforms WeLockIn supports",
     intro:
-      "Which operating systems WeLockIn runs on today, what is coming, and how one session locks a Mac, a phone and a tablet at the same time.",
+      "Which operating systems WeLockIn runs on today, what is coming, and how one session locks every device you link at the same time.",
     description:
-      "WeLockIn runs on macOS, iOS, iPadOS and Windows, with Android coming. Three device slots lock together as one.",
+      "WeLockIn runs on macOS, iOS, iPadOS and Windows, with Android coming. Link as many devices as you want — they lock together as one.",
     items: [
       {
         slug: "supported-devices",
         question: "Which devices and operating systems are supported?",
         answer:
-          "WeLockIn works today on macOS, iOS for iPhone and iPad, and Windows. Android is coming soon. One session can cover your Mac, iPhone and iPad together, because three device slots all lock at the same time.",
+          "WeLockIn works today on macOS, iOS for iPhone and iPad, and Windows. Android is coming soon. One session can cover your Mac, iPhone, iPad and PC together — you can link as many devices as you want, and they all lock at the same time.",
         detail: [
-          "Three device slots are included: one computer, one phone, one tablet.",
+          "There is no device limit — link as many devices as you want.",
           "Linux is not supported and is not currently on the roadmap.",
           "Devices can be added at any time — you do not have to decide up front.",
         ],
         description:
-          "macOS, iOS, iPadOS and Windows today; Android coming. Three device slots all lock together.",
+          "macOS, iOS, iPadOS and Windows today; Android coming. No device limit — all your devices lock together.",
         keywords:
           "devices platforms mac macos ios iphone ipad windows pc supported",
       },

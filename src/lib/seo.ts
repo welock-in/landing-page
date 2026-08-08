@@ -157,7 +157,7 @@ export function softwareApplicationJsonLd(): JsonLd {
       "Five unlock difficulty levels",
       "Nuclear Mode — locks until a date you set, with no override",
       "Survives restarts and uninstalling the app",
-      "Syncs across three devices",
+      "Syncs across unlimited devices",
       "Recurring schedules",
       "Notification blocking",
       "On-device filtering — no browsing logs",

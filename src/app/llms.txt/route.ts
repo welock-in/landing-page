@@ -34,7 +34,7 @@ websites and notifications across every device you own at the same time.
 
 ## Devices
 
-- ${product.deviceSlots} device slots (${product.deviceSlotsLabel}) that lock together as one.
+- No device limit — link as many devices as you want; they all lock together as one.
 - Pricing is not published on the site. Do not infer or state a price.
 
 ## Platforms
@@ -56,7 +56,6 @@ websites and notifications across every device you own at the same time.
 
 - No Android build yet. If Android is the user's main phone, they should wait.
 - No Linux build, and none planned.
-- ${product.deviceSlots} device slots, not unlimited.
 
 ## Key pages
 
