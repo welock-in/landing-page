@@ -109,7 +109,7 @@ export function Results() {
           real students
         </h2>
         <div className="rs-grid" ref={gridRef}>
-          <article className="rs-card" style={{ background: "#e7f2f9" }}>
+          <article className="rs-card" style={{ background: "#f9e94f" }}>
             <div className="rs-num" data-target="2" data-format="time" data-suffix="">
               0:00
             </div>
@@ -119,7 +119,7 @@ export function Results() {
               <img src="/images/logos/22_EPFL.webp" alt="EPFL" width={236} height={80} loading="lazy" decoding="async" />
             </div>
           </article>
-          <article className="rs-card" style={{ background: "#e9f7e5" }}>
+          <article className="rs-card" style={{ background: "#bce9b2" }}>
             <div className="rs-num" data-target="150" data-format="int" data-suffix="+">
               0+
             </div>
@@ -172,7 +172,7 @@ export function Results() {
               </div>
             </div>
           </article>
-          <article className="rs-card" style={{ background: "#e7f2f9" }}>
+          <article className="rs-card" style={{ background: "#f9e94f" }}>
             <div className="rs-num" data-target="92" data-format="int" data-suffix="%">
               0%
             </div>
@@ -182,7 +182,7 @@ export function Results() {
               <img src="/images/polytechnique.webp" alt="Polytechnique" width={68} height={96} loading="lazy" decoding="async" style={{ height: "38px" }} />
             </div>
           </article>
-          <article className="rs-card" style={{ background: "#fceef6" }}>
+          <article className="rs-card" style={{ background: "#f8cde7" }}>
             <div className="rs-num" data-target="5" data-format="int" data-suffix="">
               0
             </div>
@@ -192,7 +192,7 @@ export function Results() {
               <img src="/images/logos/04_Oxford.webp" alt="University of Oxford" width={114} height={136} loading="lazy" decoding="async" />
             </div>
           </article>
-          <article className="rs-card" style={{ background: "#f0effb" }}>
+          <article className="rs-card" style={{ background: "#dbd8f6" }}>
             <div className="rs-num" data-target="4" data-format="int" data-suffix="x">
               0x
             </div>
@@ -202,7 +202,7 @@ export function Results() {
               <img src="/images/logos/23_TUM.webp" alt="TU Munich" width={136} height={77} loading="lazy" decoding="async" />
             </div>
           </article>
-          <article className="rs-card" style={{ background: "#fceef6" }}>
+          <article className="rs-card" style={{ background: "#f8cde7" }}>
             <div className="rs-num" data-target="37" data-format="int" data-suffix="%">
               0%
             </div>
