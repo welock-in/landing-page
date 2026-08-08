@@ -17,10 +17,10 @@ import {
 export const metadata: Metadata = buildMetadata({
   title: "FAQ — Everything about locking in",
   description:
-    "How WeLockIn blocks apps and sites, the five unlock difficulty levels, Nuclear Mode, supported devices, privacy and troubleshooting — answered.",
+    "How Welockin blocks apps and sites, the five unlock difficulty levels, Nuclear Mode, supported devices, privacy and troubleshooting — answered.",
   path: "/faq",
   keywords: [
-    "WeLockIn FAQ",
+    "Welockin FAQ",
     "app blocker questions",
     "nuclear mode",
     "unlock difficulty levels",
@@ -42,7 +42,7 @@ export default function FaqRoute() {
 
       {/* The hub links to every answer, so its structured data carries every
           question too — this is the URL most likely to be reached for a broad
-          "WeLockIn FAQ" query, by a person or an assistant. */}
+          "Welockin FAQ" query, by a person or an assistant. */}
       <JsonLd
         graph={jsonLdGraph(
           softwareApplicationJsonLd(),

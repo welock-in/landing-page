@@ -14,7 +14,7 @@ const hanken = Hanken_Grotesk({
 
 export const metadata: Metadata = buildMetadata({
   title: "Blocked",
-  description: "This site is blocked by WeLockIn.",
+  description: "This site is blocked by Welockin.",
   path: "/blocked",
   // An in-app interstitial, not a landing page — keep it out of search results.
   noIndex: true,

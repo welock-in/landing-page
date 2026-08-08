@@ -12,7 +12,7 @@ const CONTACT = "hello@welock.in";
 export const metadata: Metadata = buildMetadata({
   title: "Terms of Service",
   description:
-    "The terms for using WeLockIn: the 14-day free trial, the one-time lifetime licence, refunds, acceptable use, and why the lock is built to hold.",
+    "The terms for using Welockin: the 14-day free trial, the one-time lifetime licence, refunds, acceptable use, and why the lock is built to hold.",
   path: "/terms",
 });
 
@@ -28,8 +28,8 @@ export default function TermsPage() {
         <Breadcrumbs trail={TRAIL} />
 
         <p>
-          These terms are the agreement between you and WeLockIn
-          (&ldquo;we&rdquo;, &ldquo;us&rdquo;) for the WeLockIn apps and the
+          These terms are the agreement between you and Welockin
+          (&ldquo;we&rdquo;, &ldquo;us&rdquo;) for the Welockin apps and the
           account service behind them. By creating an account or using the
           apps, you accept them. We have tried to keep them short and in plain
           English — the unusual parts are the trial, the lifetime licence, and
@@ -50,7 +50,7 @@ export default function TermsPage() {
 
         <h2>The service</h2>
         <p>
-          WeLockIn blocks distracting apps and websites at the device level
+          Welockin blocks distracting apps and websites at the device level
           during focus sessions and protection periods you set up. An account
           is required: it is what syncs your blocklists, sessions and licence
           across your devices. The blocking itself runs on your device — see
@@ -75,7 +75,7 @@ export default function TermsPage() {
             happens under your account.
           </li>
           <li>
-            WeLockIn is not directed to children under 13 (or under 16 in the
+            Welockin is not directed to children under 13 (or under 16 in the
             EEA/UK), and you must be at least that old to create an account.
           </li>
         </ul>
@@ -91,7 +91,7 @@ export default function TermsPage() {
 
         <h2>The lifetime licence</h2>
         <p>
-          WeLockIn is sold as a <strong>one-time purchase</strong>, not a
+          Welockin is sold as a <strong>one-time purchase</strong>, not a
           subscription. A lifetime licence covers every device linked to your
           account for as long as we operate the service, including
           updates we ship to it. It is personal to your account and not
@@ -143,7 +143,7 @@ export default function TermsPage() {
         <h2>The lock is meant to hold</h2>
         <div className={legal.callout}>
           <p>
-            <strong>Read this before your first hard lock.</strong> WeLockIn
+            <strong>Read this before your first hard lock.</strong> Welockin
             intentionally resists being disabled during a session you started.
             Hard and Nuclear locks survive restarting your device and
             uninstalling the app, and nobody — including our support team —
@@ -157,7 +157,7 @@ export default function TermsPage() {
 
         <h2>Termination</h2>
         <p>
-          You can stop using WeLockIn and{" "}
+          You can stop using Welockin and{" "}
           <a href="/delete-account">delete your account</a> at any time —
           though, as described above, neither uninstalling the app nor leaving
           it lifts a hard lock before it ends. We may suspend or terminate
@@ -170,7 +170,7 @@ export default function TermsPage() {
 
         <h2>Intellectual property</h2>
         <p>
-          The apps, the site and the WeLockIn name and artwork are ours or our
+          The apps, the site and the Welockin name and artwork are ours or our
           licensors&rsquo;. Your licence is a right to use the product as
           intended; it does not transfer any ownership to you.
         </p>
@@ -181,7 +181,7 @@ export default function TermsPage() {
           &ldquo;as available&rdquo;, without warranties beyond those that
           cannot be excluded by law. In particular, we do not warrant that
           every distracting app or site will be blocked in every situation, or
-          that the service will be uninterrupted or error-free. WeLockIn is a
+          that the service will be uninterrupted or error-free. Welockin is a
           productivity tool, not a medical or therapeutic service — for a
           serious compulsion it can be one part of a plan, but it is not a
           substitute for professional help.

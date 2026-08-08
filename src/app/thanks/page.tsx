@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
   title: "Payment received",
-  description: "Jump back into WeLockin — your licence is on your account.",
+  description: "Jump back into Welockin — your licence is on your account.",
   path: "/thanks",
   // Only ever reached from the checkout confirmation button or the receipt
   // email — an interstitial, not a landing page. Keep it out of search results.

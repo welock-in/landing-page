@@ -18,12 +18,12 @@ import {
 import styles from "./download.module.css";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Download WeLockIn for Mac, iPhone, iPad and Windows",
+  title: "Download Welockin for Mac, iPhone, iPad and Windows",
   description:
-    "Get WeLockIn on macOS, iPhone, iPad and Windows. Link as many devices as you want — they all lock together as one. Android coming soon.",
+    "Get Welockin on macOS, iPhone, iPad and Windows. Link as many devices as you want — they all lock together as one. Android coming soon.",
   path: "/download",
   keywords: [
-    "download WeLockIn",
+    "download Welockin",
     "app blocker for mac",
     "app blocker for windows",
     "website blocker iphone",
@@ -52,7 +52,7 @@ export default function DownloadPage() {
             <Breadcrumbs trail={TRAIL} />
 
             <p className="cp-eyebrow">Download</p>
-            <h1 className="cp-h1">Download WeLockIn</h1>
+            <h1 className="cp-h1">Download Welockin</h1>
             <p className="cp-lead">
               You can link as many devices as you want — they all lock at the
               same time. Install it on each one and a single session shuts
@@ -101,7 +101,7 @@ export default function DownloadPage() {
             <h2 className="cp-h2">Setting it up</h2>
             <ol className={styles.steps}>
               <li>
-                Install WeLockIn on every device you actually get distracted on.
+                Install Welockin on every device you actually get distracted on.
                 Covering your laptop but not your phone leaves the obvious way
                 round it wide open.
               </li>

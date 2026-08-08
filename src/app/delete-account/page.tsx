@@ -10,7 +10,7 @@ const CONTACT = "hello@welock.in";
 export const metadata: Metadata = buildMetadata({
   title: "Delete your account",
   description:
-    "How to permanently delete your WeLockIn account and all associated data — from inside the app or by email. What gets deleted and how long it takes.",
+    "How to permanently delete your Welockin account and all associated data — from inside the app or by email. What gets deleted and how long it takes.",
   path: "/delete-account",
 });
 
@@ -22,14 +22,14 @@ export default function DeleteAccountPage() {
       updated={UPDATED}
     >
       <p>
-        You can permanently delete your WeLockIn account and all of the data
+        You can permanently delete your Welockin account and all of the data
         associated with it at any time. This page explains the two ways to do it,
         exactly what gets removed, and how long it takes.
       </p>
 
       <div className={legal.callout}>
         <p>
-          <strong>Fastest way — in the app.</strong> Open WeLockIn and go to{" "}
+          <strong>Fastest way — in the app.</strong> Open Welockin and go to{" "}
           <strong>Profile</strong> (tap your avatar, top-right) →{" "}
           <strong>Delete account</strong> → confirm. Your account and its data
           are erased immediately and you are signed out.
@@ -38,7 +38,7 @@ export default function DeleteAccountPage() {
 
       <h2>Option 1 — Delete in the app (immediate)</h2>
       <ul>
-        <li>Open the WeLockIn app.</li>
+        <li>Open the Welockin app.</li>
         <li>
           Tap your avatar in the top-right corner to open{" "}
           <strong>Profile</strong>.
@@ -119,7 +119,7 @@ export default function DeleteAccountPage() {
 
       <h2>Cancel a purchase or subscription</h2>
       <p>
-        Deleting your WeLockIn account does not by itself cancel a store
+        Deleting your Welockin account does not by itself cancel a store
         subscription. If you purchased through Google Play or the App Store,
         manage or cancel it in that store&rsquo;s subscription settings.
       </p>

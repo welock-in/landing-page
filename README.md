@@ -1,6 +1,6 @@
-# WeLockIn — Landing
+# Welockin — Landing
 
-Marketing site for **WeLockIn**, the distraction blocker you cannot talk
+Marketing site for **Welockin**, the distraction blocker you cannot talk
 yourself out of.
 Built with **Next.js 16 (App Router) · React 19 · TypeScript · Tailwind v4**,
 optimised for SEO and structured to scale.

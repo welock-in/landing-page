@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
   title: "Reset your password",
-  description: "Set a new password for your WeLockIn account.",
+  description: "Set a new password for your Welockin account.",
   path: "/reset-password",
   // Only ever reached from a one-time email link, and the URL carries a reset
   // token — nothing here belongs in an index.

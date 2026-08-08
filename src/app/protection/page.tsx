@@ -11,7 +11,7 @@ export const metadata: Metadata = buildMetadata({
     "Block adult content, gambling, dating apps and mature games across every device. Five unlock difficulty levels, on-device filtering, always on.",
   path: "/protection",
   keywords: [
-    "WeLockIn Protection",
+    "Welockin Protection",
     "block adult sites",
     "porn blocker",
     "gambling blocker",

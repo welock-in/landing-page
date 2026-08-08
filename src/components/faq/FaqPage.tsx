@@ -154,7 +154,7 @@ export function FaqPage() {
               {/* eslint-disable-next-line @next/next/no-img-element -- hand-drawn mascot */}
               <img
                 src="/images/peep-fez.png"
-                alt="Peep, the WeLockIn mascot, looking apologetic"
+                alt="Peep, the Welockin mascot, looking apologetic"
                 width={200}
                 height={492}
                 loading="lazy"

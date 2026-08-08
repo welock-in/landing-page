@@ -23,15 +23,15 @@ export const siteUrl: string = (
 ).replace(/\/$/, "");
 
 export const siteConfig = {
-  name: "WeLockIn",
-  title: "WeLockIn — Block distractions before they block your future.",
+  name: "Welockin",
+  title: "Welockin — Block distractions before they block your future.",
   description:
-    "WeLockIn blocks the apps that steal your attention — once and for all. One-click, impossible-to-bypass focus sessions across macOS, iOS, iPadOS and Windows.",
+    "Welockin blocks the apps that steal your attention — once and for all. One-click, impossible-to-bypass focus sessions across macOS, iOS, iPadOS and Windows.",
   url: siteUrl,
   locale: "en_US",
   twitter: "@welockin",
   keywords: [
-    "WeLockIn",
+    "Welockin",
     "block distractions",
     "focus app",
     "app blocker",
@@ -42,8 +42,8 @@ export const siteConfig = {
     "Freedom alternative",
     "nuclear lock",
   ] as string[],
-  authors: [{ name: "WeLockIn" }] as { name: string; url?: string }[],
-  creator: "WeLockIn",
+  authors: [{ name: "Welockin" }] as { name: string; url?: string }[],
+  creator: "Welockin",
   /** Built-by line shown on the landing page. */
   builtBy: "Built by students from EPFL & Polytechnique",
   contactEmail: "hello@welock.in",

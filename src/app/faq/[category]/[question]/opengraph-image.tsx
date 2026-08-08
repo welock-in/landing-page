@@ -1,7 +1,7 @@
 import { allFaqEntries, findFaqEntry } from "@/content/faqPage";
 import { ogCard, OG_CONTENT_TYPE, OG_SIZE } from "@/lib/og";
 
-export const alt = "A WeLockIn FAQ answer.";
+export const alt = "A Welockin FAQ answer.";
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 

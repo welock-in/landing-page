@@ -191,7 +191,7 @@ export function Footer() {
             </span>
             <span className="wlf-tagline">Built by students, for students</span>
           </div>
-          <span className="wlf-copy">&copy; 2025 WeLockIn. All rights reserved</span>
+          <span className="wlf-copy">&copy; 2025 Welockin. All rights reserved</span>
         </div>
       </div>
     </footer>

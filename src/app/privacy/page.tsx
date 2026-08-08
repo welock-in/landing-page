@@ -10,7 +10,7 @@ const CONTACT = "hello@welock.in";
 export const metadata: Metadata = buildMetadata({
   title: "Privacy Policy",
   description:
-    "How WeLockIn handles your data: what we collect, why each permission is used, and how to delete your account. Your browsing stays on your device.",
+    "How Welockin handles your data: what we collect, why each permission is used, and how to delete your account. Your browsing stays on your device.",
   path: "/privacy",
 });
 
@@ -18,8 +18,8 @@ export default function PrivacyPage() {
   return (
     <LegalPage eyebrow="Legal" title="Privacy Policy" updated={UPDATED}>
       <p>
-        WeLockIn helps you block distracting apps and websites during focus
-        sessions. This policy explains what data the WeLockIn apps (Android, iOS,
+        Welockin helps you block distracting apps and websites during focus
+        sessions. This policy explains what data the Welockin apps (Android, iOS,
         macOS and Windows) collect, how it is used, and the choices you have.
         We keep it plain: <strong>we do not sell your data, we do not run
         advertising, and the sites you browse never leave your device.</strong>
@@ -30,7 +30,7 @@ export default function PrivacyPage() {
           <strong>The short version.</strong> We store your email and the
           blocklists and focus history tied to your account so they sync across
           your devices. The distraction blocking itself runs entirely on your
-          phone — WeLockIn never sees or records the websites you visit. You can{" "}
+          phone — Welockin never sees or records the websites you visit. You can{" "}
           <a href="/delete-account">delete your account and all its data</a> at
           any time.
         </p>
@@ -38,7 +38,7 @@ export default function PrivacyPage() {
 
       <h2>Who we are</h2>
       <p>
-        WeLockIn (&ldquo;we&rdquo;, &ldquo;us&rdquo;) is the data controller for
+        Welockin (&ldquo;we&rdquo;, &ldquo;us&rdquo;) is the data controller for
         the personal data described here. For any privacy question or request,
         contact us at <a href={`mailto:${CONTACT}`}>{CONTACT}</a>.
       </p>
@@ -115,7 +115,7 @@ export default function PrivacyPage() {
       </p>
       <ul>
         <li>
-          <strong>Your browsing.</strong> During a session, WeLockIn runs an
+          <strong>Your browsing.</strong> During a session, Welockin runs an
           on-device VPN that acts as a local DNS filter: it simply refuses to
           resolve the domains on your blocklist. Your web traffic is{" "}
           <strong>not</strong> routed through our servers. We do not see, log or
@@ -123,14 +123,14 @@ export default function PrivacyPage() {
         </li>
         <li>
           <strong>Your installed apps and app usage.</strong> To show the block
-          screen when you open a blocked app, WeLockIn reads which app is
+          screen when you open a blocked app, Welockin reads which app is
           currently in the foreground (Android&rsquo;s Usage Access). This check
           happens entirely on your device — the list of your installed apps and
           your usage is never uploaded.
         </li>
       </ul>
 
-      <h2>Permissions and why WeLockIn needs them</h2>
+      <h2>Permissions and why Welockin needs them</h2>
       <p>
         Android asks you to grant the sensitive permissions below. Each one maps
         to a specific feature:
@@ -223,7 +223,7 @@ export default function PrivacyPage() {
       <p>
         We do not sell your personal data and we do not share it with data
         brokers or advertisers. We use a small number of service providers
-        strictly to run WeLockIn — for example cloud hosting and database
+        strictly to run Welockin — for example cloud hosting and database
         infrastructure for our backend at{" "}
         <code>app.connect.welock.in</code>. They process data only on our
         instructions. We may also disclose data if required by law or to protect
@@ -233,7 +233,7 @@ export default function PrivacyPage() {
       <h2>Third-party stores &amp; payments</h2>
       <p>
         Purchases are handled by the app store you bought through (Google Play or
-        the Apple App Store). WeLockIn never receives or stores your card
+        the Apple App Store). Welockin never receives or stores your card
         number. Those stores process the payment under their own privacy
         policies.
       </p>
@@ -269,7 +269,7 @@ export default function PrivacyPage() {
 
       <h2>Children</h2>
       <p>
-        WeLockIn is not directed to children under 13 (or under 16 in the EEA/UK),
+        Welockin is not directed to children under 13 (or under 16 in the EEA/UK),
         and we do not knowingly collect data from them. If you believe a child
         has provided us data, contact us and we will delete it.
       </p>

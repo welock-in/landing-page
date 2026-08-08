@@ -52,14 +52,14 @@ export function ThanksCard({ orderId }: ThanksCardProps) {
       <span className={styles.eyebrow}>Payment received</span>
       <h1 className={styles.title}>You&rsquo;re all set</h1>
       <p className={styles.lead}>
-        WeLockin unlocks by itself within a few seconds. If it didn&rsquo;t come
+        Welockin unlocks by itself within a few seconds. If it didn&rsquo;t come
         to the front on its own, the button below brings it back.
       </p>
       <a className={styles.open} href={deepLink}>
-        Open WeLockin
+        Open Welockin
       </a>
       <p className={styles.fallback}>
-        Nothing happening? Open WeLockin from your desktop or Start menu — it
+        Nothing happening? Open Welockin from your desktop or Start menu — it
         checks your licence every time it starts. You can close this tab.
       </p>
     </div>

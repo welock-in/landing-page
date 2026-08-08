@@ -18,7 +18,7 @@ import styles from "./help.module.css";
 export const metadata: Metadata = buildMetadata({
   title: "Help — Getting started, your account, purchases and fixes",
   description:
-    "Everything in one place: setting up WeLockIn, managing your account, the trial and lifetime licence, and fixes when something isn't working.",
+    "Everything in one place: setting up Welockin, managing your account, the trial and lifetime licence, and fixes when something isn't working.",
   path: "/help",
 });
 
@@ -45,7 +45,7 @@ export default function HelpPage() {
             <p className="cp-eyebrow">Help</p>
             <h1 className="cp-h1">How can we help?</h1>
             <p className="cp-lead">
-              Everything in one place: setting WeLockIn up, managing your
+              Everything in one place: setting Welockin up, managing your
               account, sorting out a purchase, and fixing things when they
               don&rsquo;t behave.
             </p>
@@ -72,7 +72,7 @@ export default function HelpPage() {
                 </span>
               </Link>
               <Link className="cp-card" href="/download">
-                <span className="cp-card-title">Download WeLockIn</span>
+                <span className="cp-card-title">Download Welockin</span>
                 <span className="cp-card-meta">
                   macOS, iPhone, iPad and Windows
                 </span>
@@ -136,7 +136,7 @@ export default function HelpPage() {
                 restart it.
               </li>
               <li>
-                <strong>The lifetime licence.</strong> WeLockIn is a one-time
+                <strong>The lifetime licence.</strong> Welockin is a one-time
                 purchase, not a subscription. Buy it once and it covers all your
                 devices for good, updates included.
               </li>

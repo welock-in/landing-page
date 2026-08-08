@@ -119,7 +119,7 @@ type OgCardInput = {
  * The one social card used across the site.
  *
  * Warm paper, ink type, a single red accent — the same restraint the design
- * system asks for, so a shared link reads as WeLockIn before anyone reads a
+ * system asks for, so a shared link reads as Welockin before anyone reads a
  * word of it.
  */
 export async function ogCard({ title, eyebrow, subtitle }: OgCardInput) {

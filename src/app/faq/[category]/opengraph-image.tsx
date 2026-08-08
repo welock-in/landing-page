@@ -1,7 +1,7 @@
 import { faqCategories, findFaqCategory } from "@/content/faqPage";
 import { ogCard, OG_CONTENT_TYPE, OG_SIZE } from "@/lib/og";
 
-export const alt = "WeLockIn FAQ — answers grouped by topic.";
+export const alt = "Welockin FAQ — answers grouped by topic.";
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 

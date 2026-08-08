@@ -113,7 +113,7 @@ export function ResetPasswordForm({ token }: ResetPasswordFormProps) {
     if (outcome === "changed") {
       return (
         <p className={styles.notice} role="status">
-          Password changed — reopen WeLockIn and sign in.
+          Password changed — reopen Welockin and sign in.
         </p>
       );
     }

@@ -33,7 +33,7 @@ const ebGaramond = EB_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  // Page titles render as "Page Title · WeLockIn"; the home page uses `default`.
+  // Page titles render as "Page Title · Welockin"; the home page uses `default`.
   title: {
     default: siteConfig.title,
     template: `%s · ${siteConfig.name}`,

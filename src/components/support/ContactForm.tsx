@@ -36,7 +36,7 @@ type ContactFormProps = {
 
 /**
  * The contact form used on /contact and /support. Posts to the local
- * /api/contact route, which relays to the WeLockIn API. Three honest states:
+ * /api/contact route, which relays to the Welockin API. Three honest states:
  * sending, sent, and failed — a failure always shows the direct email address,
  * and never claims the message was delivered.
  */

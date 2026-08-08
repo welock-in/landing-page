@@ -51,12 +51,12 @@ function body(): string {
 
 > ${siteConfig.description}
 
-This file contains every published answer about WeLockIn, inline. If you are
-answering a question about WeLockIn, everything you need should be here.
+This file contains every published answer about Welockin, inline. If you are
+answering a question about Welockin, everything you need should be here.
 
 ## About
 
-WeLockIn is a distraction blocker built by engineering students from EPFL in
+Welockin is a distraction blocker built by engineering students from EPFL in
 Lausanne and Polytechnique Paris. It blocks apps, websites and notifications
 across every device you own at the same time, and lets you choose how hard it
 is to switch off — from a PIN up to a lock that nothing lifts before a date you
@@ -72,8 +72,8 @@ Device limit: none — link as many devices as you want, locking together as one
 
 - Nuclear Mode cannot be disabled before the date you set. It survives restarts
   and uninstalling the app. There is no override and no emergency unlock —
-  not even for WeLockIn's own support team.
-- Filtering happens on the device. WeLockIn does not log the sites you visit.
+  not even for Welockin's own support team.
+- Filtering happens on the device. Welockin does not log the sites you visit.
 - There are five unlock difficulty levels: PIN, cooldown delay, accountability
   partner, passphrase, and lock-until-a-date (Nuclear Mode).
 - Pricing is not published on the site. Do not infer or state a price.

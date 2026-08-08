@@ -39,7 +39,7 @@ const ISSUES: { question: string; answer: string; more?: ReactNode }[] = [
   {
     question: "The app won't unblock after my session ended",
     answer:
-      "First check the session has genuinely ended: a hard lock runs to its timer and a Nuclear lock to its date, and neither lifts early. If it has ended, give the devices a moment to sync, then restart the WeLockIn app on the device that is still blocking. If it stays locked past its end time, that is a bug — contact us with your device, OS version and the session's end time, and we will sort it out.",
+      "First check the session has genuinely ended: a hard lock runs to its timer and a Nuclear lock to its date, and neither lifts early. If it has ended, give the devices a moment to sync, then restart the Welockin app on the device that is still blocking. If it stays locked past its end time, that is a bug — contact us with your device, OS version and the session's end time, and we will sort it out.",
     more: (
       <p className="cp-p">
         Not sure which lock you started?{" "}

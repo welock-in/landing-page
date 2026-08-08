@@ -32,7 +32,7 @@ export function BlockedScreen({
       <div className="blk-text">
         <h1 className="blk-title">{siteName || FALLBACK}</h1>
         <p className="blk-sub">
-          is blocked by <span className="blk-brand">WeLockin</span>
+          is blocked by <span className="blk-brand">Welockin</span>
         </p>
       </div>
     </div>

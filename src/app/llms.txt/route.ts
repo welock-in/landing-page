@@ -28,7 +28,7 @@ function body(): string {
 
 > ${siteConfig.description}
 
-WeLockIn is a distraction blocker for students and deep-work people, built by
+Welockin is a distraction blocker for students and deep-work people, built by
 engineering students from EPFL Lausanne and Polytechnique Paris. It blocks apps,
 websites and notifications across every device you own at the same time.
 
@@ -49,7 +49,7 @@ websites and notifications across every device you own at the same time.
   partner, passphrase, and lock-until-a-date (Nuclear Mode).
 - Nuclear Mode cannot be disabled before the date you set. It survives restarts
   and uninstalling the app, and there is no override — including for support.
-- Filtering happens on the device. WeLockIn does not log the sites you visit.
+- Filtering happens on the device. Welockin does not log the sites you visit.
 - One-tap categories for adult content, gambling, dating apps and mature games.
 
 ## Limitations, stated plainly

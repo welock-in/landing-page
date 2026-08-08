@@ -13,7 +13,7 @@ import { breadcrumbJsonLd, buildMetadata, jsonLdGraph } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Contact us",
   description:
-    "Reach the WeLockIn team — support, billing, privacy or press. Send the form or email hello@welock.in; a real person reads every message.",
+    "Reach the Welockin team — support, billing, privacy or press. Send the form or email hello@welock.in; a real person reads every message.",
   path: "/contact",
 });
 
@@ -35,7 +35,7 @@ export default function ContactPage() {
             <h1 className="cp-h1">Get in touch</h1>
             <p className="cp-lead">
               A question, a bug, a billing hiccup or a press enquiry — send it
-              over. Every message is read by the students who build WeLockIn,
+              over. Every message is read by the students who build Welockin,
               usually between lectures.
             </p>
             <p className="cp-sub">

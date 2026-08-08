@@ -30,7 +30,7 @@ const UNAVAILABLE =
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || "https://app.connect.welock.in/api";
 
 /**
- * Forward a POST to the WeLockIn API and relay its answer verbatim.
+ * Forward a POST to the Welockin API and relay its answer verbatim.
  *
  * The browser talks to this route rather than to the API directly so the call
  * stays same-origin: nothing to add to the backend's CORS allow-list today,

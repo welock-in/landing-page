@@ -133,7 +133,7 @@ export function websiteJsonLd(): JsonLd {
  * The product itself.
  *
  * Ships without an `Offer`, because the site states no price. Worth knowing
- * what that costs: an assistant asked what WeLockIn costs has nothing to read,
+ * what that costs: an assistant asked what Welockin costs has nothing to read,
  * so it will either say the price is not published or infer a subscription from
  * what the rest of the category charges. If a price is ever published, add the
  * Offer back here first — it is the single highest-leverage node on the site.

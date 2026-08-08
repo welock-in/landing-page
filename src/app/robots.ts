@@ -8,7 +8,7 @@ import { absoluteUrl } from "@/lib/utils";
  * Listed explicitly rather than left to the wildcard, because the wildcard is
  * ambiguous to a human reading the file and to anyone who later adds a
  * `Disallow` without thinking about who it catches. Blocking any of these does
- * not protect anything — it only removes WeLockIn from that assistant's answers
+ * not protect anything — it only removes Welockin from that assistant's answers
  * while competitors stay in them.
  */
 const AI_SEARCH_AGENTS = [

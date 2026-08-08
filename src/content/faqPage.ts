@@ -48,29 +48,29 @@ export const faqCategories: FaqCategory[] = [
   {
     slug: "getting-started",
     name: "Getting started",
-    headline: "Getting started with WeLockIn",
+    headline: "Getting started with Welockin",
     intro:
-      "What WeLockIn is, who it is built for, and how to go from downloading it to your first locked session in under a minute.",
+      "What Welockin is, who it is built for, and how to go from downloading it to your first locked session in under a minute.",
     description:
-      "What WeLockIn is, who it's for, how it works, and how to set it up on your first device. Answered by the students who built it.",
+      "What Welockin is, who it's for, how it works, and how to set it up on your first device. Answered by the students who built it.",
     items: [
       {
         slug: "what-is-welockin",
-        question: "What is WeLockIn?",
+        question: "What is Welockin?",
         answer:
-          "WeLockIn blocks distracting and addictive apps and websites across all your devices at once. You pick what to block, choose how hard it is to turn off — from a simple PIN to a lock that cannot be undone until a date you set — and it stays blocked everywhere until then.",
+          "Welockin blocks distracting and addictive apps and websites across all your devices at once. You pick what to block, choose how hard it is to turn off — from a simple PIN to a lock that cannot be undone until a date you set — and it stays blocked everywhere until then.",
         detail: [
           "It runs on macOS, iOS, iPadOS and Windows today, with Android on the way.",
           "There is no device limit — link as many devices as you want, and they all lock together.",
           "It is built for two jobs at once: deep focus for work and study, and quitting genuinely addictive habits like porn, gambling or endless scrolling.",
         ],
         description:
-          "WeLockIn blocks distracting apps and sites across every device you own, with five unlock difficulty levels up to a lock nothing lifts early.",
+          "Welockin blocks distracting apps and sites across every device you own, with five unlock difficulty levels up to a lock nothing lifts early.",
         keywords: "about app blocker focus what is welockin",
       },
       {
         slug: "how-it-works",
-        question: "How does WeLockIn actually work?",
+        question: "How does Welockin actually work?",
         answer:
           "Three steps. Choose the devices and the apps or sites you want gone, pick how strict the lock should be, then start. From install to locked in takes under a minute. Once a session is running, your distractions stay blocked on every synced device at the same time.",
         detail: [
@@ -84,7 +84,7 @@ export const faqCategories: FaqCategory[] = [
       },
       {
         slug: "who-is-it-for",
-        question: "Who is WeLockIn for?",
+        question: "Who is Welockin for?",
         answer:
           "Anyone who wants their attention back. Students and deep-work people first, since it is made by students and used at universities around the world. It is equally for people quitting something real — adult content, gambling, dating-app compulsion or gaming — where a block you can switch off is no block at all.",
         detail: [
@@ -100,7 +100,7 @@ export const faqCategories: FaqCategory[] = [
         slug: "first-time-setup",
         question: "How do I set it up the first time?",
         answer:
-          "Download WeLockIn onto your Mac, iPhone, iPad or Windows PC, pick the devices you want covered, bundle the apps and sites you want blocked, set your strictness level, and start. You can add more devices at any time, so one session locks all of them at once.",
+          "Download Welockin onto your Mac, iPhone, iPad or Windows PC, pick the devices you want covered, bundle the apps and sites you want blocked, set your strictness level, and start. You can add more devices at any time, so one session locks all of them at once.",
         detail: [
           "Start with a Soft Lock for your first session — you will learn how much resistance you actually need before committing to more.",
           "Add every device you own before your first serious session. A blocker that covers your laptop but not your phone is a blocker with a door in it.",
@@ -112,7 +112,7 @@ export const faqCategories: FaqCategory[] = [
       },
       {
         slug: "what-makes-it-different",
-        question: "What makes WeLockIn different?",
+        question: "What makes Welockin different?",
         answer:
           "It locks for real. Nuclear Mode is genuinely un-bypassable — no override, no back door, no 'just five minutes' — and it survives restarts and uninstalling the app. Most focus apps leave you an escape hatch, and that escape hatch is how people relapse. Removing it is the entire product.",
         detail: [
@@ -156,15 +156,15 @@ export const faqCategories: FaqCategory[] = [
   {
     slug: "what-you-can-block",
     name: "What you can block",
-    headline: "What you can block with WeLockIn",
+    headline: "What you can block with Welockin",
     intro:
-      "Apps, websites, whole categories and notifications — what WeLockIn can shut out, and how to group it all so one tap covers a whole context.",
+      "Apps, websites, whole categories and notifications — what Welockin can shut out, and how to group it all so one tap covers a whole context.",
     description:
       "Block any app or website, one-tap categories for adult content, gambling, dating and games, plus notifications, bundles and schedules.",
     items: [
       {
         slug: "what-can-i-block",
-        question: "What can I block with WeLockIn?",
+        question: "What can I block with Welockin?",
         answer:
           "Any app or website, plus notifications. Social apps, specific sites, whole categories, or a custom mix — you decide what gets through and what goes quiet. You can bundle blocks together for contexts like work, study or sleep, and lock a whole bundle in one action.",
         detail: [
@@ -181,7 +181,7 @@ export const faqCategories: FaqCategory[] = [
         slug: "ready-made-categories",
         question: "Are there ready-made categories I can block in one tap?",
         answer:
-          "Yes. WeLockIn's Protection categories are Adult and explicit sites, Gambling including casinos, betting and lotteries, Dating apps, and Mature games. Pick a category and it is blocked everywhere, instantly, without you having to name each site or app yourself.",
+          "Yes. Welockin's Protection categories are Adult and explicit sites, Gambling including casinos, betting and lotteries, Dating apps, and Mature games. Pick a category and it is blocked everywhere, instantly, without you having to name each site or app yourself.",
         detail: [
           "Categories cover sites you have never heard of, which is the point — a manual list only blocks what you can remember.",
           "Categories and your own custom picks can be combined in the same session.",
@@ -238,7 +238,7 @@ export const faqCategories: FaqCategory[] = [
         slug: "block-notifications",
         question: "Does it block notifications too, not just the app?",
         answer:
-          "Yes. WeLockIn can silence notifications as well as block the apps and sites themselves, so a blocked app cannot keep pulling you back with badges and pings. Blocking the app while leaving its notifications on is how most focus tools leak — the app is shut, but the pull is still there.",
+          "Yes. Welockin can silence notifications as well as block the apps and sites themselves, so a blocked app cannot keep pulling you back with badges and pings. Blocking the app while leaving its notifications on is how most focus tools leak — the app is shut, but the pull is still there.",
         detail: [
           "A badge you cannot act on is worse than one you can: it creates the itch without the release.",
           "Notification silencing applies per bundle, so a work bundle and a sleep bundle can behave differently.",
@@ -282,7 +282,7 @@ export const faqCategories: FaqCategory[] = [
     name: "Unlock difficulty levels",
     headline: "The five unlock difficulty levels",
     intro:
-      "WeLockIn lets you choose how hard it is to quit a session, from a PIN you can type in two seconds to a lock nothing lifts before the date you set. Here is what each level does and which one to pick.",
+      "Welockin lets you choose how hard it is to quit a session, from a PIN you can type in two seconds to a lock nothing lifts before the date you set. Here is what each level does and which one to pick.",
     description:
       "PIN, cooldown delay, accountability partner, passphrase, and lock-until-a-date. What each unlock difficulty level does and which to choose.",
     items: [
@@ -403,7 +403,7 @@ export const faqCategories: FaqCategory[] = [
     name: "Nuclear Mode",
     headline: "Nuclear Mode: the point of no return",
     intro:
-      "Nuclear Mode locks a category until a date you choose, with no override and no back door. It is the most-asked-about part of WeLockIn, and the part we refuse to soften. Here is exactly what it does.",
+      "Nuclear Mode locks a category until a date you choose, with no override and no back door. It is the most-asked-about part of Welockin, and the part we refuse to soften. Here is exactly what it does.",
     description:
       "Nuclear Mode locks until a date you set, with no override, no early unlock, and no bypass by restarting or deleting the app.",
     items: [
@@ -411,7 +411,7 @@ export const faqCategories: FaqCategory[] = [
         slug: "what-is-nuclear-mode",
         question: "What is Nuclear Mode?",
         answer:
-          "Nuclear Mode is WeLockIn's point of no return. You pick a date, arm it, and until that day arrives nothing turns your block off — no PIN, no override, no 'just five minutes'. It is built for people who genuinely want to quit something and know that leaving themselves an exit is exactly how they relapse.",
+          "Nuclear Mode is Welockin's point of no return. You pick a date, arm it, and until that day arrives nothing turns your block off — no PIN, no override, no 'just five minutes'. It is built for people who genuinely want to quit something and know that leaving themselves an exit is exactly how they relapse.",
         detail: [
           "It locks a category or bundle until a calendar date, rather than for the length of a session.",
           "It applies across every synced device at once, so switching devices is not a way out.",
@@ -425,7 +425,7 @@ export const faqCategories: FaqCategory[] = [
         slug: "is-it-really-permanent",
         question: "Is it really permanent — genuinely no way to turn it off early?",
         answer:
-          "Yes. Once Nuclear Mode is armed it cannot be disabled before the date you set. There is no emergency unlock and no hidden back door. This is the one promise WeLockIn is built around, so we do not soften it: if you might need an escape hatch, choose a lower difficulty level instead.",
+          "Yes. Once Nuclear Mode is armed it cannot be disabled before the date you set. There is no emergency unlock and no hidden back door. This is the one promise Welockin is built around, so we do not soften it: if you might need an escape hatch, choose a lower difficulty level instead.",
         detail: [
           "Support cannot lift it for you either — a lock staff can remove is not a lock.",
           "This is why the date matters more than any other setting you choose.",
@@ -454,10 +454,10 @@ export const faqCategories: FaqCategory[] = [
         question:
           "Can I bypass it by restarting my device, deleting the app, or reinstalling?",
         answer:
-          "No. A Nuclear lock survives restarts and uninstalling the app — deleting WeLockIn does not lift the block, and reinstalling will not hand you a clean slate before the date. It is designed so that the obvious ways out simply do not work, because those are the first three things everyone tries.",
+          "No. A Nuclear lock survives restarts and uninstalling the app — deleting Welockin does not lift the block, and reinstalling will not hand you a clean slate before the date. It is designed so that the obvious ways out simply do not work, because those are the first three things everyone tries.",
         detail: [
           "Restarting does not clear it. Uninstalling does not clear it. Reinstalling does not reset it.",
-          "This is the single biggest difference between WeLockIn and blockers that a delete-and-reinstall defeats.",
+          "This is the single biggest difference between Welockin and blockers that a delete-and-reinstall defeats.",
           "Switching to another of your synced devices does not work either — the lock is on all of them.",
         ],
         description:
@@ -498,7 +498,7 @@ export const faqCategories: FaqCategory[] = [
         answer:
           "For casual focus, yes, it is more than you need — that is why the gentler levels exist. Nuclear Mode is deliberately for people quitting something a softer block never holds against. Use it intentionally: choose a sensible date, block only what is actually harming you, and keep essential tools accessible.",
         detail: [
-          "For a serious compulsion, WeLockIn is one part of a plan, not the whole plan — real-world support does the rest.",
+          "For a serious compulsion, Welockin is one part of a plan, not the whole plan — real-world support does the rest.",
           "Blocking essential tools is the one way this can genuinely go wrong, and it is entirely avoidable.",
           "Choosing a shorter first date is not a failure of commitment; it is how you learn what works.",
         ],
@@ -552,17 +552,17 @@ export const faqCategories: FaqCategory[] = [
   {
     slug: "devices-and-platforms",
     name: "Devices & platforms",
-    headline: "Devices and platforms WeLockIn supports",
+    headline: "Devices and platforms Welockin supports",
     intro:
-      "Which operating systems WeLockIn runs on today, what is coming, and how one session locks every device you link at the same time.",
+      "Which operating systems Welockin runs on today, what is coming, and how one session locks every device you link at the same time.",
     description:
-      "WeLockIn runs on macOS, iOS, iPadOS and Windows, with Android coming. Link as many devices as you want — they lock together as one.",
+      "Welockin runs on macOS, iOS, iPadOS and Windows, with Android coming. Link as many devices as you want — they lock together as one.",
     items: [
       {
         slug: "supported-devices",
         question: "Which devices and operating systems are supported?",
         answer:
-          "WeLockIn works today on macOS, iOS for iPhone and iPad, and Windows. Android is coming soon. One session can cover your Mac, iPhone, iPad and PC together — you can link as many devices as you want, and they all lock at the same time.",
+          "Welockin works today on macOS, iOS for iPhone and iPad, and Windows. Android is coming soon. One session can cover your Mac, iPhone, iPad and PC together — you can link as many devices as you want, and they all lock at the same time.",
         detail: [
           "There is no device limit — link as many devices as you want.",
           "Linux is not supported and is not currently on the roadmap.",
@@ -577,7 +577,7 @@ export const faqCategories: FaqCategory[] = [
         slug: "android-support",
         question: "Is it on Android yet?",
         answer:
-          "Not yet — Android is on the way. Today WeLockIn runs on macOS, iOS, iPadOS and Windows. If Android is your main device, it is worth waiting, since a blocker that misses your primary phone leaves the door open.",
+          "Not yet — Android is on the way. Today Welockin runs on macOS, iOS, iPadOS and Windows. If Android is your main device, it is worth waiting, since a blocker that misses your primary phone leaves the door open.",
         detail: [
           "A blocker that does not cover your main phone is not much of a blocker — that is the honest answer.",
           "Windows and macOS coverage is complete today, so a desktop-only setup works now.",
@@ -617,23 +617,23 @@ export const faqCategories: FaqCategory[] = [
   {
     slug: "privacy",
     name: "Privacy",
-    headline: "Privacy: what WeLockIn does and does not see",
+    headline: "Privacy: what Welockin does and does not see",
     intro:
       "A blocker sits between you and the internet, which makes what it logs a fair question. The short answer: filtering happens on your device, and your browsing is not recorded.",
     description:
-      "WeLockIn does not log the sites you visit. Filtering happens on your device, so blocking works without sending your browsing to a server.",
+      "Welockin does not log the sites you visit. Filtering happens on your device, so blocking works without sending your browsing to a server.",
     items: [
       {
         slug: "do-you-track-my-browsing",
         question: "Do you track or log the websites I visit?",
         answer:
-          "No. WeLockIn never logs which sites you visit. Filtering happens privately, on your device — the point is to protect your focus, not to watch your browsing. A blocker that built a record of everything you looked at would be solving one problem by creating a worse one.",
+          "No. Welockin never logs which sites you visit. Filtering happens privately, on your device — the point is to protect your focus, not to watch your browsing. A blocker that built a record of everything you looked at would be solving one problem by creating a worse one.",
         detail: [
           "This matters most for the Protection categories, where the browsing being blocked is deeply personal.",
           "An accountability partner approves unlock requests; they do not receive any browsing history.",
         ],
         description:
-          "No. WeLockIn never logs the sites you visit — filtering happens privately on your device, not on a server.",
+          "No. Welockin never logs the sites you visit — filtering happens privately on your device, not on a server.",
         keywords: "track log history spy watch browsing data",
       },
       {
@@ -654,7 +654,7 @@ export const faqCategories: FaqCategory[] = [
   {
     slug: "troubleshooting",
     name: "Troubleshooting",
-    headline: "Troubleshooting WeLockIn",
+    headline: "Troubleshooting Welockin",
     intro:
       "Something not blocking, devices out of sync, or a block you need lifted — the common problems and what to do about each.",
     description:
@@ -692,7 +692,7 @@ export const faqCategories: FaqCategory[] = [
         slug: "devices-not-syncing",
         question: "My devices aren't syncing — a block isn't showing up everywhere.",
         answer:
-          "Make sure each device is added to WeLockIn and connected, then give it a moment to sync. If a device is still out of step, restart the app on that device. Still stuck? Email hello@welock.in with the device and OS and a human will pick it up.",
+          "Make sure each device is added to Welockin and connected, then give it a moment to sync. If a device is still out of step, restart the app on that device. Still stuck? Email hello@welock.in with the device and OS and a human will pick it up.",
         detail: [
           "Your status screen shows how many devices are covered — compare that to how many you own.",
           "Restarting the app on the lagging device resolves most cases.",
@@ -707,13 +707,13 @@ export const faqCategories: FaqCategory[] = [
         question:
           "What does the screen look like when I open something that's blocked?",
         answer:
-          "A clean, minimal block screen with WeLockIn's padlock — a simple 'this is locked' moment rather than a nagging wall of text. Peep, the mascot, may or may not judge you gently. The screen is deliberately calm: shame is not what makes a block work.",
+          "A clean, minimal block screen with Welockin's padlock — a simple 'this is locked' moment rather than a nagging wall of text. Peep, the mascot, may or may not judge you gently. The screen is deliberately calm: shame is not what makes a block work.",
         detail: [
           "No countdown of how many times you tried, and no lecture.",
           "The same screen appears on every device, so the experience is consistent.",
         ],
         description:
-          "A clean, minimal block screen with the WeLockIn padlock — a calm 'this is locked' moment, not a nagging wall of text.",
+          "A clean, minimal block screen with the Welockin padlock — a calm 'this is locked' moment, not a nagging wall of text.",
         keywords: "blocked screen looks like see padlock peep",
       },
       {
