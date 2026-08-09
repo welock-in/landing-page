@@ -153,8 +153,8 @@ export function Hero() {
             </span>
           </h1>
           <p className="hero-subtitle">
-            Welockin shuts out the apps that hijack your focus, so the deep work
-            finally happens.
+            Welockin locks distracting apps and websites when it&rsquo;s time to
+            focus.
           </p>
           <div className="hero-ctaRow">
             <DownloadButton className="home-dl" />

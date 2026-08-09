@@ -145,7 +145,7 @@ export function Results() {
                 <img className="rs-av" src="/images/people/sarah-fourati.webp" alt="Sarah Fourati" width={96} height={96} loading="lazy" decoding="async" />
                 <div>
                   <b>Sarah Fourati</b>
-                  <em>MSc Business and Management</em>
+                  <em>MSc in Management</em>
                 </div>
               </a>
               <div className="rs-mark">
@@ -155,20 +155,25 @@ export function Results() {
           </article>
           <article className="rs-card span2" style={{ background: "#faf7f1" }}>
             <p className="rs-quote">
-              “I set a hard lock for two hours and my phone disappears. Best 20 bucks I
-              have spent as a student.”
+              “I used to check my phone every five minutes. Now I can actually finish a
+              study session without getting distracted.”
             </p>
             <div style={{ flex: 1 }} />
             <div className="rs-foot">
-              <div className="rs-who">
-                <img className="rs-av" src="/images/avatars/theo.svg" alt="" width={96} height={96} loading="lazy" decoding="async" />
+              <a
+                className="rs-who"
+                href="https://www.linkedin.com/in/karim-assaf-9a82a4223/"
+                target="_blank"
+                rel="noopener"
+              >
+                <img className="rs-av" src="/images/people/karim-assaf.webp" alt="Karim Assaf" width={96} height={96} loading="lazy" decoding="async" />
                 <div>
-                  <b>Theo Marchand</b>
-                  <em>Prepa MP*</em>
+                  <b>Karim Assaf</b>
+                  <em>MSc Nuclear Engineering</em>
                 </div>
-              </div>
+              </a>
               <div className="rs-mark">
-                <img src="/images/polytechnique.webp" alt="Polytechnique" width={68} height={96} loading="lazy" decoding="async" style={{ height: "26px" }} />
+                <img src="/images/logos/07_ETH.webp" alt="ETH Zürich" width={240} height={54} loading="lazy" decoding="async" />
               </div>
             </div>
           </article>
@@ -214,25 +219,20 @@ export function Results() {
           </article>
           <article className="rs-card span2" style={{ background: "#faf7f1" }}>
             <p className="rs-quote">
-              “My focus sessions went from a nice idea to a daily habit. My screen time
-              dropped, my grades climbed.”
+              “I set a hard lock for two hours and my phone disappears. Best 20 bucks I
+              have spent as a student.”
             </p>
             <div style={{ flex: 1 }} />
             <div className="rs-foot">
-              <a
-                className="rs-who"
-                href="https://www.linkedin.com/in/karim-assaf-9a82a4223/"
-                target="_blank"
-                rel="noopener"
-              >
-                <img className="rs-av" src="/images/people/karim-assaf.webp" alt="Karim Assaf" width={96} height={96} loading="lazy" decoding="async" />
+              <div className="rs-who">
+                <img className="rs-av" src="/images/avatars/theo.svg" alt="" width={96} height={96} loading="lazy" decoding="async" />
                 <div>
-                  <b>Karim Assaf</b>
-                  <em>MSc Nuclear Engineering</em>
+                  <b>Theo Marchand</b>
+                  <em>Prepa MP*</em>
                 </div>
-              </a>
+              </div>
               <div className="rs-mark">
-                <img src="/images/logos/07_ETH.webp" alt="ETH Zürich" width={240} height={54} loading="lazy" decoding="async" />
+                <img src="/images/polytechnique.webp" alt="Polytechnique" width={68} height={96} loading="lazy" decoding="async" style={{ height: "26px" }} />
               </div>
             </div>
           </article>
