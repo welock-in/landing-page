@@ -1,15 +1,17 @@
 import { cn } from "@/lib/utils";
 import "./blocked.css";
 
-/** Generic stand-in when the app doesn't pass the blocked site's name. */
-const FALLBACK = "This website";
+export type BlockedCopy = { fallbackSite: string; isBlockedBy: string };
 
 export function BlockedScreen({
   siteName,
   className,
+  copy,
 }: {
   siteName?: string;
   className?: string;
+  /** `fallbackSite` stands in when the app doesn't pass the blocked site's name. */
+  copy: BlockedCopy;
 }) {
   return (
     <div className={cn("blk", className)}>
@@ -30,9 +32,9 @@ export function BlockedScreen({
       </svg>
 
       <div className="blk-text">
-        <h1 className="blk-title">{siteName || FALLBACK}</h1>
+        <h1 className="blk-title">{siteName || copy.fallbackSite}</h1>
         <p className="blk-sub">
-          is blocked by <span className="blk-brand">Welockin</span>
+          {copy.isBlockedBy} <span className="blk-brand">Welockin</span>
         </p>
       </div>
     </div>

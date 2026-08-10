@@ -86,6 +86,15 @@
 .actions {
   display: flex;
   align-items: center;
+  gap: 10px;
+}
+
+/* The switcher only appears inside the mobile overlay below the breakpoint —
+   the bar itself has no room for it next to the brand, CTA and menu button. */
+.ovLang {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
 }
 
 /* The same CTA for mobile, where .actions collapses into the menu button. */

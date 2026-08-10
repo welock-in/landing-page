@@ -5,6 +5,10 @@
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import { DownloadButton } from "@/components/ui/DownloadButton";
+import type { HomeCopy } from "./HomePage";
+
+/** Milliseconds between one headline word starting to rise and the next. */
+const WORD_STAGGER = 80;
 
 /* Peep is a single animated image (peep-anim/peep.webp) — the flipbook
    timeline is baked into the file itself, so no JS timer and no re-render
@@ -55,7 +59,7 @@ const motionAllowed = () => !window.matchMedia(MOTION_QUERY).matches;
    initial HTML and never competes with the critical render. */
 const motionAllowedOnServer = () => false;
 
-export function Hero() {
+export function Hero({ copy }: { copy: HomeCopy["hero"] }) {
   const [videoOpen, setVideoOpen] = useState(false);
   const sessions = useSyncExternalStore(subscribeNever, readSessions, readSessionsOnServer);
   /* The ambient clip is 902 KiB and autoplays. It gets no `src` until the
@@ -113,49 +117,24 @@ export function Hero() {
     <header className="hero">
       <div className="wrap hero-grid">
         <div className="hero-text">
+          {/* One <span> per word so each can rise on its own delay. The words
+              and their line breaks come from the catalog — a translation is
+              free to need four words where English needs seven, and the
+              stagger is computed from position rather than written out. */}
           <h1 className="hero-headline">
-            <span>
-              <span className="hero-word" style={{ animationDelay: "0ms" }}>
-                Block
-              </span>{" "}
-            </span>
-            <span>
-              <span className="hero-word" style={{ animationDelay: "80ms" }}>
-                distractions
+            {copy.headline.map((word, i) => (
+              <span key={`${word.text}-${i}`}>
+                <span
+                  className="hero-word"
+                  style={{ animationDelay: `${i * WORD_STAGGER}ms` }}
+                >
+                  {word.em ? <em>{word.text}</em> : word.text}
+                </span>
+                {word.br ? <br /> : " "}
               </span>
-              <br />
-            </span>
-            <span>
-              <span className="hero-word" style={{ animationDelay: "160ms" }}>
-                before
-              </span>{" "}
-            </span>
-            <span>
-              <span className="hero-word" style={{ animationDelay: "240ms" }}>
-                they
-              </span>{" "}
-            </span>
-            <span>
-              <span className="hero-word" style={{ animationDelay: "320ms" }}>
-                block
-              </span>
-              <br />
-            </span>
-            <span>
-              <span className="hero-word" style={{ animationDelay: "400ms" }}>
-                your
-              </span>{" "}
-            </span>
-            <span>
-              <span className="hero-word" style={{ animationDelay: "480ms" }}>
-                <em>future.</em>
-              </span>{" "}
-            </span>
+            ))}
           </h1>
-          <p className="hero-subtitle">
-            Welockin locks distracting apps and websites when it&rsquo;s time to
-            focus.
-          </p>
+          <p className="hero-subtitle">{copy.subtitle}</p>
           <div className="hero-ctaRow">
             <DownloadButton className="home-dl" />
           </div>
@@ -164,9 +143,9 @@ export function Hero() {
               <div className="hero-spNow">
                 <span className="hero-spDot" aria-hidden="true" />
                 <span className="hero-spCount">{sessions}</span>
-                <span className="hero-spUnit">focus sessions</span>
+                <span className="hero-spUnit">{copy.sessionsUnit}</span>
               </div>
-              <div className="hero-spLine">active right now</div>
+              <div className="hero-spLine">{copy.sessionsLine}</div>
             </div>
           </div>
         </div>
@@ -177,7 +156,7 @@ export function Hero() {
               className="hero-frame"
               type="button"
               onClick={openVideo}
-              aria-label="Play the Welockin demo video"
+              aria-label={copy.playVideo}
             >
               <video
                 ref={ambientRef}
@@ -201,7 +180,7 @@ export function Hero() {
                 <track
                   kind="captions"
                   srcLang="en"
-                  label="English (silent — on-screen text)"
+                  label={copy.captionsLabel}
                   src="/videos/welock-draft.vtt"
                 />
               </video>
@@ -243,13 +222,13 @@ export function Hero() {
           className="hero-modal"
           role="dialog"
           aria-modal="true"
-          aria-label="Welockin demo video"
+          aria-label={copy.videoLabel}
           onClick={closeVideo}
         >
           <button
             className="hero-modalClose"
             type="button"
-            aria-label="Close video"
+            aria-label={copy.closeVideo}
             onClick={closeVideo}
           >
             <svg
@@ -280,7 +259,7 @@ export function Hero() {
               <track
                 kind="captions"
                 srcLang="en"
-                label="English (silent — on-screen text)"
+                label={copy.captionsLabel}
                 src="/videos/welock-draft.vtt"
               />
             </video>

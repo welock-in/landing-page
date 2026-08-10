@@ -1,0 +1,142 @@
+{
+  "_comment": "Page-level chrome and metadata for every route. The long-form prose on /download, /support, /help, /protection and the legal pages is not in here yet — it renders in English under every locale via the fallback in dictionaries.ts. Adding it is additive: put the strings here, translate, and wire the page up.",
+  "home": {
+    "meta": {
+      "title": "Welockin — Block distractions before they block your future.",
+      "description": "Welockin blocks the apps that steal your attention — once and for all. One-click, impossible-to-bypass focus sessions across macOS, iOS, iPadOS and Windows."
+    }
+  },
+  "download": {
+    "meta": {
+      "title": "Download Welockin for Mac, iPhone, iPad and Windows",
+      "description": "Get Welockin on macOS, iPhone, iPad and Windows. Link as many devices as you want — they all lock together as one. Android coming soon."
+    },
+    "eyebrow": "Download",
+    "h1": "Download Welockin",
+    "lead": "You can link as many devices as you want — they all lock at the same time. Install it on each one and a single session shuts everything down at once.",
+    "sub": "A blocker that covers your laptop but not your phone is a blocker with a door in it, so cover everything before your first hard lock.",
+    "pickPlatform": "Pick your platform",
+    "settingUp": "Setting it up",
+    "beforeYouInstall": "Before you install",
+    "status": {
+      "available": "Available now",
+      "comingSoon": "Coming soon",
+      "notPlanned": "Not planned",
+      "linkSoon": "Download link coming shortly"
+    },
+    "downloadFor": "Download for {platform}"
+  },
+  "protection": {
+    "meta": {
+      "title": "Protection — Block adult & explicit sites for good",
+      "description": "Block adult content, gambling, dating apps and mature games across every device. Five unlock difficulty levels, on-device filtering, always on."
+    }
+  },
+  "support": {
+    "meta": {
+      "title": "Support — Fixes for the common issues",
+      "description": "Fixes for the issues people actually hit: a lock that won't lift, a forgotten password, a missing purchase — and how to reach a human when they don't."
+    },
+    "eyebrow": "Support",
+    "h1": "Support",
+    "lead": "The issues people actually hit, with the fix for each — and a direct line to a human for everything else."
+  },
+  "help": {
+    "meta": {
+      "title": "Help — Getting started, your account, purchases and fixes",
+      "description": "Everything in one place: setting up Welockin, managing your account, the trial and lifetime licence, and fixes when something isn't working."
+    },
+    "eyebrow": "Help",
+    "h1": "How can we help?",
+    "lead": "Everything in one place: setting Welockin up, managing your account, sorting out a purchase, and fixing things when they don't behave."
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact us",
+      "description": "Reach the Welockin team — support, billing, privacy or press. Send the form or email hello@welock.in; a real person reads every message."
+    },
+    "eyebrow": "Contact",
+    "h1": "Get in touch",
+    "lead": "A question, a bug, a billing hiccup or a press enquiry — send it over. Every message is read by the students who build Welockin, usually between lectures.",
+    "otherWays": "Other ways to reach us"
+  },
+  "resetPassword": {
+    "meta": {
+      "title": "Reset your password",
+      "description": "Set a new password for your Welockin account."
+    }
+  },
+  "deleteAccount": {
+    "meta": {
+      "title": "Delete your account",
+      "description": "How to permanently delete your Welockin account and all associated data — from inside the app or by email. What gets deleted and how long it takes."
+    }
+  },
+  "privacy": {
+    "meta": {
+      "title": "Privacy Policy",
+      "description": "How Welockin handles your data: what we collect, why each permission is used, and how to delete your account. Your browsing stays on your device."
+    },
+    "title": "Privacy Policy"
+  },
+  "terms": {
+    "meta": {
+      "title": "Terms of Service",
+      "description": "The terms for using Welockin: the 14-day free trial, the one-time lifetime licence, refunds, acceptable use, and why the lock is built to hold."
+    },
+    "title": "Terms of Service"
+  },
+  "thanks": {
+    "meta": {
+      "title": "Payment received",
+      "description": "Jump back into Welockin — your licence is on your account."
+    },
+    "eyebrow": "Payment received",
+    "title": "You're all set",
+    "lead": "Welockin unlocks by itself within a few seconds. If it didn't come to the front on its own, the button below brings it back.",
+    "open": "Open Welockin",
+    "fallback": "Nothing happening? Open Welockin from your desktop or Start menu — it checks your licence every time it starts. You can close this tab."
+  },
+  "blocked": {
+    "meta": {
+      "title": "Blocked",
+      "description": "This site is blocked by Welockin."
+    },
+    "fallbackSite": "This website",
+    "isBlockedBy": "is blocked by"
+  },
+  "contactForm": {
+    "name": "Your name",
+    "namePlaceholder": "Optional",
+    "email": "Email address",
+    "topic": "Topic",
+    "message": "Message",
+    "messagePlaceholder": "What happened, what you expected, and what you saw instead.",
+    "send": "Send message",
+    "sending": "Sending…",
+    "sent": "Message sent — we'll get back to you by email.",
+    "topics": {
+      "Support": "Support",
+      "Billing": "Billing",
+      "Privacy": "Privacy",
+      "Press": "Press",
+      "Other": "Other"
+    },
+    "errors": {
+      "nameTooLong": "Please keep your name under {max} characters.",
+      "messageTooShort": "Please write at least {min} characters so we can help.",
+      "messageTooLong": "Please keep your message under {max} characters.",
+      "unreachable": "Something went wrong on our side and your message was not sent. Please try again in a moment, or email us directly at "
+    }
+  },
+  "notFound": {
+    "meta": {
+      "title": "Page not found",
+      "description": "This page does not exist."
+    },
+    "eyebrow": "404",
+    "title": "This page doesn't exist",
+    "lead": "The link may be out of date, or the page may have moved. The FAQ and the download page are the two most useful places to go from here.",
+    "backHome": "Back to the home page"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "howItWorks": "यह कैसे काम करता है",
+    "protection": "सुरक्षा",
+    "download": "डाउनलोड",
+    "faq": "सामान्य सवाल",
+    "openMenu": "मेन्यू खोलें",
+    "closeMenu": "मेन्यू बंद करें",
+    "brandLabel": "Welockin — होम"
+  },
+  "languageSwitcher": {
+    "label": "भाषा",
+    "chooseLanguage": "भाषा चुनें"
+  },
+  "downloadButton": {
+    "forMacOS": "macOS के लिए डाउनलोड करें",
+    "forIphone": "iPhone के लिए डाउनलोड करें",
+    "forWindows": "Windows के लिए डाउनलोड करें",
+    "short": "डाउनलोड"
+  },
+  "cta": {
+    "lockInNow": "अभी लॉक इन करें",
+    "lockEveryDevice": "हर डिवाइस लॉक करें",
+    "lockInForLife": "हमेशा के लिए लॉक करें",
+    "readFullAnswer": "पूरा जवाब पढ़ें",
+    "moreQuestions": "और सवाल"
+  },
+  "ctaBand": {
+    "title": "लॉक इन करने के लिए तैयार हैं?",
+    "subtitle": "जो चीज़ आपका ध्यान चुरा रही है उसे अपने हर डिवाइस पर ब्लॉक करें — ऐसे लॉक के साथ जो आपके तय किए समय तक टिकता है।",
+    "fine": "macOS, iPhone, iPad और Windows पर काम करता है"
+  },
+  "footer": {
+    "newsletter": {
+      "line1": "कोई फ़ोकस सेशन न छूटे।",
+      "line2": "पढ़ाई के टिप्स और अपडेट सीधे आपके इनबॉक्स में",
+      "placeholder": "अपना ईमेल पता डालें",
+      "emailLabel": "ईमेल पता",
+      "subscribe": "सब्सक्राइब करें",
+      "success": "आप लॉक इन हैं — अपना इनबॉक्स देखें।"
+    },
+    "columns": {
+      "product": "प्रोडक्ट",
+      "download": "डाउनलोड",
+      "answers": "जवाब",
+      "howItLocks": "लॉक कैसे काम करता है",
+      "support": "सहायता",
+      "legal": "कानूनी"
+    },
+    "links": {
+      "howItWorks": "यह कैसे काम करता है",
+      "protection": "सुरक्षा",
+      "download": "डाउनलोड",
+      "whatYouCanBlock": "आप क्या ब्लॉक कर सकते हैं",
+      "macos": "macOS",
+      "iphoneIpad": "iPhone और iPad",
+      "windows": "Windows",
+      "androidSoon": "Android — जल्द आ रहा है",
+      "allDevices": "सभी डिवाइस",
+      "fullFaq": "पूरे सामान्य सवाल",
+      "gettingStarted": "शुरुआत करें",
+      "devicesPlatforms": "डिवाइस और प्लेटफ़ॉर्म",
+      "troubleshooting": "समस्या समाधान",
+      "fiveLockLevels": "लॉक के पाँच स्तर",
+      "nuclearMode": "न्यूक्लियर मोड",
+      "softVsNuclear": "सॉफ़्ट बनाम न्यूक्लियर लॉक",
+      "canItBeBypassed": "क्या इसे बायपास किया जा सकता है?",
+      "whichLevel": "कौन सा स्तर चुनें",
+      "helpCentre": "सहायता केंद्र",
+      "contactUs": "संपर्क करें",
+      "support": "सहायता",
+      "setupGuide": "सेटअप गाइड",
+      "builtByStudents": "छात्रों द्वारा बनाया गया",
+      "terms": "सेवा की शर्तें",
+      "privacy": "गोपनीयता नीति",
+      "deleteAccount": "अपना खाता हटाएँ"
+    },
+    "tagline": "छात्रों द्वारा, छात्रों के लिए",
+    "copyright": "© 2025 Welockin. सर्वाधिकार सुरक्षित"
+  },
+  "legal": {
+    "eyebrow": "कानूनी",
+    "lastUpdated": "आख़िरी अपडेट:",
+    "englishNotice": "यह दस्तावेज़ केवल अंग्रेज़ी में प्रकाशित है। अंग्रेज़ी संस्करण ही मान्य होगा।"
+  },
+  "breadcrumbs": {
+    "home": "होम",
+    "label": "ब्रेडक्रम्ब"
+  }
+}

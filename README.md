@@ -64,3 +64,64 @@ MacBook) → `LockedEverywhere` → `Stats` → `Globe` → `Faq` → `VideoStor
 - `prefers-reduced-motion` respected for all decorative animation
 
 Set `NEXT_PUBLIC_SITE_URL` per environment so canonicals/OG point at the right host.
+
+## Languages
+
+The site ships in **English, French, Brazilian Portuguese and Hindi**.
+
+```
+src/i18n/
+├── config.ts          # the locale registry — start here
+├── routing.ts         # localePath() / splitLocale() / Accept-Language matching
+├── dictionaries.ts    # loads a catalog, filling gaps from English
+├── metadata.ts        # metadataFor() — canonical + hreflang for a page
+├── LocaleContext.tsx  # active locale + site chrome, for client components
+└── messages/<locale>/ # common.json · home.json · pages.json · faq.json
+```
+
+### URLs
+
+English is served **un-prefixed** and everything else carries a prefix:
+`/faq`, `/fr/faq`, `/pt-br/faq`, `/hi/faq`. Every URL indexed today is English,
+so this keeps the site's entire search footprint exactly where it is. `proxy.ts`
+rewrites `/faq` to `/en/faq` internally, so the app always sees a locale segment
+while the address bar never does; `/en/faq` 308s back to `/faq` so a page never
+has two URLs.
+
+A visitor whose browser asks for a language we speak is redirected once
+(`/faq` → `/fr/faq`). Choosing a language from the switcher writes the
+`welockin_locale` cookie, which outranks `Accept-Language` from then on — so
+picking English on a French laptop sticks.
+
+### Adding a language
+
+1. Add the code to `locales` in `config.ts` and describe it in `LOCALE_META`.
+2. `cp -r src/i18n/messages/en src/i18n/messages/<code>` and translate.
+3. Register the loader in `dictionaries.ts`.
+
+Routing, the switcher, hreflang, the sitemap and static generation all read
+from that registry and pick the new language up on their own.
+
+### Improving a translation
+
+Edit the JSON and redeploy — nothing else references the strings. The English
+catalog defines the types, so a **missing key falls back to English** rather
+than rendering blank, and a **misspelled key fails the build**. That means a
+catalog can be filled in a few keys at a time without ever shipping a broken
+page.
+
+### What is not translated yet
+
+Deliberate, and safe by construction — these render in English under every
+locale via the fallback above:
+
+- **The 44 FAQ answers** in `src/content/faqPage.ts`. The FAQ hub, the seven
+  category headlines and intros, and the five questions on the landing page
+  *are* translated; the long-form answers behind them are not. Add them by
+  moving their text into `messages/<locale>/faq.json`.
+- **Long-form prose** on `/download`, `/support`, `/help` and `/protection`.
+  Each page's heading, lead and metadata are translated; the body copy is not.
+- **Privacy Policy and Terms of Service**, intentionally. They are binding
+  texts, and a machine translation of one is a liability rather than a
+  courtesy. `common.legal.englishNotice` is in every catalog, ready to display
+  if you want to say so explicitly on the page.

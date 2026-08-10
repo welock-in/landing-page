@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "howItWorks": "Como funciona",
+    "protection": "Proteção",
+    "download": "Baixar",
+    "faq": "Perguntas frequentes",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "brandLabel": "Welockin — início"
+  },
+  "languageSwitcher": {
+    "label": "Idioma",
+    "chooseLanguage": "Escolha um idioma"
+  },
+  "downloadButton": {
+    "forMacOS": "Baixar para macOS",
+    "forIphone": "Baixar para iPhone",
+    "forWindows": "Baixar para Windows",
+    "short": "Baixar"
+  },
+  "cta": {
+    "lockInNow": "Quero focar agora",
+    "lockEveryDevice": "Bloquear todos os aparelhos",
+    "lockInForLife": "Foco para a vida toda",
+    "readFullAnswer": "Ler a resposta completa",
+    "moreQuestions": "Mais perguntas"
+  },
+  "ctaBand": {
+    "title": "Pronto para focar?",
+    "subtitle": "Bloqueie o que rouba a sua atenção em todos os seus aparelhos, com uma trava que só cede na hora que você definiu.",
+    "fine": "Funciona em macOS, iPhone, iPad e Windows"
+  },
+  "footer": {
+    "newsletter": {
+      "line1": "Não perca nenhuma sessão de foco.",
+      "line2": "Dicas de estudo e novidades direto no seu e-mail",
+      "placeholder": "Digite o seu e-mail",
+      "emailLabel": "Endereço de e-mail",
+      "subscribe": "Inscrever-se",
+      "success": "Tudo certo — confira o seu e-mail."
+    },
+    "columns": {
+      "product": "Produto",
+      "download": "Baixar",
+      "answers": "Respostas",
+      "howItLocks": "Como a trava funciona",
+      "support": "Suporte",
+      "legal": "Jurídico"
+    },
+    "links": {
+      "howItWorks": "Como funciona",
+      "protection": "Proteção",
+      "download": "Baixar",
+      "whatYouCanBlock": "O que dá para bloquear",
+      "macos": "macOS",
+      "iphoneIpad": "iPhone e iPad",
+      "windows": "Windows",
+      "androidSoon": "Android — em breve",
+      "allDevices": "Todos os aparelhos",
+      "fullFaq": "Perguntas frequentes",
+      "gettingStarted": "Primeiros passos",
+      "devicesPlatforms": "Aparelhos e plataformas",
+      "troubleshooting": "Solução de problemas",
+      "fiveLockLevels": "Os cinco níveis de trava",
+      "nuclearMode": "Modo Nuclear",
+      "softVsNuclear": "Trava Leve ou Nuclear",
+      "canItBeBypassed": "Dá para burlar?",
+      "whichLevel": "Qual nível escolher",
+      "helpCentre": "Central de ajuda",
+      "contactUs": "Fale conosco",
+      "support": "Suporte",
+      "setupGuide": "Guia de instalação",
+      "builtByStudents": "Feito por estudantes",
+      "terms": "Termos de uso",
+      "privacy": "Política de privacidade",
+      "deleteAccount": "Excluir sua conta"
+    },
+    "tagline": "Feito por estudantes, para estudantes",
+    "copyright": "© 2025 Welockin. Todos os direitos reservados"
+  },
+  "legal": {
+    "eyebrow": "Jurídico",
+    "lastUpdated": "Última atualização:",
+    "englishNotice": "Este documento é publicado apenas em inglês. A versão em inglês é a que prevalece."
+  },
+  "breadcrumbs": {
+    "home": "Início",
+    "label": "Trilha de navegação"
+  }
+}

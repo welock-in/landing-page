@@ -4,15 +4,15 @@
 
 import { useEffect, useRef } from "react";
 
+import type { HomeCopy } from "./HomePage";
 import { LockInLink } from "./LockInLink";
 import { StrictnessWidget } from "./StrictnessWidget";
 import { SyncWidget } from "./SyncWidget";
+import type { SyncWidgetCopy } from "./SyncWidget";
 import { reducedMotion } from "./motion";
 
-const MORE_FEATURES = [
+const MORE_ICONS = [
   {
-    title: "Focus sounds",
-    body: "Rain, lo-fi or forest while you work.",
     icon: (
       <svg
         width="24"
@@ -33,8 +33,6 @@ const MORE_FEATURES = [
     ),
   },
   {
-    title: "Scheduling",
-    body: "Schedule your weekly sessions so you can focus all week.",
     icon: (
       <svg
         width="24"
@@ -56,8 +54,6 @@ const MORE_FEATURES = [
     ),
   },
   {
-    title: "Ad breaks",
-    body: "Short timed breaks inside a session.",
     icon: (
       <svg
         width="24"
@@ -77,8 +73,6 @@ const MORE_FEATURES = [
     ),
   },
   {
-    title: "Password lock",
-    body: "Lock your settings behind a password.",
     icon: (
       <svg
         width="24"
@@ -104,7 +98,15 @@ const MORE_FEATURES = [
  * with a 1.5s fallback so nothing can stay invisible; reduced motion shows
  * everything at once. Direct port of the design's `setupBento`.
  */
-export function BentoFeatures() {
+export function BentoFeatures({
+  copy,
+  strictness,
+  sync,
+}: {
+  copy: HomeCopy["bento"];
+  strictness: HomeCopy["strictnessWidget"];
+  sync: SyncWidgetCopy;
+}) {
   const gridRef = useRef<HTMLDivElement>(null);
   const moreRef = useRef<HTMLDivElement>(null);
 
@@ -151,22 +153,22 @@ export function BentoFeatures() {
       <div className="bf-wrap">
         <div className="bf-head">
           <h2>
-            Everything you need to <em>lock in.</em>
+            {copy.headTitle} <em>{copy.headTitleEm}</em>
           </h2>
-          <p>Block the noise across every device, your way.</p>
+          <p>{copy.headSub}</p>
         </div>
         <div className="bento-grid" ref={gridRef}>
           <article className="bento-card grad-1 card-apps">
             <div className="bc-text">
-              <h3>Block Apps &amp; websites</h3>
-              <p>Block any app or site. Bundle them for work, study or sleep.</p>
+              <h3>{copy.apps.title}</h3>
+              <p>{copy.apps.body}</p>
             </div>
             <div className="bc-shot bc-apps-shot">
               <div className="apps-compose">
                 <img
                   className="apps-phone"
                   src="/images/phone-select-apps.webp"
-                  alt="Welockin select-apps screen"
+                  alt={copy.apps.phoneAlt}
                   width={540}
                   height={720}
                   loading="lazy"
@@ -176,7 +178,7 @@ export function BentoFeatures() {
                 <img
                   className="apps-card"
                   src="/images/card-websites.webp"
-                  alt="Websites blocklist with Instagram and Reddit blocked"
+                  alt={copy.apps.cardAlt}
                   width={670}
                   height={381}
                   loading="lazy"
@@ -188,24 +190,24 @@ export function BentoFeatures() {
           </article>
           <article className="bento-card grad-2 card-strict">
             <div className="bc-text">
-              <h3>Select your strictness</h3>
-              <p>From a gentle nudge to the nuclear lock. You choose how hard.</p>
+              <h3>{copy.strictness.title}</h3>
+              <p>{copy.strictness.body}</p>
             </div>
             <div className="bc-widget">
-              <StrictnessWidget />
+              <StrictnessWidget copy={strictness} />
             </div>
           </article>
           <article className="bento-card grad-3 card-sync">
             <div className="bc-text">
-              <h3>Sync all devices</h3>
-              <p>One session locks your Mac, iPhone and iPad at once.</p>
+              <h3>{copy.sync.title}</h3>
+              <p>{copy.sync.body}</p>
             </div>
-            <SyncWidget />
+            <SyncWidget copy={sync} />
           </article>
           <article className="bento-card grad-4 card-sched">
             <div className="bc-text">
-              <h3>Scheduling</h3>
-              <p>Recurring focus blocks. Lock in automatically, every day.</p>
+              <h3>{copy.scheduling.title}</h3>
+              <p>{copy.scheduling.body}</p>
             </div>
             <div className="bc-sched-mac">
               <div className="mac" aria-hidden="true">
@@ -213,7 +215,7 @@ export function BentoFeatures() {
                   <iframe
                     className="sched-frame"
                     src="/focus-week-drag.html"
-                    title="Focus week schedule"
+                    title={copy.scheduling.frameTitle}
                     scrolling="no"
                     loading="lazy"
                   />
@@ -223,12 +225,12 @@ export function BentoFeatures() {
             </div>
           </article>
         </div>
-        <h3 className="more-title">More features</h3>
+        <h3 className="more-title">{copy.moreTitle}</h3>
         <div className="more-row" ref={moreRef}>
-          {MORE_FEATURES.map((f) => (
+          {copy.more.map((f, i) => (
             <div className="more-item" key={f.title}>
               <span className="mi-ico" aria-hidden="true">
-                {f.icon}
+                {MORE_ICONS[i].icon}
               </span>
               <h4>{f.title}</h4>
               <p>{f.body}</p>
@@ -236,7 +238,7 @@ export function BentoFeatures() {
           ))}
         </div>
         <div className="cta-row">
-          <LockInLink label="Lock in now" />
+          <LockInLink label="lockInNow" />
         </div>
       </div>
     </section>

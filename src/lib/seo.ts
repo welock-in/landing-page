@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 
 import { product, siteConfig, siteUrl } from "@/config/site";
+import { defaultLocale, LOCALE_META, locales, type Locale } from "@/i18n/config";
+import { localePath } from "@/i18n/routing";
 
 type SeoInput = {
   title?: string;
   description?: string;
-  /** Site-relative path, e.g. "/pricing". Becomes the canonical URL. */
+  /**
+   * Site-relative path WITHOUT a locale prefix, e.g. "/download". The locale is
+   * applied here, so callers pass the same path for every language.
+   */
   path?: string;
   /**
    * Absolute URL of a social image. Omit it and the `opengraph-image` file
@@ -15,12 +20,38 @@ type SeoInput = {
   image?: string;
   noIndex?: boolean;
   keywords?: string[];
+  /** Language this page is being rendered in. Drives canonical and hreflang. */
+  locale?: Locale;
 };
 
 /**
+ * Every language edition of `path`, as absolute URLs, keyed by hreflang tag.
+ *
+ * `x-default` points at the un-prefixed English URL: it is the edition served
+ * to a visitor whose language the site does not speak, which is exactly what
+ * the tag is for. Every page carries the full set — hreflang is only honoured
+ * when the annotations are reciprocal, so a page that lists only itself is a
+ * page that gets no benefit from listing anything.
+ */
+function languageAlternates(path: string): Record<string, string> {
+  const alternates: Record<string, string> = {};
+  for (const locale of locales) {
+    alternates[LOCALE_META[locale].tag] = new URL(
+      localePath(path, locale),
+      siteUrl,
+    ).toString();
+  }
+  alternates["x-default"] = new URL(
+    localePath(path, defaultLocale),
+    siteUrl,
+  ).toString();
+  return alternates;
+}
+
+/**
  * Build a fully-formed `Metadata` object with sensible, SEO-complete
- * defaults (canonical, Open Graph, Twitter). Per-page metadata only needs
- * to override what differs.
+ * defaults (canonical, Open Graph, Twitter, hreflang). Per-page metadata only
+ * needs to override what differs.
  */
 export function buildMetadata({
   title,
@@ -29,8 +60,9 @@ export function buildMetadata({
   image,
   noIndex = false,
   keywords,
+  locale = defaultLocale,
 }: SeoInput = {}): Metadata {
-  const url = new URL(path, siteUrl).toString();
+  const url = new URL(localePath(path, locale), siteUrl).toString();
   const resolvedTitle = title ?? siteConfig.title;
   const images = image
     ? [{ url: image, width: 1200, height: 630, alt: resolvedTitle }]
@@ -42,11 +74,20 @@ export function buildMetadata({
     // Only set where a page has genuinely distinct terms. Repeating one global
     // list on every page says nothing about any of them.
     ...(keywords ? { keywords } : {}),
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      // A noindex page has nothing to cross-reference — and pointing four
+      // languages at each other while telling Google to ignore all of them is
+      // a contradiction, not a signal.
+      ...(noIndex ? {} : { languages: languageAlternates(path) }),
+    },
     openGraph: {
       type: "website",
       siteName: siteConfig.name,
-      locale: siteConfig.locale,
+      locale: LOCALE_META[locale].ogLocale,
+      alternateLocale: locales
+        .filter((l) => l !== locale)
+        .map((l) => LOCALE_META[l].ogLocale),
       url,
       title: resolvedTitle,
       description,
@@ -187,14 +228,19 @@ export function breadcrumbJsonLd(trail: { name: string; path: string }[]): JsonL
  * question marked up as a question is the most extractable shape there is.
  */
 export function faqPageJsonLd(
-  items: { question: string; answer: string }[],
+  items: readonly { question: string; answer: string }[],
   path: string,
+  locale: Locale = defaultLocale,
 ): JsonLd {
-  const url = new URL(path, siteUrl).toString();
+  const url = new URL(localePath(path, locale), siteUrl).toString();
   return {
     "@type": "FAQPage",
     "@id": `${url}#faq`,
     url,
+    // The questions below are in this page's language, so the node has to say
+    // so — otherwise the French and English FAQ nodes look like the same
+    // entity restated, which is how duplicate-content flags get raised.
+    inLanguage: LOCALE_META[locale].tag,
     isPartOf: { "@id": SITE_ID },
     about: { "@id": APP_ID },
     mainEntity: items.map((item) => ({

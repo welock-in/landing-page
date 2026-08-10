@@ -5,17 +5,25 @@ import { useEffect, useState } from "react";
 
 import { DownloadButton } from "@/components/ui/DownloadButton";
 import { CloseIcon, LogoIcon, MenuIcon } from "@/components/ui/icons";
-import { mainNav, siteConfig } from "@/config/site";
+import { mainNav } from "@/config/site";
+import { useCommon, useLocalePath } from "@/i18n/LocaleContext";
 import { cn } from "@/lib/utils";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import styles from "./Navbar.module.css";
 
 type NavLink = { title: string; href: string };
 
 /**
  * `links` lets a page swap in its own in-page nav — the Protection page
- * advertises its own sections rather than the landing page's.
+ * advertises its own sections rather than the landing page's. Those are
+ * in-page anchors with their own wording, so they arrive already translated;
+ * the default set is resolved from the catalog here.
  */
-export function Navbar({ links = mainNav }: { links?: NavLink[] }) {
+export function Navbar({ links }: { links?: NavLink[] }) {
+  const common = useCommon();
+  const withLocale = useLocalePath();
+  const resolved: NavLink[] =
+    links ?? mainNav.map((item) => ({ title: common.nav[item.key], href: item.href }));
   const pathname = usePathname();
   const [stuck, setStuck] = useState(false);
   const [open, setOpen] = useState(false);
@@ -53,9 +61,9 @@ export function Navbar({ links = mainNav }: { links?: NavLink[] }) {
   // On the landing page the brand just returns to the top; elsewhere it links home.
   // Always a real URL — `href="#"` was the site's last dead link. On the home
   // page the click is intercepted to scroll to the top instead of reloading.
-  const brandHref = "/";
+  const brandHref = withLocale("/");
   const onBrandClick = (e: React.MouseEvent) => {
-    if (pathname === "/") {
+    if (pathname === brandHref) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -65,7 +73,12 @@ export function Navbar({ links = mainNav }: { links?: NavLink[] }) {
     <nav className={cn(styles.nav, stuck && styles.stuck, open && styles.open)}>
       <div className={styles.inner}>
         <div className={styles.bar}>
-          <a className={styles.brand} href={brandHref} onClick={onBrandClick} aria-label={siteConfig.name}>
+          <a
+            className={styles.brand}
+            href={brandHref}
+            onClick={onBrandClick}
+            aria-label={common.nav.brandLabel}
+          >
             <LogoIcon className={styles.brandMark} />
             <span>
               <span>welock</span>
@@ -74,11 +87,11 @@ export function Navbar({ links = mainNav }: { links?: NavLink[] }) {
           </a>
 
           <div className={styles.links}>
-            {links.map((item) => (
+            {resolved.map((item) => (
               <a
                 key={item.href}
-                className={cn(item.href === pathname && styles.active)}
-                href={item.href}
+                className={cn(withLocale(item.href) === pathname && styles.active)}
+                href={withLocale(item.href)}
               >
                 {item.title}
               </a>
@@ -86,6 +99,7 @@ export function Navbar({ links = mainNav }: { links?: NavLink[] }) {
           </div>
 
           <div className={styles.actions}>
+            <LanguageSwitcher label={common.languageSwitcher.label} />
             <DownloadButton size="compact" />
           </div>
 
@@ -93,13 +107,17 @@ export function Navbar({ links = mainNav }: { links?: NavLink[] }) {
               a trip through the menu. The bar has room for the glyph but not
               for "Download for iPhone", so only the wording is cut. */}
           <div className={styles.mobileCta}>
-            <DownloadButton size="compact" icon="auto" label="Download" />
+            <DownloadButton
+              size="compact"
+              icon="auto"
+              label={{ text: common.downloadButton.short }}
+            />
           </div>
 
           <button
             className={styles.menuBtn}
             type="button"
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? common.nav.closeMenu : common.nav.openMenu}
             aria-expanded={open}
             onClick={() => {
               setMenuUsed(true);
@@ -121,16 +139,19 @@ export function Navbar({ links = mainNav }: { links?: NavLink[] }) {
           the stagger delays key off :nth-of-type. */}
       <div className={styles.mobileMenu} inert={!open}>
         <div className={styles.mobileMenuInner}>
-          {links.map((item) => (
+          {resolved.map((item) => (
             <a
               key={item.href}
               className={styles.mobileLink}
-              href={item.href}
+              href={withLocale(item.href)}
               onClick={() => setOpen(false)}
             >
               {item.title}
             </a>
           ))}
+          <div className={styles.ovLang}>
+            <LanguageSwitcher label={common.languageSwitcher.label} />
+          </div>
           <div className={styles.ovCta}>
             {menuUsed ? <DownloadButton className={styles.ovCtaBtn} /> : null}
           </div>

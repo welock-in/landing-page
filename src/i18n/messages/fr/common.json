@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "howItWorks": "Comment ça marche",
+    "protection": "Protection",
+    "download": "Télécharger",
+    "faq": "FAQ",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "brandLabel": "Welockin — accueil"
+  },
+  "languageSwitcher": {
+    "label": "Langue",
+    "chooseLanguage": "Choisir une langue"
+  },
+  "downloadButton": {
+    "forMacOS": "Télécharger pour macOS",
+    "forIphone": "Télécharger pour iPhone",
+    "forWindows": "Télécharger pour Windows",
+    "short": "Télécharger"
+  },
+  "cta": {
+    "lockInNow": "Je me lance",
+    "lockEveryDevice": "Verrouiller tous mes appareils",
+    "lockInForLife": "Verrouiller à vie",
+    "readFullAnswer": "Lire la réponse complète",
+    "moreQuestions": "Plus de questions"
+  },
+  "ctaBand": {
+    "title": "Prêt à vous lancer ?",
+    "subtitle": "Bloquez ce qui vous vole votre attention sur tous vos appareils, avec un verrou qui tient jusqu'à l'heure que vous avez fixée.",
+    "fine": "Compatible macOS, iPhone, iPad et Windows"
+  },
+  "footer": {
+    "newsletter": {
+      "line1": "Ne ratez plus une session de concentration.",
+      "line2": "Conseils de révision et nouveautés, directement dans votre boîte mail",
+      "placeholder": "Saisissez votre adresse e-mail",
+      "emailLabel": "Adresse e-mail",
+      "subscribe": "S'inscrire",
+      "success": "C'est verrouillé — regardez votre boîte mail."
+    },
+    "columns": {
+      "product": "Produit",
+      "download": "Télécharger",
+      "answers": "Réponses",
+      "howItLocks": "Le verrouillage",
+      "support": "Assistance",
+      "legal": "Mentions légales"
+    },
+    "links": {
+      "howItWorks": "Comment ça marche",
+      "protection": "Protection",
+      "download": "Télécharger",
+      "whatYouCanBlock": "Ce que vous pouvez bloquer",
+      "macos": "macOS",
+      "iphoneIpad": "iPhone et iPad",
+      "windows": "Windows",
+      "androidSoon": "Android — bientôt disponible",
+      "allDevices": "Tous les appareils",
+      "fullFaq": "FAQ complète",
+      "gettingStarted": "Premiers pas",
+      "devicesPlatforms": "Appareils et plateformes",
+      "troubleshooting": "Dépannage",
+      "fiveLockLevels": "Les cinq niveaux de verrouillage",
+      "nuclearMode": "Mode Nucléaire",
+      "softVsNuclear": "Verrou Souple ou Nucléaire",
+      "canItBeBypassed": "Peut-on le contourner ?",
+      "whichLevel": "Quel niveau choisir",
+      "helpCentre": "Centre d'aide",
+      "contactUs": "Nous contacter",
+      "support": "Assistance",
+      "setupGuide": "Guide d'installation",
+      "builtByStudents": "Créé par des étudiants",
+      "terms": "Conditions d'utilisation",
+      "privacy": "Politique de confidentialité",
+      "deleteAccount": "Supprimer votre compte"
+    },
+    "tagline": "Créé par des étudiants, pour des étudiants",
+    "copyright": "© 2025 Welockin. Tous droits réservés"
+  },
+  "legal": {
+    "eyebrow": "Mentions légales",
+    "lastUpdated": "Dernière mise à jour :",
+    "englishNotice": "Ce document n'est publié qu'en anglais. La version anglaise fait foi."
+  },
+  "breadcrumbs": {
+    "home": "Accueil",
+    "label": "Fil d'Ariane"
+  }
+}

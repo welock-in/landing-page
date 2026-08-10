@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "title": "FAQ — Tout sur la concentration",
+    "description": "Comment Welockin bloque applis et sites, les cinq niveaux de difficulté de déverrouillage, le Mode Nucléaire, les appareils compatibles, la confidentialité et le dépannage — les réponses."
+  },
+  "hub": {
+    "eyebrow": "FAQ",
+    "title": "Questions fréquentes",
+    "searchPlaceholder": "Rechercher — par ex. « porno », « remboursement », « contourner »…",
+    "searchLabel": "Rechercher dans les questions fréquentes",
+    "clearSearch": "Effacer la recherche",
+    "noResults": "Aucun résultat pour",
+    "mascotAlt": "Peep, la mascotte de Welockin, l'air désolé",
+    "otherTopics": "Autres thèmes de la FAQ",
+    "questionCount": "{count} questions résolues",
+    "questionCountOne": "{count} question résolue"
+  },
+  "categories": {
+    "getting-started": {
+      "name": "Premiers pas",
+      "headline": "Débuter avec Welockin",
+      "intro": "Ce qu'est Welockin, à qui il s'adresse, et comment passer du téléchargement à votre première session verrouillée en moins d'une minute.",
+      "description": "Ce qu'est Welockin, à qui il s'adresse, comment il fonctionne et comment le configurer sur votre premier appareil. Répondu par les étudiants qui l'ont créé."
+    },
+    "what-you-can-block": {
+      "name": "Ce que vous pouvez bloquer",
+      "headline": "Ce que vous pouvez bloquer avec Welockin",
+      "intro": "Applis, sites web, catégories entières et notifications — ce que Welockin peut faire taire, et comment tout regrouper pour qu'un seul geste couvre tout un contexte.",
+      "description": "Bloquez n'importe quelle appli ou site, avec des catégories en un geste pour le contenu pour adultes, les jeux d'argent, les rencontres et les jeux, plus les notifications, les listes et la planification."
+    },
+    "unlock-difficulty-levels": {
+      "name": "Niveaux de difficulté de déverrouillage",
+      "headline": "Les cinq niveaux de difficulté de déverrouillage",
+      "intro": "Welockin vous laisse choisir la difficulté pour quitter une session, du code PIN tapé en deux secondes au verrou que rien ne lève avant la date fixée. Voici ce que fait chaque niveau et lequel choisir.",
+      "description": "Code PIN, délai de réflexion, partenaire de responsabilité, phrase secrète et verrouillage jusqu'à une date. Ce que fait chaque niveau et lequel choisir."
+    },
+    "nuclear-mode": {
+      "name": "Mode Nucléaire",
+      "headline": "Mode Nucléaire : le point de non-retour",
+      "intro": "Le Mode Nucléaire verrouille une catégorie jusqu'à une date que vous choisissez, sans dérogation ni porte dérobée. C'est la partie de Welockin dont on nous parle le plus, et celle que nous refusons d'adoucir. Voici précisément ce qu'elle fait.",
+      "description": "Le Mode Nucléaire verrouille jusqu'à la date que vous fixez, sans dérogation, sans déverrouillage anticipé, et sans contournement par redémarrage ou désinstallation."
+    },
+    "devices-and-platforms": {
+      "name": "Appareils et plateformes",
+      "headline": "Les appareils et plateformes compatibles avec Welockin",
+      "intro": "Les systèmes d'exploitation sur lesquels Welockin tourne aujourd'hui, ceux qui arrivent, et comment une seule session verrouille en même temps tous les appareils que vous reliez.",
+      "description": "Welockin fonctionne sur macOS, iOS, iPadOS et Windows, et Android arrive. Reliez autant d'appareils que vous voulez — ils se verrouillent comme un seul."
+    },
+    "privacy": {
+      "name": "Confidentialité",
+      "headline": "Confidentialité : ce que Welockin voit et ne voit pas",
+      "intro": "Un bloqueur se place entre vous et Internet, ce qui rend légitime la question de ce qu'il enregistre. Réponse courte : le filtrage a lieu sur votre appareil, et votre navigation n'est pas enregistrée.",
+      "description": "Welockin n'enregistre pas les sites que vous visitez. Le filtrage a lieu sur votre appareil : le blocage fonctionne sans envoyer votre navigation à un serveur."
+    },
+    "troubleshooting": {
+      "name": "Dépannage",
+      "headline": "Dépanner Welockin",
+      "intro": "Quelque chose n'est pas bloqué, des appareils désynchronisés, ou un blocage à lever — les problèmes courants et la marche à suivre pour chacun.",
+      "description": "Les solutions aux problèmes courants : quelque chose qui n'est pas bloqué, des appareils qui ne se synchronisent pas, comment débloquer ce dont vous avez besoin, et comment joindre un humain."
+    }
+  }
+}

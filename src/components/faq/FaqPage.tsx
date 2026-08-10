@@ -6,6 +6,7 @@ import { useMemo, useState } from "react";
 import { CtaBand } from "@/components/content/CtaBand";
 import { Breadcrumbs, type Crumb } from "@/components/ui/Breadcrumbs";
 import { siteConfig } from "@/config/site";
+import type { Dictionary } from "@/i18n/dictionaries";
 import { faqCategories, faqCategoryPath, faqEntryPath } from "@/content/faqPage";
 import "./faq-page.css";
 
@@ -34,7 +35,9 @@ const TRAIL: Crumb[] = [
  * on the category hubs and the question pages, which keeps this page from
  * competing with the fifty-odd pages it exists to feed.
  */
-export function FaqPage() {
+type FaqHubCopy = Dictionary["faq"]["hub"];
+
+export function FaqPage({ copy }: { copy: FaqHubCopy }) {
   const [query, setQuery] = useState("");
 
   const nq = norm(query).trim();
@@ -66,7 +69,7 @@ export function FaqPage() {
         <div className="fq-wrap">
           <Breadcrumbs trail={TRAIL} />
 
-          <h1 className="fq-title">Frequently asked questions</h1>
+          <h1 className="fq-title">{copy.title}</h1>
           <p className="fq-sub">
             Everything about locking in — and why there&rsquo;s no sneaking back
             out. {totalCount} questions, each with its own page.
@@ -91,8 +94,8 @@ export function FaqPage() {
             <input
               className="fq-input"
               type="search"
-              placeholder="Search — e.g. 'porn', 'refund', 'bypass'…"
-              aria-label="Search frequently asked questions"
+              placeholder={copy.searchPlaceholder}
+              aria-label={copy.searchLabel}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
@@ -100,7 +103,7 @@ export function FaqPage() {
               <button
                 className="fq-clear"
                 type="button"
-                aria-label="Clear search"
+                aria-label={copy.clearSearch}
                 onClick={() => setQuery("")}
               >
                 <svg
@@ -154,13 +157,15 @@ export function FaqPage() {
               {/* eslint-disable-next-line @next/next/no-img-element -- hand-drawn mascot */}
               <img
                 src="/images/peep-fez.png"
-                alt="Peep, the Welockin mascot, looking apologetic"
+                alt={copy.mascotAlt}
                 width={200}
                 height={492}
                 loading="lazy"
                 decoding="async"
               />
-              <p className="fq-emptyTitle">No results for &ldquo;{query}&rdquo;</p>
+              <p className="fq-emptyTitle">
+                {copy.noResults} &ldquo;{query}&rdquo;
+              </p>
               <p className="fq-emptyText">
                 Even Peep couldn&rsquo;t find it. Email{" "}
                 <a href={`mailto:${siteConfig.contactEmail}`}>

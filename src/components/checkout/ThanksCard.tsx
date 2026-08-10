@@ -16,13 +16,22 @@ import styles from "./Thanks.module.css";
  */
 const APP_SCHEME = "welockin://checkout/success";
 
+export type ThanksCopy = {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  open: string;
+  fallback: string;
+};
+
 type ThanksCardProps = {
   /** Lemon Squeezy's numeric order id, substituted into `[order_id]` by their
    *  confirmation button. Undefined when someone lands here by hand. */
   orderId?: string;
+  copy: ThanksCopy;
 };
 
-export function ThanksCard({ orderId }: ThanksCardProps) {
+export function ThanksCard({ orderId, copy }: ThanksCardProps) {
   // Digits only, and dropped otherwise: this crossed a user-editable URL, and
   // the one thing worse than losing the id is forwarding an injected string
   // into a custom scheme. Without it the app still unlocks — the backend's
@@ -49,19 +58,11 @@ export function ThanksCard({ orderId }: ThanksCardProps) {
 
   return (
     <div className={styles.card}>
-      <span className={styles.eyebrow}>Payment received</span>
-      <h1 className={styles.title}>You&rsquo;re all set</h1>
-      <p className={styles.lead}>
-        Welockin unlocks by itself within a few seconds. If it didn&rsquo;t come
-        to the front on its own, the button below brings it back.
-      </p>
-      <a className={styles.open} href={deepLink}>
-        Open Welockin
-      </a>
-      <p className={styles.fallback}>
-        Nothing happening? Open Welockin from your desktop or Start menu — it
-        checks your licence every time it starts. You can close this tab.
-      </p>
+      <span className={styles.eyebrow}>{copy.eyebrow}</span>
+      <h1 className={styles.title}>{copy.title}</h1>
+      <p className={styles.lead}>{copy.lead}</p>
+      <a className={styles.open} href={deepLink}>{copy.open}</a>
+      <p className={styles.fallback}>{copy.fallback}</p>
     </div>
   );
 }

@@ -1,0 +1,181 @@
+{
+  "hero": {
+    "_comment": "headline is word-by-word so the stagger animation survives translation. `br` starts a new line after the word instead of a space, `em` renders it in the accent serif. Reorder, merge or split freely per language — delays are computed from position. Keep all three keys on every entry.",
+    "headline": [
+      { "text": "Block", "br": false, "em": false },
+      { "text": "distractions", "br": true, "em": false },
+      { "text": "before", "br": false, "em": false },
+      { "text": "they", "br": false, "em": false },
+      { "text": "block", "br": true, "em": false },
+      { "text": "your", "br": false, "em": false },
+      { "text": "future.", "br": false, "em": true }
+    ],
+    "subtitle": "Welockin locks distracting apps and websites when it's time to focus.",
+    "sessionsUnit": "focus sessions",
+    "sessionsLine": "active right now",
+    "playVideo": "Play the Welockin demo video",
+    "videoLabel": "Welockin demo video",
+    "closeVideo": "Close video",
+    "captionsLabel": "English (silent — on-screen text)"
+  },
+  "logoCloud": {
+    "label": "Used by students at",
+    "ariaLabel": "Universities using Welockin"
+  },
+  "bento": {
+    "headTitle": "Everything you need to",
+    "headTitleEm": "lock in.",
+    "headSub": "Block the noise across every device, your way.",
+    "apps": {
+      "title": "Block Apps & websites",
+      "body": "Block any app or site. Bundle them for work, study or sleep.",
+      "phoneAlt": "Welockin select-apps screen",
+      "cardAlt": "Websites blocklist with Instagram and Reddit blocked"
+    },
+    "strictness": {
+      "title": "Select your strictness",
+      "body": "From a gentle nudge to the nuclear lock. You choose how hard."
+    },
+    "sync": {
+      "title": "Sync all devices",
+      "body": "One session locks your Mac, iPhone and iPad at once."
+    },
+    "scheduling": {
+      "title": "Scheduling",
+      "body": "Recurring focus blocks. Lock in automatically, every day.",
+      "frameTitle": "Focus week schedule"
+    },
+    "moreTitle": "More features",
+    "more": [
+      { "title": "Focus sounds", "body": "Rain, lo-fi or forest while you work." },
+      {
+        "title": "Scheduling",
+        "body": "Schedule your weekly sessions so you can focus all week."
+      },
+      { "title": "Ad breaks", "body": "Short timed breaks inside a session." },
+      { "title": "Password lock", "body": "Lock your settings behind a password." }
+    ]
+  },
+  "strictnessWidget": {
+    "groupLabel": "Lock intensity",
+    "badge": "Extreme",
+    "soft": {
+      "title": "Soft Lock",
+      "tag": "Stay focused, bail if you really must.",
+      "foot": "For daily deep work",
+      "points": [
+        "Pause when life happens",
+        "Stop the session early",
+        "Good for everyday focus"
+      ]
+    },
+    "nuclear": {
+      "title": "Nuclear Lock",
+      "tag": "No pause. No stop. No way out.",
+      "foot": "For the deadlines that matter",
+      "points": [
+        "Pausing disabled",
+        "Can't stop until the timer ends",
+        "Survives restarts & uninstall"
+      ]
+    }
+  },
+  "syncWidget": {
+    "label": "Devices",
+    "groupLabel": "Synced devices",
+    "addDevice": "Add a device",
+    "devices": {
+      "computer": "My computer",
+      "phone": "My iPhone",
+      "tablet": "My iPad"
+    }
+  },
+  "results": {
+    "headLine1": "Real results from",
+    "headLine2": "real students",
+    "stats": {
+      "hoursFocused": "hours focused daily",
+      "sessionsThisMonth": "sessions this month",
+      "sessionsCompleted": "sessions completed",
+      "dayStreak": "day streak",
+      "moreDeepWork": "more deep work",
+      "lessScreenTime": "less screen time"
+    },
+    "quotes": [
+      {
+        "quote": "\u201cWelockin got me through my finals. I finish what I start now, and the doomscrolling is just gone.\u201d",
+        "name": "Sarah Fourati",
+        "role": "MSc in Management"
+      },
+      {
+        "quote": "\u201cI used to check my phone every five minutes. Now I can actually finish a study session without getting distracted.\u201d",
+        "name": "Karim Assaf",
+        "role": "MSc Nuclear Engineering"
+      },
+      {
+        "quote": "\u201cI set a hard lock for two hours and my phone disappears. Best 20 bucks I have spent as a student.\u201d",
+        "name": "Theo Marchand",
+        "role": "Prepa MP*"
+      }
+    ]
+  },
+  "howItWorks": {
+    "eyebrow": "How it works",
+    "title": "Get started in three steps.",
+    "subtitle": "From install to locked‑in in under a minute.",
+    "steps": [
+      {
+        "title": "Choose what to block",
+        "body": "Bundle the apps and sites that quietly steal your focus — social, video, news, games — into reusable blocklists you can launch in a single tap.",
+        "shotLabel": "Pick apps to block"
+      },
+      {
+        "title": "Set it and lock in",
+        "body": "Pick a duration, hit start, and the nuclear lock seals the session shut — no pausing, no quitting, no bargaining your way out until the timer hits zero.",
+        "shotLabel": "Set duration and lock in"
+      },
+      {
+        "title": "Select your devices",
+        "body": "Connect your Mac, iPhone and iPad once, and every block stays in sync across all of them in real time — your distractions run out of places to hide.",
+        "shotLabel": "Select your devices"
+      }
+    ]
+  },
+  "lockedEverywhere": {
+    "titleLine1": "Block it once.",
+    "titleLine2": "Locked everywhere.",
+    "subtitle": "Start one focus session on welock.in and your distractions are locked across every device you own, at the same time.",
+    "visualAlt": "A desktop, laptop, tablet and phone each showing an app blocked by welock.in",
+    "availableOn": "welock.in is available on"
+  },
+  "faqSection": {
+    "eyebrow": "FAQ",
+    "title": "Frequently asked questions",
+    "items": [
+      {
+        "question": "How does Welockin actually work?",
+        "answer": "Three steps: pick the apps and sites you want gone, choose how strict the lock should be, hit start. Under a minute from install to locked in — on every synced device at once."
+      },
+      {
+        "question": "Is it really impossible to bypass?",
+        "answer": "With a Nuclear lock: yes. It survives restarts and even uninstalling the app — nothing turns it off before the timer or date you set."
+      },
+      {
+        "question": "Which apps and sites can I block?",
+        "answer": "All of them. Apps, websites and notifications — you decide what gets through and what goes quiet."
+      },
+      {
+        "question": "Is it available on mobile?",
+        "answer": "iOS, macOS and Windows are here today. Android is coming soon."
+      },
+      {
+        "question": "Are you really students?",
+        "answer": "Yes. Three engineers between EPFL and Polytechnique Paris, fed up with paying a subscription just to focus."
+      }
+    ]
+  },
+  "shareBand": {
+    "title": "Focus is contagious.",
+    "subtitle": "Join the team of successful students."
+  }
+}

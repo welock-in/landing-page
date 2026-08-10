@@ -5,6 +5,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { PLATFORMS } from "./data";
+import type { HomeCopy } from "./HomePage";
 import { LockInLink } from "./LockInLink";
 
 /**
@@ -12,7 +13,7 @@ import { LockInLink } from "./LockInLink";
  * `.le-reveal` steps the first time 18% of it is visible, with a 1.2s
  * fallback so it can never stay hidden.
  */
-export function LockedEverywhere() {
+export function LockedEverywhere({ copy }: { copy: HomeCopy["lockedEverywhere"] }) {
   const [isIn, setIsIn] = useState(false);
   const ref = useRef<HTMLElement>(null);
 
@@ -42,18 +43,15 @@ export function LockedEverywhere() {
     <section className={`le${isIn ? " isIn" : ""}`} id="download" ref={ref}>
       <div className="le-inner">
         <h2 className="le-title le-reveal">
-          Block it once.
+          {copy.titleLine1}
           <br />
-          Locked everywhere.
+          {copy.titleLine2}
         </h2>
-        <p className="le-sub le-reveal">
-          Start one focus session on welock.in and your distractions are locked across
-          every device you own, at the same time.
-        </p>
+        <p className="le-sub le-reveal">{copy.subtitle}</p>
         <div className="le-visual le-reveal">
           <img
             src="/images/devices-cutout.webp"
-            alt="A desktop, laptop, tablet and phone each showing an app blocked by welock.in"
+            alt={copy.visualAlt}
             width={1536}
             height={1024}
             loading="lazy"
@@ -61,7 +59,7 @@ export function LockedEverywhere() {
           />
         </div>
         <div className="le-avail le-reveal">
-          <span className="le-availLabel">welock.in is available on</span>
+          <span className="le-availLabel">{copy.availableOn}</span>
           <div className="le-platforms">
             {PLATFORMS.map((p) => (
               <div className="le-platform" key={p.name}>
@@ -85,7 +83,7 @@ export function LockedEverywhere() {
           </div>
         </div>
         <div className="le-cta le-reveal">
-          <LockInLink label="Lock every device" />
+          <LockInLink label="lockEveryDevice" />
         </div>
       </div>
     </section>

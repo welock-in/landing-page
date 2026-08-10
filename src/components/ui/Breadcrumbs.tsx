@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 
+import { useCommon, useLocalePath } from "@/i18n/LocaleContext";
 import styles from "./Breadcrumbs.module.css";
 
 export type Crumb = { name: string; path: string };
@@ -12,18 +15,24 @@ export type Crumb = { name: string; path: string };
  * Every crumb is a link except the last, which is the current page.
  */
 export function Breadcrumbs({ trail }: { trail: Crumb[] }) {
+  const { breadcrumbs } = useCommon();
+  const withLocale = useLocalePath();
+
   return (
-    <nav className={styles.wrap} aria-label="Breadcrumb">
+    <nav className={styles.wrap} aria-label={breadcrumbs.label}>
       <ol className={styles.list}>
         {trail.map((crumb, i) => {
           const isLast = i === trail.length - 1;
+          // "Home" is the one crumb every trail shares, so it is the one whose
+          // wording the catalog owns; the rest name a page and come from it.
+          const name = crumb.path === "/" ? breadcrumbs.home : crumb.name;
           return (
             <li key={crumb.path} className={styles.item}>
               {isLast ? (
-                <span aria-current="page">{crumb.name}</span>
+                <span aria-current="page">{name}</span>
               ) : (
                 <>
-                  <Link href={crumb.path}>{crumb.name}</Link>
+                  <Link href={withLocale(crumb.path)}>{name}</Link>
                   <span className={styles.sep} aria-hidden="true">
                     /
                   </span>

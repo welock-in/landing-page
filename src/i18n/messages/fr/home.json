@@ -1,0 +1,191 @@
+{
+  "hero": {
+    "headline": [
+      { "text": "Bloquez", "br": false, "em": false },
+      { "text": "les", "br": false, "em": false },
+      { "text": "distractions", "br": true, "em": false },
+      { "text": "avant", "br": false, "em": false },
+      { "text": "qu'elles", "br": false, "em": false },
+      { "text": "ne", "br": false, "em": false },
+      { "text": "bloquent", "br": true, "em": false },
+      { "text": "votre", "br": false, "em": false },
+      { "text": "avenir.", "br": false, "em": true }
+    ],
+    "subtitle": "Welockin verrouille les applis et les sites qui vous distraient quand il est temps de vous concentrer.",
+    "sessionsUnit": "sessions de concentration",
+    "sessionsLine": "en cours en ce moment",
+    "playVideo": "Lancer la vidéo de démonstration Welockin",
+    "videoLabel": "Vidéo de démonstration Welockin",
+    "closeVideo": "Fermer la vidéo",
+    "captionsLabel": "Anglais (muet — texte à l'écran)"
+  },
+  "logoCloud": {
+    "label": "Utilisé par les étudiants de",
+    "ariaLabel": "Universités qui utilisent Welockin"
+  },
+  "bento": {
+    "headTitle": "Tout ce qu'il vous faut pour",
+    "headTitleEm": "vous concentrer.",
+    "headSub": "Faites taire le bruit sur tous vos appareils, à votre façon.",
+    "apps": {
+      "title": "Bloquez applis et sites web",
+      "body": "Bloquez n'importe quelle appli ou site. Regroupez-les pour le travail, les révisions ou le sommeil.",
+      "phoneAlt": "Écran de sélection des applications Welockin",
+      "cardAlt": "Liste de sites bloqués, avec Instagram et Reddit"
+    },
+    "strictness": {
+      "title": "Choisissez votre niveau de sévérité",
+      "body": "Du simple rappel au verrou nucléaire. C'est vous qui décidez de la difficulté."
+    },
+    "sync": {
+      "title": "Synchronisez tous vos appareils",
+      "body": "Une seule session verrouille votre Mac, votre iPhone et votre iPad d'un coup."
+    },
+    "scheduling": {
+      "title": "Planification",
+      "body": "Des sessions récurrentes. Concentrez-vous automatiquement, tous les jours.",
+      "frameTitle": "Planning de la semaine de concentration"
+    },
+    "moreTitle": "Plus de fonctionnalités",
+    "more": [
+      {
+        "title": "Sons d'ambiance",
+        "body": "Pluie, lo-fi ou forêt pendant que vous travaillez."
+      },
+      {
+        "title": "Planification",
+        "body": "Programmez vos sessions hebdomadaires pour rester concentré toute la semaine."
+      },
+      {
+        "title": "Pauses minutées",
+        "body": "De courtes pauses chronométrées au sein d'une session."
+      },
+      {
+        "title": "Verrou par mot de passe",
+        "body": "Protégez vos réglages derrière un mot de passe."
+      }
+    ]
+  },
+  "strictnessWidget": {
+    "groupLabel": "Intensité du verrouillage",
+    "badge": "Extrême",
+    "soft": {
+      "title": "Verrou Souple",
+      "tag": "Restez concentré, avec une porte de sortie si besoin.",
+      "foot": "Pour le travail de fond quotidien",
+      "points": [
+        "Mettre en pause quand la vie s'en mêle",
+        "Arrêter la session en avance",
+        "Idéal pour la concentration de tous les jours"
+      ]
+    },
+    "nuclear": {
+      "title": "Verrou Nucléaire",
+      "tag": "Aucune pause. Aucun arrêt. Aucune issue.",
+      "foot": "Pour les échéances qui comptent",
+      "points": [
+        "Pause désactivée",
+        "Impossible d'arrêter avant la fin du minuteur",
+        "Résiste aux redémarrages et à la désinstallation"
+      ]
+    }
+  },
+  "syncWidget": {
+    "label": "Appareils",
+    "groupLabel": "Appareils synchronisés",
+    "addDevice": "Ajouter un appareil",
+    "devices": {
+      "computer": "Mon ordinateur",
+      "phone": "Mon iPhone",
+      "tablet": "Mon iPad"
+    }
+  },
+  "results": {
+    "headLine1": "De vrais résultats,",
+    "headLine2": "de vrais étudiants",
+    "stats": {
+      "hoursFocused": "heures de concentration par jour",
+      "sessionsThisMonth": "sessions ce mois-ci",
+      "sessionsCompleted": "sessions menées à terme",
+      "dayStreak": "jours d'affilée",
+      "moreDeepWork": "de travail de fond en plus",
+      "lessScreenTime": "de temps d'écran en moins"
+    },
+    "quotes": [
+      {
+        "quote": "« Welockin m'a fait tenir jusqu'au bout de mes partiels. Maintenant je termine ce que je commence, et le scroll compulsif a disparu. »",
+        "name": "Sarah Fourati",
+        "role": "Master en Management"
+      },
+      {
+        "quote": "« Avant, je regardais mon téléphone toutes les cinq minutes. Aujourd'hui j'arrive vraiment à finir une session de révision sans me disperser. »",
+        "name": "Karim Assaf",
+        "role": "Master en Génie Nucléaire"
+      },
+      {
+        "quote": "« Je lance un verrou strict pendant deux heures et mon téléphone disparaît. Les 20 balles les mieux dépensées de ma vie d'étudiant. »",
+        "name": "Theo Marchand",
+        "role": "Prépa MP*"
+      }
+    ]
+  },
+  "howItWorks": {
+    "eyebrow": "Comment ça marche",
+    "title": "Lancez-vous en trois étapes.",
+    "subtitle": "De l'installation à la concentration en moins d'une minute.",
+    "steps": [
+      {
+        "title": "Choisissez quoi bloquer",
+        "body": "Regroupez les applis et les sites qui vous volent discrètement votre attention — réseaux sociaux, vidéo, actualités, jeux — en listes réutilisables que vous lancez d'un seul geste.",
+        "shotLabel": "Choisir les applis à bloquer"
+      },
+      {
+        "title": "Réglez et verrouillez",
+        "body": "Choisissez une durée, appuyez sur démarrer, et le verrou nucléaire scelle la session — pas de pause, pas d'abandon, aucune négociation possible avant la fin du minuteur.",
+        "shotLabel": "Régler la durée et verrouiller"
+      },
+      {
+        "title": "Sélectionnez vos appareils",
+        "body": "Connectez votre Mac, votre iPhone et votre iPad une seule fois : chaque blocage reste synchronisé sur tous, en temps réel. Vos distractions n'ont plus où se cacher.",
+        "shotLabel": "Sélectionner vos appareils"
+      }
+    ]
+  },
+  "lockedEverywhere": {
+    "titleLine1": "Bloquez une fois.",
+    "titleLine2": "Verrouillé partout.",
+    "subtitle": "Lancez une seule session sur welock.in et vos distractions sont verrouillées sur tous vos appareils, en même temps.",
+    "visualAlt": "Un ordinateur de bureau, un portable, une tablette et un téléphone affichant chacun une application bloquée par welock.in",
+    "availableOn": "welock.in est disponible sur"
+  },
+  "faqSection": {
+    "eyebrow": "FAQ",
+    "title": "Questions fréquentes",
+    "items": [
+      {
+        "question": "Concrètement, comment fonctionne Welockin ?",
+        "answer": "Trois étapes : choisissez les applis et les sites dont vous voulez vous passer, décidez de la sévérité du verrou, appuyez sur démarrer. Moins d'une minute entre l'installation et le verrouillage — sur tous vos appareils synchronisés à la fois."
+      },
+      {
+        "question": "Est-il vraiment impossible à contourner ?",
+        "answer": "Avec un verrou Nucléaire : oui. Il survit aux redémarrages et même à la désinstallation de l'application — rien ne le désactive avant l'heure ou la date que vous avez fixée."
+      },
+      {
+        "question": "Quelles applis et quels sites puis-je bloquer ?",
+        "answer": "Tous. Applications, sites web et notifications — c'est vous qui décidez de ce qui passe et de ce qui se tait."
+      },
+      {
+        "question": "Est-ce disponible sur mobile ?",
+        "answer": "iOS, macOS et Windows sont déjà là. Android arrive bientôt."
+      },
+      {
+        "question": "Vous êtes vraiment étudiants ?",
+        "answer": "Oui. Trois ingénieurs entre l'EPFL et Polytechnique Paris, lassés de payer un abonnement juste pour arriver à se concentrer."
+      }
+    ]
+  },
+  "shareBand": {
+    "title": "La concentration, ça se partage.",
+    "subtitle": "Rejoignez l'équipe des étudiants qui réussissent."
+  }
+}

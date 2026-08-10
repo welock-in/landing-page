@@ -1,0 +1,141 @@
+{
+  "home": {
+    "meta": {
+      "title": "Welockin — Bloquez les distractions avant qu'elles ne bloquent votre avenir.",
+      "description": "Welockin bloque les applications qui volent votre attention — une fois pour toutes. Des sessions de concentration impossibles à contourner, en un clic, sur macOS, iOS, iPadOS et Windows."
+    }
+  },
+  "download": {
+    "meta": {
+      "title": "Télécharger Welockin pour Mac, iPhone, iPad et Windows",
+      "description": "Installez Welockin sur macOS, iPhone, iPad et Windows. Reliez autant d'appareils que vous voulez — ils se verrouillent tous ensemble. Android arrive bientôt."
+    },
+    "eyebrow": "Télécharger",
+    "h1": "Télécharger Welockin",
+    "lead": "Vous pouvez relier autant d'appareils que vous le souhaitez — ils se verrouillent tous en même temps. Installez l'application sur chacun d'eux et une seule session met tout en pause d'un coup.",
+    "sub": "Un bloqueur qui couvre votre ordinateur mais pas votre téléphone est un bloqueur avec une porte ouverte : couvrez tout avant votre premier verrou strict.",
+    "pickPlatform": "Choisissez votre plateforme",
+    "settingUp": "L'installation",
+    "beforeYouInstall": "Avant d'installer",
+    "status": {
+      "available": "Disponible",
+      "comingSoon": "Bientôt disponible",
+      "notPlanned": "Non prévu",
+      "linkSoon": "Lien de téléchargement bientôt disponible"
+    },
+    "downloadFor": "Télécharger pour {platform}"
+  },
+  "protection": {
+    "meta": {
+      "title": "Protection — Bloquez les sites pour adultes pour de bon",
+      "description": "Bloquez le contenu pour adultes, les jeux d'argent, les applis de rencontre et les jeux violents sur tous vos appareils. Cinq niveaux de déverrouillage, filtrage local, toujours actif."
+    }
+  },
+  "support": {
+    "meta": {
+      "title": "Assistance — Solutions aux problèmes courants",
+      "description": "Les solutions aux problèmes que l'on rencontre vraiment : un verrou qui ne se lève pas, un mot de passe oublié, un achat introuvable — et comment joindre un humain quand rien ne marche."
+    },
+    "eyebrow": "Assistance",
+    "h1": "Assistance",
+    "lead": "Les problèmes que l'on rencontre vraiment, avec la solution pour chacun — et une ligne directe vers un humain pour tout le reste."
+  },
+  "help": {
+    "meta": {
+      "title": "Aide — Premiers pas, compte, achats et dépannage",
+      "description": "Tout au même endroit : installer Welockin, gérer votre compte, la période d'essai et la licence à vie, et les solutions quand quelque chose coince."
+    },
+    "eyebrow": "Aide",
+    "h1": "Comment pouvons-nous vous aider ?",
+    "lead": "Tout au même endroit : installer Welockin, gérer votre compte, régler un problème d'achat et remettre les choses d'aplomb quand elles ne se comportent pas comme prévu."
+  },
+  "contact": {
+    "meta": {
+      "title": "Nous contacter",
+      "description": "Contactez l'équipe Welockin — assistance, facturation, confidentialité ou presse. Envoyez le formulaire ou écrivez à hello@welock.in ; une vraie personne lit chaque message."
+    },
+    "eyebrow": "Contact",
+    "h1": "Écrivez-nous",
+    "lead": "Une question, un bug, un souci de facturation ou une demande presse — envoyez-nous ça. Chaque message est lu par les étudiants qui construisent Welockin, généralement entre deux cours.",
+    "otherWays": "Autres moyens de nous joindre"
+  },
+  "resetPassword": {
+    "meta": {
+      "title": "Réinitialiser votre mot de passe",
+      "description": "Définissez un nouveau mot de passe pour votre compte Welockin."
+    }
+  },
+  "deleteAccount": {
+    "meta": {
+      "title": "Supprimer votre compte",
+      "description": "Comment supprimer définitivement votre compte Welockin et toutes les données associées — depuis l'application ou par e-mail. Ce qui est supprimé et en combien de temps."
+    }
+  },
+  "privacy": {
+    "meta": {
+      "title": "Politique de confidentialité",
+      "description": "Comment Welockin traite vos données : ce que nous collectons, à quoi sert chaque autorisation, et comment supprimer votre compte. Votre navigation ne quitte jamais votre appareil."
+    },
+    "title": "Politique de confidentialité"
+  },
+  "terms": {
+    "meta": {
+      "title": "Conditions d'utilisation",
+      "description": "Les conditions d'utilisation de Welockin : l'essai gratuit de 14 jours, la licence à vie en un paiement, les remboursements, l'usage acceptable, et pourquoi le verrou est conçu pour tenir."
+    },
+    "title": "Conditions d'utilisation"
+  },
+  "thanks": {
+    "meta": {
+      "title": "Paiement reçu",
+      "description": "Revenez dans Welockin — votre licence est sur votre compte."
+    },
+    "eyebrow": "Paiement reçu",
+    "title": "Tout est prêt",
+    "lead": "Welockin se déverrouille tout seul en quelques secondes. Si l'application n'est pas revenue au premier plan, le bouton ci-dessous s'en charge.",
+    "open": "Ouvrir Welockin",
+    "fallback": "Rien ne se passe ? Ouvrez Welockin depuis votre bureau ou le menu Démarrer — l'application vérifie votre licence à chaque démarrage. Vous pouvez fermer cet onglet."
+  },
+  "blocked": {
+    "meta": {
+      "title": "Bloqué",
+      "description": "Ce site est bloqué par Welockin."
+    },
+    "fallbackSite": "Ce site web",
+    "isBlockedBy": "est bloqué par"
+  },
+  "contactForm": {
+    "name": "Votre nom",
+    "namePlaceholder": "Facultatif",
+    "email": "Adresse e-mail",
+    "topic": "Sujet",
+    "message": "Message",
+    "messagePlaceholder": "Ce qui s'est passé, ce que vous attendiez, et ce que vous avez vu à la place.",
+    "send": "Envoyer le message",
+    "sending": "Envoi…",
+    "sent": "Message envoyé — nous vous répondrons par e-mail.",
+    "topics": {
+      "Support": "Assistance",
+      "Billing": "Facturation",
+      "Privacy": "Confidentialité",
+      "Press": "Presse",
+      "Other": "Autre"
+    },
+    "errors": {
+      "nameTooLong": "Merci de limiter votre nom à {max} caractères.",
+      "messageTooShort": "Merci d'écrire au moins {min} caractères pour que nous puissions vous aider.",
+      "messageTooLong": "Merci de limiter votre message à {max} caractères.",
+      "unreachable": "Un problème est survenu de notre côté et votre message n'a pas été envoyé. Réessayez dans un instant, ou écrivez-nous directement à "
+    }
+  },
+  "notFound": {
+    "meta": {
+      "title": "Page introuvable",
+      "description": "Cette page n'existe pas."
+    },
+    "eyebrow": "404",
+    "title": "Cette page n'existe pas",
+    "lead": "Le lien est peut-être périmé, ou la page a été déplacée. La FAQ et la page de téléchargement sont les deux endroits les plus utiles pour repartir.",
+    "backHome": "Retour à l'accueil"
+  }
+}

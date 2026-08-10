@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 
-import { SW_COPY, type SwMode } from "./data";
+import { type SwMode } from "./data";
+import type { HomeCopy } from "./HomePage";
 import { reducedMotion, runSeq } from "./motion";
 
 /**
@@ -14,7 +15,7 @@ import { reducedMotion, runSeq } from "./motion";
  * it permanently and hands the toggle to the visitor. Copy swaps ride a
  * 180ms fade (`swapping`). Reduced motion skips the whole performance.
  */
-export function StrictnessWidget() {
+export function StrictnessWidget({ copy }: { copy: HomeCopy["strictnessWidget"] }) {
   const [mode, setMode] = useState<SwMode>("soft");
   const [copyKey, setCopyKey] = useState<SwMode>("soft");
   const [swapping, setSwapping] = useState(false);
@@ -130,7 +131,7 @@ export function StrictnessWidget() {
     apply(next);
   };
 
-  const copy = SW_COPY[copyKey] ?? SW_COPY.soft;
+  const shown = copy[copyKey] ?? copy.soft;
 
   return (
     <div
@@ -138,7 +139,7 @@ export function StrictnessWidget() {
       className={`sw${swapping ? " swapping" : ""}${hint ? " sw-hint" : ""}`}
       data-mode={mode}
       role="group"
-      aria-label="Lock intensity"
+      aria-label={copy.groupLabel}
       onMouseEnter={() => {
         hovering.current = true;
         cancel();
@@ -151,10 +152,10 @@ export function StrictnessWidget() {
       <div className="sw-seg">
         <span className="sw-pill" aria-hidden="true" />
         <button type="button" className="sw-soft" onClick={() => stopAnd("soft")}>
-          Soft Lock
+          {copy.soft.title}
         </button>
         <button type="button" className="sw-nuc" onClick={() => stopAnd("nuclear")}>
-          Nuclear Lock
+          {copy.nuclear.title}
         </button>
       </div>
       <div className="sw-head">
@@ -173,13 +174,13 @@ export function StrictnessWidget() {
             <path className="sw-shackle" d="M8 11 V8 a4 4 0 0 1 8 0 V11" />
           </svg>
         </span>
-        <span className="sw-title">{copy.title}</span>
-        <span className="sw-badge">Extreme</span>
+        <span className="sw-title">{shown.title}</span>
+        <span className="sw-badge">{copy.badge}</span>
       </div>
-      <p className="sw-tag">{copy.tag}</p>
+      <p className="sw-tag">{shown.tag}</p>
       <div className="sw-stack">
         <div className="sw-list sw-soft-list">
-          {["Pause when life happens", "Stop the session early", "Good for everyday focus"].map(
+          {copy.soft.points.map(
             (t) => (
               <div className="sw-row" key={t}>
                 <span className="sw-rico">
@@ -202,7 +203,7 @@ export function StrictnessWidget() {
           )}
         </div>
         <div className="sw-list sw-nuc-list">
-          {["Pausing disabled", "Can't stop until the timer ends", "Survives restarts & uninstall"].map(
+          {copy.nuclear.points.map(
             (t) => (
               <div className="sw-row" key={t}>
                 <span className="sw-rico">
@@ -226,7 +227,7 @@ export function StrictnessWidget() {
           )}
         </div>
       </div>
-      <p className="sw-foot">{copy.foot}</p>
+      <p className="sw-foot">{shown.foot}</p>
     </div>
   );
 }

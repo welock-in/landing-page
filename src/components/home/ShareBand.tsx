@@ -1,12 +1,13 @@
 /* eslint-disable @next/next/no-img-element -- avatar bubbles are plain <img>, matching the design byte-for-byte */
 
 import { DownloadButton } from "@/components/ui/DownloadButton";
+import type { HomeCopy } from "./HomePage";
 
 /**
  * The closing dark share card with drifting orbs and the "Lock in for life"
  * CTA. Static markup — all motion is pure CSS.
  */
-export function ShareBand() {
+export function ShareBand({ copy }: { copy: HomeCopy["shareBand"] }) {
   return (
     <section className="vs">
       <div className="wrap">
@@ -50,14 +51,14 @@ export function ShareBand() {
                 decoding="async"
               />
             </div>
-            <h2 className="share-title">Focus is contagious.</h2>
-            <p className="share-sub">Join the team of successful students.</p>
+            <h2 className="share-title">{copy.title}</h2>
+            <p className="share-sub">{copy.subtitle}</p>
             <DownloadButton
               className="home-dl-lg home-share-cta"
               size="lg"
               tone="onDark"
               icon="lock"
-              label="Lock in for life"
+              label="lockInForLife"
             />
           </div>
         </div>

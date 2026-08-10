@@ -4,6 +4,7 @@
 
 import { useEffect, useRef } from "react";
 
+import type { HomeCopy } from "./HomePage";
 import { LockInLink } from "./LockInLink";
 import { reducedMotion } from "./motion";
 
@@ -14,7 +15,7 @@ import { reducedMotion } from "./motion";
  * the design, so the tick never re-renders React. Reduced motion jumps
  * straight to the final values.
  */
-export function Results() {
+export function Results({ copy }: { copy: HomeCopy["results"] }) {
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -104,16 +105,16 @@ export function Results() {
     <section className="results" id="stats">
       <div className="rs-wrap">
         <h2 className="rs-head">
-          Real results from
+          {copy.headLine1}
           <br />
-          real students
+          {copy.headLine2}
         </h2>
         <div className="rs-grid" ref={gridRef}>
           <article className="rs-card" style={{ background: "#f9e94f" }}>
             <div className="rs-num" data-target="2" data-format="time" data-suffix="">
               0:00
             </div>
-            <div className="rs-label">hours focused daily</div>
+            <div className="rs-label">{copy.stats.hoursFocused}</div>
             <div style={{ flex: 1 }} />
             <div className="rs-mark">
               <img src="/images/logos/22_EPFL.webp" alt="EPFL" width={236} height={80} loading="lazy" decoding="async" />
@@ -123,7 +124,7 @@ export function Results() {
             <div className="rs-num" data-target="150" data-format="int" data-suffix="+">
               0+
             </div>
-            <div className="rs-label">sessions this month</div>
+            <div className="rs-label">{copy.stats.sessionsThisMonth}</div>
             <div style={{ flex: 1 }} />
             <div className="rs-mark">
               <img src="/images/logos/07_ETH.webp" alt="ETH Zürich" width={240} height={54} loading="lazy" decoding="async" />
@@ -131,8 +132,7 @@ export function Results() {
           </article>
           <article className="rs-card span2" style={{ background: "#faf7f1" }}>
             <p className="rs-quote">
-              “Welockin got me through my finals. I finish what I start now, and the
-              doomscrolling is just gone.”
+              {copy.quotes[0].quote}
             </p>
             <div style={{ flex: 1 }} />
             <div className="rs-foot">
@@ -144,8 +144,8 @@ export function Results() {
               >
                 <img className="rs-av" src="/images/people/sarah-fourati.webp" alt="Sarah Fourati" width={96} height={96} loading="lazy" decoding="async" />
                 <div>
-                  <b>Sarah Fourati</b>
-                  <em>MSc in Management</em>
+                  <b>{copy.quotes[0].name}</b>
+                  <em>{copy.quotes[0].role}</em>
                 </div>
               </a>
               <div className="rs-mark">
@@ -155,8 +155,7 @@ export function Results() {
           </article>
           <article className="rs-card span2" style={{ background: "#faf7f1" }}>
             <p className="rs-quote">
-              “I used to check my phone every five minutes. Now I can actually finish a
-              study session without getting distracted.”
+              {copy.quotes[1].quote}
             </p>
             <div style={{ flex: 1 }} />
             <div className="rs-foot">
@@ -168,8 +167,8 @@ export function Results() {
               >
                 <img className="rs-av" src="/images/people/karim-assaf.webp" alt="Karim Assaf" width={96} height={96} loading="lazy" decoding="async" />
                 <div>
-                  <b>Karim Assaf</b>
-                  <em>MSc Nuclear Engineering</em>
+                  <b>{copy.quotes[1].name}</b>
+                  <em>{copy.quotes[1].role}</em>
                 </div>
               </a>
               <div className="rs-mark">
@@ -181,7 +180,7 @@ export function Results() {
             <div className="rs-num" data-target="92" data-format="int" data-suffix="%">
               0%
             </div>
-            <div className="rs-label">sessions completed</div>
+            <div className="rs-label">{copy.stats.sessionsCompleted}</div>
             <div style={{ flex: 1 }} />
             <div className="rs-mark">
               <img src="/images/polytechnique.webp" alt="Polytechnique" width={68} height={96} loading="lazy" decoding="async" style={{ height: "38px" }} />
@@ -191,7 +190,7 @@ export function Results() {
             <div className="rs-num" data-target="5" data-format="int" data-suffix="">
               0
             </div>
-            <div className="rs-label">day streak</div>
+            <div className="rs-label">{copy.stats.dayStreak}</div>
             <div style={{ flex: 1 }} />
             <div className="rs-mark">
               <img src="/images/logos/04_Oxford.webp" alt="University of Oxford" width={114} height={136} loading="lazy" decoding="async" />
@@ -201,7 +200,7 @@ export function Results() {
             <div className="rs-num" data-target="4" data-format="int" data-suffix="x">
               0x
             </div>
-            <div className="rs-label">more deep work</div>
+            <div className="rs-label">{copy.stats.moreDeepWork}</div>
             <div style={{ flex: 1 }} />
             <div className="rs-mark">
               <img src="/images/logos/23_TUM.webp" alt="TU Munich" width={136} height={77} loading="lazy" decoding="async" />
@@ -211,7 +210,7 @@ export function Results() {
             <div className="rs-num" data-target="37" data-format="int" data-suffix="%">
               0%
             </div>
-            <div className="rs-label">less screen time</div>
+            <div className="rs-label">{copy.stats.lessScreenTime}</div>
             <div style={{ flex: 1 }} />
             <div className="rs-mark">
               <img src="/images/logos/06_Cambridge.webp" alt="University of Cambridge" width={110} height={136} loading="lazy" decoding="async" />
@@ -219,16 +218,15 @@ export function Results() {
           </article>
           <article className="rs-card span2" style={{ background: "#faf7f1" }}>
             <p className="rs-quote">
-              “I set a hard lock for two hours and my phone disappears. Best 20 bucks I
-              have spent as a student.”
+              {copy.quotes[2].quote}
             </p>
             <div style={{ flex: 1 }} />
             <div className="rs-foot">
               <div className="rs-who">
                 <img className="rs-av" src="/images/avatars/theo.svg" alt="" width={96} height={96} loading="lazy" decoding="async" />
                 <div>
-                  <b>Theo Marchand</b>
-                  <em>Prepa MP*</em>
+                  <b>{copy.quotes[2].name}</b>
+                  <em>{copy.quotes[2].role}</em>
                 </div>
               </div>
               <div className="rs-mark">
@@ -238,7 +236,7 @@ export function Results() {
           </article>
         </div>
         <div className="cta-row">
-          <LockInLink label="Lock in now" />
+          <LockInLink label="lockInNow" />
         </div>
       </div>
     </section>

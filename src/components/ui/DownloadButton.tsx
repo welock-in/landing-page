@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 import {
@@ -6,6 +8,11 @@ import {
   LockIcon,
   WindowsIcon,
 } from "@/components/ui/icons";
+import {
+  useCommon,
+  useLocalePath,
+  type CommonDictionary,
+} from "@/i18n/LocaleContext";
 import { cn } from "@/lib/utils";
 import styles from "./DownloadButton.module.css";
 
@@ -20,10 +27,14 @@ type DownloadButtonProps = {
    */
   href?: string;
   /**
-   * Fixed label, e.g. "Lock in". Omit it to get the download CTA,
-   * which names the visitor's own platform.
+   * Fixed label, as a key into `common.cta` — e.g. "lockInForLife". Omit it to
+   * get the download CTA, which names the visitor's own platform instead.
+   *
+   * A key rather than a string because most callers are server components,
+   * which cannot read the catalog from context and would otherwise have to be
+   * handed the finished wording from three levels up.
    */
-  label?: string;
+  label?: keyof CommonDictionary["cta"] | { text: string };
   /** "compact" trims height/padding for tight spots like the navbar; "lg" is the share-card CTA. */
   size?: "default" | "compact" | "lg";
   /**
@@ -55,7 +66,11 @@ export function DownloadButton({
   icon = "apple",
   tone = "default",
 }: DownloadButtonProps) {
+  const { downloadButton, cta } = useCommon();
+  const withLocale = useLocalePath();
   const appleSize = size === "compact" ? 18 : 24;
+  const labelText =
+    label === undefined ? undefined : typeof label === "string" ? cta[label] : label.text;
 
   /** Apple mark and Windows logo both ship; `data-os` shows one. */
   const platformGlyphs = (
@@ -82,17 +97,17 @@ export function DownloadButton({
       <AppleIcon className={styles.appleIcon} width={appleSize} height={appleSize} />
     );
 
-  const content = label ? (
+  const content = labelText ? (
     <>
       {glyph}
-      <span>{label}</span>
+      <span>{labelText}</span>
     </>
   ) : (
     <>
       {platformGlyphs}
-      <span className={styles.forMac}>Download for macOS</span>
-      <span className={styles.forIos}>Download for iPhone</span>
-      <span className={styles.forWin}>Download for Windows</span>
+      <span className={styles.forMac}>{downloadButton.forMacOS}</span>
+      <span className={styles.forIos}>{downloadButton.forIphone}</span>
+      <span className={styles.forWin}>{downloadButton.forWindows}</span>
     </>
   );
 
@@ -108,10 +123,10 @@ export function DownloadButton({
    * the HTML sees the label once rather than twice. Fixed labels are passed in
    * by the caller and cannot come from a stylesheet, so those still duplicate.
    */
-  const hoverContent = label ? (
+  const hoverContent = labelText ? (
     <>
       {glyph}
-      <span>{label}</span>
+      <span>{labelText}</span>
     </>
   ) : (
     <>
@@ -120,9 +135,25 @@ export function DownloadButton({
     </>
   );
 
+  /**
+   * The hover layer's wording comes from CSS `content`, which cannot read a
+   * React prop — so the three translations are handed to the stylesheet as
+   * custom properties instead. `JSON.stringify` is what makes them valid CSS
+   * strings: `content` needs the quotes, and an apostrophe in "Télécharger
+   * pour l'iPhone" would otherwise end the value early.
+   */
+  const labelVars = labelText
+    ? undefined
+    : ({
+        "--dl-mac": JSON.stringify(downloadButton.forMacOS),
+        "--dl-ios": JSON.stringify(downloadButton.forIphone),
+        "--dl-win": JSON.stringify(downloadButton.forWindows),
+      } as React.CSSProperties);
+
   return (
     <Link
-      href={href}
+      href={withLocale(href)}
+      style={labelVars}
       className={cn(
         styles.btn,
         size === "compact" && styles.compact,

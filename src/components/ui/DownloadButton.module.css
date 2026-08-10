@@ -102,17 +102,22 @@
 
 /* Hover-layer wording, generated rather than duplicated in the markup — see
    the note in DownloadButton.tsx. Same three wordings, same `data-os` switch,
-   but a generated string is not part of the document text. */
+   but a generated string is not part of the document text.
+
+   The strings themselves arrive as --dl-* custom properties set on the button,
+   because this layer has to say the same thing as the markup above in whatever
+   language the page is rendering. The literals below are the fallback for the
+   one case that has none: a `label`-less button rendered without the vars. */
 .hoverLabel::before {
-  content: "Download for macOS";
+  content: var(--dl-mac, "Download for macOS");
 }
 
 :global(html[data-os="ios"]) .hoverLabel::before {
-  content: "Download for iPhone";
+  content: var(--dl-ios, "Download for iPhone");
 }
 
 :global(html[data-os="windows"]) .hoverLabel::before {
-  content: "Download for Windows";
+  content: var(--dl-win, "Download for Windows");
 }
 
 :global(html[data-os="windows"]) .glyphApple {

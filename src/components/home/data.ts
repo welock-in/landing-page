@@ -32,53 +32,21 @@ export const UNIVERSITIES: { file: string; name: string; wide?: boolean }[] = [
   { file: "20_UNSW.webp", name: "UNSW Sydney" },
 ];
 
-export const HOW_STEPS: { title: string; body: string }[] = [
-  {
-    title: "Choose what to block",
-    body: "Bundle the apps and sites that quietly steal your focus — social, video, news, games — into reusable blocklists you can launch in a single tap.",
-  },
-  {
-    title: "Set it and lock in",
-    body: "Pick a duration, hit start, and the nuclear lock seals the session shut — no pausing, no quitting, no bargaining your way out until the timer hits zero.",
-  },
-  {
-    title: "Select your devices",
-    body: "Connect your Mac, iPhone and iPad once, and every block stays in sync across all of them in real time — your distractions run out of places to hide.",
-  },
-];
-
-// `more` points each item at its full answer under /faq — the internal link is
-// what lets a crawler get from the accordion to the indexable page.
-export const FAQS: { question: string; answer: string; more: string }[] = [
-  {
-    question: "How does Welockin actually work?",
-    answer:
-      "Three steps: pick the apps and sites you want gone, choose how strict the lock should be, hit start. Under a minute from install to locked in — on every synced device at once.",
-    more: "/faq/getting-started/how-it-works",
-  },
-  {
-    question: "Is it really impossible to bypass?",
-    answer:
-      "With a Nuclear lock: yes. It survives restarts and even uninstalling the app — nothing turns it off before the timer or date you set.",
-    more: "/faq/nuclear-mode/is-it-really-permanent",
-  },
-  {
-    question: "Which apps and sites can I block?",
-    answer:
-      "All of them. Apps, websites and notifications — you decide what gets through and what goes quiet.",
-    more: "/faq/what-you-can-block/what-can-i-block",
-  },
-  {
-    question: "Is it available on mobile?",
-    answer: "iOS, macOS and Windows are here today. Android is coming soon.",
-    more: "/faq/devices-and-platforms/android-support",
-  },
-  {
-    question: "Are you really students?",
-    answer:
-      "Yes. Three engineers between EPFL and Polytechnique Paris, fed up with paying a subscription just to focus.",
-    more: "/faq/getting-started/built-by-students",
-  },
+/**
+ * Where each home-page FAQ row links for its full answer, in the order the
+ * questions appear in `home.json → faqSection.items`.
+ *
+ * The internal link is what lets a crawler get from the accordion to the
+ * indexable page. The wording lives in the message catalogs and the URLs live
+ * here, because a slug is a URL — translating one would break the link.
+ * Reordering the questions in a catalog means reordering this list too.
+ */
+export const FAQ_LINKS: string[] = [
+  "/faq/getting-started/how-it-works",
+  "/faq/nuclear-mode/is-it-really-permanent",
+  "/faq/what-you-can-block/what-can-i-block",
+  "/faq/devices-and-platforms/android-support",
+  "/faq/getting-started/built-by-students",
 ];
 
 export const PLATFORMS: { name: string; file: string; wordmark?: boolean }[] = [
@@ -88,17 +56,5 @@ export const PLATFORMS: { name: string; file: string; wordmark?: boolean }[] = [
   { name: "Android", file: "android.webp" },
 ];
 
-export const SW_COPY = {
-  soft: {
-    title: "Soft Lock",
-    tag: "Stay focused, bail if you really must.",
-    foot: "For daily deep work",
-  },
-  nuclear: {
-    title: "Nuclear Lock",
-    tag: "No pause. No stop. No way out.",
-    foot: "For the deadlines that matter",
-  },
-} as const;
-
-export type SwMode = keyof typeof SW_COPY;
+/** The two strictness settings the widget alternates between. */
+export type SwMode = "soft" | "nuclear";

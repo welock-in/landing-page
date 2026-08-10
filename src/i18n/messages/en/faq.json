@@ -1,0 +1,63 @@
+{
+  "_comment": "FAQ hub chrome and per-category framing. The 44 individual questions in src/content/faqPage.ts are NOT here yet — they render in English under every locale. Category keys must match the slugs in faqPage.ts; a slug is a URL and is never translated.",
+  "meta": {
+    "title": "FAQ — Everything about locking in",
+    "description": "How Welockin blocks apps and sites, the five unlock difficulty levels, Nuclear Mode, supported devices, privacy and troubleshooting — answered."
+  },
+  "hub": {
+    "eyebrow": "FAQ",
+    "title": "Frequently asked questions",
+    "searchPlaceholder": "Search — e.g. 'porn', 'refund', 'bypass'…",
+    "searchLabel": "Search frequently asked questions",
+    "clearSearch": "Clear search",
+    "noResults": "No results for",
+    "mascotAlt": "Peep, the Welockin mascot, looking apologetic",
+    "otherTopics": "Other FAQ topics",
+    "questionCount": "{count} answered questions",
+    "questionCountOne": "{count} answered question"
+  },
+  "categories": {
+    "getting-started": {
+      "name": "Getting started",
+      "headline": "Getting started with Welockin",
+      "intro": "What Welockin is, who it is built for, and how to go from downloading it to your first locked session in under a minute.",
+      "description": "What Welockin is, who it's for, how it works, and how to set it up on your first device. Answered by the students who built it."
+    },
+    "what-you-can-block": {
+      "name": "What you can block",
+      "headline": "What you can block with Welockin",
+      "intro": "Apps, websites, whole categories and notifications — what Welockin can shut out, and how to group it all so one tap covers a whole context.",
+      "description": "Block any app or website, one-tap categories for adult content, gambling, dating and games, plus notifications, bundles and schedules."
+    },
+    "unlock-difficulty-levels": {
+      "name": "Unlock difficulty levels",
+      "headline": "The five unlock difficulty levels",
+      "intro": "Welockin lets you choose how hard it is to quit a session, from a PIN you can type in two seconds to a lock nothing lifts before the date you set. Here is what each level does and which one to pick.",
+      "description": "PIN, cooldown delay, accountability partner, passphrase, and lock-until-a-date. What each unlock difficulty level does and which to choose."
+    },
+    "nuclear-mode": {
+      "name": "Nuclear Mode",
+      "headline": "Nuclear Mode: the point of no return",
+      "intro": "Nuclear Mode locks a category until a date you choose, with no override and no back door. It is the most-asked-about part of Welockin, and the part we refuse to soften. Here is exactly what it does.",
+      "description": "Nuclear Mode locks until a date you set, with no override, no early unlock, and no bypass by restarting or deleting the app."
+    },
+    "devices-and-platforms": {
+      "name": "Devices & platforms",
+      "headline": "Devices and platforms Welockin supports",
+      "intro": "Which operating systems Welockin runs on today, what is coming, and how one session locks every device you link at the same time.",
+      "description": "Welockin runs on macOS, iOS, iPadOS and Windows, with Android coming. Link as many devices as you want — they lock together as one."
+    },
+    "privacy": {
+      "name": "Privacy",
+      "headline": "Privacy: what Welockin does and does not see",
+      "intro": "A blocker sits between you and the internet, which makes what it logs a fair question. The short answer: filtering happens on your device, and your browsing is not recorded.",
+      "description": "Welockin does not log the sites you visit. Filtering happens on your device, so blocking works without sending your browsing to a server."
+    },
+    "troubleshooting": {
+      "name": "Troubleshooting",
+      "headline": "Troubleshooting Welockin",
+      "intro": "Something not blocking, devices out of sync, or a block you need lifted — the common problems and what to do about each.",
+      "description": "Fixes for the common problems: something not being blocked, devices not syncing, unblocking what you need, and how to reach a human."
+    }
+  }
+}

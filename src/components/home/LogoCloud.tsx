@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 
 import { UNIVERSITIES } from "./data";
+import type { HomeCopy } from "./HomePage";
 
 /** The drift moves one full copy of the list past the viewport in 90s. */
 const LOOP_SECONDS = 90;
@@ -17,7 +18,7 @@ const RESUME_DELAY_MS = 1200;
  * never widen the document the way a composited translateX layer could.
  * Ported from the legacy landing, which shipped this exact mechanism.
  */
-export function LogoCloud() {
+export function LogoCloud({ copy }: { copy: HomeCopy["logoCloud"] }) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const loopStartRef = useRef<HTMLSpanElement>(null);
 
@@ -157,12 +158,12 @@ export function LogoCloud() {
 
   return (
     <section className="lc">
-      <p className="lc-label">Used by students at</p>
+      <p className="lc-label">{copy.label}</p>
       <div
         className="lc-marquee"
         ref={viewportRef}
         role="group"
-        aria-label="Universities using Welockin"
+        aria-label={copy.ariaLabel}
       >
         <div className="lc-track">
           {rows.map((isDupe) =>

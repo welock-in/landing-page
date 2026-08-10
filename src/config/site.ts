@@ -74,11 +74,16 @@ export const product = {
  * links to anywhere but `/`. Real routes here give every page a link back to
  * each hub, on every page of the site.
  */
-export const mainNav: { title: string; href: string }[] = [
-  { title: "How it works", href: "/#how" },
-  { title: "Protection", href: "/protection" },
-  { title: "Download", href: "/download" },
-  { title: "FAQ", href: "/faq" },
+/**
+ * Labels are keys into `common.nav` rather than literal text — the URL is a
+ * property of the site, the wording is a property of the language. `href` is
+ * always the un-prefixed path; the locale is applied at render.
+ */
+export const mainNav: { key: "howItWorks" | "protection" | "download" | "faq"; href: string }[] = [
+  { key: "howItWorks", href: "/#how" },
+  { key: "protection", href: "/protection" },
+  { key: "download", href: "/download" },
+  { key: "faq", href: "/faq" },
 ];
 
 /**

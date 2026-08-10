@@ -4,9 +4,25 @@ import { useEffect, useRef, useState } from "react";
 
 import { reducedMotion, runSeq } from "./motion";
 
-const DEVICES = [
+/**
+ * Names are supplied by the caller, from the message catalog.
+ *
+ * They used to be one developer's own devices, in French, on an
+ * otherwise-English page ("MacBook de Hedi"). The widget is a demo of the
+ * visitor's own set-up, so the names are now first-person and generic:
+ * "My computer" rather than a Mac, because the row is shown to Windows
+ * visitors too, and the icon already says laptop.
+ */
+export type SyncWidgetCopy = {
+  label: string;
+  groupLabel: string;
+  addDevice: string;
+  devices: { computer: string; phone: string; tablet: string };
+};
+
+const DEVICE_ICONS = [
   {
-    name: "MacBook de Hedi",
+    key: "computer",
     icon: (
       <svg
         width="22"
@@ -24,7 +40,7 @@ const DEVICES = [
     ),
   },
   {
-    name: "iPhone de Hedi",
+    key: "phone",
     icon: (
       <svg
         width="22"
@@ -42,7 +58,7 @@ const DEVICES = [
     ),
   },
   {
-    name: "iPad de Hedi",
+    key: "tablet",
     icon: (
       <svg
         width="22"
@@ -59,7 +75,7 @@ const DEVICES = [
       </svg>
     ),
   },
-];
+] as const;
 
 /** The two poses the widget alternates between once the demo has played. */
 const SYNC_IDLE: boolean[][] = [
@@ -73,7 +89,11 @@ const SYNC_IDLE: boolean[][] = [
  * poses every 3s. Hover pauses, clicking a row stops the show for good and
  * lets the visitor toggle. Reduced motion: everything stays checked.
  */
-export function SyncWidget() {
+export function SyncWidget({ copy }: { copy: SyncWidgetCopy }) {
+  const devices = DEVICE_ICONS.map((d) => ({
+    icon: d.icon,
+    name: copy.devices[d.key],
+  }));
   const [pressed, setPressed] = useState<boolean[]>([true, true, true]);
   const [hint, setHint] = useState(false);
 
@@ -170,12 +190,12 @@ export function SyncWidget() {
 
   return (
     <div className="bc-sync">
-      <p className="sync-label">Devices</p>
+      <p className="sync-label">{copy.label}</p>
       <div
         ref={listRef}
         className={`sync-list${hint ? " sync-hint" : ""}`}
         role="group"
-        aria-label="Synced devices"
+        aria-label={copy.groupLabel}
         onMouseEnter={() => {
           hovering.current = true;
           cancel();
@@ -185,7 +205,7 @@ export function SyncWidget() {
           if (visible.current && demoPlayed.current) startIdle();
         }}
       >
-        {DEVICES.map((d, i) => (
+        {devices.map((d, i) => (
           <button
             key={d.name}
             type="button"
@@ -242,7 +262,7 @@ export function SyncWidget() {
           <line x1="12" y1="5" x2="12" y2="19" />
           <line x1="5" y1="12" x2="19" y2="12" />
         </svg>
-        Add a device
+        {copy.addDevice}
       </button>
     </div>
   );

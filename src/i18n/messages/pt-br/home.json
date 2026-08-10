@@ -1,0 +1,192 @@
+{
+  "hero": {
+    "headline": [
+      { "text": "Bloqueie", "br": false, "em": false },
+      { "text": "as", "br": false, "em": false },
+      { "text": "distrações", "br": true, "em": false },
+      { "text": "antes", "br": false, "em": false },
+      { "text": "que", "br": false, "em": false },
+      { "text": "elas", "br": false, "em": false },
+      { "text": "bloqueiem", "br": true, "em": false },
+      { "text": "o", "br": false, "em": false },
+      { "text": "seu", "br": false, "em": false },
+      { "text": "futuro.", "br": false, "em": true }
+    ],
+    "subtitle": "O Welockin tranca os aplicativos e sites que te distraem na hora de focar.",
+    "sessionsUnit": "sessões de foco",
+    "sessionsLine": "acontecendo agora",
+    "playVideo": "Assistir ao vídeo de demonstração do Welockin",
+    "videoLabel": "Vídeo de demonstração do Welockin",
+    "closeVideo": "Fechar vídeo",
+    "captionsLabel": "Inglês (sem som — texto na tela)"
+  },
+  "logoCloud": {
+    "label": "Usado por estudantes de",
+    "ariaLabel": "Universidades que usam o Welockin"
+  },
+  "bento": {
+    "headTitle": "Tudo o que você precisa para",
+    "headTitleEm": "focar de verdade.",
+    "headSub": "Silencie o barulho em todos os aparelhos, do seu jeito.",
+    "apps": {
+      "title": "Bloqueie apps e sites",
+      "body": "Bloqueie qualquer app ou site. Agrupe tudo para trabalhar, estudar ou dormir.",
+      "phoneAlt": "Tela de seleção de aplicativos do Welockin",
+      "cardAlt": "Lista de sites bloqueados, com Instagram e Reddit"
+    },
+    "strictness": {
+      "title": "Escolha o seu nível de rigor",
+      "body": "De um empurrãozinho até a trava nuclear. Você decide o quanto vai pegar pesado."
+    },
+    "sync": {
+      "title": "Sincronize todos os aparelhos",
+      "body": "Uma sessão tranca o seu Mac, iPhone e iPad de uma vez."
+    },
+    "scheduling": {
+      "title": "Agendamento",
+      "body": "Blocos de foco recorrentes. Foque no automático, todo dia.",
+      "frameTitle": "Agenda da semana de foco"
+    },
+    "moreTitle": "Mais recursos",
+    "more": [
+      {
+        "title": "Sons de foco",
+        "body": "Chuva, lo-fi ou floresta enquanto você trabalha."
+      },
+      {
+        "title": "Agendamento",
+        "body": "Programe as sessões da semana e mantenha o foco de segunda a domingo."
+      },
+      {
+        "title": "Pausas cronometradas",
+        "body": "Pequenas pausas com tempo marcado dentro da sessão."
+      },
+      {
+        "title": "Trava por senha",
+        "body": "Proteja as suas configurações com uma senha."
+      }
+    ]
+  },
+  "strictnessWidget": {
+    "groupLabel": "Intensidade da trava",
+    "badge": "Extremo",
+    "soft": {
+      "title": "Trava Leve",
+      "tag": "Mantenha o foco, com saída de emergência se precisar mesmo.",
+      "foot": "Para o trabalho profundo do dia a dia",
+      "points": [
+        "Pausar quando a vida acontece",
+        "Encerrar a sessão antes do fim",
+        "Ideal para o foco do dia a dia"
+      ]
+    },
+    "nuclear": {
+      "title": "Trava Nuclear",
+      "tag": "Sem pausa. Sem parar. Sem saída.",
+      "foot": "Para os prazos que importam de verdade",
+      "points": [
+        "Pausa desativada",
+        "Não dá para parar antes do cronômetro zerar",
+        "Resiste a reinícios e à desinstalação"
+      ]
+    }
+  },
+  "syncWidget": {
+    "label": "Aparelhos",
+    "groupLabel": "Aparelhos sincronizados",
+    "addDevice": "Adicionar aparelho",
+    "devices": {
+      "computer": "Meu computador",
+      "phone": "Meu iPhone",
+      "tablet": "Meu iPad"
+    }
+  },
+  "results": {
+    "headLine1": "Resultados reais de",
+    "headLine2": "estudantes reais",
+    "stats": {
+      "hoursFocused": "horas de foco por dia",
+      "sessionsThisMonth": "sessões neste mês",
+      "sessionsCompleted": "sessões concluídas",
+      "dayStreak": "dias seguidos",
+      "moreDeepWork": "mais trabalho profundo",
+      "lessScreenTime": "menos tempo de tela"
+    },
+    "quotes": [
+      {
+        "quote": "“O Welockin me carregou até o fim das provas finais. Hoje eu termino o que começo, e o scroll infinito simplesmente sumiu.”",
+        "name": "Sarah Fourati",
+        "role": "Mestrado em Administração"
+      },
+      {
+        "quote": "“Eu olhava o celular a cada cinco minutos. Agora consigo terminar uma sessão de estudo inteira sem me distrair.”",
+        "name": "Karim Assaf",
+        "role": "Mestrado em Engenharia Nuclear"
+      },
+      {
+        "quote": "“Ligo uma trava pesada por duas horas e o meu celular desaparece. O melhor dinheiro que já gastei como estudante.”",
+        "name": "Theo Marchand",
+        "role": "Curso preparatório MP*"
+      }
+    ]
+  },
+  "howItWorks": {
+    "eyebrow": "Como funciona",
+    "title": "Comece em três passos.",
+    "subtitle": "Da instalação ao foco total em menos de um minuto.",
+    "steps": [
+      {
+        "title": "Escolha o que bloquear",
+        "body": "Junte os apps e sites que roubam a sua atenção sem você perceber — redes sociais, vídeo, notícias, jogos — em listas reutilizáveis que você dispara com um toque.",
+        "shotLabel": "Escolher os apps a bloquear"
+      },
+      {
+        "title": "Configure e tranque",
+        "body": "Escolha a duração, aperte iniciar, e a trava nuclear sela a sessão — sem pausar, sem desistir, sem negociar até o cronômetro zerar.",
+        "shotLabel": "Definir a duração e trancar"
+      },
+      {
+        "title": "Selecione os seus aparelhos",
+        "body": "Conecte o seu Mac, iPhone e iPad uma única vez: cada bloqueio fica sincronizado entre todos, em tempo real. As distrações ficam sem esconderijo.",
+        "shotLabel": "Selecionar os seus aparelhos"
+      }
+    ]
+  },
+  "lockedEverywhere": {
+    "titleLine1": "Bloqueie uma vez.",
+    "titleLine2": "Trancado em todo lugar.",
+    "subtitle": "Comece uma única sessão de foco no welock.in e as suas distrações ficam trancadas em todos os aparelhos que você tem, ao mesmo tempo.",
+    "visualAlt": "Um computador, um notebook, um tablet e um celular, cada um mostrando um aplicativo bloqueado pelo welock.in",
+    "availableOn": "o welock.in está disponível em"
+  },
+  "faqSection": {
+    "eyebrow": "Perguntas frequentes",
+    "title": "Perguntas frequentes",
+    "items": [
+      {
+        "question": "Como o Welockin funciona na prática?",
+        "answer": "Três passos: escolha os apps e sites dos quais quer distância, defina o rigor da trava e aperte iniciar. Menos de um minuto entre instalar e estar focado — em todos os aparelhos sincronizados de uma vez."
+      },
+      {
+        "question": "É realmente impossível de burlar?",
+        "answer": "Com a trava Nuclear: sim. Ela sobrevive a reinícios e até à desinstalação do app — nada a desliga antes do horário ou da data que você definiu."
+      },
+      {
+        "question": "Quais apps e sites posso bloquear?",
+        "answer": "Todos. Aplicativos, sites e notificações — você decide o que passa e o que fica em silêncio."
+      },
+      {
+        "question": "Está disponível no celular?",
+        "answer": "iOS, macOS e Windows já estão prontos. Android chega em breve."
+      },
+      {
+        "question": "Vocês são estudantes mesmo?",
+        "answer": "Somos. Três engenheiros entre a EPFL e a Polytechnique Paris, cansados de pagar assinatura só para conseguir se concentrar."
+      }
+    ]
+  },
+  "shareBand": {
+    "title": "Foco é contagiante.",
+    "subtitle": "Junte-se ao time de estudantes que chegam lá."
+  }
+}

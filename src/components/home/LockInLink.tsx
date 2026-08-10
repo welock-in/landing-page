@@ -1,12 +1,23 @@
+"use client";
+
 import Link from "next/link";
+
+import { useCommon, useLocalePath, type CommonDictionary } from "@/i18n/LocaleContext";
 
 /**
  * The salmon "Lock in" CTA with the looping shackle-snap animation.
  * A real link to /download — the design's dead <button> made clickable.
+ *
+ * Takes the catalog key rather than the finished string: the wording is the
+ * same on every page, so threading it through four sections as a prop would
+ * only create four more places to forget to translate.
  */
-export function LockInLink({ label }: { label: string }) {
+export function LockInLink({ label }: { label: keyof CommonDictionary["cta"] }) {
+  const { cta } = useCommon();
+  const withLocale = useLocalePath();
+
   return (
-    <Link className="li-btn" href="/download">
+    <Link className="li-btn" href={withLocale("/download")}>
       <svg
         className="li-lock"
         viewBox="0 0 28 28"
@@ -21,7 +32,7 @@ export function LockInLink({ label }: { label: string }) {
         <rect x="5.7" y="12.6" width="16.6" height="12.6" rx="3.4" />
         <circle cx="14" cy="18.9" r="1.35" fill="currentColor" stroke="none" />
       </svg>
-      {label}
+      {cta[label]}
     </Link>
   );
 }

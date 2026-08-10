@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "howItWorks": "How it works",
+    "protection": "Protection",
+    "download": "Download",
+    "faq": "FAQ",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "brandLabel": "Welockin — home"
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "chooseLanguage": "Choose a language"
+  },
+  "downloadButton": {
+    "forMacOS": "Download for macOS",
+    "forIphone": "Download for iPhone",
+    "forWindows": "Download for Windows",
+    "short": "Download"
+  },
+  "cta": {
+    "lockInNow": "Lock in now",
+    "lockEveryDevice": "Lock every device",
+    "lockInForLife": "Lock in for life",
+    "readFullAnswer": "Read the full answer",
+    "moreQuestions": "More questions"
+  },
+  "ctaBand": {
+    "title": "Ready to lock in?",
+    "subtitle": "Block what's stealing your attention on every device you own, with a lock that holds until you said it would.",
+    "fine": "Works on macOS, iPhone, iPad and Windows"
+  },
+  "footer": {
+    "newsletter": {
+      "line1": "Don't miss a focus session.",
+      "line2": "Get study tips & updates in your inbox",
+      "placeholder": "Enter your email address",
+      "emailLabel": "Email address",
+      "subscribe": "Subscribe",
+      "success": "You're locked in — check your inbox."
+    },
+    "columns": {
+      "product": "Product",
+      "download": "Download",
+      "answers": "Answers",
+      "howItLocks": "How it locks",
+      "support": "Support",
+      "legal": "Legal"
+    },
+    "links": {
+      "howItWorks": "How it works",
+      "protection": "Protection",
+      "download": "Download",
+      "whatYouCanBlock": "What you can block",
+      "macos": "macOS",
+      "iphoneIpad": "iPhone & iPad",
+      "windows": "Windows",
+      "androidSoon": "Android — coming soon",
+      "allDevices": "All devices",
+      "fullFaq": "Full FAQ",
+      "gettingStarted": "Getting started",
+      "devicesPlatforms": "Devices & platforms",
+      "troubleshooting": "Troubleshooting",
+      "fiveLockLevels": "The five lock levels",
+      "nuclearMode": "Nuclear Mode",
+      "softVsNuclear": "Soft vs Nuclear lock",
+      "canItBeBypassed": "Can it be bypassed?",
+      "whichLevel": "Which level to choose",
+      "helpCentre": "Help centre",
+      "contactUs": "Contact us",
+      "support": "Support",
+      "setupGuide": "Setup guide",
+      "builtByStudents": "Built by students",
+      "terms": "Terms of service",
+      "privacy": "Privacy policy",
+      "deleteAccount": "Delete your account"
+    },
+    "tagline": "Built by students, for students",
+    "copyright": "© 2025 Welockin. All rights reserved"
+  },
+  "legal": {
+    "eyebrow": "Legal",
+    "lastUpdated": "Last updated:",
+    "englishNotice": "This policy is published in English only. The English text is the binding version."
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "label": "Breadcrumb"
+  }
+}
