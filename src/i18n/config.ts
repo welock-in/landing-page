@@ -14,7 +14,7 @@
  * hreflang, where case carries meaning.
  */
 
-export const locales = ["en", "fr", "pt-br", "hi"] as const;
+export const locales = ["en", "fr", "es", "de", "pt-br", "hi"] as const;
 
 export type Locale = (typeof locales)[number];
 
@@ -36,7 +36,7 @@ type LocaleMeta = {
   label: string;
   /** Short form for the collapsed switcher button. */
   short: string;
-  /** Writing direction. All four are LTR today; RTL languages would set "rtl". */
+  /** Writing direction. All six are LTR today; RTL languages would set "rtl". */
   dir: "ltr" | "rtl";
   /** `og:locale` value. */
   ogLocale: string;
@@ -45,6 +45,17 @@ type LocaleMeta = {
 export const LOCALE_META: Record<Locale, LocaleMeta> = {
   en: { tag: "en", label: "English", short: "EN", dir: "ltr", ogLocale: "en_US" },
   fr: { tag: "fr", label: "Français", short: "FR", dir: "ltr", ogLocale: "fr_FR" },
+  /**
+   * Neutral Spanish rather than es-ES or es-MX.
+   *
+   * One catalog that reads naturally in both Spain and Latin America is worth
+   * more here than two that split the audience — and the wording avoids the
+   * handful of words that would pick a side. Add `es-mx` later if the traffic
+   * justifies it; the fallback chain means it would only need the strings that
+   * actually differ.
+   */
+  es: { tag: "es", label: "Español", short: "ES", dir: "ltr", ogLocale: "es_ES" },
+  de: { tag: "de", label: "Deutsch", short: "DE", dir: "ltr", ogLocale: "de_DE" },
   "pt-br": {
     tag: "pt-BR",
     label: "Português (Brasil)",

@@ -1,0 +1,141 @@
+{
+  "home": {
+    "meta": {
+      "title": "Welockin — Blockiere Ablenkungen, bevor sie deine Zukunft blockieren.",
+      "description": "Welockin blockiert die Apps, die dir die Aufmerksamkeit klauen — ein für alle Mal. Fokus-Sessions per Klick, die sich nicht umgehen lassen, auf macOS, iOS, iPadOS und Windows."
+    }
+  },
+  "download": {
+    "meta": {
+      "title": "Welockin für Mac, iPhone, iPad und Windows herunterladen",
+      "description": "Hol dir Welockin für macOS, iPhone, iPad und Windows. Verbinde so viele Geräte, wie du willst — sie sperren alle zusammen. Android kommt bald."
+    },
+    "eyebrow": "Download",
+    "h1": "Welockin herunterladen",
+    "lead": "Du kannst so viele Geräte verbinden, wie du willst — sie sperren alle gleichzeitig. Installier es auf jedem einzelnen, und eine Session legt alles auf einmal still.",
+    "sub": "Ein Blocker, der deinen Laptop abdeckt, aber nicht dein Handy, ist ein Blocker mit offener Tür. Deck also alles ab, bevor du die erste harte Sperre setzt.",
+    "pickPlatform": "Wähl deine Plattform",
+    "settingUp": "Die Einrichtung",
+    "beforeYouInstall": "Vor der Installation",
+    "status": {
+      "available": "Jetzt verfügbar",
+      "comingSoon": "Kommt bald",
+      "notPlanned": "Nicht geplant",
+      "linkSoon": "Download-Link folgt in Kürze"
+    },
+    "downloadFor": "Für {platform} herunterladen"
+  },
+  "protection": {
+    "meta": {
+      "title": "Schutz — Sperre Erwachsenen- und explizite Seiten endgültig",
+      "description": "Blockiere Erwachseneninhalte, Glücksspiel, Dating-Apps und Spiele ab 18 auf jedem Gerät. Fünf Entsperrstufen, Filterung auf dem Gerät, immer aktiv."
+    }
+  },
+  "support": {
+    "meta": {
+      "title": "Support — Lösungen für die häufigsten Probleme",
+      "description": "Lösungen für die Probleme, die wirklich auftreten: eine Sperre, die nicht aufgeht, ein vergessenes Passwort, ein fehlender Kauf — und wie du einen Menschen erreichst, wenn nichts hilft."
+    },
+    "eyebrow": "Support",
+    "h1": "Support",
+    "lead": "Die Probleme, die wirklich auftreten, mit der Lösung für jedes einzelne — und für alles andere eine direkte Leitung zu einem Menschen."
+  },
+  "help": {
+    "meta": {
+      "title": "Hilfe — Erste Schritte, dein Konto, Käufe und Lösungen",
+      "description": "Alles an einem Ort: Welockin einrichten, dein Konto verwalten, Testphase und lebenslange Lizenz, und was zu tun ist, wenn etwas nicht läuft."
+    },
+    "eyebrow": "Hilfe",
+    "h1": "Wie können wir helfen?",
+    "lead": "Alles an einem Ort: Welockin einrichten, dein Konto verwalten, einen Kauf klären und Dinge geradebiegen, wenn sie sich danebenbenehmen."
+  },
+  "contact": {
+    "meta": {
+      "title": "Kontakt",
+      "description": "Erreich das Welockin-Team — Support, Abrechnung, Datenschutz oder Presse. Schick das Formular oder schreib an hello@welock.in; jede Nachricht liest ein echter Mensch."
+    },
+    "eyebrow": "Kontakt",
+    "h1": "Melde dich bei uns",
+    "lead": "Eine Frage, ein Bug, ein Problem mit der Abrechnung oder eine Presseanfrage — schick es rüber. Jede Nachricht lesen die Studierenden, die Welockin bauen, meistens zwischen zwei Vorlesungen.",
+    "otherWays": "Weitere Wege, uns zu erreichen"
+  },
+  "resetPassword": {
+    "meta": {
+      "title": "Passwort zurücksetzen",
+      "description": "Leg ein neues Passwort für dein Welockin-Konto fest."
+    }
+  },
+  "deleteAccount": {
+    "meta": {
+      "title": "Konto löschen",
+      "description": "So löschst du dein Welockin-Konto und alle zugehörigen Daten endgültig — aus der App heraus oder per E-Mail. Was gelöscht wird und wie lange es dauert."
+    }
+  },
+  "privacy": {
+    "meta": {
+      "title": "Datenschutzerklärung",
+      "description": "Wie Welockin mit deinen Daten umgeht: was wir erheben, wofür jede Berechtigung nötig ist und wie du dein Konto löschst. Dein Surfverhalten verlässt nie dein Gerät."
+    },
+    "title": "Datenschutzerklärung"
+  },
+  "terms": {
+    "meta": {
+      "title": "Nutzungsbedingungen",
+      "description": "Die Bedingungen für die Nutzung von Welockin: 14 Tage kostenlos testen, die einmalige lebenslange Lizenz, Rückerstattungen, zulässige Nutzung, und warum die Sperre halten soll."
+    },
+    "title": "Nutzungsbedingungen"
+  },
+  "thanks": {
+    "meta": {
+      "title": "Zahlung erhalten",
+      "description": "Zurück zu Welockin — deine Lizenz liegt auf deinem Konto."
+    },
+    "eyebrow": "Zahlung erhalten",
+    "title": "Alles bereit",
+    "lead": "Welockin schaltet sich innerhalb weniger Sekunden von selbst frei. Falls die App nicht von allein in den Vordergrund gekommen ist, holt der Button unten sie zurück.",
+    "open": "Welockin öffnen",
+    "fallback": "Nichts passiert? Öffne Welockin über den Desktop oder das Startmenü — die App prüft deine Lizenz bei jedem Start. Diesen Tab kannst du schließen."
+  },
+  "blocked": {
+    "meta": {
+      "title": "Blockiert",
+      "description": "Diese Seite ist von Welockin blockiert."
+    },
+    "fallbackSite": "Diese Website",
+    "isBlockedBy": "ist blockiert von"
+  },
+  "contactForm": {
+    "name": "Dein Name",
+    "namePlaceholder": "Optional",
+    "email": "E-Mail-Adresse",
+    "topic": "Thema",
+    "message": "Nachricht",
+    "messagePlaceholder": "Was passiert ist, was du erwartet hast und was stattdessen kam.",
+    "send": "Nachricht senden",
+    "sending": "Wird gesendet…",
+    "sent": "Nachricht gesendet — wir melden uns per E-Mail.",
+    "topics": {
+      "Support": "Support",
+      "Billing": "Abrechnung",
+      "Privacy": "Datenschutz",
+      "Press": "Presse",
+      "Other": "Sonstiges"
+    },
+    "errors": {
+      "nameTooLong": "Bitte halte den Namen unter {max} Zeichen.",
+      "messageTooShort": "Bitte schreib mindestens {min} Zeichen, damit wir helfen können.",
+      "messageTooLong": "Bitte halte die Nachricht unter {max} Zeichen.",
+      "unreachable": "Auf unserer Seite ist etwas schiefgelaufen und deine Nachricht wurde nicht gesendet. Versuch es gleich noch einmal, oder schreib uns direkt an "
+    }
+  },
+  "notFound": {
+    "meta": {
+      "title": "Seite nicht gefunden",
+      "description": "Diese Seite gibt es nicht."
+    },
+    "eyebrow": "404",
+    "title": "Diese Seite gibt es nicht",
+    "lead": "Vielleicht ist der Link veraltet, vielleicht ist die Seite umgezogen. Die FAQ und die Download-Seite sind von hier aus die beiden nützlichsten Anlaufstellen.",
+    "backHome": "Zurück zur Startseite"
+  }
+}

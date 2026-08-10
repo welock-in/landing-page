@@ -1,0 +1,191 @@
+{
+  "hero": {
+    "headline": [
+      { "text": "Bloquea", "br": false, "em": false },
+      { "text": "las", "br": false, "em": false },
+      { "text": "distracciones", "br": true, "em": false },
+      { "text": "antes", "br": false, "em": false },
+      { "text": "de", "br": false, "em": false },
+      { "text": "que", "br": false, "em": false },
+      { "text": "bloqueen", "br": true, "em": false },
+      { "text": "tu", "br": false, "em": false },
+      { "text": "futuro.", "br": false, "em": true }
+    ],
+    "subtitle": "Welockin bloquea las apps y las webs que te distraen cuando toca concentrarse.",
+    "sessionsUnit": "sesiones de concentración",
+    "sessionsLine": "activas ahora mismo",
+    "playVideo": "Reproducir el vídeo de demostración de Welockin",
+    "videoLabel": "Vídeo de demostración de Welockin",
+    "closeVideo": "Cerrar el vídeo",
+    "captionsLabel": "Inglés (sin sonido — texto en pantalla)"
+  },
+  "logoCloud": {
+    "label": "Lo usan estudiantes de",
+    "ariaLabel": "Universidades que usan Welockin"
+  },
+  "bento": {
+    "headTitle": "Todo lo que necesitas para",
+    "headTitleEm": "concentrarte.",
+    "headSub": "Silencia el ruido en todos tus dispositivos, a tu manera.",
+    "apps": {
+      "title": "Bloquea apps y webs",
+      "body": "Bloquea cualquier app o web. Agrúpalas para trabajar, estudiar o dormir.",
+      "phoneAlt": "Pantalla de selección de aplicaciones de Welockin",
+      "cardAlt": "Lista de webs bloqueadas, con Instagram y Reddit"
+    },
+    "strictness": {
+      "title": "Elige tu nivel de dureza",
+      "body": "Desde un aviso suave hasta el bloqueo nuclear. Tú decides cuánto aprieta."
+    },
+    "sync": {
+      "title": "Sincroniza todos tus dispositivos",
+      "body": "Una sola sesión bloquea tu Mac, tu iPhone y tu iPad a la vez."
+    },
+    "scheduling": {
+      "title": "Programación",
+      "body": "Bloques de concentración recurrentes. Concéntrate en automático, cada día.",
+      "frameTitle": "Horario de la semana de concentración"
+    },
+    "moreTitle": "Más funciones",
+    "more": [
+      {
+        "title": "Sonidos para concentrarte",
+        "body": "Lluvia, lo-fi o bosque mientras trabajas."
+      },
+      {
+        "title": "Programación",
+        "body": "Programa tus sesiones semanales y mantén la concentración toda la semana."
+      },
+      {
+        "title": "Pausas cronometradas",
+        "body": "Descansos breves y medidos dentro de una sesión."
+      },
+      {
+        "title": "Bloqueo con contraseña",
+        "body": "Protege tus ajustes detrás de una contraseña."
+      }
+    ]
+  },
+  "strictnessWidget": {
+    "groupLabel": "Intensidad del bloqueo",
+    "badge": "Extremo",
+    "soft": {
+      "title": "Bloqueo Suave",
+      "tag": "Mantén el foco, con salida si de verdad la necesitas.",
+      "foot": "Para el trabajo profundo del día a día",
+      "points": [
+        "Pausa cuando la vida se cruza",
+        "Termina la sesión antes de tiempo",
+        "Perfecto para concentrarte a diario"
+      ]
+    },
+    "nuclear": {
+      "title": "Bloqueo Nuclear",
+      "tag": "Sin pausa. Sin parar. Sin salida.",
+      "foot": "Para las entregas que de verdad importan",
+      "points": [
+        "Pausa desactivada",
+        "No se puede parar hasta que acabe el temporizador",
+        "Sobrevive a reinicios y desinstalaciones"
+      ]
+    }
+  },
+  "syncWidget": {
+    "label": "Dispositivos",
+    "groupLabel": "Dispositivos sincronizados",
+    "addDevice": "Añadir un dispositivo",
+    "devices": {
+      "computer": "Mi ordenador",
+      "phone": "Mi iPhone",
+      "tablet": "Mi iPad"
+    }
+  },
+  "results": {
+    "headLine1": "Resultados reales de",
+    "headLine2": "estudiantes reales",
+    "stats": {
+      "hoursFocused": "horas de concentración al día",
+      "sessionsThisMonth": "sesiones este mes",
+      "sessionsCompleted": "sesiones completadas",
+      "dayStreak": "días seguidos",
+      "moreDeepWork": "más trabajo profundo",
+      "lessScreenTime": "menos tiempo de pantalla"
+    },
+    "quotes": [
+      {
+        "quote": "«Welockin me sacó adelante los exámenes finales. Ahora termino lo que empiezo, y el scroll infinito ha desaparecido.»",
+        "name": "Sarah Fourati",
+        "role": "Máster en Gestión"
+      },
+      {
+        "quote": "«Antes miraba el móvil cada cinco minutos. Ahora consigo terminar una sesión de estudio entera sin distraerme.»",
+        "name": "Karim Assaf",
+        "role": "Máster en Ingeniería Nuclear"
+      },
+      {
+        "quote": "«Pongo un bloqueo duro de dos horas y mi móvil desaparece. El mejor dinero que he gastado como estudiante.»",
+        "name": "Theo Marchand",
+        "role": "Preparatoria MP*"
+      }
+    ]
+  },
+  "howItWorks": {
+    "eyebrow": "Cómo funciona",
+    "title": "Empieza en tres pasos.",
+    "subtitle": "De la instalación a la concentración en menos de un minuto.",
+    "steps": [
+      {
+        "title": "Elige qué bloquear",
+        "body": "Agrupa las apps y las webs que te roban la atención sin que te des cuenta — redes sociales, vídeo, noticias, juegos — en listas reutilizables que lanzas con un solo toque.",
+        "shotLabel": "Elegir las apps que bloquear"
+      },
+      {
+        "title": "Configúralo y bloquea",
+        "body": "Elige una duración, pulsa empezar y el bloqueo nuclear sella la sesión: sin pausas, sin abandonar, sin negociar hasta que el temporizador llegue a cero.",
+        "shotLabel": "Fijar la duración y bloquear"
+      },
+      {
+        "title": "Selecciona tus dispositivos",
+        "body": "Conecta tu Mac, tu iPhone y tu iPad una sola vez, y cada bloqueo se mantiene sincronizado entre todos en tiempo real. Tus distracciones se quedan sin dónde esconderse.",
+        "shotLabel": "Seleccionar tus dispositivos"
+      }
+    ]
+  },
+  "lockedEverywhere": {
+    "titleLine1": "Bloquéalo una vez.",
+    "titleLine2": "Bloqueado en todas partes.",
+    "subtitle": "Empieza una sola sesión en welock.in y tus distracciones quedan bloqueadas en todos los dispositivos que tengas, a la vez.",
+    "visualAlt": "Un ordenador de sobremesa, un portátil, una tableta y un móvil mostrando cada uno una aplicación bloqueada por welock.in",
+    "availableOn": "welock.in está disponible en"
+  },
+  "faqSection": {
+    "eyebrow": "Preguntas frecuentes",
+    "title": "Preguntas frecuentes",
+    "items": [
+      {
+        "question": "¿Cómo funciona Welockin exactamente?",
+        "answer": "Tres pasos: elige las apps y las webs de las que quieres distancia, decide cuán duro debe ser el bloqueo y pulsa empezar. Menos de un minuto entre instalar y estar concentrado, y en todos los dispositivos sincronizados a la vez."
+      },
+      {
+        "question": "¿De verdad es imposible saltárselo?",
+        "answer": "Con un bloqueo Nuclear: sí. Sobrevive a los reinicios e incluso a desinstalar la app; nada lo desactiva antes de la hora o la fecha que hayas fijado."
+      },
+      {
+        "question": "¿Qué apps y webs puedo bloquear?",
+        "answer": "Todas. Aplicaciones, webs y notificaciones: tú decides qué pasa y qué se calla."
+      },
+      {
+        "question": "¿Está disponible en el móvil?",
+        "answer": "iOS, macOS y Windows ya están aquí. Android llega muy pronto."
+      },
+      {
+        "question": "¿De verdad sois estudiantes?",
+        "answer": "Sí. Tres ingenieros entre la EPFL y Polytechnique Paris, hartos de pagar una suscripción solo para poder concentrarse."
+      }
+    ]
+  },
+  "shareBand": {
+    "title": "La concentración se contagia.",
+    "subtitle": "Únete al equipo de estudiantes que lo consiguen."
+  }
+}

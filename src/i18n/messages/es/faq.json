@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "title": "Preguntas frecuentes — Todo sobre concentrarse",
+    "description": "Cómo bloquea Welockin apps y webs, los cinco niveles de dificultad de desbloqueo, el Modo Nuclear, los dispositivos compatibles, la privacidad y la solución de problemas: respondido."
+  },
+  "hub": {
+    "eyebrow": "Preguntas frecuentes",
+    "title": "Preguntas frecuentes",
+    "searchPlaceholder": "Buscar — p. ej. «porno», «reembolso», «saltar»…",
+    "searchLabel": "Buscar en las preguntas frecuentes",
+    "clearSearch": "Borrar la búsqueda",
+    "noResults": "Ningún resultado para",
+    "mascotAlt": "Peep, la mascota de Welockin, con cara de disculpa",
+    "otherTopics": "Otros temas de las preguntas frecuentes",
+    "questionCount": "{count} preguntas respondidas",
+    "questionCountOne": "{count} pregunta respondida"
+  },
+  "categories": {
+    "getting-started": {
+      "name": "Primeros pasos",
+      "headline": "Empezar con Welockin",
+      "intro": "Qué es Welockin, para quién está hecho y cómo pasar de descargarlo a tu primera sesión bloqueada en menos de un minuto.",
+      "description": "Qué es Welockin, para quién es, cómo funciona y cómo configurarlo en tu primer dispositivo. Respondido por los estudiantes que lo crearon."
+    },
+    "what-you-can-block": {
+      "name": "Qué puedes bloquear",
+      "headline": "Qué puedes bloquear con Welockin",
+      "intro": "Apps, webs, categorías enteras y notificaciones: qué puede silenciar Welockin y cómo agruparlo todo para que un solo toque cubra un contexto completo.",
+      "description": "Bloquea cualquier app o web, con categorías de un toque para contenido adulto, apuestas, citas y juegos, además de notificaciones, listas y horarios."
+    },
+    "unlock-difficulty-levels": {
+      "name": "Niveles de dificultad de desbloqueo",
+      "headline": "Los cinco niveles de dificultad de desbloqueo",
+      "intro": "Welockin te deja elegir cuánto cuesta salir de una sesión, desde un PIN que tecleas en dos segundos hasta un bloqueo que nada levanta antes de la fecha que fijaste. Esto es lo que hace cada nivel y cuál elegir.",
+      "description": "PIN, tiempo de espera, compañero de responsabilidad, frase de contraseña y bloqueo hasta una fecha. Qué hace cada nivel de dificultad y cuál elegir."
+    },
+    "nuclear-mode": {
+      "name": "Modo Nuclear",
+      "headline": "Modo Nuclear: el punto de no retorno",
+      "intro": "El Modo Nuclear bloquea una categoría hasta la fecha que elijas, sin excepciones y sin puerta trasera. Es la parte de Welockin sobre la que más nos preguntan, y la que nos negamos a suavizar. Esto es exactamente lo que hace.",
+      "description": "El Modo Nuclear bloquea hasta la fecha que fijes, sin excepciones, sin desbloqueo anticipado y sin saltárselo reiniciando o borrando la app."
+    },
+    "devices-and-platforms": {
+      "name": "Dispositivos y plataformas",
+      "headline": "Dispositivos y plataformas compatibles con Welockin",
+      "intro": "En qué sistemas operativos funciona Welockin hoy, cuáles están por llegar y cómo una sola sesión bloquea a la vez todos los dispositivos que vincules.",
+      "description": "Welockin funciona en macOS, iOS, iPadOS y Windows, y Android está en camino. Vincula todos los dispositivos que quieras: se bloquean como uno solo."
+    },
+    "privacy": {
+      "name": "Privacidad",
+      "headline": "Privacidad: qué ve y qué no ve Welockin",
+      "intro": "Un bloqueador se sitúa entre tú e internet, así que preguntar qué registra es legítimo. Respuesta corta: el filtrado ocurre en tu dispositivo y tu navegación no se guarda.",
+      "description": "Welockin no registra las webs que visitas. El filtrado ocurre en tu dispositivo, así que el bloqueo funciona sin enviar tu navegación a ningún servidor."
+    },
+    "troubleshooting": {
+      "name": "Solución de problemas",
+      "headline": "Resolver problemas con Welockin",
+      "intro": "Algo que no se bloquea, dispositivos desincronizados o un bloqueo que necesitas levantar: los problemas más habituales y qué hacer con cada uno.",
+      "description": "Soluciones a los problemas más habituales: algo que no se bloquea, dispositivos que no se sincronizan, cómo desbloquear lo que necesitas y cómo hablar con una persona."
+    }
+  }
+}

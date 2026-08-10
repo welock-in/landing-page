@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "title": "FAQ — Alles über konzentriertes Arbeiten",
+    "description": "Wie Welockin Apps und Websites blockiert, die fünf Entsperrstufen, der Nuklear-Modus, unterstützte Geräte, Datenschutz und Fehlerbehebung — beantwortet."
+  },
+  "hub": {
+    "eyebrow": "FAQ",
+    "title": "Häufige Fragen",
+    "searchPlaceholder": "Suchen — z. B. „Porno“, „Rückerstattung“, „umgehen“…",
+    "searchLabel": "Häufige Fragen durchsuchen",
+    "clearSearch": "Suche löschen",
+    "noResults": "Keine Treffer für",
+    "mascotAlt": "Peep, das Maskottchen von Welockin, mit entschuldigendem Blick",
+    "otherTopics": "Weitere FAQ-Themen",
+    "questionCount": "{count} beantwortete Fragen",
+    "questionCountOne": "{count} beantwortete Frage"
+  },
+  "categories": {
+    "getting-started": {
+      "name": "Erste Schritte",
+      "headline": "Der Einstieg in Welockin",
+      "intro": "Was Welockin ist, für wen es gebaut wurde, und wie du vom Download zu deiner ersten gesperrten Session kommst — in unter einer Minute.",
+      "description": "Was Welockin ist, für wen es gedacht ist, wie es funktioniert und wie du es auf deinem ersten Gerät einrichtest. Beantwortet von den Studierenden, die es gebaut haben."
+    },
+    "what-you-can-block": {
+      "name": "Was du blockieren kannst",
+      "headline": "Was du mit Welockin blockieren kannst",
+      "intro": "Apps, Websites, ganze Kategorien und Benachrichtigungen — was Welockin stilllegen kann, und wie du alles so bündelst, dass ein Tippen einen ganzen Kontext abdeckt.",
+      "description": "Blockiere jede App und jede Website, mit Ein-Tipp-Kategorien für Erwachseneninhalte, Glücksspiel, Dating und Games, dazu Benachrichtigungen, Bündel und Zeitpläne."
+    },
+    "unlock-difficulty-levels": {
+      "name": "Entsperrstufen",
+      "headline": "Die fünf Entsperrstufen",
+      "intro": "Bei Welockin entscheidest du, wie schwer es ist, eine Session abzubrechen — von einer PIN, die du in zwei Sekunden tippst, bis zu einer Sperre, die vor dem gesetzten Datum nichts aufhebt. Hier steht, was jede Stufe tut und welche zu dir passt.",
+      "description": "PIN, Wartezeit, Verantwortungspartner, Passphrase und Sperre bis zu einem Datum. Was jede Entsperrstufe tut und welche du wählen solltest."
+    },
+    "nuclear-mode": {
+      "name": "Nuklear-Modus",
+      "headline": "Nuklear-Modus: der Punkt ohne Wiederkehr",
+      "intro": "Der Nuklear-Modus sperrt eine Kategorie bis zu einem Datum deiner Wahl — ohne Ausnahme und ohne Hintertür. Es ist der Teil von Welockin, nach dem am häufigsten gefragt wird, und der Teil, den wir nicht aufweichen. Hier steht genau, was er tut.",
+      "description": "Der Nuklear-Modus sperrt bis zu dem Datum, das du setzt — ohne Ausnahme, ohne vorzeitiges Entsperren und ohne Umweg über Neustart oder Deinstallation."
+    },
+    "devices-and-platforms": {
+      "name": "Geräte und Plattformen",
+      "headline": "Geräte und Plattformen, die Welockin unterstützt",
+      "intro": "Auf welchen Betriebssystemen Welockin heute läuft, was noch kommt, und wie eine einzige Session alle Geräte, die du verbindest, gleichzeitig sperrt.",
+      "description": "Welockin läuft auf macOS, iOS, iPadOS und Windows, Android ist in Arbeit. Verbinde so viele Geräte, wie du willst — sie sperren zusammen wie eines."
+    },
+    "privacy": {
+      "name": "Datenschutz",
+      "headline": "Datenschutz: Was Welockin sieht und was nicht",
+      "intro": "Ein Blocker sitzt zwischen dir und dem Internet, deshalb ist die Frage berechtigt, was er mitschreibt. Kurze Antwort: Gefiltert wird auf deinem Gerät, und dein Surfverhalten wird nicht aufgezeichnet.",
+      "description": "Welockin protokolliert nicht, welche Seiten du besuchst. Gefiltert wird auf deinem Gerät, das Blockieren funktioniert also, ohne dein Surfverhalten an einen Server zu schicken."
+    },
+    "troubleshooting": {
+      "name": "Fehlerbehebung",
+      "headline": "Probleme mit Welockin lösen",
+      "intro": "Etwas wird nicht blockiert, Geräte sind nicht synchron, oder eine Sperre muss aufgehoben werden — die häufigsten Probleme und was jeweils zu tun ist.",
+      "description": "Lösungen für die häufigsten Probleme: etwas wird nicht blockiert, Geräte synchronisieren nicht, wie du freigibst, was du brauchst, und wie du einen Menschen erreichst."
+    }
+  }
+}

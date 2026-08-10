@@ -1,0 +1,190 @@
+{
+  "hero": {
+    "_comment": "German puts the verb last, so the emphasis sits on 'Zukunft' rather than on the final word — the accent belongs on what is at stake, not on wherever the grammar happens to end.",
+    "headline": [
+      { "text": "Blockiere", "br": false, "em": false },
+      { "text": "Ablenkungen,", "br": true, "em": false },
+      { "text": "bevor", "br": false, "em": false },
+      { "text": "sie", "br": false, "em": false },
+      { "text": "deine", "br": true, "em": false },
+      { "text": "Zukunft", "br": false, "em": true },
+      { "text": "blockieren.", "br": false, "em": false }
+    ],
+    "subtitle": "Welockin sperrt ablenkende Apps und Websites, wenn es Zeit ist, dich zu konzentrieren.",
+    "sessionsUnit": "Fokus-Sessions",
+    "sessionsLine": "laufen gerade jetzt",
+    "playVideo": "Welockin-Demovideo abspielen",
+    "videoLabel": "Welockin-Demovideo",
+    "closeVideo": "Video schließen",
+    "captionsLabel": "Englisch (ohne Ton — Text im Bild)"
+  },
+  "logoCloud": {
+    "label": "Genutzt von Studierenden an",
+    "ariaLabel": "Universitäten, die Welockin nutzen"
+  },
+  "bento": {
+    "headTitle": "Alles, was du brauchst, um",
+    "headTitleEm": "dranzubleiben.",
+    "headSub": "Mach den Lärm auf jedem Gerät aus — so, wie du es willst.",
+    "apps": {
+      "title": "Apps und Websites blockieren",
+      "body": "Blockiere jede App und jede Website. Bündle sie für Arbeit, Lernen oder Schlaf.",
+      "phoneAlt": "Welockin-Bildschirm zur App-Auswahl",
+      "cardAlt": "Liste blockierter Websites, mit Instagram und Reddit"
+    },
+    "strictness": {
+      "title": "Wähl deine Härte",
+      "body": "Vom sanften Stupser bis zur nuklearen Sperre. Du entscheidest, wie hart."
+    },
+    "sync": {
+      "title": "Alle Geräte synchronisieren",
+      "body": "Eine Session sperrt deinen Mac, dein iPhone und dein iPad gleichzeitig."
+    },
+    "scheduling": {
+      "title": "Zeitplanung",
+      "body": "Wiederkehrende Fokusblöcke. Konzentrier dich automatisch, jeden Tag.",
+      "frameTitle": "Wochenplan für Fokuszeiten"
+    },
+    "moreTitle": "Mehr Funktionen",
+    "more": [
+      {
+        "title": "Fokus-Sounds",
+        "body": "Regen, Lo-Fi oder Wald, während du arbeitest."
+      },
+      {
+        "title": "Zeitplanung",
+        "body": "Plane deine Sessions für die Woche und bleib die ganze Woche konzentriert."
+      },
+      {
+        "title": "Kurze Pausen",
+        "body": "Kurze, abgemessene Pausen innerhalb einer Session."
+      },
+      {
+        "title": "Passwortsperre",
+        "body": "Sichere deine Einstellungen hinter einem Passwort."
+      }
+    ]
+  },
+  "strictnessWidget": {
+    "groupLabel": "Härte der Sperre",
+    "badge": "Extrem",
+    "soft": {
+      "title": "Sanfte Sperre",
+      "tag": "Bleib fokussiert — mit Notausgang, falls es wirklich sein muss.",
+      "foot": "Für konzentriertes Arbeiten im Alltag",
+      "points": [
+        "Pausieren, wenn das Leben dazwischenkommt",
+        "Die Session früher beenden",
+        "Ideal für den Fokus im Alltag"
+      ]
+    },
+    "nuclear": {
+      "title": "Nukleare Sperre",
+      "tag": "Keine Pause. Kein Stopp. Kein Ausweg.",
+      "foot": "Für die Deadlines, die wirklich zählen",
+      "points": [
+        "Pausieren deaktiviert",
+        "Kein Abbruch, bis der Timer abgelaufen ist",
+        "Übersteht Neustarts und Deinstallation"
+      ]
+    }
+  },
+  "syncWidget": {
+    "label": "Geräte",
+    "groupLabel": "Synchronisierte Geräte",
+    "addDevice": "Gerät hinzufügen",
+    "devices": {
+      "computer": "Mein Computer",
+      "phone": "Mein iPhone",
+      "tablet": "Mein iPad"
+    }
+  },
+  "results": {
+    "headLine1": "Echte Ergebnisse von",
+    "headLine2": "echten Studierenden",
+    "stats": {
+      "hoursFocused": "Stunden Fokus pro Tag",
+      "sessionsThisMonth": "Sessions diesen Monat",
+      "sessionsCompleted": "Sessions durchgezogen",
+      "dayStreak": "Tage am Stück",
+      "moreDeepWork": "mehr konzentriertes Arbeiten",
+      "lessScreenTime": "weniger Bildschirmzeit"
+    },
+    "quotes": [
+      {
+        "quote": "„Welockin hat mich durch meine Abschlussprüfungen gebracht. Ich bringe jetzt zu Ende, was ich anfange, und das endlose Scrollen ist einfach weg.“",
+        "name": "Sarah Fourati",
+        "role": "Master in Management"
+      },
+      {
+        "quote": "„Früher habe ich alle fünf Minuten aufs Handy geschaut. Jetzt schaffe ich tatsächlich eine ganze Lernsession, ohne mich ablenken zu lassen.“",
+        "name": "Karim Assaf",
+        "role": "Master Nukleartechnik"
+      },
+      {
+        "quote": "„Ich setze eine harte Sperre für zwei Stunden und mein Handy verschwindet. Das beste Geld, das ich als Student ausgegeben habe.“",
+        "name": "Theo Marchand",
+        "role": "Vorbereitungsklasse MP*"
+      }
+    ]
+  },
+  "howItWorks": {
+    "eyebrow": "So funktioniert's",
+    "title": "In drei Schritten loslegen.",
+    "subtitle": "Von der Installation zum Fokus in unter einer Minute.",
+    "steps": [
+      {
+        "title": "Wähl aus, was blockiert wird",
+        "body": "Bündle die Apps und Websites, die dir unbemerkt die Aufmerksamkeit klauen — Social Media, Video, News, Games — in wiederverwendbaren Listen, die du mit einem Tippen startest.",
+        "shotLabel": "Apps zum Blockieren auswählen"
+      },
+      {
+        "title": "Einstellen und sperren",
+        "body": "Wähl eine Dauer, drück auf Start, und die nukleare Sperre versiegelt die Session — kein Pausieren, kein Abbrechen, kein Verhandeln, bis der Timer bei null ist.",
+        "shotLabel": "Dauer festlegen und sperren"
+      },
+      {
+        "title": "Wähl deine Geräte",
+        "body": "Verbinde deinen Mac, dein iPhone und dein iPad einmal, und jede Sperre bleibt auf allen in Echtzeit synchron — deine Ablenkungen haben kein Versteck mehr.",
+        "shotLabel": "Deine Geräte auswählen"
+      }
+    ]
+  },
+  "lockedEverywhere": {
+    "titleLine1": "Einmal blockieren.",
+    "titleLine2": "Überall gesperrt.",
+    "subtitle": "Starte eine einzige Fokus-Session auf welock.in, und deine Ablenkungen sind auf jedem deiner Geräte gleichzeitig gesperrt.",
+    "visualAlt": "Ein Desktop-Rechner, ein Laptop, ein Tablet und ein Handy, auf denen jeweils eine von welock.in blockierte App zu sehen ist",
+    "availableOn": "welock.in gibt es für"
+  },
+  "faqSection": {
+    "eyebrow": "FAQ",
+    "title": "Häufige Fragen",
+    "items": [
+      {
+        "question": "Wie funktioniert Welockin eigentlich?",
+        "answer": "Drei Schritte: Wähl die Apps und Websites aus, die weg sollen, entscheide, wie hart die Sperre sein soll, und drück auf Start. Unter einer Minute von der Installation bis zum Fokus — und das auf allen synchronisierten Geräten gleichzeitig."
+      },
+      {
+        "question": "Lässt es sich wirklich nicht umgehen?",
+        "answer": "Mit einer nuklearen Sperre: nein. Sie übersteht Neustarts und sogar das Deinstallieren der App — nichts schaltet sie vor der Zeit oder dem Datum ab, das du gesetzt hast."
+      },
+      {
+        "question": "Welche Apps und Websites kann ich blockieren?",
+        "answer": "Alle. Apps, Websites und Benachrichtigungen — du entscheidest, was durchkommt und was still bleibt."
+      },
+      {
+        "question": "Gibt es das auch fürs Handy?",
+        "answer": "iOS, macOS und Windows gibt es schon heute. Android kommt bald."
+      },
+      {
+        "question": "Seid ihr wirklich Studierende?",
+        "answer": "Ja. Drei Ingenieure zwischen der EPFL und der Polytechnique Paris, die keine Lust mehr hatten, ein Abo zu bezahlen, nur um sich konzentrieren zu können."
+      }
+    ]
+  },
+  "shareBand": {
+    "title": "Fokus ist ansteckend.",
+    "subtitle": "Komm ins Team der Studierenden, die es packen."
+  }
+}

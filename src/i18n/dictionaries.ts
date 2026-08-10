@@ -46,6 +46,18 @@ const loaders: Record<Exclude<Locale, "en">, () => Promise<PartialDeep<Dictionar
     pages: (await import("./messages/fr/pages.json")).default,
     faq: (await import("./messages/fr/faq.json")).default,
   }),
+  es: async () => ({
+    common: (await import("./messages/es/common.json")).default,
+    home: (await import("./messages/es/home.json")).default,
+    pages: (await import("./messages/es/pages.json")).default,
+    faq: (await import("./messages/es/faq.json")).default,
+  }),
+  de: async () => ({
+    common: (await import("./messages/de/common.json")).default,
+    home: (await import("./messages/de/home.json")).default,
+    pages: (await import("./messages/de/pages.json")).default,
+    faq: (await import("./messages/de/faq.json")).default,
+  }),
   "pt-br": async () => ({
     common: (await import("./messages/pt-br/common.json")).default,
     home: (await import("./messages/pt-br/home.json")).default,

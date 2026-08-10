@@ -67,7 +67,13 @@ Set `NEXT_PUBLIC_SITE_URL` per environment so canonicals/OG point at the right h
 
 ## Languages
 
-The site ships in **English, French, Brazilian Portuguese and Hindi**.
+The site ships in **English, French, Spanish, German, Brazilian Portuguese and
+Hindi**.
+
+Spanish is deliberately neutral rather than es-ES or es-MX — one catalog that
+reads naturally on both sides of the Atlantic beats two that split the
+audience. Register follows what each language's readers expect from a product
+built by students: `vous` in French, `du` in German, `tú` in Spanish.
 
 ```
 src/i18n/
@@ -82,7 +88,8 @@ src/i18n/
 ### URLs
 
 English is served **un-prefixed** and everything else carries a prefix:
-`/faq`, `/fr/faq`, `/pt-br/faq`, `/hi/faq`. Every URL indexed today is English,
+`/faq`, `/fr/faq`, `/es/faq`, `/de/faq`, `/pt-br/faq`, `/hi/faq`. Every URL
+indexed today is English,
 so this keeps the site's entire search footprint exactly where it is. `proxy.ts`
 rewrites `/faq` to `/en/faq` internally, so the app always sees a locale segment
 while the address bar never does; `/en/faq` 308s back to `/faq` so a page never

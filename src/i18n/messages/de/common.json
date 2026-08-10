@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "howItWorks": "So funktioniert's",
+    "protection": "Schutz",
+    "download": "Download",
+    "faq": "FAQ",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "brandLabel": "Welockin — Startseite"
+  },
+  "languageSwitcher": {
+    "label": "Sprache",
+    "chooseLanguage": "Sprache wählen"
+  },
+  "downloadButton": {
+    "forMacOS": "Für macOS herunterladen",
+    "forIphone": "Für iPhone herunterladen",
+    "forWindows": "Für Windows herunterladen",
+    "short": "Download"
+  },
+  "cta": {
+    "lockInNow": "Jetzt konzentrieren",
+    "lockEveryDevice": "Alle Geräte sperren",
+    "lockInForLife": "Für immer sperren",
+    "readFullAnswer": "Ganze Antwort lesen",
+    "moreQuestions": "Mehr Fragen"
+  },
+  "ctaBand": {
+    "title": "Bereit, dich zu konzentrieren?",
+    "subtitle": "Sperre auf all deinen Geräten, was dir die Aufmerksamkeit klaut — mit einem Schloss, das hält, bis die Zeit abgelaufen ist, die du gesetzt hast.",
+    "fine": "Läuft auf macOS, iPhone, iPad und Windows"
+  },
+  "footer": {
+    "newsletter": {
+      "line1": "Verpass keine Fokus-Session.",
+      "line2": "Lerntipps und Neuigkeiten direkt in dein Postfach",
+      "placeholder": "Gib deine E-Mail-Adresse ein",
+      "emailLabel": "E-Mail-Adresse",
+      "subscribe": "Abonnieren",
+      "success": "Du bist dabei — schau in dein Postfach."
+    },
+    "columns": {
+      "product": "Produkt",
+      "download": "Download",
+      "answers": "Antworten",
+      "howItLocks": "Wie es sperrt",
+      "support": "Support",
+      "legal": "Rechtliches"
+    },
+    "links": {
+      "howItWorks": "So funktioniert's",
+      "protection": "Schutz",
+      "download": "Download",
+      "whatYouCanBlock": "Was du blockieren kannst",
+      "macos": "macOS",
+      "iphoneIpad": "iPhone und iPad",
+      "windows": "Windows",
+      "androidSoon": "Android — kommt bald",
+      "allDevices": "Alle Geräte",
+      "fullFaq": "Komplette FAQ",
+      "gettingStarted": "Erste Schritte",
+      "devicesPlatforms": "Geräte und Plattformen",
+      "troubleshooting": "Fehlerbehebung",
+      "fiveLockLevels": "Die fünf Sperrstufen",
+      "nuclearMode": "Nuklear-Modus",
+      "softVsNuclear": "Sanfte oder nukleare Sperre",
+      "canItBeBypassed": "Lässt es sich umgehen?",
+      "whichLevel": "Welche Stufe passt",
+      "helpCentre": "Hilfebereich",
+      "contactUs": "Kontakt",
+      "support": "Support",
+      "setupGuide": "Einrichtungsanleitung",
+      "builtByStudents": "Von Studierenden gebaut",
+      "terms": "Nutzungsbedingungen",
+      "privacy": "Datenschutzerklärung",
+      "deleteAccount": "Konto löschen"
+    },
+    "tagline": "Von Studierenden, für Studierende",
+    "copyright": "© 2025 Welockin. Alle Rechte vorbehalten"
+  },
+  "legal": {
+    "eyebrow": "Rechtliches",
+    "lastUpdated": "Zuletzt aktualisiert:",
+    "englishNotice": "Dieses Dokument wird nur auf Englisch veröffentlicht. Maßgeblich ist die englische Fassung."
+  },
+  "breadcrumbs": {
+    "home": "Startseite",
+    "label": "Brotkrumennavigation"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "howItWorks": "Cómo funciona",
+    "protection": "Protección",
+    "download": "Descargar",
+    "faq": "Preguntas frecuentes",
+    "openMenu": "Abrir el menú",
+    "closeMenu": "Cerrar el menú",
+    "brandLabel": "Welockin — inicio"
+  },
+  "languageSwitcher": {
+    "label": "Idioma",
+    "chooseLanguage": "Elige un idioma"
+  },
+  "downloadButton": {
+    "forMacOS": "Descargar para macOS",
+    "forIphone": "Descargar para iPhone",
+    "forWindows": "Descargar para Windows",
+    "short": "Descargar"
+  },
+  "cta": {
+    "lockInNow": "Concéntrate ya",
+    "lockEveryDevice": "Bloquear todos mis dispositivos",
+    "lockInForLife": "Bloquear de por vida",
+    "readFullAnswer": "Leer la respuesta completa",
+    "moreQuestions": "Más preguntas"
+  },
+  "ctaBand": {
+    "title": "¿Listo para concentrarte?",
+    "subtitle": "Bloquea lo que te roba la atención en todos tus dispositivos, con un candado que aguanta hasta la hora que tú marcaste.",
+    "fine": "Funciona en macOS, iPhone, iPad y Windows"
+  },
+  "footer": {
+    "newsletter": {
+      "line1": "Que no se te escape ninguna sesión.",
+      "line2": "Consejos de estudio y novedades en tu correo",
+      "placeholder": "Escribe tu correo electrónico",
+      "emailLabel": "Correo electrónico",
+      "subscribe": "Suscribirse",
+      "success": "Ya estás dentro: revisa tu correo."
+    },
+    "columns": {
+      "product": "Producto",
+      "download": "Descargar",
+      "answers": "Respuestas",
+      "howItLocks": "Cómo bloquea",
+      "support": "Soporte",
+      "legal": "Legal"
+    },
+    "links": {
+      "howItWorks": "Cómo funciona",
+      "protection": "Protección",
+      "download": "Descargar",
+      "whatYouCanBlock": "Qué puedes bloquear",
+      "macos": "macOS",
+      "iphoneIpad": "iPhone y iPad",
+      "windows": "Windows",
+      "androidSoon": "Android — muy pronto",
+      "allDevices": "Todos los dispositivos",
+      "fullFaq": "Preguntas frecuentes",
+      "gettingStarted": "Primeros pasos",
+      "devicesPlatforms": "Dispositivos y plataformas",
+      "troubleshooting": "Solución de problemas",
+      "fiveLockLevels": "Los cinco niveles de bloqueo",
+      "nuclearMode": "Modo Nuclear",
+      "softVsNuclear": "Bloqueo Suave o Nuclear",
+      "canItBeBypassed": "¿Se puede saltar?",
+      "whichLevel": "Qué nivel elegir",
+      "helpCentre": "Centro de ayuda",
+      "contactUs": "Contacto",
+      "support": "Soporte",
+      "setupGuide": "Guía de instalación",
+      "builtByStudents": "Hecho por estudiantes",
+      "terms": "Términos del servicio",
+      "privacy": "Política de privacidad",
+      "deleteAccount": "Eliminar tu cuenta"
+    },
+    "tagline": "Hecho por estudiantes, para estudiantes",
+    "copyright": "© 2025 Welockin. Todos los derechos reservados"
+  },
+  "legal": {
+    "eyebrow": "Legal",
+    "lastUpdated": "Última actualización:",
+    "englishNotice": "Este documento se publica solo en inglés. La versión en inglés es la que prevalece."
+  },
+  "breadcrumbs": {
+    "home": "Inicio",
+    "label": "Ruta de navegación"
+  }
+}
