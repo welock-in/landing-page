@@ -32,6 +32,9 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+# …with the template as the deliberate exception: it carries no values, only
+# the names to fill in and where to find them.
+!.env.example
 
 # vercel
 .vercel

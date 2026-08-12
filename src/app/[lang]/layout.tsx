@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Figtree, EB_Garamond } from "next/font/google";
 import { notFound } from "next/navigation";
 
+import { PostHogProvider } from "@/components/analytics/PostHogProvider";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { siteConfig, siteUrl } from "@/config/site";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -98,6 +99,7 @@ export default async function RootLayout({
         {/* First thing in the body so the download CTA paints with the right
             platform label — see OS_DETECT_SCRIPT. */}
         <script dangerouslySetInnerHTML={{ __html: OS_DETECT_SCRIPT }} />
+        <PostHogProvider locale={lang} />
         <LocaleProvider locale={lang} common={dict.common}>
           {children}
         </LocaleProvider>

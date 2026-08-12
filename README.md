@@ -65,6 +65,46 @@ MacBook) → `LockedEverywhere` → `Stats` → `Globe` → `Faq` → `VideoStor
 
 Set `NEXT_PUBLIC_SITE_URL` per environment so canonicals/OG point at the right host.
 
+## Analytics
+
+PostHog, wired in `src/components/analytics/PostHogProvider.tsx` and mounted
+from the root layout. Set two variables and it turns on:
+
+```bash
+NEXT_PUBLIC_POSTHOG_KEY=phc_…              # Settings → Project → Project API key
+NEXT_PUBLIC_POSTHOG_HOST=https://eu.i.posthog.com   # or us.i.posthog.com
+```
+
+Leave either blank and analytics is simply off — which is what every local
+checkout and preview should do. The `phc_` key is the **project** key and is
+public by design; the `phx_` one PostHog also shows you is a **personal** key,
+it grants access to your whole account, and it belongs in neither this repo nor
+a browser.
+
+**No cookies, by design.** `persistence: "memory"` means nothing is written to
+the visitor's device — no cookie, no localStorage — which is what lets the site
+run analytics across the EU without a consent banner. The cost is real: identity
+does not survive a reload, so "unique visitors" counts sessions rather than
+people, and a funnel only holds together within one page visit. Reversing that
+trade means `persistence: "localStorage+cookie"` **and** a consent banner gating
+the provider; one without the other is the broken configuration.
+
+Two things the file is deliberate about, and which are easy to undo by accident:
+
+- The SDK is a **dynamic import**, so ~500 kB of it never enters the bundle that
+  every page loads before it paints. A plain top-level `import posthog from
+  "posthog-js"` would put it back.
+- The pageview tracker sits inside a **`<Suspense>` boundary**, because
+  `useSearchParams()` makes its nearest boundary bail out of prerendering.
+  Remove the boundary and the entire static site turns dynamic.
+
+Pageviews are captured manually (`capture_pageview: false`) since App Router
+navigation changes the URL without a document load. Every event carries the
+active `locale`, so the six language editions can be compared against each other.
+
+> Before switching analytics on in production, add a line about it to the
+> Privacy Policy — the page currently describes no analytics at all.
+
 ## Languages
 
 The site ships in **English, French, Spanish, German, Brazilian Portuguese and
