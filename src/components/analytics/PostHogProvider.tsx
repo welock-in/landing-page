@@ -60,32 +60,27 @@ function load(): Promise<PostHogClient | null> {
       posthog.init(KEY!, {
         api_host: HOST,
         /**
-         * The whole privacy posture, in one option: no cookies, no
-         * localStorage, nothing written to the visitor's device. It is what
-         * lets the site run analytics across the EU without a consent banner,
-         * because the rule that bites here governs storing or reading
-         * information on someone's equipment.
+         * Full tracking, on the site owner's explicit decision.
          *
-         * The cost is real and worth stating plainly: identity does not
-         * survive a reload, so "unique visitors" counts sessions rather than
-         * people, and a funnel only holds together within one page visit.
+         * `persistence` is left at PostHog's default, so identity is kept in a
+         * cookie plus localStorage and a returning visitor is recognised as the
+         * same person. That is what makes unique visitors, retention and
+         * multi-session funnels mean anything — and it is also what puts the
+         * site under the EU consent rules, because those govern storing and
+         * reading information on someone's device. There is no banner here.
          *
-         * Undoing this trade means `persistence: "localStorage+cookie"` AND a
-         * consent banner gating this component — one without the other is the
-         * broken configuration, not an intermediate step.
+         * Reverting is `persistence: "memory"` and `person_profiles:
+         * "identified_only"`: no cookie, no localStorage, no banner needed, at
+         * the cost of every reload looking like a new visitor.
          */
-        persistence: "memory",
-        /**
-         * Anonymous visitors get events but no person profile. Without it,
-         * memory persistence would mint one throwaway person per page load —
-         * every one of them stored, billed, and impossible to ever recognise
-         * again.
-         */
-        person_profiles: "identified_only",
+        person_profiles: "always",
         /**
          * Pageviews come from the tracker below instead. App Router navigation
          * changes the URL without a document load, so automatic capture only
          * ever sees the first page of a visit.
+         *
+         * Nothing to do with privacy — this one is a correctness fix and should
+         * stay whichever way the settings above go.
          */
         capture_pageview: false,
       });

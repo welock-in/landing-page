@@ -86,13 +86,19 @@ account, and it belongs in neither this repo nor a browser.
 runs on). Point it at the wrong region and PostHog does not fail loudly — it
 accepts the requests and records nothing.
 
-**No cookies, by design.** `persistence: "memory"` means nothing is written to
-the visitor's device — no cookie, no localStorage — which is what lets the site
-run analytics across the EU without a consent banner. The cost is real: identity
-does not survive a reload, so "unique visitors" counts sessions rather than
-people, and a funnel only holds together within one page visit. Reversing that
-trade means `persistence: "localStorage+cookie"` **and** a consent banner gating
-the provider; one without the other is the broken configuration.
+**Full tracking, no consent banner.** Persistence is left at PostHog's default,
+so identity lives in a cookie plus localStorage and a returning visitor is
+recognised as the same person — which is what makes unique visitors, retention
+and multi-session funnels mean anything. Autocapture is on; session recording
+follows whatever the PostHog project settings say. This is a deliberate choice
+by the site owner, made with the EU consent rules in view: those rules govern
+storing and reading information on a visitor's device, and there is no banner
+here.
+
+The cookieless configuration is one edit away if that trade ever stops being
+worth it — `persistence: "memory"` and `person_profiles: "identified_only"` in
+`PostHogProvider.tsx`. It needs no banner, at the cost of every reload looking
+like a new visitor.
 
 Two things the file is deliberate about, and which are easy to undo by accident:
 
@@ -107,8 +113,9 @@ Pageviews are captured manually (`capture_pageview: false`) since App Router
 navigation changes the URL without a document load. Every event carries the
 active `locale`, so the six language editions can be compared against each other.
 
-> Before switching analytics on in production, add a line about it to the
-> Privacy Policy — the page currently describes no analytics at all.
+> **Outstanding:** the Privacy Policy still describes no analytics at all, and
+> its data table lists no cookies. With tracking cookies now shipping, that page
+> is the one piece of this that is out of date.
 
 ## Languages
 
