@@ -68,18 +68,23 @@ Set `NEXT_PUBLIC_SITE_URL` per environment so canonicals/OG point at the right h
 ## Analytics
 
 PostHog, wired in `src/components/analytics/PostHogProvider.tsx` and mounted
-from the root layout. Set two variables and it turns on:
+from the root layout. The project key and region are baked into that file, so a
+deploy needs no dashboard step — **analytics run in production builds only**,
+which is what keeps `npm run dev` out of the real numbers.
 
-```bash
-NEXT_PUBLIC_POSTHOG_KEY=phc_…              # Settings → Project → Project API key
-NEXT_PUBLIC_POSTHOG_HOST=https://eu.i.posthog.com   # or us.i.posthog.com
-```
+`NEXT_PUBLIC_POSTHOG_KEY` and `NEXT_PUBLIC_POSTHOG_HOST` override both, to point
+a deployment at a different project; setting either to an empty string turns
+analytics off for that deployment.
 
-Leave either blank and analytics is simply off — which is what every local
-checkout and preview should do. The `phc_` key is the **project** key and is
-public by design; the `phx_` one PostHog also shows you is a **personal** key,
-it grants access to your whole account, and it belongs in neither this repo nor
-a browser.
+The `phc_` key is the **project** key: it ships to every browser that loads the
+site, so committing it changes nothing about its exposure. The `phx_` key
+PostHog also shows you is a **personal** key — it grants access to your whole
+account, and it belongs in neither this repo nor a browser.
+
+`NEXT_PUBLIC_POSTHOG_HOST` must match the region the project lives in
+(`eu.i.posthog.com` or `us.i.posthog.com`, matching whichever your dashboard
+runs on). Point it at the wrong region and PostHog does not fail loudly — it
+accepts the requests and records nothing.
 
 **No cookies, by design.** `persistence: "memory"` means nothing is written to
 the visitor's device — no cookie, no localStorage — which is what lets the site

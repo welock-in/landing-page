@@ -7,11 +7,39 @@ import type { Locale } from "@/i18n/config";
 
 type PostHogClient = Awaited<typeof import("posthog-js")>["default"];
 
-const KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY;
-const HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST;
+/**
+ * The Welockin project's key, and the region it lives in.
+ *
+ * Committed on purpose. A `phc_` key is PostHog's *project* key: it is shipped
+ * to every browser that loads the site, so it is public whether or not it is in
+ * this file, and baking it in means a deploy needs no dashboard step to start
+ * reporting. (The other key PostHog shows you, `phx_`, is a personal key. It
+ * grants access to the whole account, it is a secret, and it must never appear
+ * in this repo or in a browser.)
+ *
+ * If the host is wrong, PostHog does not complain — it accepts the requests and
+ * records nothing. The region is whichever one your dashboard is on:
+ * eu.posthog.com or us.posthog.com.
+ */
+const DEFAULT_KEY = "phc_RiZFflJ1lvhTxKyYjp1fwDe8siYFbjGXdeEPePAMqI9";
+const DEFAULT_HOST = "https://eu.i.posthog.com";
 
-/** Configured means both halves are present — a key without a host reaches the wrong region. */
-const enabled = Boolean(KEY && HOST);
+/**
+ * `??` rather than `||` so the env vars can do two different jobs: unset falls
+ * back to the defaults above, while explicitly setting either to an empty
+ * string turns analytics off for that deployment.
+ */
+const KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY ?? DEFAULT_KEY;
+const HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST ?? DEFAULT_HOST;
+
+/**
+ * Production builds only.
+ *
+ * With the key baked in, this is the one thing keeping `npm run dev` out of the
+ * real numbers — otherwise every hot reload on someone's laptop would be a
+ * pageview on welock.in.
+ */
+const enabled = Boolean(KEY && HOST) && process.env.NODE_ENV === "production";
 
 /**
  * The library is fetched on demand, once, after hydration.
@@ -110,9 +138,9 @@ function PageviewTracker() {
 /**
  * Wraps the app so analytics initialise once per visit.
  *
- * A no-op when `NEXT_PUBLIC_POSTHOG_KEY` / `NEXT_PUBLIC_POSTHOG_HOST` are
- * unset — which is every local checkout and preview until someone sets them,
- * so nothing here can send a stray event from a laptop into production numbers.
+ * A no-op outside production builds, so `npm run dev` cannot put a stray event
+ * into the real numbers, and a no-op anywhere `NEXT_PUBLIC_POSTHOG_KEY` is set
+ * to an empty string.
  */
 export function PostHogProvider({ locale }: { locale: Locale }) {
   useEffect(() => {
