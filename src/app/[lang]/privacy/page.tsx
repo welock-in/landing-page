@@ -4,7 +4,9 @@ import { LocaleLink } from "@/components/ui/LocaleLink";
 import { metadataFor, type LangParams } from "@/i18n/metadata";
 import legal from "@/components/layout/LegalPage.module.css";
 
-const UPDATED = "13 July 2026";
+// The policy promises below that this date moves whenever the text does.
+// Analytics were added to the site on this date.
+const UPDATED = "13 August 2026";
 const CONTACT = "hello@welock.in";
 
 export function generateMetadata({ params }: LangParams) {
@@ -20,9 +22,10 @@ export default function PrivacyPage() {
       <p>
         Welockin helps you block distracting apps and websites during focus
         sessions. This policy explains what data the Welockin apps (Android, iOS,
-        macOS and Windows) collect, how it is used, and the choices you have.
-        We keep it plain: <strong>we do not sell your data, we do not run
-        advertising, and the sites you browse never leave your device.</strong>
+        macOS and Windows) and this website collect, how it is used, and the
+        choices you have. We keep it plain: <strong>we do not sell your data, we
+        do not run advertising, and the sites you browse never leave your
+        device.</strong>
       </p>
 
       <div className={legal.callout}>
@@ -129,6 +132,46 @@ export default function PrivacyPage() {
           your usage is never uploaded.
         </li>
       </ul>
+
+      <h2>Analytics on this website</h2>
+      <p>
+        Everything above is about the Welockin apps. This section is about
+        welock.in, the website you are reading — they are separate, and it is
+        worth being exact about which is which.
+      </p>
+      <p>
+        We use <a href="https://posthog.com" rel="nofollow noopener" target="_blank">PostHog</a>{" "}
+        to understand how people find and use this site, so we know which pages
+        are worth improving. It records the pages you open here, the language
+        you read them in, the buttons and links you interact with, and technical
+        details your browser sends anyway — device type, browser, referring
+        page, and an approximate location derived from your IP address.
+      </p>
+      <p>
+        To recognise you as the same visitor between pages and on a later visit,
+        PostHog stores an identifier on your device, in a cookie and in local
+        storage, named{" "}
+        <code>ph_&lt;project&gt;_posthog</code>. It contains a random id, not
+        your name or email. We do not show a cookie banner. Deleting the cookie
+        and local storage for this site removes the identifier, and a browser
+        extension that blocks analytics will stop the collection entirely —
+        neither affects anything else on the site.
+      </p>
+      <p>
+        <strong>
+          None of this touches the blocking engine or your browsing outside this
+          website.
+        </strong>{" "}
+        Analytics here sees the pages of welock.in you visit, in the same way any
+        website can see its own traffic. It cannot see the sites you visit
+        elsewhere, and it is not connected to your blocklists or your focus
+        sessions — those remain as described above.
+      </p>
+      <p>
+        PostHog processes this data on infrastructure in the United States. If
+        you are in the EEA or the UK, that is an international transfer; see{" "}
+        <a href="#international-transfers">International transfers</a> below.
+      </p>
 
       <h2>Permissions and why Welockin needs them</h2>
       <p>
@@ -274,11 +317,12 @@ export default function PrivacyPage() {
         has provided us data, contact us and we will delete it.
       </p>
 
-      <h2>International transfers</h2>
+      <h2 id="international-transfers">International transfers</h2>
       <p>
         Your data may be processed in countries other than your own, including
-        where our infrastructure providers operate. Where required, we rely on
-        appropriate safeguards for such transfers.
+        where our infrastructure providers operate. In particular, the website
+        analytics described above are processed by PostHog in the United States.
+        Where required, we rely on appropriate safeguards for such transfers.
       </p>
 
       <h2>Changes to this policy</h2>
