@@ -17,20 +17,31 @@ type PostHogClient = Awaited<typeof import("posthog-js")>["default"];
  * grants access to the whole account, it is a secret, and it must never appear
  * in this repo or in a browser.)
  *
- * If the host is wrong, PostHog does not complain — it accepts the requests and
- * records nothing. The region is whichever one your dashboard is on:
- * eu.posthog.com or us.posthog.com.
+ * The project is on PostHog's **US** cloud. If the host names the wrong region,
+ * PostHog does not complain — it accepts the requests and records nothing, so
+ * an empty dashboard looks exactly like a site nobody visits. The region is
+ * whichever one your own dashboard runs on: us.posthog.com or eu.posthog.com.
  */
-const DEFAULT_KEY = "phc_RiZFflJ1lvhTxKyYjp1fwDe8siYFbjGXdeEPePAMqI9";
-const DEFAULT_HOST = "https://eu.i.posthog.com";
+const DEFAULT_KEY = "phc_vBrqrZgv4CbZzibjLNnoc5yrkMAnFUPtwWgjnGFcytnN";
+const DEFAULT_HOST = "https://us.i.posthog.com";
 
 /**
- * `??` rather than `||` so the env vars can do two different jobs: unset falls
- * back to the defaults above, while explicitly setting either to an empty
- * string turns analytics off for that deployment.
+ * Names match the variables already set in Vercel.
+ *
+ * The `NEXT_PUBLIC_` prefix is the part that is not negotiable: Next.js inlines
+ * only those into the browser bundle, and `posthog.init()` runs in the browser.
+ * Everything after the prefix is just a name, and these are the ones the
+ * project uses. `NEXT_PUBLIC_POSTHOG_PROJECT_ID` is also set in Vercel but is
+ * deliberately not read here — posthog-js has no use for it; it belongs to the
+ * REST API and the MCP server.
+ *
+ * `??` rather than `||` so the variables can do two jobs: unset falls back to
+ * the defaults above, while setting either to an empty string turns analytics
+ * off for that deployment — which is how a preview build stays out of the real
+ * numbers.
  */
-const KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY ?? DEFAULT_KEY;
-const HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST ?? DEFAULT_HOST;
+const KEY = process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN ?? DEFAULT_KEY;
+const HOST = process.env.NEXT_PUBLIC_POSTHOG_PROJECT_HOST ?? DEFAULT_HOST;
 
 /**
  * Production builds only.

@@ -72,19 +72,24 @@ from the root layout. The project key and region are baked into that file, so a
 deploy needs no dashboard step — **analytics run in production builds only**,
 which is what keeps `npm run dev` out of the real numbers.
 
-`NEXT_PUBLIC_POSTHOG_KEY` and `NEXT_PUBLIC_POSTHOG_HOST` override both, to point
-a deployment at a different project; setting either to an empty string turns
-analytics off for that deployment.
+`NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN` and `NEXT_PUBLIC_POSTHOG_PROJECT_HOST`
+override both, to point a deployment at a different project; setting either to
+an empty string turns analytics off for that deployment — which is how a preview
+build stays out of the real numbers.
+
+Only the `NEXT_PUBLIC_` prefix is load-bearing: Next.js inlines just those into
+the browser bundle, and `posthog.init()` runs in the browser. A variable without
+it is server-only, and would read as `undefined` here.
 
 The `phc_` key is the **project** key: it ships to every browser that loads the
 site, so committing it changes nothing about its exposure. The `phx_` key
 PostHog also shows you is a **personal** key — it grants access to your whole
 account, and it belongs in neither this repo nor a browser.
 
-`NEXT_PUBLIC_POSTHOG_HOST` must match the region the project lives in
-(`eu.i.posthog.com` or `us.i.posthog.com`, matching whichever your dashboard
-runs on). Point it at the wrong region and PostHog does not fail loudly — it
-accepts the requests and records nothing.
+The project is on PostHog's **US** cloud (`https://us.i.posthog.com`). Point the
+host at the wrong region and PostHog does not fail loudly — it accepts the
+requests and records nothing, so an empty dashboard looks exactly like a site
+nobody visits.
 
 **Full tracking, no consent banner.** Persistence is left at PostHog's default,
 so identity lives in a cookie plus localStorage and a returning visitor is
