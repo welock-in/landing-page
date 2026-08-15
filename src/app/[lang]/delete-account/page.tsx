@@ -4,7 +4,7 @@ import { LocaleLink } from "@/components/ui/LocaleLink";
 import { metadataFor, type LangParams } from "@/i18n/metadata";
 import legal from "@/components/layout/LegalPage.module.css";
 
-const UPDATED = "13 July 2026";
+const UPDATED = "15 August 2026";
 const CONTACT = "hello@welock.in";
 
 export function generateMetadata({ params }: LangParams) {
@@ -107,9 +107,9 @@ export default function DeleteAccountPage() {
           <strong>Legal &amp; transactional records.</strong> Where the law
           requires it (for example, records related to a purchase), we may keep
           the minimum required information for the mandated period, then delete
-          it. Note that purchases are processed by Google Play or the Apple App
-          Store — refunds and billing records are held by them under their own
-          policies, not by us.
+          it. Note that purchases are processed by Lemon Squeezy (on Windows
+          and macOS) or the Apple App Store (on iPhone and iPad) — refunds and
+          billing records are held by them under their own policies, not by us.
         </li>
         <li>
           <strong>Aggregated, anonymized statistics</strong> that can no longer
@@ -119,9 +119,12 @@ export default function DeleteAccountPage() {
 
       <h2>Cancel a purchase or subscription</h2>
       <p>
-        Deleting your Welockin account does not by itself cancel a store
-        subscription. If you purchased through Google Play or the App Store,
-        manage or cancel it in that store&rsquo;s subscription settings.
+        Deleting your Welockin account does not by itself cancel an
+        auto-renewing subscription — cancel it first. If you bought on Windows
+        or macOS, cancel from the app&rsquo;s Settings; if you subscribed on
+        iPhone or iPad, cancel in your Apple subscription settings. Cancelling
+        stops the renewal, and access runs to the end of the period you paid
+        for.
       </p>
 
       <p className={legal.contact}>

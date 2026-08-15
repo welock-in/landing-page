@@ -43,7 +43,7 @@
   "help": {
     "meta": {
       "title": "Ayuda — Primeros pasos, tu cuenta, compras y soluciones",
-      "description": "Todo en un sitio: configurar Welockin, gestionar tu cuenta, la prueba y la licencia de por vida, y qué hacer cuando algo no funciona."
+      "description": "Todo en un sitio: configurar Welockin, gestionar tu cuenta, la suscripción y la licencia de por vida, y qué hacer cuando algo no funciona."
     },
     "eyebrow": "Ayuda",
     "h1": "¿Cómo podemos ayudarte?",
@@ -81,7 +81,7 @@
   "terms": {
     "meta": {
       "title": "Términos del Servicio",
-      "description": "Los términos de uso de Welockin: la prueba gratuita de 14 días, la licencia de por vida de pago único, los reembolsos, el uso aceptable y por qué el bloqueo está hecho para aguantar."
+      "description": "Los términos de uso de Welockin: la prueba gratuita, la suscripción mensual o anual, la licencia de por vida, los reembolsos y por qué el bloqueo está hecho para aguantar."
     },
     "title": "Términos del Servicio"
   },

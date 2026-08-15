@@ -7,7 +7,7 @@ import { Breadcrumbs, type Crumb } from "@/components/ui/Breadcrumbs";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { breadcrumbJsonLd, jsonLdGraph } from "@/lib/seo";
 
-const UPDATED = "2 August 2026";
+const UPDATED = "15 August 2026";
 const CONTACT = "hello@welock.in";
 
 export function generateMetadata({ params }: LangParams) {
@@ -33,16 +33,19 @@ export default function TermsPage() {
           (&ldquo;we&rdquo;, &ldquo;us&rdquo;) for the Welockin apps and the
           account service behind them. By creating an account or using the
           apps, you accept them. We have tried to keep them short and in plain
-          English — the unusual parts are the trial, the lifetime licence, and
-          the fact that the lock is deliberately hard to remove. Those get
-          their own sections below.
+          English — the unusual parts are the trial, the choice between a
+          subscription and a lifetime licence, and the fact that the lock is
+          deliberately hard to remove. Those get their own sections below.
         </p>
 
         <div className={legal.callout}>
           <p>
-            <strong>The short version.</strong> You get a 14-day free trial,
-            then a one-time lifetime licence — not a subscription. Refunds
-            follow the store you bought through, and a full refund revokes the
+            <strong>The short version.</strong> Welockin is sold two ways: a
+            monthly or yearly subscription that starts with a free trial and
+            renews automatically until you cancel, or a one-time lifetime
+            licence that never renews. Cancelling stops the next renewal;
+            access runs to the end of the period you paid for. Refunds follow
+            the store you bought through, and a full refund revokes the
             licence. The app intentionally resists being disabled during a
             session you started; that is the product, not a bug. Don&rsquo;t
             try to break the enforcement, and don&rsquo;t abuse the trial.
@@ -81,38 +84,58 @@ export default function TermsPage() {
           </li>
         </ul>
 
-        <h2>The 14-day free trial</h2>
+        <h2>The free trial</h2>
         <p>
-          New devices get a 14-day free trial with the full product. The trial
-          is controlled server-side and limited to one per device. Creating
-          accounts, resetting devices or otherwise manipulating identifiers to
-          obtain repeated trials is trial abuse, and we may end the trial or
-          suspend the accounts involved.
+          Every subscription starts with a free trial of the full product —
+          three days on the monthly plan, seven days on the yearly plan. When
+          the trial ends, the paid subscription begins and the first payment
+          is charged, unless you cancel before the trial is over; cancelling
+          during the trial costs nothing. The trial is limited to one per
+          person. Creating accounts, resetting devices or otherwise
+          manipulating identifiers to obtain repeated trials is trial abuse,
+          and we may end the trial or suspend the accounts involved.
         </p>
 
-        <h2>The lifetime licence</h2>
+        <h2>Subscriptions and the lifetime licence</h2>
         <p>
-          Welockin is sold as a <strong>one-time purchase</strong>, not a
-          subscription. A lifetime licence covers every device linked to your
-          account for as long as we operate the service, including
-          updates we ship to it. It is personal to your account and not
+          Welockin is sold two ways, and both cover every device linked to
+          your account for as long as we operate the service, including
+          updates we ship to it:
+        </p>
+        <ul>
+          <li>
+            <strong>A monthly or yearly subscription.</strong> It renews
+            automatically at the end of each billing period until you cancel.
+            You can cancel at any time: from the app&rsquo;s Settings if you
+            bought on Windows or macOS, or from your Apple subscription
+            settings if you subscribed on iPhone or iPad. Cancelling stops the
+            next renewal — you keep access until the end of the period you
+            already paid for.
+          </li>
+          <li>
+            <strong>A one-time lifetime licence.</strong> You pay once and
+            there is nothing to renew.
+          </li>
+        </ul>
+        <p>
+          Either way, your licence is personal to your account and not
           transferable or resellable.
         </p>
         <p>
-          On desktop, purchases are processed by{" "}
+          On Windows and macOS, purchases are processed by{" "}
           <strong>Lemon Squeezy as merchant of record</strong> — they are the
           seller of record for the transaction, handle payment and applicable
-          taxes, and their own terms apply to the purchase itself. On mobile,
-          purchases are handled by the app store you bought through (Google
-          Play or the Apple App Store) under that store&rsquo;s terms. We never
-          receive or store your card number.
+          taxes, and their own terms apply to the purchase itself. On iPhone
+          and iPad, purchases go through the Apple App Store and are billed
+          under Apple&rsquo;s terms. We never receive or store your card
+          number.
         </p>
 
         <h2>Refunds</h2>
         <p>
           Refunds for desktop purchases are handled through Lemon Squeezy under
-          their refund terms; refunds for app-store purchases follow that
-          store&rsquo;s refund policy. Nothing here limits any refund rights
+          their refund terms; purchases made on the App Store are billed and
+          refunded by Apple under Apple&rsquo;s terms. Nothing here limits any refund rights
           you have under mandatory consumer law where you live. One consequence
           worth stating plainly: <strong>a full refund revokes the
           licence</strong> — the product returns to its unlicensed state on
@@ -193,7 +216,7 @@ export default function TermsPage() {
           To the maximum extent permitted by law, we are not liable for
           indirect, incidental or consequential damages, and our total
           liability for claims arising out of the service is limited to the
-          amount you paid for your licence. Nothing in these terms excludes
+          amount you paid for the service. Nothing in these terms excludes
           liability that cannot be excluded by law, or limits rights you have
           under mandatory consumer law where you live.
         </p>

@@ -132,15 +132,24 @@ export default async function HelpPage({ params }: LangParams) {
             <h2 className="cp-h2">Purchases &amp; licence</h2>
             <ul className="cp-list">
               <li>
-                <strong>The free trial.</strong> Every new device gets 14 days
-                of the full product, no card required. It is one trial per
-                device, checked on our side — reinstalling doesn&rsquo;t
-                restart it.
+                <strong>The free trial.</strong> Every subscription starts
+                with a free trial of the full product — three days on the
+                monthly plan, seven on the yearly. Cancel before it ends and
+                you pay nothing.
               </li>
               <li>
-                <strong>The lifetime licence.</strong> Welockin is a one-time
-                purchase, not a subscription. Buy it once and it covers all your
-                devices for good, updates included.
+                <strong>Subscription or lifetime.</strong> Welockin is sold as
+                a monthly or yearly subscription that renews automatically
+                until you cancel, or as a one-time lifetime licence — one
+                payment, nothing to renew. Either way it covers all your
+                devices, updates included.
+              </li>
+              <li>
+                <strong>Cancelling a subscription.</strong> Bought on Windows
+                or macOS? Cancel from the app&rsquo;s Settings. Subscribed on
+                iPhone or iPad? Use your Apple subscription settings.
+                Cancelling stops the renewal — you keep access until the end
+                of the period you paid for.
               </li>
               <li>
                 <strong>Refunds.</strong> Handled through the store you bought

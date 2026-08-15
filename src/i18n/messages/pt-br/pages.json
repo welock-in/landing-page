@@ -43,7 +43,7 @@
   "help": {
     "meta": {
       "title": "Ajuda — Primeiros passos, conta, compras e soluções",
-      "description": "Tudo num lugar só: instalar o Welockin, gerenciar a sua conta, o teste e a licença vitalícia, e o que fazer quando algo não funciona."
+      "description": "Tudo num lugar só: instalar o Welockin, gerenciar a sua conta, a assinatura e a licença vitalícia, e o que fazer quando algo não funciona."
     },
     "eyebrow": "Ajuda",
     "h1": "Como podemos ajudar?",
@@ -81,7 +81,7 @@
   "terms": {
     "meta": {
       "title": "Termos de Uso",
-      "description": "Os termos de uso do Welockin: o teste gratuito de 14 dias, a licença vitalícia de pagamento único, reembolsos, uso aceitável e por que a trava foi feita para aguentar."
+      "description": "Os termos de uso do Welockin: o teste gratuito, a assinatura mensal ou anual, a licença vitalícia, reembolsos e por que a trava foi feita para aguentar."
     },
     "title": "Termos de Uso"
   },

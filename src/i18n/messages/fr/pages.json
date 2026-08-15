@@ -43,7 +43,7 @@
   "help": {
     "meta": {
       "title": "Aide — Premiers pas, compte, achats et dépannage",
-      "description": "Tout au même endroit : installer Welockin, gérer votre compte, la période d'essai et la licence à vie, et les solutions quand quelque chose coince."
+      "description": "Tout au même endroit : installer Welockin, gérer votre compte, l'abonnement et la licence à vie, et les solutions quand quelque chose coince."
     },
     "eyebrow": "Aide",
     "h1": "Comment pouvons-nous vous aider ?",
@@ -81,7 +81,7 @@
   "terms": {
     "meta": {
       "title": "Conditions d'utilisation",
-      "description": "Les conditions d'utilisation de Welockin : l'essai gratuit de 14 jours, la licence à vie en un paiement, les remboursements, l'usage acceptable, et pourquoi le verrou est conçu pour tenir."
+      "description": "Les conditions d'utilisation de Welockin : l'essai gratuit, l'abonnement mensuel ou annuel, la licence à vie, les remboursements, et pourquoi le verrou est conçu pour tenir."
     },
     "title": "Conditions d'utilisation"
   },

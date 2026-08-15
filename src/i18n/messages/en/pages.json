@@ -44,7 +44,7 @@
   "help": {
     "meta": {
       "title": "Help — Getting started, your account, purchases and fixes",
-      "description": "Everything in one place: setting up Welockin, managing your account, the trial and lifetime licence, and fixes when something isn't working."
+      "description": "Everything in one place: setting up Welockin, managing your account, subscriptions and the lifetime licence, and fixes when something isn't working."
     },
     "eyebrow": "Help",
     "h1": "How can we help?",
@@ -82,7 +82,7 @@
   "terms": {
     "meta": {
       "title": "Terms of Service",
-      "description": "The terms for using Welockin: the 14-day free trial, the one-time lifetime licence, refunds, acceptable use, and why the lock is built to hold."
+      "description": "The terms for using Welockin: the free trial, monthly and yearly subscriptions, the lifetime licence, refunds, and why the lock is built to hold."
     },
     "title": "Terms of Service"
   },
