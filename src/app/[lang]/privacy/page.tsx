@@ -5,8 +5,8 @@ import { metadataFor, type LangParams } from "@/i18n/metadata";
 import legal from "@/components/layout/LegalPage.module.css";
 
 // The policy promises below that this date moves whenever the text does.
-// Analytics were added to the site on this date.
-const UPDATED = "13 August 2026";
+// Last move: named Lemon Squeezy as the desktop payment processor.
+const UPDATED = "15 August 2026";
 const CONTACT = "hello@welock.in";
 
 export function generateMetadata({ params }: LangParams) {
@@ -275,10 +275,10 @@ export default function PrivacyPage() {
 
       <h2>Third-party stores &amp; payments</h2>
       <p>
-        Purchases are handled by the app store you bought through (Google Play or
-        the Apple App Store). Welockin never receives or stores your card
-        number. Those stores process the payment under their own privacy
-        policies.
+        On Windows and macOS, purchases are processed by Lemon Squeezy as
+        merchant of record; on iPhone and iPad they are handled by the Apple
+        App Store. Welockin never receives or stores your card number. Both
+        process the payment under their own privacy policies.
       </p>
 
       <h2>Retention &amp; deletion</h2>
