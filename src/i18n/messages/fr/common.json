@@ -6,7 +6,7 @@
     "faq": "FAQ",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu",
-    "brandLabel": "Welockin — accueil"
+    "brandLabel": "Accueil Welockin"
   },
   "languageSwitcher": {
     "label": "Langue",
@@ -37,7 +37,7 @@
       "placeholder": "Saisissez votre adresse e-mail",
       "emailLabel": "Adresse e-mail",
       "subscribe": "S'inscrire",
-      "success": "C'est verrouillé — regardez votre boîte mail."
+      "success": "C'est verrouillé. Regardez votre boîte mail."
     },
     "columns": {
       "product": "Produit",
@@ -55,7 +55,7 @@
       "macos": "macOS",
       "iphoneIpad": "iPhone et iPad",
       "windows": "Windows",
-      "androidSoon": "Android — bientôt disponible",
+      "androidSoon": "Android (bientôt disponible)",
       "allDevices": "Tous les appareils",
       "fullFaq": "FAQ complète",
       "gettingStarted": "Premiers pas",

@@ -12,18 +12,18 @@ import "./Footer.css";
 /**
  * Footer navigation.
  *
- * Every one of these used to be `href="#"` — twenty-five links on every page of
+ * Every one of these used to be `href="#"`: twenty-five links on every page of
  * the site that went nowhere. That is a dead end for a reader and, worse, it
  * meant the footer passed no link equity at all to the pages it names.
  *
  * The rule here is now: a link exists only if its page exists. Nothing is
  * listed to look complete. Where a page is genuinely missing (privacy, terms),
- * it is absent rather than linked to a 404 — see the audit notes.
+ * it is absent rather than linked to a 404. See the audit notes.
  */
 type CommonFooter = CommonDictionary["footer"];
 
 /**
- * Structure only — every label is a key into `common.footer`, and every `href`
+ * Structure only: every label is a key into `common.footer`, and every `href`
  * is the un-prefixed path that `useLocalePath` turns into a real URL for the
  * language being rendered.
  */
@@ -78,7 +78,7 @@ const COLUMNS = [
   {
     title: "support",
     links: [
-      // The real pages first — /contact is a page with a working form now, so
+      // The real pages first: /contact is a page with a working form now, so
       // it outranks the bare mailto it replaced.
       { label: "helpCentre", href: "/help" },
       { label: "contactUs", href: "/contact" },
@@ -178,7 +178,7 @@ export function Footer() {
           ))}
 
           {/* Social icons removed, not hidden: they were `href="#"` placeholders
-              — dead links on every page — and no real profile URLs exist yet.
+              (dead links on every page), and no real profile URLs exist yet.
               To bring them back: recover the SOCIALS list + icon components
               from git history (Footer.tsx before the landing redesign), put the
               real URLs in it, and add the same URLs to `sameAs` in

@@ -2,7 +2,7 @@
 
 /**
  * Welockin design tokens (brand book v1).
- * Single source of truth for the brand palette — consumed by component
+ * Single source of truth for the brand palette, consumed by component
  * CSS Modules via var(--*) and exposed to Tailwind utilities via @theme.
  */
 :root {
@@ -45,7 +45,7 @@ html {
   /* The page must never pan sideways. The guard lives on the root ONLY,
      as plain `hidden`: on the root element it propagates to the viewport
      (no scroll container is created), it is honoured by every engine
-     including old iOS Safari — unlike `clip` — and a single declaration
+     including old iOS Safari (unlike `clip`), and a single declaration
      cannot be dropped by the minifier the way a hidden+clip pair was.
      Do NOT also put overflow-x on body: once the root has any overflow
      value, body's stops propagating and body becomes its own clip
@@ -81,15 +81,15 @@ body {
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
   /* Gesture-level lock: the page itself only ever pans vertically (pinch
-     still zooms). Elements that scroll sideways on purpose — the university
-     marquee, the legal tables — implement their own pan, so this does not
+     still zooms). Elements that scroll sideways on purpose (the university
+     marquee, the legal tables) implement their own pan, so this does not
      affect them: per the pointer-events model, a touch on a scroll container
      is resolved by that container, not by body. This holds even where a
      WebKit compositing quirk thinks the page has sideways room. */
   touch-action: pan-y pinch-zoom;
 }
 
-/* Headings run on Figtree — the brand dropped the serif display face; the
+/* Headings run on Figtree: the brand dropped the serif display face; the
    only EB Garamond left on the site is the footer's newsletter field. */
 h1,
 h2,

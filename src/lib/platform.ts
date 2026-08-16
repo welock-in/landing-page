@@ -7,7 +7,7 @@ export type DownloadOs = "macos" | "ios" | "windows";
  *
  * Doing this in a client effect instead would flash the wrong label after
  * hydration, and reading the User-Agent header on the server would opt the
- * whole marketing page out of static generation — neither is worth it for a
+ * whole marketing page out of static generation; neither is worth it for a
  * three-way label swap.
  *
  * iPadOS reports itself as a Mac, so the touch-point count is what separates

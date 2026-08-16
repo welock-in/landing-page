@@ -46,7 +46,7 @@ export function LanguageSwitcher({ label }: { label: string }) {
 
   /**
    * `usePathname` returns the URL the visitor sees, which for English has no
-   * locale segment — exactly what `localePath` expects, in every language.
+   * locale segment, exactly what `localePath` expects, in every language.
    */
   const current = pathname || "/";
 

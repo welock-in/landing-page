@@ -10,7 +10,7 @@
 export type PlatformDownload = {
   slug: string;
   name: string;
-  /** Short line under the name — what a visitor needs to know before clicking. */
+  /** Short line under the name: what a visitor needs to know before clicking. */
   requirement: string;
   /** The real download or store URL, once there is one. */
   href: string | null;
@@ -28,11 +28,11 @@ export const platformDownloads: PlatformDownload[] = [
     // User-Agent reports Intel whatever silicon is underneath, so guessing
     // would be wrong for the machines it matters most for. An Intel Mac that
     // downloads this build is told "the application cannot be opened" AFTER
-    // installing it — better to say so before the click.
+    // installing it. Better to say so before the click.
     requirement: "For Apple Silicon (M1 and later)",
     // Same reasoning as Windows below, plus the platform: the API answers with
     // whichever build is currently live, and it hands a browser the .dmg rather
-    // than the .app.tar.gz the updater consumes — those are different files and
+    // than the .app.tar.gz the updater consumes. Those are different files and
     // the tarball, expanded by a browser, produces an app that installs and then
     // silently blocks nothing.
     href: "https://app.connect.welock.in/api/updates/download/macos",
@@ -47,7 +47,7 @@ export const platformDownloads: PlatformDownload[] = [
     href: null,
     status: "available",
     detects: "ios",
-    note: "The device most worth covering — a blocker that stops at your laptop leaves the door open.",
+    note: "The device most worth covering. A blocker that stops at your laptop leaves the door open.",
   },
   {
     slug: "windows",
@@ -61,7 +61,7 @@ export const platformDownloads: PlatformDownload[] = [
     href: "https://app.connect.welock.in/api/updates/download/windows",
     status: "available",
     detects: "windows",
-    note: "Full desktop blocking with the same five unlock difficulty levels. Windows may warn about an unknown publisher the first time you run it — choose More info, then Run anyway.",
+    note: "Full desktop blocking with the same five unlock difficulty levels. Windows may warn about an unknown publisher the first time you run it. Choose More info, then Run anyway.",
   },
   {
     slug: "android",

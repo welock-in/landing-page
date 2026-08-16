@@ -1,4 +1,4 @@
-/* Protection marketing page — brand tokens from globals.css */
+/* Protection marketing page, brand tokens from globals.css */
 
 .prot-page {
   font-family: var(--font-figtree), "Figtree", sans-serif;
@@ -547,7 +547,7 @@
   gap: 12px;
 }
 
-/* Rows are <button>s for keyboard access — reset the UA button chrome the design's
+/* Rows are <button>s for keyboard access: reset the UA button chrome the design's
    <div>s never had. */
 .prot-method {
   appearance: none;
@@ -895,7 +895,7 @@
     text-wrap: balance;
   }
 
-  /* 20px gutters everywhere — sections carry their own horizontal padding. */
+  /* 20px gutters everywhere: sections carry their own horizontal padding. */
   .prot-wrap,
   .prot-ladder-wrap,
   .prot-nuke-section {

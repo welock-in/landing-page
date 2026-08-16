@@ -13,7 +13,7 @@ const RESUME_DELAY_MS = 1200;
 /**
  * "Used by students at" marquee, driven by `scrollLeft` on a real scroll
  * container rather than an animated transform. That makes it swipeable and
- * draggable — and it is also what keeps the page from panning sideways on
+ * draggable, and it is also what keeps the page from panning sideways on
  * iOS: a scroll container owns its own overflow, so the 6000px track can
  * never widen the document the way a composited translateX layer could.
  * Ported from the legacy landing, which shipped this exact mechanism.

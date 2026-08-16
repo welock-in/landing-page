@@ -1,6 +1,6 @@
 /**
  * Content for the home page, lifted verbatim from the design file
- * (WeLockIn Landing.dc.html). Kept in a plain module — no "use client" —
+ * (WeLockIn Landing.dc.html). Kept in a plain module (no "use client"),
  * so the server page can feed FAQS into the JSON-LD graph while the client
  * sections render the same objects.
  */
@@ -38,7 +38,7 @@ export const UNIVERSITIES: { file: string; name: string; wide?: boolean }[] = [
  *
  * The internal link is what lets a crawler get from the accordion to the
  * indexable page. The wording lives in the message catalogs and the URLs live
- * here, because a slug is a URL — translating one would break the link.
+ * here, because a slug is a URL: translating one would break the link.
  * Reordering the questions in a catalog means reordering this list too.
  */
 export const FAQ_LINKS: string[] = [

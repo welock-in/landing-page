@@ -10,7 +10,7 @@ import styles from "./Thanks.module.css";
  * which verifies the purchase against Lemon Squeezy's own API and unlocks.
  *
  * The link GRANTS nothing. The order id is a claim the server checks at the
- * source — an order that is not yours, not paid, or not ours writes nothing —
+ * source (an order that is not yours, not paid, or not ours writes nothing),
  * so anyone opening this link, or this page, without having paid causes one
  * harmless verification at most.
  */
@@ -34,7 +34,7 @@ type ThanksCardProps = {
 export function ThanksCard({ orderId, copy }: ThanksCardProps) {
   // Digits only, and dropped otherwise: this crossed a user-editable URL, and
   // the one thing worse than losing the id is forwarding an injected string
-  // into a custom scheme. Without it the app still unlocks — the backend's
+  // into a custom scheme. Without it the app still unlocks. The backend's
   // webhook and the app's own syncs are the belt to this braces.
   const deepLink = useMemo(() => {
     const clean = orderId && /^\d{1,20}$/.test(orderId) ? orderId : null;
@@ -43,7 +43,7 @@ export function ThanksCard({ orderId, copy }: ThanksCardProps) {
 
   // Fire the deep link once on arrival, so the common case needs no click:
   // pay → Continue → the app is already in the foreground unlocking. The
-  // browser will still ask "Open WeLockin?" the first time — that dialog is
+  // browser will still ask "Open WeLockin?" the first time. That dialog is
   // the OS's, not ours, and the button below covers anyone who dismissed it.
   //
   // Never `window.open`: popup blockers eat it silently. Assigning `location`

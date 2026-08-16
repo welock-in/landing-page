@@ -40,7 +40,7 @@ const SHOT_STYLES: React.CSSProperties[] = [
 
 /**
  * "How it works": sticky mac + scroll-spied steps. The active step is
- * whichever `.hiw-step` center sits closest to the viewport center — same
+ * whichever `.hiw-step` center sits closest to the viewport center, same
  * rule on desktop (side rail) and mobile (sticky stage with swapped text).
  */
 export function HowItWorks({ copy }: { copy: HomeCopy["howItWorks"] }) {

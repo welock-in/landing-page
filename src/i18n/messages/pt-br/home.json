@@ -18,7 +18,7 @@
     "playVideo": "Assistir ao vídeo de demonstração do Welockin",
     "videoLabel": "Vídeo de demonstração do Welockin",
     "closeVideo": "Fechar vídeo",
-    "captionsLabel": "Inglês (sem som — texto na tela)"
+    "captionsLabel": "Inglês (sem som, texto na tela)"
   },
   "logoCloud": {
     "label": "Usado por estudantes de",
@@ -137,12 +137,12 @@
     "steps": [
       {
         "title": "Escolha o que bloquear",
-        "body": "Junte os apps e sites que roubam a sua atenção sem você perceber — redes sociais, vídeo, notícias, jogos — em listas reutilizáveis que você dispara com um toque.",
+        "body": "Junte os apps e sites que roubam a sua atenção sem você perceber (redes sociais, vídeo, notícias, jogos) em listas reutilizáveis que você dispara com um toque.",
         "shotLabel": "Escolher os apps a bloquear"
       },
       {
         "title": "Configure e tranque",
-        "body": "Escolha a duração, aperte iniciar, e a trava nuclear sela a sessão — sem pausar, sem desistir, sem negociar até o cronômetro zerar.",
+        "body": "Escolha a duração, aperte iniciar, e a trava nuclear sela a sessão: sem pausar, sem desistir, sem negociar até o cronômetro zerar.",
         "shotLabel": "Definir a duração e trancar"
       },
       {
@@ -165,15 +165,15 @@
     "items": [
       {
         "question": "Como o Welockin funciona na prática?",
-        "answer": "Três passos: escolha os apps e sites dos quais quer distância, defina o rigor da trava e aperte iniciar. Menos de um minuto entre instalar e estar focado — em todos os aparelhos sincronizados de uma vez."
+        "answer": "Três passos: escolha os apps e sites dos quais quer distância, defina o rigor da trava e aperte iniciar. Menos de um minuto entre instalar e estar focado, em todos os aparelhos sincronizados de uma vez."
       },
       {
         "question": "É realmente impossível de burlar?",
-        "answer": "Com a trava Nuclear: sim. Ela sobrevive a reinícios e até à desinstalação do app — nada a desliga antes do horário ou da data que você definiu."
+        "answer": "Com a trava Nuclear: sim. Ela sobrevive a reinícios e até à desinstalação do app. Nada a desliga antes do horário ou da data que você definiu."
       },
       {
         "question": "Quais apps e sites posso bloquear?",
-        "answer": "Todos. Aplicativos, sites e notificações — você decide o que passa e o que fica em silêncio."
+        "answer": "Todos. Aplicativos, sites e notificações: você decide o que passa e o que fica em silêncio."
       },
       {
         "question": "Está disponível no celular?",

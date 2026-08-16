@@ -305,7 +305,7 @@ const NUKE_CHIPS = [
     ),
   },
   {
-    label: "You set the date — then it's out of your hands",
+    label: "You set the date, then it's out of your hands",
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#e0795f" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
         <rect x="4" y="5.5" width="16" height="15" rx="2.5" />
@@ -337,7 +337,7 @@ function SignalBars({ bars }: { bars: number[] }) {
 }
 
 function PadlockMini() {
-  // The resting (open) transform lives in protection.css — as an inline style it would
+  // The resting (open) transform lives in protection.css. As an inline style it would
   // out-specify the :hover rule and the padlock could never snap shut.
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -349,7 +349,7 @@ function PadlockMini() {
 
 function HeroMockup() {
   const ref = useRef<HTMLDivElement>(null);
-  // The hero preview cycles on its own — unlike the ladder it does not pause on hover.
+  // The hero preview cycles on its own. Unlike the ladder it does not pause on hover.
   const { selected } = useAutoCycle(HERO_METHODS.length, 2000, ref);
 
   return (
@@ -426,11 +426,11 @@ function StatsBand() {
       return;
     }
 
-    // One live frame request per counter — replaced each tick, not accumulated.
+    // One live frame request per counter, replaced each tick, not accumulated.
     const rafs = new Map<HTMLElement, number>();
     const dur = 1100;
 
-    // Each numeral counts up on its own the moment it scrolls in — no cross-cell stagger.
+    // Each numeral counts up on its own the moment it scrolls in, no cross-cell stagger.
     const run = (el: HTMLElement) => {
       const target = parseFloat(el.dataset.target ?? "0");
       const suffix = el.dataset.suffix ?? "";
@@ -580,7 +580,7 @@ function NuclearBlock() {
           <h2 className="prot-nuke-title">Set it once. There&apos;s no going back.</h2>
           <p className="prot-nuke-body">
             Pick a date, and until that day comes, nothing turns it off. No PIN. No override. No
-            &quot;just five minutes.&quot; Once it&apos;s armed, the door is sealed — and the
+            &quot;just five minutes.&quot; Once it&apos;s armed, the door is sealed, and the
             addiction doesn&apos;t get a second chance.
           </p>
           <div className="prot-nuke-chips">
@@ -592,7 +592,7 @@ function NuclearBlock() {
             ))}
           </div>
           <p className="prot-nuke-close">
-            The point of no return — exactly what quitting takes.
+            The point of no return, exactly what quitting takes.
           </p>
         </div>
         <div className="prot-nuke-lock-wrap">
@@ -627,7 +627,7 @@ export function ProtectionPage() {
               </svg>
               PROTECTION
             </span>
-            {/* The space after <br/> is deliberate — see the note in Hero.tsx.
+            {/* The space after <br/> is deliberate. See the note in Hero.tsx.
                 Without it this h1 extracts as "Block itfor good." */}
             <h1 className="prot-headline" data-rv data-rv-delay="80">
               Block it
@@ -635,7 +635,7 @@ export function ProtectionPage() {
               for <span className="prot-accent">good.</span>
             </h1>
             <p className="prot-sub" data-rv data-rv-delay="170">
-              Adult content, gambling, dating apps, mature games — locked across all your devices,
+              Adult content, gambling, dating apps, mature games, locked across all your devices,
               for as long as you decide. No willpower required.
             </p>
             <div className="prot-cta-row" data-rv data-rv-delay="260">
@@ -663,7 +663,7 @@ export function ProtectionPage() {
               What you can block
             </h2>
             <p className="prot-section-sub" data-rv data-rv-delay="70">
-              Pick a category and it&apos;s gone — everywhere, instantly.
+              Pick a category and it&apos;s gone, everywhere, instantly.
             </p>
           </div>
           <div className="prot-cat-grid">
@@ -693,7 +693,7 @@ export function ProtectionPage() {
           </div>
           <div className="prot-steps">
             {[
-              { n: "01", title: "Choose what to block", body: "Pick your categories — adult sites, gambling, dating, games." },
+              { n: "01", title: "Choose what to block", body: "Pick your categories: adult sites, gambling, dating, games." },
               { n: "02", title: "Set how hard it is to quit", body: "From a simple PIN to a date you can't undo." },
               { n: "03", title: "Stay protected everywhere", body: "Always on, synced across every device you own." },
             ].map((s, i) => (

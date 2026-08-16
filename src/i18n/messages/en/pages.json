@@ -1,19 +1,19 @@
 {
-  "_comment": "Page-level chrome and metadata for every route. The long-form prose on /download, /support, /help, /protection and the legal pages is not in here yet — it renders in English under every locale via the fallback in dictionaries.ts. Adding it is additive: put the strings here, translate, and wire the page up.",
+  "_comment": "Page-level chrome and metadata for every route. The long-form prose on /download, /support, /help, /protection and the legal pages is not in here yet; it renders in English under every locale via the fallback in dictionaries.ts. Adding it is additive: put the strings here, translate, and wire the page up.",
   "home": {
     "meta": {
-      "title": "Welockin — Block distractions before they block your future.",
-      "description": "Welockin blocks the apps that steal your attention — once and for all. One-click, impossible-to-bypass focus sessions across macOS, iOS, iPadOS and Windows."
+      "title": "Welockin: Block distractions before they block your future.",
+      "description": "Welockin blocks the apps that steal your attention, once and for all. One-click, impossible-to-bypass focus sessions across macOS, iOS, iPadOS and Windows."
     }
   },
   "download": {
     "meta": {
       "title": "Download Welockin for Mac, iPhone, iPad and Windows",
-      "description": "Get Welockin on macOS, iPhone, iPad and Windows. Link as many devices as you want — they all lock together as one. Android coming soon."
+      "description": "Get Welockin on macOS, iPhone, iPad and Windows. Link as many devices as you want. They all lock together as one. Android coming soon."
     },
     "eyebrow": "Download",
     "h1": "Download Welockin",
-    "lead": "You can link as many devices as you want — they all lock at the same time. Install it on each one and a single session shuts everything down at once.",
+    "lead": "You can link as many devices as you want. They all lock at the same time. Install it on each one and a single session shuts everything down at once.",
     "sub": "A blocker that covers your laptop but not your phone is a blocker with a door in it, so cover everything before your first hard lock.",
     "pickPlatform": "Pick your platform",
     "settingUp": "Setting it up",
@@ -28,22 +28,22 @@
   },
   "protection": {
     "meta": {
-      "title": "Protection — Block adult & explicit sites for good",
+      "title": "Protection: Block adult & explicit sites for good",
       "description": "Block adult content, gambling, dating apps and mature games across every device. Five unlock difficulty levels, on-device filtering, always on."
     }
   },
   "support": {
     "meta": {
-      "title": "Support — Fixes for the common issues",
-      "description": "Fixes for the issues people actually hit: a lock that won't lift, a forgotten password, a missing purchase — and how to reach a human when they don't."
+      "title": "Support: Fixes for the common issues",
+      "description": "Fixes for the issues people actually hit: a lock that won't lift, a forgotten password, a missing purchase, and how to reach a human when they don't."
     },
     "eyebrow": "Support",
     "h1": "Support",
-    "lead": "The issues people actually hit, with the fix for each — and a direct line to a human for everything else."
+    "lead": "The issues people actually hit, with the fix for each, and a direct line to a human for everything else."
   },
   "help": {
     "meta": {
-      "title": "Help — Getting started, your account, purchases and fixes",
+      "title": "Help: Getting started, your account, purchases and fixes",
       "description": "Everything in one place: setting up Welockin, managing your account, subscriptions and the lifetime licence, and fixes when something isn't working."
     },
     "eyebrow": "Help",
@@ -53,11 +53,11 @@
   "contact": {
     "meta": {
       "title": "Contact us",
-      "description": "Reach the Welockin team — support, billing, privacy or press. Send the form or email hello@welock.in; a real person reads every message."
+      "description": "Reach the Welockin team: support, billing, privacy or press. Send the form or email hello@welock.in; a real person reads every message."
     },
     "eyebrow": "Contact",
     "h1": "Get in touch",
-    "lead": "A question, a bug, a billing hiccup or a press enquiry — send it over. Every message is read by the students who build Welockin, usually between lectures.",
+    "lead": "A question, a bug, a billing hiccup or a press enquiry: send it over. Every message is read by the students who build Welockin, usually between lectures.",
     "otherWays": "Other ways to reach us"
   },
   "resetPassword": {
@@ -69,7 +69,7 @@
   "deleteAccount": {
     "meta": {
       "title": "Delete your account",
-      "description": "How to permanently delete your Welockin account and all associated data — from inside the app or by email. What gets deleted and how long it takes."
+      "description": "How to permanently delete your Welockin account and all associated data, from inside the app or by email. What gets deleted and how long it takes."
     }
   },
   "privacy": {
@@ -89,13 +89,13 @@
   "thanks": {
     "meta": {
       "title": "Payment received",
-      "description": "Jump back into Welockin — your licence is on your account."
+      "description": "Jump back into Welockin. Your licence is on your account."
     },
     "eyebrow": "Payment received",
     "title": "You're all set",
     "lead": "Welockin unlocks by itself within a few seconds. If it didn't come to the front on its own, the button below brings it back.",
     "open": "Open Welockin",
-    "fallback": "Nothing happening? Open Welockin from your desktop or Start menu — it checks your licence every time it starts. You can close this tab."
+    "fallback": "Nothing happening? Open Welockin from your desktop or Start menu. It checks your licence every time it starts. You can close this tab."
   },
   "blocked": {
     "meta": {
@@ -114,7 +114,7 @@
     "messagePlaceholder": "What happened, what you expected, and what you saw instead.",
     "send": "Send message",
     "sending": "Sending…",
-    "sent": "Message sent — we'll get back to you by email.",
+    "sent": "Message sent. We'll get back to you by email.",
     "topics": {
       "Support": "Support",
       "Billing": "Billing",

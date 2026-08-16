@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 import { ImageResponse } from "next/og";
 
-/** Every social card is 1200×630 — the size both Open Graph and X expect. */
+/** Every social card is 1200×630, the size both Open Graph and X expect. */
 export const OG_SIZE = { width: 1200, height: 630 };
 export const OG_CONTENT_TYPE = "image/png";
 
@@ -19,7 +19,7 @@ type GoogleFont = { name: string; weight: 400 | 600; style: "normal" };
  * Pull a TTF straight from Google Fonts.
  *
  * Satori only accepts ttf/otf/woff, and the css2 endpoint only serves woff2 to
- * modern browsers — hence the vintage User-Agent, which is what makes it hand
+ * modern browsers, hence the vintage User-Agent, which is what makes it hand
  * back a truetype URL instead.
  */
 async function loadGoogleFont({
@@ -45,7 +45,7 @@ async function loadGoogleFont({
     const res = await fetch(url);
     return res.ok ? await res.arrayBuffer() : null;
   } catch {
-    // A social card is not worth failing a deploy over — fall back to the
+    // A social card is not worth failing a deploy over: fall back to the
     // default face and ship the build.
     return null;
   }
@@ -91,7 +91,7 @@ function LockMark({ size = 46 }: { size?: number }) {
  *
  * Satori cannot fetch a relative URL, and pointing it at the deployed origin
  * would make every card build depend on the site already being up. Read off
- * disk once per process instead — these cards are generated at build time.
+ * disk once per process instead: these cards are generated at build time.
  */
 let peepDataUri: string | null | undefined;
 async function peep(): Promise<string | null> {
@@ -118,13 +118,13 @@ type OgCardInput = {
 /**
  * The one social card used across the site.
  *
- * Warm paper, ink type, a single red accent — the same restraint the design
+ * Warm paper, ink type, a single red accent: the same restraint the design
  * system asks for, so a shared link reads as Welockin before anyone reads a
  * word of it.
  */
 export async function ogCard({ title, eyebrow, subtitle }: OgCardInput) {
   const [fonts, peepSrc] = await Promise.all([brandFonts(), peep()]);
-  // Headlines run on Figtree, not the serif — globals.css notes the brand
+  // Headlines run on Figtree, not the serif: globals.css notes the brand
   // dropped the display serif, so a serif card would be off-brand now.
   const sans = fonts.length ? "Figtree" : undefined;
 
@@ -243,7 +243,7 @@ export async function ogCard({ title, eyebrow, subtitle }: OgCardInput) {
           </div>
 
           {/* The platform list used to sit here. Peep now owns this corner,
-              and the subtitle already names the platforms — two lines saying
+              and the subtitle already names the platforms: two lines saying
               the same thing, one of them behind a fez, helped nobody. */}
         </div>
 

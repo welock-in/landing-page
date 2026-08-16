@@ -111,7 +111,7 @@ export default async function DownloadPage({ params }: LangParams) {
                 category for adult content, gambling, dating apps or mature games.
               </li>
               <li>
-                Choose how hard it should be to quit — from a PIN up to{" "}
+                Choose how hard it should be to quit, from a PIN up to{" "}
                 <Link href={faqEntryPath("nuclear-mode", "what-is-nuclear-mode")}>
                   Nuclear Mode
                 </Link>
@@ -125,16 +125,14 @@ export default async function DownloadPage({ params }: LangParams) {
               <li>
                 <Link href={faqEntryPath("devices-and-platforms", "android-support")}>
                   Android is not available yet
-                </Link>{" "}
-                — if it is your main phone, waiting is the honest advice.
+                </Link>. If it is your main phone, waiting is the honest advice.
               </li>
               <li>
                 <Link
                   href={faqEntryPath("devices-and-platforms", "sync-across-devices")}
                 >
                   Add every device before your first hard lock
-                </Link>{" "}
-                — an unsynced device is an unlocked one.
+                </Link>. An unsynced device is an unlocked one.
               </li>
               <li>
                 <Link href={faqEntryPath("nuclear-mode", "emergency-access")}>

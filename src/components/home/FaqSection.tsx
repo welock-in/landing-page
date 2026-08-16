@@ -8,7 +8,7 @@ import { FAQ_LINKS } from "./data";
 import type { HomeCopy } from "./HomePage";
 
 /**
- * FAQ accordion — one item open at a time, answers animate via the CSS
+ * FAQ accordion: one item open at a time, answers animate via the CSS
  * `grid-template-rows: 0fr → 1fr` trick. The last cell links to /faq.
  *
  * The questions come from the catalog and their "read the full answer" targets

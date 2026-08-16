@@ -97,14 +97,14 @@ export default async function RootLayout({
     >
       <body className="bg-bg text-ink">
         {/* First thing in the body so the download CTA paints with the right
-            platform label — see OS_DETECT_SCRIPT. */}
+            platform label: see OS_DETECT_SCRIPT. */}
         <script dangerouslySetInnerHTML={{ __html: OS_DETECT_SCRIPT }} />
         <PostHogProvider locale={lang} />
         <LocaleProvider locale={lang} common={dict.common}>
           {children}
         </LocaleProvider>
-        {/* Site-wide entities. Individual pages add their own nodes — product,
-            breadcrumbs, FAQ — which reference these two by @id rather than
+        {/* Site-wide entities. Individual pages add their own nodes (product,
+            breadcrumbs, FAQ) which reference these two by @id rather than
             restating them. */}
         <JsonLd graph={jsonLdGraph(organizationJsonLd(), websiteJsonLd())} />
       </body>

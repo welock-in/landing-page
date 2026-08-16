@@ -85,7 +85,7 @@ const SYNC_IDLE: boolean[][] = [
 
 /**
  * "Sync all devices" demo widget. On first view: hint pulse on the last row,
- * uncheck iPad, uncheck iPhone, re-check, all on — then idles between two
+ * uncheck iPad, uncheck iPhone, re-check, all on, then idles between two
  * poses every 3s. Hover pauses, clicking a row stops the show for good and
  * lets the visitor toggle. Reduced motion: everything stays checked.
  */
@@ -177,7 +177,7 @@ export function SyncWidget({ copy }: { copy: SyncWidgetCopy }) {
       io.disconnect();
       cancel();
     };
-    // The choreography helpers only touch refs and state setters — stable.
+    // The choreography helpers only touch refs and state setters, stable.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

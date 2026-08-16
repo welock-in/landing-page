@@ -12,7 +12,7 @@ import { ShareBand } from "./ShareBand";
 export type HomeCopy = Dictionary["home"];
 
 /**
- * The home page tree — every section of the design's <main>. The navbar and
+ * The home page tree: every section of the design's <main>. The navbar and
  * footer stay outside; the server page renders them around this.
  *
  * Most sections below are client components, so their copy is handed down as

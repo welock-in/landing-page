@@ -18,7 +18,7 @@ type PostHogClient = Awaited<typeof import("posthog-js")>["default"];
  * in this repo or in a browser.)
  *
  * The project is on PostHog's **US** cloud. If the host names the wrong region,
- * PostHog does not complain — it accepts the requests and records nothing, so
+ * PostHog does not complain: it accepts the requests and records nothing, so
  * an empty dashboard looks exactly like a site nobody visits. The region is
  * whichever one your own dashboard runs on: us.posthog.com or eu.posthog.com.
  */
@@ -32,12 +32,12 @@ const DEFAULT_HOST = "https://us.i.posthog.com";
  * only those into the browser bundle, and `posthog.init()` runs in the browser.
  * Everything after the prefix is just a name, and these are the ones the
  * project uses. `NEXT_PUBLIC_POSTHOG_PROJECT_ID` is also set in Vercel but is
- * deliberately not read here — posthog-js has no use for it; it belongs to the
+ * deliberately not read here: posthog-js has no use for it; it belongs to the
  * REST API and the MCP server.
  *
  * `??` rather than `||` so the variables can do two jobs: unset falls back to
  * the defaults above, while setting either to an empty string turns analytics
- * off for that deployment — which is how a preview build stays out of the real
+ * off for that deployment, which is how a preview build stays out of the real
  * numbers.
  */
 const KEY = process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN ?? DEFAULT_KEY;
@@ -47,7 +47,7 @@ const HOST = process.env.NEXT_PUBLIC_POSTHOG_PROJECT_HOST ?? DEFAULT_HOST;
  * Production builds only.
  *
  * With the key baked in, this is the one thing keeping `npm run dev` out of the
- * real numbers — otherwise every hot reload on someone's laptop would be a
+ * real numbers; otherwise every hot reload on someone's laptop would be a
  * pageview on welock.in.
  */
 const enabled = Boolean(KEY && HOST) && process.env.NODE_ENV === "production";
@@ -76,7 +76,7 @@ function load(): Promise<PostHogClient | null> {
          * `persistence` is left at PostHog's default, so identity is kept in a
          * cookie plus localStorage and a returning visitor is recognised as the
          * same person. That is what makes unique visitors, retention and
-         * multi-session funnels mean anything — and it is also what puts the
+         * multi-session funnels mean anything, and it is also what puts the
          * site under the EU consent rules, because those govern storing and
          * reading information on someone's device. There is no banner here.
          *
@@ -90,7 +90,7 @@ function load(): Promise<PostHogClient | null> {
          * changes the URL without a document load, so automatic capture only
          * ever sees the first page of a visit.
          *
-         * Nothing to do with privacy — this one is a correctness fix and should
+         * Nothing to do with privacy: this one is a correctness fix and should
          * stay whichever way the settings above go.
          */
         capture_pageview: false,
@@ -112,7 +112,7 @@ function load(): Promise<PostHogClient | null> {
  *
  * Split out and wrapped in Suspense below because `useSearchParams()` makes the
  * nearest boundary bail out of prerendering. Without that boundary this would
- * quietly turn a fully static marketing site into a dynamically rendered one —
+ * quietly turn a fully static marketing site into a dynamically rendered one,
  * the exact regression the rest of the codebase is built to avoid.
  */
 function PageviewTracker() {
@@ -131,7 +131,7 @@ function PageviewTracker() {
       if (posthog && !cancelled) posthog.capture("$pageview", { $current_url: url });
     });
 
-    // A route change before the SDK arrives drops this event on purpose — the
+    // A route change before the SDK arrives drops this event on purpose: the
     // effect for the new route is already queued behind its own load().
     return () => {
       cancelled = true;

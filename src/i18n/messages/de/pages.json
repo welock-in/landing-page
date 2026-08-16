@@ -1,18 +1,18 @@
 {
   "home": {
     "meta": {
-      "title": "Welockin — Blockiere Ablenkungen, bevor sie deine Zukunft blockieren.",
-      "description": "Welockin blockiert die Apps, die dir die Aufmerksamkeit klauen — ein für alle Mal. Fokus-Sessions per Klick, die sich nicht umgehen lassen, auf macOS, iOS, iPadOS und Windows."
+      "title": "Welockin: Blockiere Ablenkungen, bevor sie deine Zukunft blockieren.",
+      "description": "Welockin blockiert die Apps, die dir die Aufmerksamkeit klauen, ein für alle Mal. Fokus-Sessions per Klick, die sich nicht umgehen lassen, auf macOS, iOS, iPadOS und Windows."
     }
   },
   "download": {
     "meta": {
       "title": "Welockin für Mac, iPhone, iPad und Windows herunterladen",
-      "description": "Hol dir Welockin für macOS, iPhone, iPad und Windows. Verbinde so viele Geräte, wie du willst — sie sperren alle zusammen. Android kommt bald."
+      "description": "Hol dir Welockin für macOS, iPhone, iPad und Windows. Verbinde so viele Geräte, wie du willst. Sie sperren alle zusammen. Android kommt bald."
     },
     "eyebrow": "Download",
     "h1": "Welockin herunterladen",
-    "lead": "Du kannst so viele Geräte verbinden, wie du willst — sie sperren alle gleichzeitig. Installier es auf jedem einzelnen, und eine Session legt alles auf einmal still.",
+    "lead": "Du kannst so viele Geräte verbinden, wie du willst. Sie sperren alle gleichzeitig. Installier es auf jedem einzelnen, und eine Session legt alles auf einmal still.",
     "sub": "Ein Blocker, der deinen Laptop abdeckt, aber nicht dein Handy, ist ein Blocker mit offener Tür. Deck also alles ab, bevor du die erste harte Sperre setzt.",
     "pickPlatform": "Wähl deine Plattform",
     "settingUp": "Die Einrichtung",
@@ -27,22 +27,22 @@
   },
   "protection": {
     "meta": {
-      "title": "Schutz — Sperre Erwachsenen- und explizite Seiten endgültig",
+      "title": "Schutz: Sperre Erwachsenen- und explizite Seiten endgültig",
       "description": "Blockiere Erwachseneninhalte, Glücksspiel, Dating-Apps und Spiele ab 18 auf jedem Gerät. Fünf Entsperrstufen, Filterung auf dem Gerät, immer aktiv."
     }
   },
   "support": {
     "meta": {
-      "title": "Support — Lösungen für die häufigsten Probleme",
-      "description": "Lösungen für die Probleme, die wirklich auftreten: eine Sperre, die nicht aufgeht, ein vergessenes Passwort, ein fehlender Kauf — und wie du einen Menschen erreichst, wenn nichts hilft."
+      "title": "Support: Lösungen für die häufigsten Probleme",
+      "description": "Lösungen für die Probleme, die wirklich auftreten: eine Sperre, die nicht aufgeht, ein vergessenes Passwort, ein fehlender Kauf, und wie du einen Menschen erreichst, wenn nichts hilft."
     },
     "eyebrow": "Support",
     "h1": "Support",
-    "lead": "Die Probleme, die wirklich auftreten, mit der Lösung für jedes einzelne — und für alles andere eine direkte Leitung zu einem Menschen."
+    "lead": "Die Probleme, die wirklich auftreten, mit der Lösung für jedes einzelne, und für alles andere eine direkte Leitung zu einem Menschen."
   },
   "help": {
     "meta": {
-      "title": "Hilfe — Erste Schritte, dein Konto, Käufe und Lösungen",
+      "title": "Hilfe: Erste Schritte, dein Konto, Käufe und Lösungen",
       "description": "Alles an einem Ort: Welockin einrichten, dein Konto verwalten, Abo und lebenslange Lizenz, und was zu tun ist, wenn etwas nicht läuft."
     },
     "eyebrow": "Hilfe",
@@ -52,11 +52,11 @@
   "contact": {
     "meta": {
       "title": "Kontakt",
-      "description": "Erreich das Welockin-Team — Support, Abrechnung, Datenschutz oder Presse. Schick das Formular oder schreib an hello@welock.in; jede Nachricht liest ein echter Mensch."
+      "description": "Erreich das Welockin-Team: Support, Abrechnung, Datenschutz oder Presse. Schick das Formular oder schreib an hello@welock.in; jede Nachricht liest ein echter Mensch."
     },
     "eyebrow": "Kontakt",
     "h1": "Melde dich bei uns",
-    "lead": "Eine Frage, ein Bug, ein Problem mit der Abrechnung oder eine Presseanfrage — schick es rüber. Jede Nachricht lesen die Studierenden, die Welockin bauen, meistens zwischen zwei Vorlesungen.",
+    "lead": "Eine Frage, ein Bug, ein Problem mit der Abrechnung oder eine Presseanfrage: schick es rüber. Jede Nachricht lesen die Studierenden, die Welockin bauen, meistens zwischen zwei Vorlesungen.",
     "otherWays": "Weitere Wege, uns zu erreichen"
   },
   "resetPassword": {
@@ -68,7 +68,7 @@
   "deleteAccount": {
     "meta": {
       "title": "Konto löschen",
-      "description": "So löschst du dein Welockin-Konto und alle zugehörigen Daten endgültig — aus der App heraus oder per E-Mail. Was gelöscht wird und wie lange es dauert."
+      "description": "So löschst du dein Welockin-Konto und alle zugehörigen Daten endgültig, aus der App heraus oder per E-Mail. Was gelöscht wird und wie lange es dauert."
     }
   },
   "privacy": {
@@ -88,13 +88,13 @@
   "thanks": {
     "meta": {
       "title": "Zahlung erhalten",
-      "description": "Zurück zu Welockin — deine Lizenz liegt auf deinem Konto."
+      "description": "Zurück zu Welockin. Deine Lizenz liegt auf deinem Konto."
     },
     "eyebrow": "Zahlung erhalten",
     "title": "Alles bereit",
     "lead": "Welockin schaltet sich innerhalb weniger Sekunden von selbst frei. Falls die App nicht von allein in den Vordergrund gekommen ist, holt der Button unten sie zurück.",
     "open": "Welockin öffnen",
-    "fallback": "Nichts passiert? Öffne Welockin über den Desktop oder das Startmenü — die App prüft deine Lizenz bei jedem Start. Diesen Tab kannst du schließen."
+    "fallback": "Nichts passiert? Öffne Welockin über den Desktop oder das Startmenü. Die App prüft deine Lizenz bei jedem Start. Diesen Tab kannst du schließen."
   },
   "blocked": {
     "meta": {
@@ -113,7 +113,7 @@
     "messagePlaceholder": "Was passiert ist, was du erwartet hast und was stattdessen kam.",
     "send": "Nachricht senden",
     "sending": "Wird gesendet…",
-    "sent": "Nachricht gesendet — wir melden uns per E-Mail.",
+    "sent": "Nachricht gesendet. Wir melden uns per E-Mail.",
     "topics": {
       "Support": "Support",
       "Billing": "Abrechnung",

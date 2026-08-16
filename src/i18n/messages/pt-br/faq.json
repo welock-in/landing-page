@@ -1,12 +1,12 @@
 {
   "meta": {
-    "title": "Perguntas frequentes — Tudo sobre focar de verdade",
-    "description": "Como o Welockin bloqueia apps e sites, os cinco níveis de dificuldade de desbloqueio, o Modo Nuclear, aparelhos compatíveis, privacidade e solução de problemas — respondido."
+    "title": "Perguntas frequentes: Tudo sobre focar de verdade",
+    "description": "Como o Welockin bloqueia apps e sites, os cinco níveis de dificuldade de desbloqueio, o Modo Nuclear, aparelhos compatíveis, privacidade e solução de problemas: respondido."
   },
   "hub": {
     "eyebrow": "Perguntas frequentes",
     "title": "Perguntas frequentes",
-    "searchPlaceholder": "Buscar — por ex. “pornografia”, “reembolso”, “burlar”…",
+    "searchPlaceholder": "Buscar: por ex. “pornografia”, “reembolso”, “burlar”…",
     "searchLabel": "Buscar nas perguntas frequentes",
     "clearSearch": "Limpar busca",
     "noResults": "Nenhum resultado para",
@@ -25,7 +25,7 @@
     "what-you-can-block": {
       "name": "O que dá para bloquear",
       "headline": "O que dá para bloquear com o Welockin",
-      "intro": "Apps, sites, categorias inteiras e notificações — o que o Welockin consegue silenciar, e como agrupar tudo para que um toque cubra um contexto inteiro.",
+      "intro": "Apps, sites, categorias inteiras e notificações: o que o Welockin consegue silenciar, e como agrupar tudo para que um toque cubra um contexto inteiro.",
       "description": "Bloqueie qualquer app ou site, com categorias de um toque para conteúdo adulto, apostas, relacionamento e jogos, além de notificações, listas e agendamentos."
     },
     "unlock-difficulty-levels": {
@@ -44,7 +44,7 @@
       "name": "Aparelhos e plataformas",
       "headline": "Aparelhos e plataformas compatíveis com o Welockin",
       "intro": "Em quais sistemas operacionais o Welockin roda hoje, o que está por vir, e como uma sessão tranca ao mesmo tempo todos os aparelhos que você conectar.",
-      "description": "O Welockin roda em macOS, iOS, iPadOS e Windows, e o Android está a caminho. Conecte quantos aparelhos quiser — todos travam como um só."
+      "description": "O Welockin roda em macOS, iOS, iPadOS e Windows, e o Android está a caminho. Conecte quantos aparelhos quiser. Todos travam como um só."
     },
     "privacy": {
       "name": "Privacidade",
@@ -55,7 +55,7 @@
     "troubleshooting": {
       "name": "Solução de problemas",
       "headline": "Resolvendo problemas no Welockin",
-      "intro": "Algo não está sendo bloqueado, aparelhos fora de sincronia ou um bloqueio que precisa ser levantado — os problemas mais comuns e o que fazer em cada caso.",
+      "intro": "Algo não está sendo bloqueado, aparelhos fora de sincronia ou um bloqueio que precisa ser levantado: os problemas mais comuns e o que fazer em cada caso.",
       "description": "Soluções para os problemas comuns: algo que não está sendo bloqueado, aparelhos que não sincronizam, como desbloquear o que você precisa e como falar com um humano."
     }
   }

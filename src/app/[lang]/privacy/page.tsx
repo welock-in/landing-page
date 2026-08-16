@@ -33,7 +33,7 @@ export default function PrivacyPage() {
           <strong>The short version.</strong> We store your email and the
           blocklists and focus history tied to your account so they sync across
           your devices. The distraction blocking itself runs entirely on your
-          phone — Welockin never sees or records the websites you visit. You can{" "}
+          phone. Welockin never sees or records the websites you visit. You can{" "}
           <LocaleLink href="/delete-account">delete your account and all its data</LocaleLink> at
           any time.
         </p>
@@ -73,7 +73,7 @@ export default function PrivacyPage() {
                 <strong>Password</strong>
               </td>
               <td>
-                To sign you in. It is stored only as a salted one-way hash — we
+                To sign you in. It is stored only as a salted one-way hash. We
                 never store or see your actual password.
               </td>
             </tr>
@@ -128,7 +128,7 @@ export default function PrivacyPage() {
           <strong>Your installed apps and app usage.</strong> To show the block
           screen when you open a blocked app, Welockin reads which app is
           currently in the foreground (Android&rsquo;s Usage Access). This check
-          happens entirely on your device — the list of your installed apps and
+          happens entirely on your device. The list of your installed apps and
           your usage is never uploaded.
         </li>
       </ul>
@@ -136,7 +136,7 @@ export default function PrivacyPage() {
       <h2>Analytics on this website</h2>
       <p>
         Everything above is about the Welockin apps. This section is about
-        welock.in, the website you are reading — they are separate, and it is
+        welock.in, the website you are reading. They are separate, and it is
         worth being exact about which is which.
       </p>
       <p>
@@ -144,7 +144,7 @@ export default function PrivacyPage() {
         to understand how people find and use this site, so we know which pages
         are worth improving. It records the pages you open here, the language
         you read them in, the buttons and links you interact with, and technical
-        details your browser sends anyway — device type, browser, referring
+        details your browser sends anyway: device type, browser, referring
         page, and an approximate location derived from your IP address.
       </p>
       <p>
@@ -154,8 +154,8 @@ export default function PrivacyPage() {
         <code>ph_&lt;project&gt;_posthog</code>. It contains a random id, not
         your name or email. We do not show a cookie banner. Deleting the cookie
         and local storage for this site removes the identifier, and a browser
-        extension that blocks analytics will stop the collection entirely —
-        neither affects anything else on the site.
+        extension that blocks analytics will stop the collection entirely.
+        Neither affects anything else on the site.
       </p>
       <p>
         <strong>
@@ -165,7 +165,7 @@ export default function PrivacyPage() {
         Analytics here sees the pages of welock.in you visit, in the same way any
         website can see its own traffic. It cannot see the sites you visit
         elsewhere, and it is not connected to your blocklists or your focus
-        sessions — those remain as described above.
+        sessions. Those remain as described above.
       </p>
       <p>
         PostHog processes this data on infrastructure in the United States. If
@@ -266,7 +266,7 @@ export default function PrivacyPage() {
       <p>
         We do not sell your personal data and we do not share it with data
         brokers or advertisers. We use a small number of service providers
-        strictly to run Welockin — for example cloud hosting and database
+        strictly to run Welockin, for example cloud hosting and database
         infrastructure for our backend at{" "}
         <code>app.connect.welock.in</code>. They process data only on our
         instructions. We may also disclose data if required by law or to protect
@@ -284,7 +284,7 @@ export default function PrivacyPage() {
       <h2>Retention &amp; deletion</h2>
       <p>
         We keep your account data for as long as your account exists. You can
-        delete your account and all associated data at any time — in the app
+        delete your account and all associated data at any time, in the app
         (<strong>Profile → Delete account</strong>) or from{" "}
         <LocaleLink href="/delete-account">welock.in/delete-account</LocaleLink>. Deletion is
         permanent. See that page for exactly what is removed and how long it

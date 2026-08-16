@@ -1,7 +1,7 @@
 {
   "home": {
     "meta": {
-      "title": "Welockin — Bloquea las distracciones antes de que bloqueen tu futuro.",
+      "title": "Welockin: Bloquea las distracciones antes de que bloqueen tu futuro.",
       "description": "Welockin bloquea las aplicaciones que te roban la atención, de una vez por todas. Sesiones de concentración imposibles de saltar, con un clic, en macOS, iOS, iPadOS y Windows."
     }
   },
@@ -27,13 +27,13 @@
   },
   "protection": {
     "meta": {
-      "title": "Protección — Bloquea webs para adultos de una vez por todas",
+      "title": "Protección: Bloquea webs para adultos de una vez por todas",
       "description": "Bloquea contenido para adultos, apuestas, apps de citas y juegos violentos en todos tus dispositivos. Cinco niveles de desbloqueo, filtrado en el dispositivo, siempre activo."
     }
   },
   "support": {
     "meta": {
-      "title": "Soporte — Soluciones a los problemas más comunes",
+      "title": "Soporte: Soluciones a los problemas más comunes",
       "description": "Soluciones a los problemas que de verdad aparecen: un bloqueo que no cede, una contraseña olvidada, una compra que no aparece, y cómo hablar con una persona cuando nada funciona."
     },
     "eyebrow": "Soporte",
@@ -42,7 +42,7 @@
   },
   "help": {
     "meta": {
-      "title": "Ayuda — Primeros pasos, tu cuenta, compras y soluciones",
+      "title": "Ayuda: Primeros pasos, tu cuenta, compras y soluciones",
       "description": "Todo en un sitio: configurar Welockin, gestionar tu cuenta, la suscripción y la licencia de por vida, y qué hacer cuando algo no funciona."
     },
     "eyebrow": "Ayuda",

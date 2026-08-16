@@ -22,7 +22,7 @@ const MESSAGE_MAX = 4000;
 
 /**
  * Shown when our own infrastructure fails (network down, proxy 5xx). It never
- * pretends the message went through — the mailto fallback rendered alongside
+ * pretends the message went through. The mailto fallback rendered alongside
  * it is the way that always works.
  */
 const UNREACHABLE =
@@ -30,14 +30,14 @@ const UNREACHABLE =
   "Please try again in a moment, or email us directly at ";
 
 type ContactFormProps = {
-  /** Pre-selects the topic — the support page opens on "Support". */
+  /** Pre-selects the topic: the support page opens on "Support". */
   defaultTopic?: ContactTopic;
 };
 
 /**
  * The contact form used on /contact and /support. Posts to the local
  * /api/contact route, which relays to the Welockin API. Three honest states:
- * sending, sent, and failed — a failure always shows the direct email address,
+ * sending, sent, and failed. A failure always shows the direct email address,
  * and never claims the message was delivered.
  */
 export function ContactForm({ defaultTopic = "Support" }: ContactFormProps) {
@@ -65,7 +65,7 @@ export function ContactForm({ defaultTopic = "Support" }: ContactFormProps) {
     }
     if (trimmedMessage.length > MESSAGE_MAX) {
       setError(
-        `Please keep your message under ${MESSAGE_MAX} characters — currently ${trimmedMessage.length}.`,
+        `Please keep your message under ${MESSAGE_MAX} characters (currently ${trimmedMessage.length}).`,
       );
       return;
     }
@@ -92,7 +92,7 @@ export function ContactForm({ defaultTopic = "Support" }: ContactFormProps) {
         setSent(true);
       } else if (body?.code === "CONTACT_DELIVERY_FAILED") {
         setError(
-          "We couldn't deliver your message — nothing was sent. " +
+          "We couldn't deliver your message. Nothing was sent. " +
             "Please email us directly at ",
         );
       } else if (body?.error) {
@@ -118,7 +118,7 @@ export function ContactForm({ defaultTopic = "Support" }: ContactFormProps) {
       <div className={styles.card}>
         <p className={styles.notice} role="status">
           <strong>Message sent.</strong> We read every message ourselves and
-          will reply to {email.trim() || "the address you gave"} — usually
+          will reply to {email.trim() || "the address you gave"}, usually
           within a day or two.
         </p>
         <button
@@ -202,7 +202,7 @@ export function ContactForm({ defaultTopic = "Support" }: ContactFormProps) {
             required
           />
           <p className={styles.hint} id="contact-message-hint">
-            The more specific, the faster we can help — device, OS version, and
+            The more specific, the faster we can help: device, OS version, and
             the exact app or URL if something isn&rsquo;t blocking.
           </p>
         </div>
@@ -226,8 +226,7 @@ export function ContactForm({ defaultTopic = "Support" }: ContactFormProps) {
         Prefer plain email? Write to{" "}
         <a href={`mailto:${siteConfig.contactEmail}`}>
           {siteConfig.contactEmail}
-        </a>{" "}
-        — it reaches the same inbox.
+        </a>. It reaches the same inbox.
       </p>
     </div>
   );

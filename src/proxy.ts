@@ -20,7 +20,7 @@ const FAQ_ALIASES = new Set(["/FAQ", "/Faq"]);
  * caused a redirect loop on the live site:
  *   - `redirects()` in next.config matches `/faq` against a `/FAQ` rule.
  *   - Vercel's routing layer does the same with the matcher below, even though
- *     `next dev` treats it as case-sensitive — so this looked fine locally and
+ *     `next dev` treats it as case-sensitive, so this looked fine locally and
  *     still took the page down in production.
  *
  * Hence the guard: whatever invokes this function, it can never redirect the
@@ -31,11 +31,11 @@ const FAQ_ALIASES = new Set(["/FAQ", "/Faq"]);
  *
  * English is served un-prefixed and every other language carries a prefix, so
  * there are three cases:
- *   - `/fr/faq`  — already addressed, pass it through.
- *   - `/en/faq`  — a second URL for a page that already has one. Redirected to
+ *   - `/fr/faq`:   already addressed, pass it through.
+ *   - `/en/faq`:   a second URL for a page that already has one. Redirected to
  *                  `/faq` permanently, because duplicate content is the one SEO
  *                  problem this whole scheme exists to avoid.
- *   - `/faq`     — English by default, but a visitor who reads French should
+ *   - `/faq`:      English by default, but a visitor who reads French should
  *                  land on French. If a preference says so, redirect once;
  *                  otherwise rewrite to `/en/faq` internally so the app sees a
  *                  locale segment and the address bar does not.
@@ -90,7 +90,7 @@ function preferredLocale(request: NextRequest) {
 export const config = {
   /**
    * Everything except Next's internals, the API routes, and any path with a
-   * file extension — `sitemap.xml`, `robots.txt`, `llms.txt` and the icons are
+   * file extension: `sitemap.xml`, `robots.txt`, `llms.txt` and the icons are
    * single-language resources and must not acquire a locale prefix.
    */
   matcher: ["/((?!_next/|api/|.*\\.).*)"],

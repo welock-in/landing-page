@@ -6,7 +6,7 @@ import { defaultLocale, type Locale } from "./config";
  * Message catalogs, one folder per locale.
  *
  * English is imported eagerly because it is both the default locale and the
- * fallback for every other one — it is needed on every render regardless.
+ * fallback for every other one: it is needed on every render regardless.
  * The rest are dynamic imports so a French page never pulls the Hindi
  * catalog into the build's module graph.
  *
@@ -75,8 +75,8 @@ const loaders: Record<Exclude<Locale, "en">, () => Promise<PartialDeep<Dictionar
 /**
  * Every key optional, all the way down.
  *
- * A translation catalog is allowed to be incomplete — that is the point of the
- * fallback — so the loaders are typed against this rather than `Dictionary`.
+ * A translation catalog is allowed to be incomplete (that is the point of the
+ * fallback), so the loaders are typed against this rather than `Dictionary`.
  * What a catalog may NOT do is invent keys or change a string into an object;
  * that still fails the build.
  */
@@ -130,7 +130,7 @@ export function getDictionary(locale: Locale): Promise<Dictionary> {
   const built: Promise<Dictionary> = loaders[locale as Exclude<Locale, "en">]()
     .then((translated) => withFallback<Dictionary>(en, translated))
     .catch(() => {
-      // A catalog that fails to load must not take the page down with it —
+      // A catalog that fails to load must not take the page down with it:
       // English is always a correct answer, just not the requested one.
       console.error(`[i18n] falling back to "${defaultLocale}": ${locale} failed to load`);
       return en;

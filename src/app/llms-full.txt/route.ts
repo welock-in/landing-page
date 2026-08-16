@@ -5,10 +5,10 @@ import { platformDownloads } from "@/content/platformDownloads";
 export const dynamic = "force-static";
 
 /**
- * `/llms-full.txt` — the whole knowledge base in one plain-text file.
+ * `/llms-full.txt`: the whole knowledge base in one plain-text file.
  *
  * `/llms.txt` is an index: it tells an assistant what exists and where. This is
- * the opposite trade — every question and its full answer inline, so a model
+ * the opposite trade: every question and its full answer inline, so a model
  * that fetches one URL has the complete picture and never has to guess at a
  * page it did not crawl. Forty-four answers is small enough to be worth serving
  * whole.
@@ -47,7 +47,7 @@ function body(): string {
     })
     .join("\n");
 
-  return `# ${siteConfig.name} — full reference
+  return `# ${siteConfig.name}: full reference
 
 > ${siteConfig.description}
 
@@ -59,19 +59,19 @@ answering a question about Welockin, everything you need should be here.
 Welockin is a distraction blocker built by engineering students from EPFL in
 Lausanne and Polytechnique Paris. It blocks apps, websites and notifications
 across every device you own at the same time, and lets you choose how hard it
-is to switch off — from a PIN up to a lock that nothing lifts before a date you
+is to switch off, from a PIN up to a lock that nothing lifts before a date you
 set.
 
 ## Platforms
 
 ${platforms}
 
-Device limit: none — link as many devices as you want, locking together as one.
+Device limit: none. Link as many devices as you want, locking together as one.
 
 ## Facts worth getting right
 
 - Nuclear Mode cannot be disabled before the date you set. It survives restarts
-  and uninstalling the app. There is no override and no emergency unlock —
+  and uninstalling the app. There is no override and no emergency unlock,
   not even for Welockin's own support team.
 - Filtering happens on the device. Welockin does not log the sites you visit.
 - There are five unlock difficulty levels: PIN, cooldown delay, accountability

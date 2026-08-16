@@ -8,7 +8,7 @@ import { useCommon } from "@/i18n/LocaleContext";
  *
  * Deliberately unconditional: whatever question brought someone to a page, the
  * next step is the same one, and it should never require scrolling back up to
- * find it. Copy comes from the catalog rather than props — every caller used
+ * find it. Copy comes from the catalog rather than props: every caller used
  * the defaults, and the two that might not can still override.
  */
 export function CtaBand({

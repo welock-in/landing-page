@@ -1,6 +1,6 @@
 {
   "hero": {
-    "_comment": "German puts the verb last, so the emphasis sits on 'Zukunft' rather than on the final word — the accent belongs on what is at stake, not on wherever the grammar happens to end.",
+    "_comment": "German puts the verb last, so the emphasis sits on 'Zukunft' rather than on the final word; the accent belongs on what is at stake, not on wherever the grammar happens to end.",
     "headline": [
       { "text": "Blockiere", "br": false, "em": false },
       { "text": "Ablenkungen,", "br": true, "em": false },
@@ -16,7 +16,7 @@
     "playVideo": "Welockin-Demovideo abspielen",
     "videoLabel": "Welockin-Demovideo",
     "closeVideo": "Video schließen",
-    "captionsLabel": "Englisch (ohne Ton — Text im Bild)"
+    "captionsLabel": "Englisch (ohne Ton, Text im Bild)"
   },
   "logoCloud": {
     "label": "Genutzt von Studierenden an",
@@ -25,7 +25,7 @@
   "bento": {
     "headTitle": "Alles, was du brauchst, um",
     "headTitleEm": "dranzubleiben.",
-    "headSub": "Mach den Lärm auf jedem Gerät aus — so, wie du es willst.",
+    "headSub": "Mach den Lärm auf jedem Gerät aus. So, wie du es willst.",
     "apps": {
       "title": "Apps und Websites blockieren",
       "body": "Blockiere jede App und jede Website. Bündle sie für Arbeit, Lernen oder Schlaf.",
@@ -70,7 +70,7 @@
     "badge": "Extrem",
     "soft": {
       "title": "Sanfte Sperre",
-      "tag": "Bleib fokussiert — mit Notausgang, falls es wirklich sein muss.",
+      "tag": "Bleib fokussiert. Mit Notausgang, falls es wirklich sein muss.",
       "foot": "Für konzentriertes Arbeiten im Alltag",
       "points": [
         "Pausieren, wenn das Leben dazwischenkommt",
@@ -135,17 +135,17 @@
     "steps": [
       {
         "title": "Wähl aus, was blockiert wird",
-        "body": "Bündle die Apps und Websites, die dir unbemerkt die Aufmerksamkeit klauen — Social Media, Video, News, Games — in wiederverwendbaren Listen, die du mit einem Tippen startest.",
+        "body": "Bündle die Apps und Websites, die dir unbemerkt die Aufmerksamkeit klauen (Social Media, Video, News, Games), in wiederverwendbaren Listen, die du mit einem Tippen startest.",
         "shotLabel": "Apps zum Blockieren auswählen"
       },
       {
         "title": "Einstellen und sperren",
-        "body": "Wähl eine Dauer, drück auf Start, und die nukleare Sperre versiegelt die Session — kein Pausieren, kein Abbrechen, kein Verhandeln, bis der Timer bei null ist.",
+        "body": "Wähl eine Dauer, drück auf Start, und die nukleare Sperre versiegelt die Session: kein Pausieren, kein Abbrechen, kein Verhandeln, bis der Timer bei null ist.",
         "shotLabel": "Dauer festlegen und sperren"
       },
       {
         "title": "Wähl deine Geräte",
-        "body": "Verbinde deinen Mac, dein iPhone und dein iPad einmal, und jede Sperre bleibt auf allen in Echtzeit synchron — deine Ablenkungen haben kein Versteck mehr.",
+        "body": "Verbinde deinen Mac, dein iPhone und dein iPad einmal, und jede Sperre bleibt auf allen in Echtzeit synchron. Deine Ablenkungen haben kein Versteck mehr.",
         "shotLabel": "Deine Geräte auswählen"
       }
     ]
@@ -163,15 +163,15 @@
     "items": [
       {
         "question": "Wie funktioniert Welockin eigentlich?",
-        "answer": "Drei Schritte: Wähl die Apps und Websites aus, die weg sollen, entscheide, wie hart die Sperre sein soll, und drück auf Start. Unter einer Minute von der Installation bis zum Fokus — und das auf allen synchronisierten Geräten gleichzeitig."
+        "answer": "Drei Schritte: Wähl die Apps und Websites aus, die weg sollen, entscheide, wie hart die Sperre sein soll, und drück auf Start. Unter einer Minute von der Installation bis zum Fokus, und das auf allen synchronisierten Geräten gleichzeitig."
       },
       {
         "question": "Lässt es sich wirklich nicht umgehen?",
-        "answer": "Mit einer nuklearen Sperre: nein. Sie übersteht Neustarts und sogar das Deinstallieren der App — nichts schaltet sie vor der Zeit oder dem Datum ab, das du gesetzt hast."
+        "answer": "Mit einer nuklearen Sperre: nein. Sie übersteht Neustarts und sogar das Deinstallieren der App. Nichts schaltet sie vor der Zeit oder dem Datum ab, das du gesetzt hast."
       },
       {
         "question": "Welche Apps und Websites kann ich blockieren?",
-        "answer": "Alle. Apps, Websites und Benachrichtigungen — du entscheidest, was durchkommt und was still bleibt."
+        "answer": "Alle. Apps, Websites und Benachrichtigungen: du entscheidest, was durchkommt und was still bleibt."
       },
       {
         "question": "Gibt es das auch fürs Handy?",

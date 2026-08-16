@@ -100,7 +100,7 @@
   display: inline;
 }
 
-/* Hover-layer wording, generated rather than duplicated in the markup — see
+/* Hover-layer wording, generated rather than duplicated in the markup: see
    the note in DownloadButton.tsx. Same three wordings, same `data-os` switch,
    but a generated string is not part of the document text.
 
@@ -138,7 +138,7 @@
   gap: 8px;
 }
 
-/* Compact shrinks the Apple mark only — the padlock stays at 20px. */
+/* Compact shrinks the Apple mark only: the padlock stays at 20px. */
 .compact .appleIcon {
   width: 18px;
   height: 18px;

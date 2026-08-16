@@ -30,7 +30,7 @@ type Params = { lang: string; category: string; question: string };
  * they change when someone edits a file, so there is nothing to gain from
  * rendering any of this on demand.
  */
-// Only this segment's params — `lang` is supplied by the parent layout's
+// Only this segment's params: `lang` is supplied by the parent layout's
 // own generateStaticParams, which is what fans each of these out per language.
 export function generateStaticParams(): Omit<Params, "lang">[] {
   return allFaqEntries.map(({ category, entry }) => ({
@@ -51,7 +51,7 @@ export async function generateMetadata({
   const found = findFaqEntry(category, question);
   if (!found) return {};
 
-  // The question itself is still English — only the canonical, the hreflang
+  // The question itself is still English: only the canonical, the hreflang
   // set and the og:locale change per language. That is deliberate: pointing
   // four language URLs at one another is what stops them being read as four
   // copies of the same page, and it is correct now rather than once the

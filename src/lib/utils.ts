@@ -16,7 +16,7 @@ export function cn(...inputs: ClassValue[]): string {
  *
  * Deliberately derives from `siteUrl` rather than reading the env var again.
  * This function used to carry its own fallback host, which drifted from the
- * one in site.ts — so `sitemap.ts` and `robots.ts` (the only two callers)
+ * one in site.ts, so `sitemap.ts` and `robots.ts` (the only two callers)
  * spent production advertising a domain that does not resolve, while every
  * canonical tag pointed somewhere else. One source of truth, no drift.
  */

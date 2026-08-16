@@ -33,7 +33,7 @@ export default function TermsPage() {
           (&ldquo;we&rdquo;, &ldquo;us&rdquo;) for the Welockin apps and the
           account service behind them. By creating an account or using the
           apps, you accept them. We have tried to keep them short and in plain
-          English — the unusual parts are the trial, the choice between a
+          English. The unusual parts are the trial, the choice between a
           subscription and a lifetime licence, and the fact that the lock is
           deliberately hard to remove. Those get their own sections below.
         </p>
@@ -57,7 +57,7 @@ export default function TermsPage() {
           Welockin blocks distracting apps and websites at the device level
           during focus sessions and protection periods you set up. An account
           is required: it is what syncs your blocklists, sessions and licence
-          across your devices. The blocking itself runs on your device — see
+          across your devices. The blocking itself runs on your device. See
           the <LocaleLink href="/privacy">Privacy Policy</LocaleLink> for what data we do and do
           not handle.
         </p>
@@ -71,7 +71,7 @@ export default function TermsPage() {
         <h2>Your account</h2>
         <ul>
           <li>
-            You must give a working email address — it is how you verify,
+            You must give a working email address. It is how you verify,
             recover and manage your account.
           </li>
           <li>
@@ -86,7 +86,7 @@ export default function TermsPage() {
 
         <h2>The free trial</h2>
         <p>
-          Every subscription starts with a free trial of the full product —
+          Every subscription starts with a free trial of the full product:
           three days on the monthly plan, seven days on the yearly plan. When
           the trial ends, the paid subscription begins and the first payment
           is charged, unless you cancel before the trial is over; cancelling
@@ -109,7 +109,7 @@ export default function TermsPage() {
             You can cancel at any time: from the app&rsquo;s Settings if you
             bought on Windows or macOS, or from your Apple subscription
             settings if you subscribed on iPhone or iPad. Cancelling stops the
-            next renewal — you keep access until the end of the period you
+            next renewal. You keep access until the end of the period you
             already paid for.
           </li>
           <li>
@@ -123,7 +123,7 @@ export default function TermsPage() {
         </p>
         <p>
           On Windows and macOS, purchases are processed by{" "}
-          <strong>Lemon Squeezy as merchant of record</strong> — they are the
+          <strong>Lemon Squeezy as merchant of record</strong>. They are the
           seller of record for the transaction, handle payment and applicable
           taxes, and their own terms apply to the purchase itself. On iPhone
           and iPad, purchases go through the Apple App Store and are billed
@@ -138,7 +138,7 @@ export default function TermsPage() {
           refunded by Apple under Apple&rsquo;s terms. Nothing here limits any refund rights
           you have under mandatory consumer law where you live. One consequence
           worth stating plainly: <strong>a full refund revokes the
-          licence</strong> — the product returns to its unlicensed state on
+          licence</strong>. The product returns to its unlicensed state on
           your devices.
         </p>
 
@@ -170,7 +170,7 @@ export default function TermsPage() {
             <strong>Read this before your first hard lock.</strong> Welockin
             intentionally resists being disabled during a session you started.
             Hard and Nuclear locks survive restarting your device and
-            uninstalling the app, and nobody — including our support team —
+            uninstalling the app, and nobody (including our support team)
             can lift a Nuclear lock before the date you set. That is the
             product working as designed, and by starting such a session you
             accept it. Never block anything you might need in an emergency:
@@ -182,7 +182,7 @@ export default function TermsPage() {
         <h2>Termination</h2>
         <p>
           You can stop using Welockin and{" "}
-          <LocaleLink href="/delete-account">delete your account</LocaleLink> at any time —
+          <LocaleLink href="/delete-account">delete your account</LocaleLink> at any time,
           though, as described above, neither uninstalling the app nor leaving
           it lifts a hard lock before it ends. We may suspend or terminate
           accounts that materially breach
@@ -206,7 +206,7 @@ export default function TermsPage() {
           cannot be excluded by law. In particular, we do not warrant that
           every distracting app or site will be blocked in every situation, or
           that the service will be uninterrupted or error-free. Welockin is a
-          productivity tool, not a medical or therapeutic service — for a
+          productivity tool, not a medical or therapeutic service. For a
           serious compulsion it can be one part of a plan, but it is not a
           substitute for professional help.
         </p>
@@ -233,7 +233,7 @@ export default function TermsPage() {
         <p>
           These terms are governed by the laws applicable at our seat of
           business, except where the mandatory consumer law of your country of
-          residence applies instead — nothing in these terms takes those
+          residence applies instead. Nothing in these terms takes those
           protections away.
         </p>
 

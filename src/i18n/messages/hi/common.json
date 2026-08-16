@@ -6,7 +6,7 @@
     "faq": "सामान्य सवाल",
     "openMenu": "मेन्यू खोलें",
     "closeMenu": "मेन्यू बंद करें",
-    "brandLabel": "Welockin — होम"
+    "brandLabel": "Welockin होम"
   },
   "languageSwitcher": {
     "label": "भाषा",
@@ -27,7 +27,7 @@
   },
   "ctaBand": {
     "title": "लॉक इन करने के लिए तैयार हैं?",
-    "subtitle": "जो चीज़ आपका ध्यान चुरा रही है उसे अपने हर डिवाइस पर ब्लॉक करें — ऐसे लॉक के साथ जो आपके तय किए समय तक टिकता है।",
+    "subtitle": "जो चीज़ आपका ध्यान चुरा रही है उसे अपने हर डिवाइस पर ब्लॉक करें, ऐसे लॉक के साथ जो आपके तय किए समय तक टिकता है।",
     "fine": "macOS, iPhone, iPad और Windows पर काम करता है"
   },
   "footer": {
@@ -37,7 +37,7 @@
       "placeholder": "अपना ईमेल पता डालें",
       "emailLabel": "ईमेल पता",
       "subscribe": "सब्सक्राइब करें",
-      "success": "आप लॉक इन हैं — अपना इनबॉक्स देखें।"
+      "success": "आप लॉक इन हैं। अपना इनबॉक्स देखें।"
     },
     "columns": {
       "product": "प्रोडक्ट",
@@ -55,7 +55,7 @@
       "macos": "macOS",
       "iphoneIpad": "iPhone और iPad",
       "windows": "Windows",
-      "androidSoon": "Android — जल्द आ रहा है",
+      "androidSoon": "Android (जल्द आ रहा है)",
       "allDevices": "सभी डिवाइस",
       "fullFaq": "पूरे सामान्य सवाल",
       "gettingStarted": "शुरुआत करें",

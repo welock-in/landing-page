@@ -41,7 +41,7 @@ const ISSUES: { question: string; answer: string; more?: ReactNode }[] = [
   {
     question: "The app won't unblock after my session ended",
     answer:
-      "First check the session has genuinely ended: a hard lock runs to its timer and a Nuclear lock to its date, and neither lifts early. If it has ended, give the devices a moment to sync, then restart the Welockin app on the device that is still blocking. If it stays locked past its end time, that is a bug — contact us with your device, OS version and the session's end time, and we will sort it out.",
+      "First check the session has genuinely ended: a hard lock runs to its timer and a Nuclear lock to its date, and neither lifts early. If it has ended, give the devices a moment to sync, then restart the Welockin app on the device that is still blocking. If it stays locked past its end time, that is a bug. Contact us with your device, OS version and the session's end time, and we will sort it out.",
     more: (
       <p className="cp-p">
         Not sure which lock you started?{" "}
@@ -58,7 +58,7 @@ const ISSUES: { question: string; answer: string; more?: ReactNode }[] = [
       "Reset it yourself: enter the email address on your account and we send a link to set a new password. The new password applies on every device the next time you sign in.",
     more: (
       <p className="cp-p">
-        Head to <Link href="/reset-password">reset your password</Link> — it
+        Head to <Link href="/reset-password">reset your password</Link>. It
         takes about a minute. No email after a few minutes? Check spam, then
         try again with the exact address you signed up with.
       </p>
@@ -67,7 +67,7 @@ const ISSUES: { question: string; answer: string; more?: ReactNode }[] = [
   {
     question: "My purchase isn't showing up",
     answer:
-      "Make sure you are signed in with the same email address you used at checkout — the licence is tied to your account, and a different address is the cause in most cases. Desktop purchases go through Lemon Squeezy, so look for their receipt email to confirm which address you bought under; app-store purchases can be restored from the store on the device you bought with. Still missing? Send us the receipt and the email on your account, and we will connect the two.",
+      "Make sure you are signed in with the same email address you used at checkout. The licence is tied to your account, and a different address is the cause in most cases. Desktop purchases go through Lemon Squeezy, so look for their receipt email to confirm which address you bought under; app-store purchases can be restored from the store on the device you bought with. Still missing? Send us the receipt and the email on your account, and we will connect the two.",
     more: (
       <p className="cp-p">
         How the trial, licence and refunds work is laid out in the{" "}
@@ -78,14 +78,14 @@ const ISSUES: { question: string; answer: string; more?: ReactNode }[] = [
   {
     question: "How do I report a bug?",
     answer:
-      "Use the form below or email us, and include: your device and OS version, what you did, what you expected, and what happened instead. If something isn't being blocked, the exact app name or URL is the single most useful thing you can send — it is what turns a report into a fix rather than a back-and-forth. Screenshots help too.",
+      "Use the form below or email us, and include: your device and OS version, what you did, what you expected, and what happened instead. If something isn't being blocked, the exact app name or URL is the single most useful thing you can send. It is what turns a report into a fix rather than a back-and-forth. Screenshots help too.",
     more: (
       <p className="cp-p">
         For blocking issues, run through{" "}
         <Link href={faqEntryPath("troubleshooting", "site-not-being-blocked")}>
           the blocking checklist
         </Link>{" "}
-        first — most reports turn out to be a device that was never synced.
+        first. Most reports turn out to be a device that was never synced.
       </p>
     ),
   },
@@ -129,7 +129,7 @@ export default async function SupportPage({ params }: LangParams) {
             <p className="cp-p">
               We don&rsquo;t run a public status page yet. Blocking itself
               happens on your device, so it keeps working even if our servers
-              have a bad moment — sync and sign-in are what would be affected.
+              have a bad moment. Sync and sign-in are what would be affected.
               If either seems down for more than a few minutes, email{" "}
               <a href={`mailto:${siteConfig.contactEmail}`}>
                 {siteConfig.contactEmail}
@@ -140,7 +140,7 @@ export default async function SupportPage({ params }: LangParams) {
             <h2 className="cp-h2">Send us a message</h2>
             <p className="cp-p">
               Describe the problem below and it lands with the students who
-              wrote the code — usually answered between two lectures.
+              wrote the code, usually answered between two lectures.
             </p>
             <ContactForm defaultTopic="Support" />
           </div>

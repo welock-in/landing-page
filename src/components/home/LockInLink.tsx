@@ -6,7 +6,7 @@ import { useCommon, useLocalePath, type CommonDictionary } from "@/i18n/LocaleCo
 
 /**
  * The salmon "Lock in" CTA with the looping shackle-snap animation.
- * A real link to /download — the design's dead <button> made clickable.
+ * A real link to /download: the design's dead <button> made clickable.
  *
  * Takes the catalog key rather than the finished string: the wording is the
  * same on every page, so threading it through four sections as a prop would

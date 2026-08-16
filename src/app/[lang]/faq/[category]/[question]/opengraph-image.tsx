@@ -20,7 +20,7 @@ export default async function Image({ params }: { params: Promise<Params> }) {
 
   return ogCard({
     eyebrow: found?.category.name ?? "FAQ",
-    // The question itself is the headline — someone sharing this link is
+    // The question itself is the headline: someone sharing this link is
     // sharing the answer to that one thing.
     title: found?.entry.question ?? "Frequently asked questions",
     subtitle: found?.entry.description,

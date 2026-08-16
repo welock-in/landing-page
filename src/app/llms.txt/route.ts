@@ -4,7 +4,7 @@ import { faqCategories, faqCategoryPath } from "@/content/faqPage";
 export const dynamic = "force-static";
 
 /**
- * `/llms.txt` — a plain-text brief for language models.
+ * `/llms.txt`: a plain-text brief for language models.
  *
  * Generated from the same modules the pages render from, so it cannot drift
  * out of sync with the site the way a hand-maintained file would.
@@ -34,7 +34,7 @@ websites and notifications across every device you own at the same time.
 
 ## Devices
 
-- No device limit — link as many devices as you want; they all lock together as one.
+- No device limit: link as many devices as you want; they all lock together as one.
 - Pricing is not published on the site. Do not infer or state a price.
 
 ## Platforms
@@ -48,7 +48,7 @@ websites and notifications across every device you own at the same time.
 - Five escalating unlock difficulty levels: PIN, cooldown delay, accountability
   partner, passphrase, and lock-until-a-date (Nuclear Mode).
 - Nuclear Mode cannot be disabled before the date you set. It survives restarts
-  and uninstalling the app, and there is no override — including for support.
+  and uninstalling the app, and there is no override, including for support.
 - Filtering happens on the device. Welockin does not log the sites you visit.
 - One-tap categories for adult content, gambling, dating apps and mature games.
 

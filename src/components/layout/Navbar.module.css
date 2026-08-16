@@ -26,7 +26,7 @@
     box-shadow 0.3s ease;
 }
 
-/* Full-screen mobile overlay — never shown on desktop. */
+/* Full-screen mobile overlay, never shown on desktop. */
 .mobileMenu {
   display: none;
 }
@@ -89,7 +89,7 @@
   gap: 10px;
 }
 
-/* The switcher only appears inside the mobile overlay below the breakpoint —
+/* The switcher only appears inside the mobile overlay below the breakpoint:
    the bar itself has no room for it next to the brand, CTA and menu button. */
 .ovLang {
   display: flex;
@@ -109,7 +109,7 @@
   cursor: pointer;
 }
 
-/* Hamburger and X are two separate glyphs, swapped outright — no morph. */
+/* Hamburger and X are two separate glyphs, swapped outright, no morph. */
 .iconClose {
   display: none;
 }
@@ -296,7 +296,7 @@
 }
 
 /* Narrower than this the three of them stop fitting at all, so the CTA drops
-   to its glyph. The label is the first thing to go — the brand is the domain
+   to its glyph. The label is the first thing to go: the brand is the domain
    name and the menu button is the only way into the nav. */
 @media (max-width: 339px) {
   .mobileCta button {

@@ -17,7 +17,7 @@
     "playVideo": "Lancer la vidéo de démonstration Welockin",
     "videoLabel": "Vidéo de démonstration Welockin",
     "closeVideo": "Fermer la vidéo",
-    "captionsLabel": "Anglais (muet — texte à l'écran)"
+    "captionsLabel": "Anglais (muet, texte à l'écran)"
   },
   "logoCloud": {
     "label": "Utilisé par les étudiants de",
@@ -136,12 +136,12 @@
     "steps": [
       {
         "title": "Choisissez quoi bloquer",
-        "body": "Regroupez les applis et les sites qui vous volent discrètement votre attention — réseaux sociaux, vidéo, actualités, jeux — en listes réutilisables que vous lancez d'un seul geste.",
+        "body": "Regroupez les applis et les sites qui vous volent discrètement votre attention (réseaux sociaux, vidéo, actualités, jeux) en listes réutilisables que vous lancez d'un seul geste.",
         "shotLabel": "Choisir les applis à bloquer"
       },
       {
         "title": "Réglez et verrouillez",
-        "body": "Choisissez une durée, appuyez sur démarrer, et le verrou nucléaire scelle la session — pas de pause, pas d'abandon, aucune négociation possible avant la fin du minuteur.",
+        "body": "Choisissez une durée, appuyez sur démarrer, et le verrou nucléaire scelle la session : pas de pause, pas d'abandon, aucune négociation possible avant la fin du minuteur.",
         "shotLabel": "Régler la durée et verrouiller"
       },
       {
@@ -164,15 +164,15 @@
     "items": [
       {
         "question": "Concrètement, comment fonctionne Welockin ?",
-        "answer": "Trois étapes : choisissez les applis et les sites dont vous voulez vous passer, décidez de la sévérité du verrou, appuyez sur démarrer. Moins d'une minute entre l'installation et le verrouillage — sur tous vos appareils synchronisés à la fois."
+        "answer": "Trois étapes : choisissez les applis et les sites dont vous voulez vous passer, décidez de la sévérité du verrou, appuyez sur démarrer. Moins d'une minute entre l'installation et le verrouillage, sur tous vos appareils synchronisés à la fois."
       },
       {
         "question": "Est-il vraiment impossible à contourner ?",
-        "answer": "Avec un verrou Nucléaire : oui. Il survit aux redémarrages et même à la désinstallation de l'application — rien ne le désactive avant l'heure ou la date que vous avez fixée."
+        "answer": "Avec un verrou Nucléaire : oui. Il survit aux redémarrages et même à la désinstallation de l'application. Rien ne le désactive avant l'heure ou la date que vous avez fixée."
       },
       {
         "question": "Quelles applis et quels sites puis-je bloquer ?",
-        "answer": "Tous. Applications, sites web et notifications — c'est vous qui décidez de ce qui passe et de ce qui se tait."
+        "answer": "Tous. Applications, sites web et notifications : c'est vous qui décidez de ce qui passe et de ce qui se tait."
       },
       {
         "question": "Est-ce disponible sur mobile ?",

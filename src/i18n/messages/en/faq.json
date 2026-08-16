@@ -1,13 +1,13 @@
 {
-  "_comment": "FAQ hub chrome and per-category framing. The 44 individual questions in src/content/faqPage.ts are NOT here yet — they render in English under every locale. Category keys must match the slugs in faqPage.ts; a slug is a URL and is never translated.",
+  "_comment": "FAQ hub chrome and per-category framing. The 44 individual questions in src/content/faqPage.ts are NOT here yet; they render in English under every locale. Category keys must match the slugs in faqPage.ts; a slug is a URL and is never translated.",
   "meta": {
-    "title": "FAQ — Everything about locking in",
-    "description": "How Welockin blocks apps and sites, the five unlock difficulty levels, Nuclear Mode, supported devices, privacy and troubleshooting — answered."
+    "title": "FAQ: Everything about locking in",
+    "description": "How Welockin blocks apps and sites, the five unlock difficulty levels, Nuclear Mode, supported devices, privacy and troubleshooting: answered."
   },
   "hub": {
     "eyebrow": "FAQ",
     "title": "Frequently asked questions",
-    "searchPlaceholder": "Search — e.g. 'porn', 'refund', 'bypass'…",
+    "searchPlaceholder": "Search: e.g. 'porn', 'refund', 'bypass'…",
     "searchLabel": "Search frequently asked questions",
     "clearSearch": "Clear search",
     "noResults": "No results for",
@@ -26,7 +26,7 @@
     "what-you-can-block": {
       "name": "What you can block",
       "headline": "What you can block with Welockin",
-      "intro": "Apps, websites, whole categories and notifications — what Welockin can shut out, and how to group it all so one tap covers a whole context.",
+      "intro": "Apps, websites, whole categories and notifications: what Welockin can shut out, and how to group it all so one tap covers a whole context.",
       "description": "Block any app or website, one-tap categories for adult content, gambling, dating and games, plus notifications, bundles and schedules."
     },
     "unlock-difficulty-levels": {
@@ -45,7 +45,7 @@
       "name": "Devices & platforms",
       "headline": "Devices and platforms Welockin supports",
       "intro": "Which operating systems Welockin runs on today, what is coming, and how one session locks every device you link at the same time.",
-      "description": "Welockin runs on macOS, iOS, iPadOS and Windows, with Android coming. Link as many devices as you want — they lock together as one."
+      "description": "Welockin runs on macOS, iOS, iPadOS and Windows, with Android coming. Link as many devices as you want. They lock together as one."
     },
     "privacy": {
       "name": "Privacy",
@@ -56,7 +56,7 @@
     "troubleshooting": {
       "name": "Troubleshooting",
       "headline": "Troubleshooting Welockin",
-      "intro": "Something not blocking, devices out of sync, or a block you need lifted — the common problems and what to do about each.",
+      "intro": "Something not blocking, devices out of sync, or a block you need lifted: the common problems and what to do about each.",
       "description": "Fixes for the common problems: something not being blocked, devices not syncing, unblocking what you need, and how to reach a human."
     }
   }

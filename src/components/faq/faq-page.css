@@ -1,5 +1,5 @@
 /* Full FAQ page.
-   The standalone back-bar chrome this file used to carry is gone — the page
+   The standalone back-bar chrome this file used to carry is gone: the page
    now uses the site navbar, so it carries the download CTA and the links to
    every other hub like every other page does. */
 
@@ -68,7 +68,7 @@
   font-weight: 400;
 }
 
-/* We render our own clear button — hide WebKit's so the two don't stack. */
+/* We render our own clear button: hide WebKit's so the two don't stack. */
 .fq-input::-webkit-search-cancel-button {
   -webkit-appearance: none;
   appearance: none;

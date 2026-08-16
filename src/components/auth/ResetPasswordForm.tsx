@@ -13,7 +13,7 @@ const MIN_PASSWORD = 8;
  *
  * Confirming or denying an address here would turn the page into a free
  * account-existence oracle for anyone holding a list of email addresses, so
- * every backend outcome — found, not found, already pending — reads the same.
+ * every backend outcome (found, not found, already pending) reads the same.
  */
 const REQUEST_SENT =
   "If an account exists for this address, a reset link is on its way. Check your spam folder.";
@@ -113,7 +113,7 @@ export function ResetPasswordForm({ token }: ResetPasswordFormProps) {
     if (outcome === "changed") {
       return (
         <p className={styles.notice} role="status">
-          Password changed — reopen Welockin and sign in.
+          Password changed. Reopen Welockin and sign in.
         </p>
       );
     }

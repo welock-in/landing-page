@@ -10,7 +10,7 @@ import type { HomeCopy } from "./HomePage";
 /** Milliseconds between one headline word starting to rise and the next. */
 const WORD_STAGGER = 80;
 
-/* Peep is a single animated image (peep-anim/peep.webp) — the flipbook
+/* Peep is a single animated image (peep-anim/peep.webp). The flipbook
    timeline is baked into the file itself, so no JS timer and no re-render
    is involved in animating the character. */
 
@@ -22,12 +22,12 @@ const WORD_STAGGER = 80;
  *
  * It CANNOT simply be randomised during render: this page is prerendered at
  * build time, so the server would bake one number into the HTML and the client
- * would pick another — React calls that a hydration mismatch and, in a
+ * would pick another. React calls that a hydration mismatch and, in a
  * production build, throws away the server's markup for the whole subtree.
  * `useSyncExternalStore` is the supported way to say "the server and the client
  * legitimately disagree here": the build's number ships in the HTML and the
  * drawn one replaces it at hydration, with no warning and no discarded tree.
- * It also reads correctly — a figure that ticks once as the page settles is
+ * It also reads correctly: a figure that ticks once as the page settles is
  * exactly what "active right now" is claiming.
  */
 const SESSIONS_MIN = 77;
@@ -35,7 +35,7 @@ const SESSIONS_MAX = 110;
 const SESSIONS_SEED = 87;
 
 /* Drawn ONCE per page load and cached at module scope. `getSnapshot` must be
-   stable — React calls it on every render and compares the result, so returning
+   stable. React calls it on every render and compares the result, so returning
    a fresh random number each time would loop forever. Caching also means a
    client-side navigation back to the home page keeps the figure it already
    showed, which is what a visitor would expect from a single visit. */
@@ -118,7 +118,7 @@ export function Hero({ copy }: { copy: HomeCopy["hero"] }) {
       <div className="wrap hero-grid">
         <div className="hero-text">
           {/* One <span> per word so each can rise on its own delay. The words
-              and their line breaks come from the catalog — a translation is
+              and their line breaks come from the catalog: a translation is
               free to need four words where English needs seven, and the
               stagger is computed from position rather than written out. */}
           <h1 className="hero-headline">

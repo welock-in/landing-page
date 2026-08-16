@@ -68,7 +68,7 @@
 }
 
 /* In the footer the switcher sits on the cream panel next to the brand line,
-   so the menu has to open upwards — there is nothing below it. */
+   so the menu has to open upwards: there is nothing below it. */
 .footerPlacement .menu {
   top: auto;
   bottom: calc(100% + 8px);

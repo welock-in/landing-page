@@ -17,7 +17,7 @@
     "playVideo": "Reproducir el vídeo de demostración de Welockin",
     "videoLabel": "Vídeo de demostración de Welockin",
     "closeVideo": "Cerrar el vídeo",
-    "captionsLabel": "Inglés (sin sonido — texto en pantalla)"
+    "captionsLabel": "Inglés (sin sonido, texto en pantalla)"
   },
   "logoCloud": {
     "label": "Lo usan estudiantes de",
@@ -136,7 +136,7 @@
     "steps": [
       {
         "title": "Elige qué bloquear",
-        "body": "Agrupa las apps y las webs que te roban la atención sin que te des cuenta — redes sociales, vídeo, noticias, juegos — en listas reutilizables que lanzas con un solo toque.",
+        "body": "Agrupa las apps y las webs que te roban la atención sin que te des cuenta (redes sociales, vídeo, noticias, juegos) en listas reutilizables que lanzas con un solo toque.",
         "shotLabel": "Elegir las apps que bloquear"
       },
       {

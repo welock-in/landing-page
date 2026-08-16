@@ -10,14 +10,14 @@ export type CommonDictionary = typeof commonEn;
 
 type LocaleValue = {
   locale: Locale;
-  /** Navbar, footer, buttons — the copy that appears on every single page. */
+  /** Navbar, footer, buttons: the copy that appears on every single page. */
   common: CommonDictionary;
 };
 
 /**
  * The active locale and the site chrome's strings.
  *
- * Only `common` crosses the server/client boundary — never the whole catalog.
+ * Only `common` crosses the server/client boundary, never the whole catalog.
  * That is a deliberate line: `common.json` is ~2 kB and appears on every page,
  * so shipping it once beats drilling nav and footer labels through twelve page
  * components. `home.json`, `pages.json` and the ~6,000-word FAQ stay on the

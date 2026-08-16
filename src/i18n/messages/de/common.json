@@ -6,7 +6,7 @@
     "faq": "FAQ",
     "openMenu": "Menü öffnen",
     "closeMenu": "Menü schließen",
-    "brandLabel": "Welockin — Startseite"
+    "brandLabel": "Welockin Startseite"
   },
   "languageSwitcher": {
     "label": "Sprache",
@@ -27,7 +27,7 @@
   },
   "ctaBand": {
     "title": "Bereit, dich zu konzentrieren?",
-    "subtitle": "Sperre auf all deinen Geräten, was dir die Aufmerksamkeit klaut — mit einem Schloss, das hält, bis die Zeit abgelaufen ist, die du gesetzt hast.",
+    "subtitle": "Sperre auf all deinen Geräten, was dir die Aufmerksamkeit klaut, mit einem Schloss, das hält, bis die Zeit abgelaufen ist, die du gesetzt hast.",
     "fine": "Läuft auf macOS, iPhone, iPad und Windows"
   },
   "footer": {
@@ -37,7 +37,7 @@
       "placeholder": "Gib deine E-Mail-Adresse ein",
       "emailLabel": "E-Mail-Adresse",
       "subscribe": "Abonnieren",
-      "success": "Du bist dabei — schau in dein Postfach."
+      "success": "Du bist dabei. Schau in dein Postfach."
     },
     "columns": {
       "product": "Produkt",
@@ -55,7 +55,7 @@
       "macos": "macOS",
       "iphoneIpad": "iPhone und iPad",
       "windows": "Windows",
-      "androidSoon": "Android — kommt bald",
+      "androidSoon": "Android (kommt bald)",
       "allDevices": "Alle Geräte",
       "fullFaq": "Komplette FAQ",
       "gettingStarted": "Erste Schritte",

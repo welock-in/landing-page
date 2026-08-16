@@ -1,12 +1,12 @@
 {
   "meta": {
-    "title": "FAQ — Tout sur la concentration",
-    "description": "Comment Welockin bloque applis et sites, les cinq niveaux de difficulté de déverrouillage, le Mode Nucléaire, les appareils compatibles, la confidentialité et le dépannage — les réponses."
+    "title": "FAQ : Tout sur la concentration",
+    "description": "Comment Welockin bloque applis et sites, les cinq niveaux de difficulté de déverrouillage, le Mode Nucléaire, les appareils compatibles, la confidentialité et le dépannage : les réponses."
   },
   "hub": {
     "eyebrow": "FAQ",
     "title": "Questions fréquentes",
-    "searchPlaceholder": "Rechercher — par ex. « porno », « remboursement », « contourner »…",
+    "searchPlaceholder": "Rechercher : par ex. « porno », « remboursement », « contourner »…",
     "searchLabel": "Rechercher dans les questions fréquentes",
     "clearSearch": "Effacer la recherche",
     "noResults": "Aucun résultat pour",
@@ -25,7 +25,7 @@
     "what-you-can-block": {
       "name": "Ce que vous pouvez bloquer",
       "headline": "Ce que vous pouvez bloquer avec Welockin",
-      "intro": "Applis, sites web, catégories entières et notifications — ce que Welockin peut faire taire, et comment tout regrouper pour qu'un seul geste couvre tout un contexte.",
+      "intro": "Applis, sites web, catégories entières et notifications : ce que Welockin peut faire taire, et comment tout regrouper pour qu'un seul geste couvre tout un contexte.",
       "description": "Bloquez n'importe quelle appli ou site, avec des catégories en un geste pour le contenu pour adultes, les jeux d'argent, les rencontres et les jeux, plus les notifications, les listes et la planification."
     },
     "unlock-difficulty-levels": {
@@ -44,7 +44,7 @@
       "name": "Appareils et plateformes",
       "headline": "Les appareils et plateformes compatibles avec Welockin",
       "intro": "Les systèmes d'exploitation sur lesquels Welockin tourne aujourd'hui, ceux qui arrivent, et comment une seule session verrouille en même temps tous les appareils que vous reliez.",
-      "description": "Welockin fonctionne sur macOS, iOS, iPadOS et Windows, et Android arrive. Reliez autant d'appareils que vous voulez — ils se verrouillent comme un seul."
+      "description": "Welockin fonctionne sur macOS, iOS, iPadOS et Windows, et Android arrive. Reliez autant d'appareils que vous voulez. Ils se verrouillent comme un seul."
     },
     "privacy": {
       "name": "Confidentialité",
@@ -55,7 +55,7 @@
     "troubleshooting": {
       "name": "Dépannage",
       "headline": "Dépanner Welockin",
-      "intro": "Quelque chose n'est pas bloqué, des appareils désynchronisés, ou un blocage à lever — les problèmes courants et la marche à suivre pour chacun.",
+      "intro": "Quelque chose n'est pas bloqué, des appareils désynchronisés, ou un blocage à lever : les problèmes courants et la marche à suivre pour chacun.",
       "description": "Les solutions aux problèmes courants : quelque chose qui n'est pas bloqué, des appareils qui ne se synchronisent pas, comment débloquer ce dont vous avez besoin, et comment joindre un humain."
     }
   }

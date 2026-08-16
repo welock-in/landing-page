@@ -14,7 +14,7 @@ import styles from "./Navbar.module.css";
 type NavLink = { title: string; href: string };
 
 /**
- * `links` lets a page swap in its own in-page nav — the Protection page
+ * `links` lets a page swap in its own in-page nav: the Protection page
  * advertises its own sections rather than the landing page's. Those are
  * in-page anchors with their own wording, so they arrive already translated;
  * the default set is resolved from the catalog here.
@@ -32,7 +32,7 @@ export function Navbar({ links }: { links?: NavLink[] }) {
    * opened.
    *
    * It is a second copy of the header CTA, and that button ships all three
-   * platform wordings twice over — so rendering it up front put eighteen
+   * platform wordings twice over, so rendering it up front put eighteen
    * "Download for …" strings into every page before any content. A crawler
    * that reads the HTML without applying CSS saw those as the first forty
    * words of every page, which is 13% of a short FAQ answer page and reads
@@ -59,7 +59,7 @@ export function Navbar({ links }: { links?: NavLink[] }) {
   }, [open]);
 
   // On the landing page the brand just returns to the top; elsewhere it links home.
-  // Always a real URL — `href="#"` was the site's last dead link. On the home
+  // Always a real URL: `href="#"` was the site's last dead link. On the home
   // page the click is intercepted to scroll to the top instead of reloading.
   const brandHref = withLocale("/");
   const onBrandClick = (e: React.MouseEvent) => {
@@ -135,7 +135,7 @@ export function Navbar({ links }: { links?: NavLink[] }) {
       </div>
 
       {/* Always mounted: the overlay fades out on close, so it cannot be
-          conditionally rendered. Links must stay direct <a> children here —
+          conditionally rendered. Links must stay direct <a> children here:
           the stagger delays key off :nth-of-type. */}
       <div className={styles.mobileMenu} inert={!open}>
         <div className={styles.mobileMenuInner}>

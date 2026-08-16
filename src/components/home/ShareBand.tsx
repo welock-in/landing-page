@@ -5,7 +5,7 @@ import type { HomeCopy } from "./HomePage";
 
 /**
  * The closing dark share card with drifting orbs and the "Lock in for life"
- * CTA. Static markup — all motion is pure CSS.
+ * CTA. Static markup: all motion is pure CSS.
  */
 export function ShareBand({ copy }: { copy: HomeCopy["shareBand"] }) {
   return (

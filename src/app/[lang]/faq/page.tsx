@@ -48,7 +48,7 @@ export default async function FaqRoute({ params }: LangParams) {
       <Footer />
 
       {/* The hub links to every answer, so its structured data carries every
-          question too — this is the URL most likely to be reached for a broad
+          question too: this is the URL most likely to be reached for a broad
           "Welockin FAQ" query, by a person or an assistant. */}
       <JsonLd
         graph={jsonLdGraph(

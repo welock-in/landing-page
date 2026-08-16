@@ -1,7 +1,7 @@
 import { ogCard, OG_CONTENT_TYPE, OG_SIZE } from "@/lib/og";
 
 export const alt =
-  "Welockin — block your distractions when you need to focus.";
+  "Welockin: block your distractions when you need to focus.";
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 

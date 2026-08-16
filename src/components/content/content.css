@@ -1,5 +1,5 @@
 /**
- * Shared chrome for the written pages — FAQ hubs, question pages, pricing and
+ * Shared chrome for the written pages: FAQ hubs, question pages, pricing and
  * comparisons. Warm paper, ink type, one red accent, matching the landing page
  * rather than inventing a second visual language for the long-tail pages.
  */
@@ -49,7 +49,7 @@
 }
 
 /* The direct answer, set apart so it reads as the answer and can be lifted
-   out of the page whole — by a reader skimming or by anything parsing it. */
+   out of the page whole, by a reader skimming or by anything parsing it. */
 .cp-answer {
   margin: 0 0 36px;
   padding: 26px 28px;

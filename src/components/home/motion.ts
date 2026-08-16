@@ -1,6 +1,6 @@
 "use client";
 
-/** Live check, same as the design's `reduced()` — read at call time, not cached. */
+/** Live check, same as the design's `reduced()`: read at call time, not cached. */
 export function reducedMotion(): boolean {
   return (
     typeof window !== "undefined" &&

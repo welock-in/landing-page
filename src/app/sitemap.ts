@@ -15,7 +15,7 @@ import { absoluteUrl } from "@/lib/utils";
  *
  * Deliberately a constant rather than `new Date()`. Stamping every entry with
  * build time told crawlers the whole site changed on every deploy, including
- * deploys that touched one CSS file — which trains them to stop believing
+ * deploys that touched one CSS file, which trains them to stop believing
  * `lastmod` at all. Bump this when the content actually changes.
  */
 const CONTENT_UPDATED = new Date("2026-07-28T00:00:00.000Z");
@@ -26,14 +26,14 @@ type ChangeFrequency = MetadataRoute.Sitemap[number]["changeFrequency"];
  * Sitemap, derived from the same data that builds the routes.
  *
  * Nothing is listed by hand: adding an FAQ entry or a comparison adds its URL
- * here automatically, so the sitemap cannot fall behind the site — which is
+ * here automatically, so the sitemap cannot fall behind the site, which is
  * how it came to advertise three URLs on a domain that does not resolve.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   /**
    * One entry per URL per language, each carrying the full alternates set.
    *
-   * `alternates.languages` is the sitemap's half of the hreflang contract — the
+   * `alternates.languages` is the sitemap's half of the hreflang contract: the
    * same annotations the pages carry in their `<head>`. Declaring them in both
    * places is redundant by design: a crawler that reaches a page through the
    * sitemap learns about its siblings before it has fetched any of them, which

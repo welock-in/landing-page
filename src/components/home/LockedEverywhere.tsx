@@ -9,7 +9,7 @@ import type { HomeCopy } from "./HomePage";
 import { LockInLink } from "./LockInLink";
 
 /**
- * "Block it once. Locked everywhere." — the whole section rises in staggered
+ * "Block it once. Locked everywhere.": the whole section rises in staggered
  * `.le-reveal` steps the first time 18% of it is visible, with a 1.2s
  * fallback so it can never stay hidden.
  */

@@ -6,7 +6,7 @@
     "faq": "Preguntas frecuentes",
     "openMenu": "Abrir el menú",
     "closeMenu": "Cerrar el menú",
-    "brandLabel": "Welockin — inicio"
+    "brandLabel": "Inicio de Welockin"
   },
   "languageSwitcher": {
     "label": "Idioma",
@@ -55,7 +55,7 @@
       "macos": "macOS",
       "iphoneIpad": "iPhone y iPad",
       "windows": "Windows",
-      "androidSoon": "Android — muy pronto",
+      "androidSoon": "Android (muy pronto)",
       "allDevices": "Todos los dispositivos",
       "fullFaq": "Preguntas frecuentes",
       "gettingStarted": "Primeros pasos",

@@ -1,6 +1,6 @@
 {
   "hero": {
-    "_comment": "headline is word-by-word so the stagger animation survives translation. `br` starts a new line after the word instead of a space, `em` renders it in the accent serif. Reorder, merge or split freely per language — delays are computed from position. Keep all three keys on every entry.",
+    "_comment": "headline is word-by-word so the stagger animation survives translation. `br` starts a new line after the word instead of a space, `em` renders it in the accent serif. Reorder, merge or split freely per language; delays are computed from position. Keep all three keys on every entry.",
     "headline": [
       { "text": "Block", "br": false, "em": false },
       { "text": "distractions", "br": true, "em": false },
@@ -16,7 +16,7 @@
     "playVideo": "Play the Welockin demo video",
     "videoLabel": "Welockin demo video",
     "closeVideo": "Close video",
-    "captionsLabel": "English (silent — on-screen text)"
+    "captionsLabel": "English (silent, on-screen text)"
   },
   "logoCloud": {
     "label": "Used by students at",
@@ -52,7 +52,7 @@
         "title": "Scheduling",
         "body": "Schedule your weekly sessions so you can focus all week."
       },
-      { "title": "Ad breaks", "body": "Short timed breaks inside a session." },
+      { "title": "Add breaks", "body": "Short timed breaks inside a session." },
       { "title": "Password lock", "body": "Lock your settings behind a password." }
     ]
   },
@@ -126,17 +126,17 @@
     "steps": [
       {
         "title": "Choose what to block",
-        "body": "Bundle the apps and sites that quietly steal your focus — social, video, news, games — into reusable blocklists you can launch in a single tap.",
+        "body": "Bundle the apps and sites that quietly steal your focus (social, video, news, games) into reusable blocklists you can launch in a single tap.",
         "shotLabel": "Pick apps to block"
       },
       {
         "title": "Set it and lock in",
-        "body": "Pick a duration, hit start, and the nuclear lock seals the session shut — no pausing, no quitting, no bargaining your way out until the timer hits zero.",
+        "body": "Pick a duration, hit start, and the nuclear lock seals the session shut. No pausing, no quitting, no bargaining your way out until the timer hits zero.",
         "shotLabel": "Set duration and lock in"
       },
       {
         "title": "Select your devices",
-        "body": "Connect your Mac, iPhone and iPad once, and every block stays in sync across all of them in real time — your distractions run out of places to hide.",
+        "body": "Connect your Mac, iPhone and iPad once, and every block stays in sync across all of them in real time. Your distractions run out of places to hide.",
         "shotLabel": "Select your devices"
       }
     ]
@@ -154,15 +154,15 @@
     "items": [
       {
         "question": "How does Welockin actually work?",
-        "answer": "Three steps: pick the apps and sites you want gone, choose how strict the lock should be, hit start. Under a minute from install to locked in — on every synced device at once."
+        "answer": "Three steps: pick the apps and sites you want gone, choose how strict the lock should be, hit start. Under a minute from install to locked in, on every synced device at once."
       },
       {
         "question": "Is it really impossible to bypass?",
-        "answer": "With a Nuclear lock: yes. It survives restarts and even uninstalling the app — nothing turns it off before the timer or date you set."
+        "answer": "With a Nuclear lock: yes. It survives restarts and even uninstalling the app. Nothing turns it off before the timer or date you set."
       },
       {
         "question": "Which apps and sites can I block?",
-        "answer": "All of them. Apps, websites and notifications — you decide what gets through and what goes quiet."
+        "answer": "All of them. Apps, websites and notifications: you decide what gets through and what goes quiet."
       },
       {
         "question": "Is it available on mobile?",

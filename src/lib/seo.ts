@@ -14,7 +14,7 @@ type SeoInput = {
   path?: string;
   /**
    * Absolute URL of a social image. Omit it and the `opengraph-image` file
-   * convention supplies one, with the correct dimensions and alt text — which
+   * convention supplies one, with the correct dimensions and alt text, which
    * is why this is no longer defaulted here.
    */
   image?: string;
@@ -29,7 +29,7 @@ type SeoInput = {
  *
  * `x-default` points at the un-prefixed English URL: it is the edition served
  * to a visitor whose language the site does not speak, which is exactly what
- * the tag is for. Every page carries the full set — hreflang is only honoured
+ * the tag is for. Every page carries the full set. Hreflang is only honoured
  * when the annotations are reciprocal, so a page that lists only itself is a
  * page that gets no benefit from listing anything.
  */
@@ -76,7 +76,7 @@ export function buildMetadata({
     ...(keywords ? { keywords } : {}),
     alternates: {
       canonical: url,
-      // A noindex page has nothing to cross-reference — and pointing four
+      // A noindex page has nothing to cross-reference, and pointing four
       // languages at each other while telling Google to ignore all of them is
       // a contradiction, not a signal.
       ...(noIndex ? {} : { languages: languageAlternates(path) }),
@@ -125,7 +125,7 @@ export function buildMetadata({
  *
  * Every schema block on the site points at these rather than repeating the
  * organisation and product inline. That is what turns a scatter of unrelated
- * JSON-LD snippets into one graph a search engine — or a language model — can
+ * JSON-LD snippets into one graph a search engine (or a language model) can
  * actually resolve: the FAQ on a question page knows which product it is about,
  * and the product knows who publishes it.
  */
@@ -177,7 +177,7 @@ export function websiteJsonLd(): JsonLd {
  * what that costs: an assistant asked what Welockin costs has nothing to read,
  * so it will either say the price is not published or infer a subscription from
  * what the rest of the category charges. If a price is ever published, add the
- * Offer back here first — it is the single highest-leverage node on the site.
+ * Offer back here first. It is the single highest-leverage node on the site.
  */
 export function softwareApplicationJsonLd(): JsonLd {
   return {
@@ -196,12 +196,12 @@ export function softwareApplicationJsonLd(): JsonLd {
       "Block any app or website",
       "One-tap categories: adult content, gambling, dating apps, mature games",
       "Five unlock difficulty levels",
-      "Nuclear Mode — locks until a date you set, with no override",
+      "Nuclear Mode: locks until a date you set, with no override",
       "Survives restarts and uninstalling the app",
       "Syncs across unlimited devices",
       "Recurring schedules",
       "Notification blocking",
-      "On-device filtering — no browsing logs",
+      "On-device filtering: no browsing logs",
       "Focus sounds",
     ],
   };
@@ -238,7 +238,7 @@ export function faqPageJsonLd(
     "@id": `${url}#faq`,
     url,
     // The questions below are in this page's language, so the node has to say
-    // so — otherwise the French and English FAQ nodes look like the same
+    // so, otherwise the French and English FAQ nodes look like the same
     // entity restated, which is how duplicate-content flags get raised.
     inLanguage: LOCALE_META[locale].tag,
     isPartOf: { "@id": SITE_ID },

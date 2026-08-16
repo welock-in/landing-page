@@ -1,4 +1,4 @@
-/* The in-app block screen. Deliberately bare — the product promise is "a simple
+/* The in-app block screen. Deliberately bare: the product promise is "a simple
    'this is locked' moment rather than a nagging wall of text". */
 .blk {
   min-height: 100vh;

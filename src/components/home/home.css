@@ -1,5 +1,5 @@
 /* --muted / --muted-tint carry the design's warm grey, darkened to clear WCAG
-   AA 4.5:1. The design shipped three greys — 8a8175, 9d9384, a89e8e — plus
+   AA 4.5:1. The design shipped three greys (8a8175, 9d9384, a89e8e), plus
    this token at #7a7164; all four failed (3.38 / 2.67 / 2.33 / 4.23 on #f5f0e8),
    and the minimum passing point of the family is ~#756d60 for every one of
    them, so they collapse into a single token. --muted (#6f6759) clears every
@@ -77,7 +77,7 @@ main{position:relative;}
 .lc{position:relative;padding:56px 0;background:var(--bg);overflow:hidden;max-width:100%;}
 .lc-label{text-align:center;font-size:16.5px;font-weight:600;color:var(--muted);margin-bottom:32px;}
 /* A real scroll container, not an animated transform: it owns its overflow,
-   so the wide track can never widen the page — and it is swipeable/draggable.
+   so the wide track can never widen the page, and it is swipeable/draggable.
    The drift is written to scrollLeft from LogoCloud.tsx. */
 .lc-marquee{position:relative;width:100%;overflow-x:auto;overflow-y:hidden;scroll-behavior:auto;overscroll-behavior-x:contain;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);}
 .lc-marquee::-webkit-scrollbar{display:none;}
@@ -135,8 +135,8 @@ section.bento-features{padding:96px 0 100px;background:var(--bg);}
 .sw[data-mode="soft"] .sw-soft,.sw[data-mode="nuclear"] .sw-nuc{color:#fff;}
 /* Nuclear mode darkens the card to #ebe5d8, so the *inactive* segment label and
    the "Extreme" badge (which is only visible in this mode) drop to 4.25:1 on the
-   composited track. Reuse #5b5448 — the colour the design already uses for the
-   nuclear-mode tag/footer — which lands at 5.36:1. */
+   composited track. Reuse #5b5448 (the colour the design already uses for the
+   nuclear-mode tag/footer), which lands at 5.36:1. */
 .sw[data-mode="nuclear"] .sw-soft,.sw[data-mode="nuclear"] .sw-badge{color:#5b5448;}
 .sw-head{display:flex;align-items:center;gap:12px;margin-bottom:4px;}
 .sw-ico{flex:none;display:flex;color:var(--muted);transition:color .3s ease;}
@@ -329,7 +329,7 @@ a.rs-who:focus-visible{outline:2.5px solid var(--red);outline-offset:3px;}
 /* ============ SECTION CTAs ============ */
 .cta-row{display:flex;justify-content:center;margin-top:52px;}
 
-/* ============ "Lock in now" CTA — padlock snaps shut on a loop ============ */
+/* ============ "Lock in now" CTA: padlock snaps shut on a loop ============ */
 .li-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:13px;height:64px;padding:0 34px;border:2px solid var(--ink);border-radius:18px;background:#f3ddd6;color:var(--ink);font-family:var(--font-figtree),"Figtree",sans-serif;font-weight:700;font-size:19.5px;letter-spacing:-0.01em;line-height:1;cursor:pointer;box-shadow:0 12px 30px rgba(200,64,47,0.14);animation:liBump 5.2s cubic-bezier(.3,1.18,.5,1) infinite;transition:background .22s ease,color .22s ease,box-shadow .22s ease,filter .12s ease;}
 .li-btn:hover{background:var(--red);color:#fffefb;box-shadow:0 18px 42px rgba(200,64,47,0.38);animation-duration:2.4s;}
 .li-btn:active{filter:brightness(0.93);}
@@ -409,7 +409,7 @@ a.home-dl-lg{font-size:19.5px;}
    the HTML and have nothing to wait for.
 
    Applied to the CONTAINER and covered by the child on load, so no JavaScript
-   is involved and nothing has to be told when loading finished — the iframe and
+   is involved and nothing has to be told when loading finished: the iframe and
    the images paint over it themselves.
 
    Deliberately NOT applied to devices-cutout (49% transparent), the phone shot
@@ -428,7 +428,7 @@ a.home-dl-lg{font-size:19.5px;}
    sweep is the only part anyone asked motion for. */
 @media(prefers-reduced-motion:reduce){.skel{animation:none;}}
 
-/* The scheduling widget is a separate document — the slowest child on the page
+/* The scheduling widget is a separate document, the slowest child on the page
    and the one whose empty state is a bare dark rectangle. */
 .bc-sched-mac .mac-screen{background-color:#efeae0;}
 .bc-sched-mac .sched-frame{position:relative;z-index:1;}

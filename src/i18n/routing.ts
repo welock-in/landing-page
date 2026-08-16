@@ -27,7 +27,7 @@ export function splitLocale(pathname: string): { locale: Locale; path: string } 
 /**
  * Builds the public URL for `path` in `locale`.
  *
- * The default locale gets no prefix, which is the whole point of the scheme —
+ * The default locale gets no prefix, which is the whole point of the scheme:
  * see `defaultLocale` in config.ts. Hash and query survive, because half the
  * site's internal links are anchors like `/#how` and `/download#macos`.
  */
@@ -60,7 +60,7 @@ function stripTrailingSlash(path: string): string {
  *
  * A deliberately small negotiator rather than `@formatjs/intl-localematcher` +
  * `negotiator`: the docs reach for those two packages, but they are ~30 kB of
- * dependency in the proxy — which runs on every request — to choose between
+ * dependency in the proxy (which runs on every request) to choose between
  * four languages. The rules that actually matter here are quality ordering and
  * matching `pt-BR` from a bare `pt`, and both fit in the loop below.
  *

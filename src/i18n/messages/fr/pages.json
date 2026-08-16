@@ -1,18 +1,18 @@
 {
   "home": {
     "meta": {
-      "title": "Welockin — Bloquez les distractions avant qu'elles ne bloquent votre avenir.",
-      "description": "Welockin bloque les applications qui volent votre attention — une fois pour toutes. Des sessions de concentration impossibles à contourner, en un clic, sur macOS, iOS, iPadOS et Windows."
+      "title": "Welockin : Bloquez les distractions avant qu'elles ne bloquent votre avenir.",
+      "description": "Welockin bloque les applications qui volent votre attention, une fois pour toutes. Des sessions de concentration impossibles à contourner, en un clic, sur macOS, iOS, iPadOS et Windows."
     }
   },
   "download": {
     "meta": {
       "title": "Télécharger Welockin pour Mac, iPhone, iPad et Windows",
-      "description": "Installez Welockin sur macOS, iPhone, iPad et Windows. Reliez autant d'appareils que vous voulez — ils se verrouillent tous ensemble. Android arrive bientôt."
+      "description": "Installez Welockin sur macOS, iPhone, iPad et Windows. Reliez autant d'appareils que vous voulez. Ils se verrouillent tous ensemble. Android arrive bientôt."
     },
     "eyebrow": "Télécharger",
     "h1": "Télécharger Welockin",
-    "lead": "Vous pouvez relier autant d'appareils que vous le souhaitez — ils se verrouillent tous en même temps. Installez l'application sur chacun d'eux et une seule session met tout en pause d'un coup.",
+    "lead": "Vous pouvez relier autant d'appareils que vous le souhaitez. Ils se verrouillent tous en même temps. Installez l'application sur chacun d'eux et une seule session met tout en pause d'un coup.",
     "sub": "Un bloqueur qui couvre votre ordinateur mais pas votre téléphone est un bloqueur avec une porte ouverte : couvrez tout avant votre premier verrou strict.",
     "pickPlatform": "Choisissez votre plateforme",
     "settingUp": "L'installation",
@@ -27,22 +27,22 @@
   },
   "protection": {
     "meta": {
-      "title": "Protection — Bloquez les sites pour adultes pour de bon",
+      "title": "Protection : Bloquez les sites pour adultes pour de bon",
       "description": "Bloquez le contenu pour adultes, les jeux d'argent, les applis de rencontre et les jeux violents sur tous vos appareils. Cinq niveaux de déverrouillage, filtrage local, toujours actif."
     }
   },
   "support": {
     "meta": {
-      "title": "Assistance — Solutions aux problèmes courants",
-      "description": "Les solutions aux problèmes que l'on rencontre vraiment : un verrou qui ne se lève pas, un mot de passe oublié, un achat introuvable — et comment joindre un humain quand rien ne marche."
+      "title": "Assistance : Solutions aux problèmes courants",
+      "description": "Les solutions aux problèmes que l'on rencontre vraiment : un verrou qui ne se lève pas, un mot de passe oublié, un achat introuvable, et comment joindre un humain quand rien ne marche."
     },
     "eyebrow": "Assistance",
     "h1": "Assistance",
-    "lead": "Les problèmes que l'on rencontre vraiment, avec la solution pour chacun — et une ligne directe vers un humain pour tout le reste."
+    "lead": "Les problèmes que l'on rencontre vraiment, avec la solution pour chacun, et une ligne directe vers un humain pour tout le reste."
   },
   "help": {
     "meta": {
-      "title": "Aide — Premiers pas, compte, achats et dépannage",
+      "title": "Aide : Premiers pas, compte, achats et dépannage",
       "description": "Tout au même endroit : installer Welockin, gérer votre compte, l'abonnement et la licence à vie, et les solutions quand quelque chose coince."
     },
     "eyebrow": "Aide",
@@ -52,11 +52,11 @@
   "contact": {
     "meta": {
       "title": "Nous contacter",
-      "description": "Contactez l'équipe Welockin — assistance, facturation, confidentialité ou presse. Envoyez le formulaire ou écrivez à hello@welock.in ; une vraie personne lit chaque message."
+      "description": "Contactez l'équipe Welockin : assistance, facturation, confidentialité ou presse. Envoyez le formulaire ou écrivez à hello@welock.in ; une vraie personne lit chaque message."
     },
     "eyebrow": "Contact",
     "h1": "Écrivez-nous",
-    "lead": "Une question, un bug, un souci de facturation ou une demande presse — envoyez-nous ça. Chaque message est lu par les étudiants qui construisent Welockin, généralement entre deux cours.",
+    "lead": "Une question, un bug, un souci de facturation ou une demande presse : envoyez-nous ça. Chaque message est lu par les étudiants qui construisent Welockin, généralement entre deux cours.",
     "otherWays": "Autres moyens de nous joindre"
   },
   "resetPassword": {
@@ -68,7 +68,7 @@
   "deleteAccount": {
     "meta": {
       "title": "Supprimer votre compte",
-      "description": "Comment supprimer définitivement votre compte Welockin et toutes les données associées — depuis l'application ou par e-mail. Ce qui est supprimé et en combien de temps."
+      "description": "Comment supprimer définitivement votre compte Welockin et toutes les données associées, depuis l'application ou par e-mail. Ce qui est supprimé et en combien de temps."
     }
   },
   "privacy": {
@@ -88,13 +88,13 @@
   "thanks": {
     "meta": {
       "title": "Paiement reçu",
-      "description": "Revenez dans Welockin — votre licence est sur votre compte."
+      "description": "Revenez dans Welockin. Votre licence est sur votre compte."
     },
     "eyebrow": "Paiement reçu",
     "title": "Tout est prêt",
     "lead": "Welockin se déverrouille tout seul en quelques secondes. Si l'application n'est pas revenue au premier plan, le bouton ci-dessous s'en charge.",
     "open": "Ouvrir Welockin",
-    "fallback": "Rien ne se passe ? Ouvrez Welockin depuis votre bureau ou le menu Démarrer — l'application vérifie votre licence à chaque démarrage. Vous pouvez fermer cet onglet."
+    "fallback": "Rien ne se passe ? Ouvrez Welockin depuis votre bureau ou le menu Démarrer. L'application vérifie votre licence à chaque démarrage. Vous pouvez fermer cet onglet."
   },
   "blocked": {
     "meta": {
@@ -113,7 +113,7 @@
     "messagePlaceholder": "Ce qui s'est passé, ce que vous attendiez, et ce que vous avez vu à la place.",
     "send": "Envoyer le message",
     "sending": "Envoi…",
-    "sent": "Message envoyé — nous vous répondrons par e-mail.",
+    "sent": "Message envoyé. Nous vous répondrons par e-mail.",
     "topics": {
       "Support": "Assistance",
       "Billing": "Facturation",

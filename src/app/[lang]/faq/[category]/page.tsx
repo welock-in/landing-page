@@ -24,7 +24,7 @@ import {
 
 type Params = { lang: string; category: string };
 
-// Only this segment's params — `lang` is supplied by the parent layout's
+// Only this segment's params: `lang` is supplied by the parent layout's
 // own generateStaticParams, which is what fans each of these out per language.
 export function generateStaticParams(): Omit<Params, "lang">[] {
   return faqCategories.map((category) => ({ category: category.slug }));
@@ -41,7 +41,7 @@ export async function generateMetadata({
   if (!findFaqCategory(slug)) return {};
 
   // The category's own framing is translated even though the 44 answers under
-  // it are not — the hub is what search results show, and a translated
+  // it are not: the hub is what search results show, and a translated
   // headline on it is worth more than a translated paragraph three clicks in.
   return metadataFor(params, (d) => {
     const translated = d.faq.categories[slug as keyof typeof d.faq.categories];
@@ -94,7 +94,7 @@ export default async function FaqCategoryPage({
             </p>
 
             {/* Question and answer both render here, so the hub stands on its
-                own for a reader who never clicks through — and every answer
+                own for a reader who never clicks through, and every answer
                 still gets its own page for the searches that are that specific. */}
             {category.items.map((entry) => (
               <section key={entry.slug}>

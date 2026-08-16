@@ -18,7 +18,7 @@ function norm(s: string) {
     .replace(/[̀-ͯ]/g, "");
 }
 
-/** Searching only kicks in from two characters — one letter matches everything. */
+/** Searching only kicks in from two characters. One letter matches everything. */
 const MIN_QUERY = 2;
 
 const TRAIL: Crumb[] = [
@@ -29,7 +29,7 @@ const TRAIL: Crumb[] = [
 /**
  * The FAQ index.
  *
- * This page is the hub: its job is to route people — and crawlers — to the
+ * This page is the hub: its job is to route people (and crawlers) to the
  * right answer, so every question here is a real link to its own page rather
  * than an accordion that opens in place. The full answers live one click away
  * on the category hubs and the question pages, which keeps this page from
@@ -71,7 +71,7 @@ export function FaqPage({ copy }: { copy: FaqHubCopy }) {
 
           <h1 className="fq-title">{copy.title}</h1>
           <p className="fq-sub">
-            Everything about locking in — and why there&rsquo;s no sneaking back
+            Everything about locking in, and why there&rsquo;s no sneaking back
             out. {totalCount} questions, each with its own page.
           </p>
 

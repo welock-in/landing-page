@@ -122,7 +122,7 @@ export default async function HelpPage({ params }: LangParams) {
             <h3 className="cp-h3">Verifying your email</h3>
             <p className="cp-p">
               When you create an account, we email a short verification code to
-              the address you signed up with — enter it in the app to confirm
+              the address you signed up with. Enter it in the app to confirm
               the address is yours. If it hasn&rsquo;t arrived after a couple
               of minutes, check your spam folder, then request a fresh code
               from the same screen in the app; codes expire, so always use the
@@ -133,14 +133,14 @@ export default async function HelpPage({ params }: LangParams) {
             <ul className="cp-list">
               <li>
                 <strong>The free trial.</strong> Every subscription starts
-                with a free trial of the full product — three days on the
+                with a free trial of the full product: three days on the
                 monthly plan, seven on the yearly. Cancel before it ends and
                 you pay nothing.
               </li>
               <li>
                 <strong>Subscription or lifetime.</strong> Welockin is sold as
                 a monthly or yearly subscription that renews automatically
-                until you cancel, or as a one-time lifetime licence — one
+                until you cancel, or as a one-time lifetime licence: one
                 payment, nothing to renew. Either way it covers all your
                 devices, updates included.
               </li>
@@ -148,12 +148,12 @@ export default async function HelpPage({ params }: LangParams) {
                 <strong>Cancelling a subscription.</strong> Bought on Windows
                 or macOS? Cancel from the app&rsquo;s Settings. Subscribed on
                 iPhone or iPad? Use your Apple subscription settings.
-                Cancelling stops the renewal — you keep access until the end
+                Cancelling stops the renewal. You keep access until the end
                 of the period you paid for.
               </li>
               <li>
                 <strong>Refunds.</strong> Handled through the store you bought
-                from, and a full refund revokes the licence — the details are
+                from, and a full refund revokes the licence. The details are
                 in the <Link href="/terms">Terms of Service</Link>.
               </li>
               <li>
@@ -179,7 +179,7 @@ export default async function HelpPage({ params }: LangParams) {
                   A site or app isn&rsquo;t being blocked
                 </span>
                 <span className="cp-card-meta">
-                  Usually an unsynced device — here&rsquo;s how to check
+                  Usually an unsynced device: here&rsquo;s how to check
                 </span>
               </Link>
               <Link
@@ -205,7 +205,7 @@ export default async function HelpPage({ params }: LangParams) {
               <p className="cp-cta-title">Still stuck? Contact us</p>
               <p className="cp-cta-sub">
                 Tell us what&rsquo;s happening and a real person will pick it
-                up — usually between two lectures.
+                up, usually between two lectures.
               </p>
               <Link href="/contact" className={styles.ctaBtn}>
                 Contact us

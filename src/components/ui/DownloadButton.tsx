@@ -22,12 +22,12 @@ type DownloadButtonProps = {
    * Where the CTA goes. Defaults to `/download`.
    *
    * This used to render a `<button>` with no handler, so the site's primary
-   * call to action led nowhere at all — no conversion, and no internal link
+   * call to action led nowhere at all: no conversion, and no internal link
    * from any page to the one page that matters most.
    */
   href?: string;
   /**
-   * Fixed label, as a key into `common.cta` — e.g. "lockInForLife". Omit it to
+   * Fixed label, as a key into `common.cta`, e.g. "lockInForLife". Omit it to
    * get the download CTA, which names the visitor's own platform instead.
    *
    * A key rather than a string because most callers are server components,
@@ -114,7 +114,7 @@ export function DownloadButton({
   /**
    * The hover layer is a decorative second copy of the label that slides in
    * from the left. It looks identical, but it doubled every wording in the
-   * document — and for the adaptive CTA that meant six "Download for …"
+   * document, and for the adaptive CTA that meant six "Download for …"
    * strings per button, before any of the page's actual content.
    *
    * For the adaptive CTA the wording is therefore drawn from CSS `content`
@@ -137,7 +137,7 @@ export function DownloadButton({
 
   /**
    * The hover layer's wording comes from CSS `content`, which cannot read a
-   * React prop — so the three translations are handed to the stylesheet as
+   * React prop, so the three translations are handed to the stylesheet as
    * custom properties instead. `JSON.stringify` is what makes them valid CSS
    * strings: `content` needs the quotes, and an apostrophe in "Télécharger
    * pour l'iPhone" would otherwise end the value early.

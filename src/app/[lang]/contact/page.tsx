@@ -44,7 +44,7 @@ export default async function ContactPage({ params }: LangParams) {
             <p className="cp-sub">
               Before you write: many questions are already answered in the{" "}
               <Link href="/help">help hub</Link> and the{" "}
-              <Link href="/faq">FAQ</Link> — checking there first is often the
+              <Link href="/faq">FAQ</Link>. Checking there first is often the
               fastest fix.
             </p>
 
@@ -56,8 +56,7 @@ export default async function ContactPage({ params }: LangParams) {
                 Email us directly at{" "}
                 <a href={`mailto:${siteConfig.contactEmail}`}>
                   {siteConfig.contactEmail}
-                </a>{" "}
-                — the form and the address land in the same inbox.
+                </a>. The form and the address land in the same inbox.
               </li>
               <li>
                 Something not working? The <Link href="/support">support

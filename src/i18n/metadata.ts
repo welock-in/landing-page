@@ -20,7 +20,7 @@ type PageSeo = {
 /**
  * `generateMetadata` for a localised page, in one call.
  *
- * Every page needs the same four things — reject an unknown `lang`, load the
+ * Every page needs the same four things: reject an unknown `lang`, load the
  * catalog, pull its own title and description out of it, and stamp the locale
  * so the canonical and hreflang set come out right. Doing that by hand in
  * fourteen files is fourteen chances to forget the locale and quietly

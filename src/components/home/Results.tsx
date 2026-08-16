@@ -9,7 +9,7 @@ import { LockInLink } from "./LockInLink";
 import { reducedMotion } from "./motion";
 
 /**
- * "Real results from real students" — stat counters animate the first time
+ * "Real results from real students": stat counters animate the first time
  * the grid is 30% visible: 1.1s exponential ease-out, 80ms stagger per card,
  * `data-format="time"` renders h:mm. Written to the DOM imperatively, as in
  * the design, so the tick never re-renders React. Reduced motion jumps

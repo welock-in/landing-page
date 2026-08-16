@@ -120,7 +120,7 @@ export function StrictnessWidget({ copy }: { copy: HomeCopy["strictnessWidget"] 
       cancel();
       if (swapT.current) clearTimeout(swapT.current);
     };
-    // The choreography helpers only touch refs and state setters — stable.
+    // The choreography helpers only touch refs and state setters, stable.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
