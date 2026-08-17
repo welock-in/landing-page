@@ -83,7 +83,12 @@
 /* ---- adaptive download label ----
    All three wordings are in the markup; `data-os` on <html> (set inline before
    paint) picks one. macOS is the default, so a visitor on Android, Linux or
-   with JS off still gets a sensible CTA. */
+   with JS off still gets a sensible CTA.
+
+   Those visitors are stamped "other" rather than "macos", which changes nothing
+   here (they fall through to the same default) but does stop the button from
+   handing them a Mac build: see the note in lib/platform.ts. Only the three
+   named below are a real platform, so only those three get their own rule. */
 .forIos,
 .forWin,
 .glyphWindows {

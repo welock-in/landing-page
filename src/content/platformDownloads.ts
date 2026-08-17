@@ -5,7 +5,14 @@
  * inventing a URL would ship a broken primary conversion path that looks like it
  * works. Filling one in turns that card into a working button with no other
  * change. Windows is live; the rest are still waiting on a real URL.
+ *
+ * This file is also what the site-wide download CTA fires at, through
+ * `directDownloadHref` at the bottom. That is deliberate: there is one list of
+ * download URLs, not two, so a card on `/download` and the button in the navbar
+ * cannot end up pointing at different builds.
  */
+
+import type { DownloadOs } from "@/lib/platform";
 
 export type PlatformDownload = {
   slug: string;
@@ -15,8 +22,12 @@ export type PlatformDownload = {
   /** The real download or store URL, once there is one. */
   href: string | null;
   status: "available" | "coming-soon" | "not-planned";
-  /** Matches the `data-os` value the inline detection script writes. */
-  detects?: "macos" | "ios" | "windows";
+  /**
+   * The `data-os` value the inline detection script writes for this platform.
+   * Typed against that script's own union rather than restated, so a card can
+   * never claim to match a platform the detection cannot produce.
+   */
+  detects?: DownloadOs;
   note: string;
 };
 
@@ -80,3 +91,28 @@ export const platformDownloads: PlatformDownload[] = [
     note: "No Linux build exists and none is on the roadmap today.",
   },
 ];
+
+/**
+ * Where a visitor on `os` should be sent when they click the download CTA
+ * without going through `/download` first, or null when there is nowhere yet.
+ *
+ * The whole point is that this reads the table above and nothing else. Fill in
+ * an `href` and the CTA starts firing at it on the next deploy; blank it out
+ * and the CTA falls back to `/download` on its own. Nobody has to remember that
+ * a second copy of the URL exists somewhere in the components, because it does
+ * not.
+ *
+ * It also stays out of the argument about what the URL does. The two live ones
+ * are the release endpoints, which answer with whichever build is currently
+ * published, so the browser gets a file and installs; a store URL would answer
+ * with a page, and the same click would navigate there instead. Which of the
+ * two happens is decided by what sits at the end of the link, which is exactly
+ * where the release and publishing setup already decides everything else.
+ *
+ * `null` in, `null` out, so a caller can hand over an undetected platform
+ * without checking first.
+ */
+export function directDownloadHref(os: DownloadOs | null): string | null {
+  if (os === null) return null;
+  return platformDownloads.find((platform) => platform.detects === os)?.href ?? null;
+}

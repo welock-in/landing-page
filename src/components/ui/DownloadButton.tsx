@@ -8,13 +8,23 @@ import {
   LockIcon,
   WindowsIcon,
 } from "@/components/ui/icons";
+import { directDownloadHref } from "@/content/platformDownloads";
 import {
   useCommon,
   useLocalePath,
   type CommonDictionary,
 } from "@/i18n/LocaleContext";
+import { useDetectedOs } from "@/lib/useDetectedOs";
 import { cn } from "@/lib/utils";
 import styles from "./DownloadButton.module.css";
+
+/**
+ * The one `href` that means "this button is the download CTA".
+ *
+ * Callers that pass something else are pointing somewhere specific and are left
+ * alone; only the default is rerouted to the file itself.
+ */
+const DOWNLOAD_PAGE = "/download";
 
 type DownloadButtonProps = {
   className?: string;
@@ -24,6 +34,9 @@ type DownloadButtonProps = {
    * This used to render a `<button>` with no handler, so the site's primary
    * call to action led nowhere at all: no conversion, and no internal link
    * from any page to the one page that matters most.
+   *
+   * Left at the default it is now a starting point rather than a destination:
+   * see the note on the component about going straight to the build.
    */
   href?: string;
   /**
@@ -57,10 +70,27 @@ type DownloadButtonProps = {
  * <html>, so the page stays static and nothing flickers after hydration.
  * macOS is the default, which is also what visitors on Android, Linux or a
  * browser without JS see.
+ *
+ * The button says "Download for Windows", so it downloads for Windows. Once
+ * the page is interactive it points at that platform's own URL, taken from the
+ * same table `/download` renders its cards from, and the visitor gets the
+ * installer (or the store, for whatever ends up there) without a stop on the
+ * way. Three things keep that honest:
+ *
+ * - The URL is never written here. `directDownloadHref` reads the table, and
+ *   the two live entries are the release endpoints that already answer with
+ *   whichever build is published, so shipping a new version stays a matter of
+ *   publishing it. Nothing on the site names a version or a file.
+ * - The platform comes from the attribute the label is chosen from, so the
+ *   wording and the destination cannot disagree.
+ * - Anything unresolved falls back to `/download`: no JS, a platform with no
+ *   URL yet (iPhone today), a platform with no build at all (Android). The
+ *   server renders that fallback, so the HTML a crawler reads still links to
+ *   the page, and so does a visitor whose browser never ran the script.
  */
 export function DownloadButton({
   className,
-  href = "/download",
+  href = DOWNLOAD_PAGE,
   label,
   size = "default",
   icon = "apple",
@@ -68,6 +98,7 @@ export function DownloadButton({
 }: DownloadButtonProps) {
   const { downloadButton, cta } = useCommon();
   const withLocale = useLocalePath();
+  const detectedOs = useDetectedOs();
   const appleSize = size === "compact" ? 18 : 24;
   const labelText =
     label === undefined ? undefined : typeof label === "string" ? cta[label] : label.text;
@@ -150,9 +181,26 @@ export function DownloadButton({
         "--dl-win": JSON.stringify(downloadButton.forWindows),
       } as React.CSSProperties);
 
+  /**
+   * The build's own URL where there is one, the download page otherwise.
+   *
+   * Null on the server and through hydration, so the first client render is the
+   * one the server sent and only the `href` attribute is patched afterwards.
+   * Swapping the element for a plain `<a>` would do the same job, at the cost
+   * of throwing away the node React had just hydrated.
+   *
+   * `<Link>` handles both sides of the swap. It is only for same-origin routes,
+   * and it knows it: an absolute URL somewhere else is left to the browser,
+   * unprefetched and uncaptured, which is precisely the native click that lets
+   * the file download without leaving the page. The page stays as it is, and
+   * on a store URL the browser navigates instead. Whichever it does is decided
+   * by what answers at the other end, not here.
+   */
+  const direct = href === DOWNLOAD_PAGE ? directDownloadHref(detectedOs) : null;
+
   return (
     <Link
-      href={withLocale(href)}
+      href={direct ?? withLocale(href)}
       style={labelVars}
       className={cn(
         styles.btn,
