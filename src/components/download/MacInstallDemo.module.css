@@ -1,0 +1,154 @@
+/*
+ * The install film's panel.
+ *
+ * Its own module rather than the `.hero-modal` rules it resembles: those live
+ * in home.css, which is the landing page's stylesheet and is not loaded here.
+ * Reusing them would mean pulling the whole home page's CSS onto a page that
+ * renders none of it.
+ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(20, 17, 14, 0.62);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: demoFade 0.22s ease;
+}
+
+.panel {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+  padding: 28px 28px 26px;
+  border-radius: 22px;
+  background: var(--card);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.42);
+  animation: demoPop 0.32s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.title {
+  /* Clears the close button, which sits in the same top-right corner. */
+  margin: 0 40px 6px 0;
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.step {
+  margin: 0 0 18px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/*
+ * The rounded frame the film sits in.
+ *
+ * The radius is set on the <video> as well as on this wrapper. Safari paints
+ * video into a layer of its own and has a long history of ignoring an
+ * ancestor's `overflow: hidden` while it does, so corners rounded only on the
+ * wrapper come back square the moment playback starts. `isolation` gives the
+ * wrapper its own stacking context, which is what makes the clip hold.
+ *
+ * `aspect-ratio` matches the file exactly (960x760), so the box is the right
+ * shape before a single byte of video has arrived and nothing reflows once it
+ * does.
+ */
+.frame {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  aspect-ratio: 960 / 760;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  /* The film's own corner cream, sampled from the first frame. There is no
+     poster file: at 78 kB the video is smaller than any poster worth shipping,
+     and this covers the one moment before the first frame decodes without
+     showing the black a <video> otherwise defaults to. */
+  background: #ebe4d5;
+}
+
+.video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--muted);
+  background: rgba(26, 23, 20, 0.06);
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.close:hover {
+  background: var(--rose);
+  color: var(--red);
+}
+
+@keyframes demoFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes demoPop {
+  from {
+    transform: scale(0.94);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* The panel is a destination, not an effect. Someone who has asked for less
+   motion still gets it, just without the scale-up. */
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .panel {
+    animation: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .overlay {
+    padding: 14px;
+  }
+
+  .panel {
+    padding: 22px 20px 20px;
+    border-radius: 18px;
+  }
+
+  .title {
+    font-size: 19px;
+  }
+}

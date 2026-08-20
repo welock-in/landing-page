@@ -5,6 +5,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { metadataFor, type LangParams } from "@/i18n/metadata";
 
 import "@/components/content/content.css";
+import { MacInstallAction } from "@/components/download/MacInstallDemo";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { Breadcrumbs, type Crumb } from "@/components/ui/Breadcrumbs";
@@ -85,9 +86,25 @@ export default async function DownloadPage({ params }: LangParams) {
                   <p className={styles.note}>{platform.note}</p>
 
                   {platform.href ? (
-                    <a className={styles.action} href={platform.href}>
-                      Download for {platform.name}
-                    </a>
+                    /* macOS is the only platform with a film of its own. The
+                       .dmg it hands over opens on an installer window that sits
+                       there waiting for a drag, and nothing on this page says
+                       so, so the card explains it at the moment the file lands
+                       rather than leaving the visitor in front of a window they
+                       have not seen before. The download is not intercepted to
+                       do it: see the note on the component. */
+                    platform.slug === "macos" ? (
+                      <MacInstallAction
+                        className={styles.action}
+                        href={platform.href}
+                        label={`Download for ${platform.name}`}
+                        copy={t.installDemo}
+                      />
+                    ) : (
+                      <a className={styles.action} href={platform.href}>
+                        Download for {platform.name}
+                      </a>
+                    )
                   ) : (
                     <span className={styles.actionMuted}>
                       {platform.status === "available"

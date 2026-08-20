@@ -24,7 +24,13 @@
       "notPlanned": "Not planned",
       "linkSoon": "Download link coming shortly"
     },
-    "downloadFor": "Download for {platform}"
+    "downloadFor": "Download for {platform}",
+    "installDemo": {
+      "title": "Installing on macOS",
+      "step": "Open the .dmg you just downloaded, then drag Welockin into your Applications folder.",
+      "close": "Close",
+      "captionsLabel": "English (silent, on-screen text)"
+    }
   },
   "protection": {
     "meta": {

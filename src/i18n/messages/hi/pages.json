@@ -23,7 +23,13 @@
       "notPlanned": "योजना में नहीं",
       "linkSoon": "डाउनलोड लिंक जल्द आ रहा है"
     },
-    "downloadFor": "{platform} के लिए डाउनलोड करें"
+    "downloadFor": "{platform} के लिए डाउनलोड करें",
+    "installDemo": {
+      "title": "macOS पर इंस्टॉल करना",
+      "step": "अभी डाउनलोड की गई .dmg फ़ाइल खोलें और Welockin को अपने Applications फ़ोल्डर में खींचें।",
+      "close": "बंद करें",
+      "captionsLabel": "हिन्दी (बिना आवाज़, स्क्रीन पर टेक्स्ट)"
+    }
   },
   "protection": {
     "meta": {

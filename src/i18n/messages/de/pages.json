@@ -23,7 +23,13 @@
       "notPlanned": "Nicht geplant",
       "linkSoon": "Download-Link folgt in Kürze"
     },
-    "downloadFor": "Für {platform} herunterladen"
+    "downloadFor": "Für {platform} herunterladen",
+    "installDemo": {
+      "title": "Die Installation auf macOS",
+      "step": "Öffne die gerade geladene .dmg und zieh Welockin in deinen Ordner „Programme“.",
+      "close": "Schließen",
+      "captionsLabel": "Deutsch (ohne Ton, Text im Bild)"
+    }
   },
   "protection": {
     "meta": {

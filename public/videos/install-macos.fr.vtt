@@ -1,0 +1,21 @@
+WEBVTT
+
+NOTE
+install-macos.mp4 carries no audio stream at all (one h264 video stream, no
+audio), so there is no speech or sound to caption. Its only words are burned
+into the picture and stay there for the whole four seconds, so repeating them
+here would print the same sentence twice over the frame. These cues describe
+the gesture instead, which is the part a still frame does not tell you, and the
+track is offered in the captions menu rather than forced on.
+
+silent
+00:00:00.000 --> 00:00:01.500
+(aucun son, cette démo est muette)
+
+drag
+00:00:01.500 --> 00:00:03.400
+Faites glisser l'icône Welockin sur le dossier Applications.
+
+done
+00:00:03.400 --> 00:00:04.200
+Voilà. Welockin est installé.
