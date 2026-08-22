@@ -86,5 +86,17 @@
   "breadcrumbs": {
     "home": "Inicio",
     "label": "Ruta de navegación"
+  },
+  "installDemo": {
+    "close": "Cerrar",
+    "captionsLabel": "Español (sin sonido, texto en pantalla)",
+    "macos": {
+      "title": "La instalación en macOS",
+      "step": "Abre el .dmg que acabas de descargar y arrastra Welockin a tu carpeta Aplicaciones."
+    },
+    "windows": {
+      "title": "La instalación en Windows",
+      "step": "Ejecuta el .exe que acabas de descargar: elige More info y luego Run anyway en el aviso de Windows, y haz clic en Sí cuando Windows pida permiso para hacer cambios."
+    }
   }
 }

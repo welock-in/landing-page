@@ -1,0 +1,40 @@
+WEBVTT
+
+NOTE
+install-windows.mp4 carries no audio stream at all (one video stream, no
+audio), so there is no speech or sound to caption. Its instructions are burned
+into the picture in English for the film's whole length. These cues describe
+each click in the reader's language, and the track is offered in the captions
+menu rather than forced on. The clip is silent, so the first cue says so.
+
+silent
+00:00:00.000 --> 00:00:02.600
+(sin sonido, esta demo es muda)
+
+moreinfo
+00:00:02.600 --> 00:00:04.250
+Haz clic en "More info" en el aviso de Windows.
+
+runanyway
+00:00:04.250 --> 00:00:04.950
+Después haz clic en "Run anyway".
+
+uac
+00:00:04.950 --> 00:00:07.350
+Windows pide permiso: haz clic en Sí para permitir la instalación.
+
+next
+00:00:07.350 --> 00:00:10.300
+Haz clic en Next en el instalador. Los valores por defecto están bien.
+
+blocker
+00:00:10.300 --> 00:00:12.150
+WeLockIn configura su bloqueador de sitios.
+
+finish
+00:00:12.150 --> 00:00:15.250
+Deja las dos casillas marcadas y haz clic en Finish.
+
+done
+00:00:15.300 --> 00:00:17.850
+WeLockIn se abre. Listo.

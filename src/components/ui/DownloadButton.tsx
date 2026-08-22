@@ -1,7 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { useCallback, useState } from "react";
 
+import { InstallPanel } from "@/components/download/InstallDemo";
+import { isInstallPlatform } from "@/components/download/installPlatforms";
 import {
   AppleIcon,
   ArrowRightIcon,
@@ -99,6 +102,8 @@ export function DownloadButton({
   const { downloadButton, cta } = useCommon();
   const withLocale = useLocalePath();
   const detectedOs = useDetectedOs();
+  const [demoOpen, setDemoOpen] = useState(false);
+  const closeDemo = useCallback(() => setDemoOpen(false), []);
   const appleSize = size === "compact" ? 18 : 24;
   const labelText =
     label === undefined ? undefined : typeof label === "string" ? cta[label] : label.text;
@@ -198,23 +203,61 @@ export function DownloadButton({
    */
   const direct = href === DOWNLOAD_PAGE ? directDownloadHref(detectedOs) : null;
 
+  /**
+   * The platform whose install film should open alongside the click, or null
+   * when the click is not handing over a build.
+   *
+   * The `/download` cards already open the film on the click that starts the
+   * download; this button is the same click made from anywhere else on the
+   * site, so it gets the same film. The gate is `direct`: only a click that
+   * goes straight at a release endpoint has a file landing that needs
+   * explaining. A click routed to `/download` reaches the cards, which show
+   * the film themselves, and a platform without a film of its own
+   * (`isInstallPlatform`) has nothing to open.
+   */
+  const demoPlatform =
+    direct !== null && detectedOs !== null && isInstallPlatform(detectedOs)
+      ? detectedOs
+      : null;
+
   return (
-    <Link
-      href={direct ?? withLocale(href)}
-      style={labelVars}
-      className={cn(
-        styles.btn,
-        size === "compact" && styles.compact,
-        size === "lg" && styles.lg,
-        tone === "onDark" && styles.onDark,
-        className,
+    <>
+      <Link
+        href={direct ?? withLocale(href)}
+        style={labelVars}
+        onClick={
+          demoPlatform
+            ? (e) => {
+                /* Same reading of the modifiers as the cards: nothing is
+                   prevented, so a cmd-click, middle-click or right-click means
+                   "not here, not now" and must not put a modal over the page. */
+                const plain =
+                  e.button === 0 &&
+                  !e.metaKey &&
+                  !e.ctrlKey &&
+                  !e.shiftKey &&
+                  !e.altKey;
+                if (plain) setDemoOpen(true);
+              }
+            : undefined
+        }
+        className={cn(
+          styles.btn,
+          size === "compact" && styles.compact,
+          size === "lg" && styles.lg,
+          tone === "onDark" && styles.onDark,
+          className,
+        )}
+      >
+        <span className={styles.main}>{content}</span>
+        <span className={styles.hover} aria-hidden="true">
+          {hoverContent}
+          <ArrowRightIcon width={16} height={16} strokeWidth={2.4} />
+        </span>
+      </Link>
+      {demoOpen && demoPlatform && (
+        <InstallPanel platform={demoPlatform} onClose={closeDemo} />
       )}
-    >
-      <span className={styles.main}>{content}</span>
-      <span className={styles.hover} aria-hidden="true">
-        {hoverContent}
-        <ArrowRightIcon width={16} height={16} strokeWidth={2.4} />
-      </span>
-    </Link>
+    </>
   );
 }

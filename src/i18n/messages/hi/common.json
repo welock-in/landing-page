@@ -86,5 +86,17 @@
   "breadcrumbs": {
     "home": "होम",
     "label": "ब्रेडक्रम्ब"
+  },
+  "installDemo": {
+    "close": "बंद करें",
+    "captionsLabel": "हिन्दी (बिना आवाज़, स्क्रीन पर टेक्स्ट)",
+    "macos": {
+      "title": "macOS पर इंस्टॉल करना",
+      "step": "अभी डाउनलोड की गई .dmg फ़ाइल खोलें और Welockin को अपने Applications फ़ोल्डर में खींचें।"
+    },
+    "windows": {
+      "title": "Windows पर इंस्टॉल करना",
+      "step": "अभी डाउनलोड की गई .exe फ़ाइल चलाएँ: Windows की चेतावनी में More info और फिर Run anyway चुनें, और जब Windows बदलाव करने की अनुमति मांगे तो Yes पर क्लिक करें।"
+    }
   }
 }

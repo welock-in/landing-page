@@ -23,13 +23,7 @@
       "notPlanned": "No previsto",
       "linkSoon": "El enlace de descarga llega en breve"
     },
-    "downloadFor": "Descargar para {platform}",
-    "installDemo": {
-      "title": "La instalación en macOS",
-      "step": "Abre el .dmg que acabas de descargar y arrastra Welockin a tu carpeta Aplicaciones.",
-      "close": "Cerrar",
-      "captionsLabel": "Español (sin sonido, texto en pantalla)"
-    }
+    "downloadFor": "Descargar para {platform}"
   },
   "protection": {
     "meta": {

@@ -86,5 +86,17 @@
   "breadcrumbs": {
     "home": "Startseite",
     "label": "Brotkrumennavigation"
+  },
+  "installDemo": {
+    "close": "Schließen",
+    "captionsLabel": "Deutsch (ohne Ton, Text im Bild)",
+    "macos": {
+      "title": "Die Installation auf macOS",
+      "step": "Öffne die gerade geladene .dmg und zieh Welockin in deinen Ordner „Programme“."
+    },
+    "windows": {
+      "title": "Die Installation auf Windows",
+      "step": "Starte die gerade geladene .exe: Wähle in der Windows-Warnung „More info“ und dann „Run anyway“, und klick auf Ja, wenn Windows um Erlaubnis für Änderungen fragt."
+    }
   }
 }

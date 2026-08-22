@@ -86,5 +86,17 @@
   "breadcrumbs": {
     "home": "Home",
     "label": "Breadcrumb"
+  },
+  "installDemo": {
+    "close": "Close",
+    "captionsLabel": "English (silent, on-screen text)",
+    "macos": {
+      "title": "Installing on macOS",
+      "step": "Open the .dmg you just downloaded, then drag Welockin into your Applications folder."
+    },
+    "windows": {
+      "title": "Installing on Windows",
+      "step": "Run the .exe you just downloaded: choose More info, then Run anyway on the Windows warning, and click Yes when Windows asks to allow changes."
+    }
   }
 }

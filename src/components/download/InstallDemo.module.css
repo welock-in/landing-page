@@ -59,22 +59,30 @@
  * wrapper come back square the moment playback starts. `isolation` gives the
  * wrapper its own stacking context, which is what makes the clip hold.
  *
- * `aspect-ratio` matches the file exactly (960x760), so the box is the right
- * shape before a single byte of video has arrived and nothing reflows once it
- * does.
+ * `aspect-ratio` matches each file exactly (960x760 for the macOS film,
+ * square for the Windows one), so the box is the right shape before a single
+ * byte of video has arrived and nothing reflows once it does. The background
+ * is each film's own corner colour, sampled from its first frame. There is no
+ * poster file: at these sizes the video is smaller than any poster worth
+ * shipping, and the colour covers the one moment before the first frame
+ * decodes without showing the black a <video> otherwise defaults to.
  */
 .frame {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  aspect-ratio: 960 / 760;
   border: 1px solid var(--border);
   border-radius: 18px;
-  /* The film's own corner cream, sampled from the first frame. There is no
-     poster file: at 78 kB the video is smaller than any poster worth shipping,
-     and this covers the one moment before the first frame decodes without
-     showing the black a <video> otherwise defaults to. */
+}
+
+.frame[data-platform="macos"] {
+  aspect-ratio: 960 / 760;
   background: #ebe4d5;
+}
+
+.frame[data-platform="windows"] {
+  aspect-ratio: 1 / 1;
+  background: #0e0e10;
 }
 
 .video {

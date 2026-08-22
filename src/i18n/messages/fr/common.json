@@ -86,5 +86,17 @@
   "breadcrumbs": {
     "home": "Accueil",
     "label": "Fil d'Ariane"
+  },
+  "installDemo": {
+    "close": "Fermer",
+    "captionsLabel": "Français (muet, texte à l'écran)",
+    "macos": {
+      "title": "L'installation sur macOS",
+      "step": "Ouvrez le .dmg que vous venez de télécharger, puis faites glisser Welockin dans votre dossier Applications."
+    },
+    "windows": {
+      "title": "L'installation sur Windows",
+      "step": "Lancez le .exe que vous venez de télécharger : choisissez More info puis Run anyway dans l'alerte Windows, et cliquez sur Oui quand Windows demande l'autorisation de modifier votre appareil."
+    }
   }
 }
