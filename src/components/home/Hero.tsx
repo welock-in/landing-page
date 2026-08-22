@@ -48,6 +48,15 @@ const readSessionsOnServer = () => SESSIONS_SEED;
 /* Nothing external ever changes this, so the subscription is a no-op. */
 const subscribeNever = () => () => {};
 
+/* Two cuts of the same 34.2 s film. The ambient thumbnail autoplays muted
+   behind a poster, so it stays on the silent original and never pays to
+   download an audio track it is forbidden from playing. The modal is the only
+   place the narration is wanted, so it is the only place the heavier narrated
+   file is fetched. Built by `scripts/build-vo.sh` from the ElevenLabs read;
+   the script and the beat sheet it is timed to are in VOICEOVER.md. */
+const FILM_SILENT = "/videos/welock-draft.mp4";
+const FILM_NARRATED = "/videos/welock-draft-vo.mp4";
+
 const MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 const subscribeMotion = (onChange: () => void) => {
   const mq = window.matchMedia(MOTION_QUERY);
@@ -72,6 +81,13 @@ export function Hero({ copy }: { copy: HomeCopy["hero"] }) {
     motionAllowedOnServer,
   );
   const ambientRef = useRef<HTMLVideoElement>(null);
+  const modalRef = useRef<HTMLVideoElement>(null);
+  /* `welock-draft-vo.mp4` is a build artefact: it only exists once someone has
+     run scripts/build-vo.sh over an ElevenLabs read. Rather than let a missing
+     file leave a broken player in the modal, the first load error drops back to
+     the silent cut, which is always in the repo. A half-finished voice-over
+     pass therefore costs the visitor nothing. */
+  const [narrated, setNarrated] = useState(true);
 
   const openVideo = () => {
     const amb = ambientRef.current;
@@ -94,6 +110,28 @@ export function Hero({ copy }: { copy: HomeCopy["hero"] }) {
     }
     setVideoOpen(false);
   }, []);
+
+  /* `autoPlay` on its own is not enough now that the modal cut has sound:
+     browsers grant unmuted playback off a user gesture, and some honour it only
+     for an explicit play() made while that activation is still live. Clicking
+     the thumbnail is a discrete event, so React commits this subtree inside the
+     click's own task and the call below lands within the gesture. If it is
+     refused regardless, `controls` is right there. */
+  useEffect(() => {
+    if (!videoOpen) return;
+    const v = modalRef.current;
+    if (!v) return;
+    /* The fallback cut has no audio stream at all, so muting it costs nothing
+       and buys back its autoplay: the remount that follows a load error happens
+       outside the opening click, and no browser will start unmuted media there.
+       Set on the element rather than as a prop, because React has never
+       reliably reflected `muted` into the DOM. The narrated cut stays unmuted —
+       that is the whole point of it. */
+    v.muted = !narrated;
+    try {
+      void v.play()?.catch(() => {});
+    } catch {}
+  }, [videoOpen, narrated]);
 
   /* Escape closes the modal; the body scroll lock is released even if the
      page unmounts while the modal is open. */
@@ -245,17 +283,26 @@ export function Hero({ copy }: { copy: HomeCopy["hero"] }) {
           </button>
           <div className="hero-modalInner" onClick={(e) => e.stopPropagation()}>
             <video
+              ref={modalRef}
+              /* Remounted on fallback rather than re-`src`ed, so the element
+                 starts a clean load and `autoPlay` gets a second chance at the
+                 replacement source. */
+              key={narrated ? "narrated" : "silent"}
               className="hero-modalVideo"
-              src="/videos/welock-draft.mp4"
+              src={narrated ? FILM_NARRATED : FILM_SILENT}
               poster="/images/app-dashboard.jpeg"
               controls
               autoPlay
-              loop
               playsInline
+              /* Deliberately not `loop`, unlike the ambient thumbnail: this cut
+                 is narrated, and restarting the read over a viewer who is still
+                 watching the end card is worse than stopping. `controls` gives
+                 them the replay. */
+              onError={() => setNarrated(false)}
             >
-              {/* Offered in the native captions menu, not forced on: the film is
-                  silent and its cues transcribe title cards that are already
-                  burned into the picture. */}
+              {/* Offered in the native captions menu, not forced on: hearing
+                  visitors already have the burned-in title cards, and the cues
+                  would print a second line of text over them. */}
               <track
                 kind="captions"
                 srcLang="en"

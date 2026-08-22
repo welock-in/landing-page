@@ -1,40 +1,68 @@
 WEBVTT
 
 NOTE
-welock-draft.mp4 carries no audio stream at all (one h264 video stream, no
-audio), so there is no speech or sound to caption. What the film does have is a
-sequence of burned-in title cards. These cues transcribe those cards, timed to
-the frames they appear on, with a leading cue that tells a viewer who switched
-captions on that they are not missing any narration.
+Captions for the narration on welock-draft-vo.mp4 (the modal cut). They are not
+offered as `default`: the film's title cards are burned into the picture, so
+forcing these on would print a second line of text over them.
 
-silent
-00:00:00.000 --> 00:00:00.800
-(no audio, this demo is silent)
+The cue times are the script's target timeline, not a transcript of one export
+-- scripts/build-vo.sh pins the read to that same timeline and reports any line
+that lands more than 0.3s off it. If a line is retimed there, retime it here.
+Source of truth for both: VOICEOVER.md.
 
-card-1
-00:00:00.800 --> 00:00:03.000
-Shouldn't you be working?
+The ambient thumbnail in the hero points at this file too, but it is muted and
+aria-hidden, so these cues are never rendered there.
 
-card-2
-00:00:05.500 --> 00:00:07.000
-Select your time.
+line-1
+00:00:00.400 --> 00:00:03.100
+Need to work? Too many distractions.
 
-card-3
-00:00:07.000 --> 00:00:09.000
-Choose what to block.
+line-2
+00:00:03.300 --> 00:00:05.400
+That's what Welockin is for.
 
-card-4
-00:00:09.000 --> 00:00:11.000
-Lock it in.
+line-3
+00:00:05.600 --> 00:00:07.700
+Set how long you need.
 
-card-5
-00:00:11.000 --> 00:00:14.000
-Select your devices.
+line-4
+00:00:07.700 --> 00:00:09.100
+Choose the distractions.
 
-card-6
-00:00:16.800 --> 00:00:20.000
-No way out until the timer ends.
+line-5
+00:00:09.300 --> 00:00:11.000
+Turn on hard lock-in.
 
-card-7
-00:00:25.000 --> 00:00:32.000
-Blocked. Everywhere.
+line-6
+00:00:11.300 --> 00:00:14.400
+Block your computer,
+your iPhone, your iPad.
+
+line-7
+00:00:15.100 --> 00:00:17.700
+One click, and you're locked in.
+
+line-8
+00:00:17.900 --> 00:00:20.600
+No exit.
+No negotiating with yourself.
+
+line-9
+00:00:21.000 --> 00:00:23.700
+Go ahead. Try to open it.
+
+line-10
+00:00:25.000 --> 00:00:26.700
+Blocked on your laptop.
+
+line-11
+00:00:27.000 --> 00:00:28.700
+Blocked on your phone.
+
+line-12
+00:00:29.000 --> 00:00:31.600
+Every device, at the same time.
+
+line-13
+00:00:32.300 --> 00:00:34.200
+Welockin. Lock in.
