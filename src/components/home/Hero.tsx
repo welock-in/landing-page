@@ -155,22 +155,41 @@ export function Hero({ copy }: { copy: HomeCopy["hero"] }) {
     <header className="hero">
       <div className="wrap hero-grid">
         <div className="hero-text">
-          {/* One <span> per word so each can rise on its own delay. The words
-              and their line breaks come from the catalog: a translation is
-              free to need four words where English needs seven, and the
-              stagger is computed from position rather than written out. */}
+          {/* The page's <h1>, twice over, and deliberately.
+
+              The visible half is one <span> per word so each can rise on its
+              own delay. The words and their line breaks come from the catalog:
+              a translation is free to need four words where English needs
+              seven, and the stagger is computed from position rather than
+              written out.
+
+              Split like that, the headline is seven text nodes wrapped in
+              fourteen elements, which is fine for a browser and poor for
+              everything else that reads it. Screen readers announce a split
+              heading one fragment at a time, and the extraction step in front
+              of a language model frequently comes up empty on an <h1> whose
+              first child is markup rather than text. So the sentence is also
+              carried once, unbroken, as the first thing in the heading; the
+              animated copy is hidden from assistive tech so nobody hears it
+              twice. Nothing about the rendering changes: `sr-only` takes the
+              text out of flow. */}
           <h1 className="hero-headline">
-            {copy.headline.map((word, i) => (
-              <span key={`${word.text}-${i}`}>
-                <span
-                  className="hero-word"
-                  style={{ animationDelay: `${i * WORD_STAGGER}ms` }}
-                >
-                  {word.em ? <em>{word.text}</em> : word.text}
+            <span className="sr-only">
+              {copy.headline.map((word) => word.text).join(" ")}
+            </span>
+            <span aria-hidden="true">
+              {copy.headline.map((word, i) => (
+                <span key={`${word.text}-${i}`}>
+                  <span
+                    className="hero-word"
+                    style={{ animationDelay: `${i * WORD_STAGGER}ms` }}
+                  >
+                    {word.em ? <em>{word.text}</em> : word.text}
+                  </span>
+                  {word.br ? <br /> : " "}
                 </span>
-                {word.br ? <br /> : " "}
-              </span>
-            ))}
+              ))}
+            </span>
           </h1>
           <p className="hero-subtitle">{copy.subtitle}</p>
           <div className="hero-ctaRow">

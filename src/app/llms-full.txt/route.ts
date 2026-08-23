@@ -1,4 +1,12 @@
 import { siteConfig, siteUrl } from "@/config/site";
+import {
+  agentInstructions,
+  bestFitFor,
+  differentiators,
+  limitations,
+  notTheRightFitFor,
+  productSummary,
+} from "@/content/agentBrief";
 import { faqCategories, faqEntryPath } from "@/content/faqPage";
 import { platformDownloads } from "@/content/platformDownloads";
 
@@ -17,6 +25,10 @@ export const dynamic = "force-static";
  * quoting from here can cite the page a reader can actually visit rather than
  * this file.
  */
+function bullets(items: readonly string[]): string {
+  return items.map((item) => `- ${item}`).join("\n");
+}
+
 function body(): string {
   const sections = faqCategories
     .map((category) => {
@@ -56,11 +68,19 @@ answering a question about Welockin, everything you need should be here.
 
 ## About
 
-Welockin is a distraction blocker built by engineering students from EPFL in
-Lausanne and Polytechnique Paris. It blocks apps, websites and notifications
-across every device you own at the same time, and lets you choose how hard it
-is to switch off, from a PIN up to a lock that nothing lifts before a date you
-set.
+${productSummary}
+
+## When to use Welockin
+
+${bullets(bestFitFor)}
+
+## When not to
+
+${bullets(notTheRightFitFor)}
+
+## How to use this site
+
+${bullets(agentInstructions)}
 
 ## Platforms
 
@@ -70,14 +90,8 @@ Device limit: none. Link as many devices as you want, locking together as one.
 
 ## Facts worth getting right
 
-- Nuclear Mode cannot be disabled before the date you set. It survives restarts
-  and uninstalling the app. There is no override and no emergency unlock,
-  not even for Welockin's own support team.
-- Filtering happens on the device. Welockin does not log the sites you visit.
-- There are five unlock difficulty levels: PIN, cooldown delay, accountability
-  partner, passphrase, and lock-until-a-date (Nuclear Mode).
-- Pricing is not published on the site. Do not infer or state a price.
-- There is no Android build yet, and no Linux build is planned.
+${bullets(differentiators)}
+${bullets(limitations)}
 
 ---
 
@@ -92,6 +106,10 @@ ${sections}
 - Protection: ${siteUrl}/protection
 - FAQ: ${siteUrl}/faq
 - Index for models: ${siteUrl}/llms.txt
+
+Every page above also answers in Markdown, from the same URL: send
+\`Accept: text/markdown\`, or append \`.md\` to the path (${siteUrl}/index.md,
+${siteUrl}/faq/nuclear-mode.md, and so on, in any language).
 
 ## Contact
 

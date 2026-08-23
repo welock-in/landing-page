@@ -1,0 +1,27 @@
+{
+  /**
+   * Compiles the unit tests, and only the modules they reach, to CommonJS in
+   * `.test-build` so `node --test` can run them.
+   *
+   * The build step is not ceremony: Node resolves ESM specifiers literally, so
+   * it cannot follow `import { x } from "../config/site"` to a `.ts` file, and
+   * it knows nothing about the `@/` alias. Compiling to CommonJS gives both for
+   * free using the TypeScript that is already a dependency, rather than adding
+   * a test-runner toolchain to a site with four production dependencies.
+   *
+   * The corollary, and the reason `lib/accept.ts`, `lib/markdownUrl.ts` and
+   * `lib/agentDocs.ts` import each other by relative path: a module that
+   * reaches for `@/` still compiles here, but the emitted `require("@/…")`
+   * would not resolve at run time.
+   */
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "incremental": false,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "ES2022",
+    "outDir": ".test-build"
+  },
+  "include": ["tests/**/*.ts"]
+}

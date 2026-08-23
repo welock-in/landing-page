@@ -49,6 +49,27 @@ export const siteConfig = {
   contactEmail: "hello@welock.in",
 };
 
+/**
+ * Where the organisation is, for `Organization.address`.
+ *
+ * Deliberately incomplete: `streetAddress` and `postalCode` are absent because
+ * there is no registered office to name, and inventing one to fill a schema
+ * field is how a structured-data audit turns into a legitimacy problem rather
+ * than solving one. Locality, region and country are true and verifiable, and
+ * a `PostalAddress` is valid with only those.
+ *
+ * The cost of the omission is worth knowing: an assistant asked "where is
+ * Welockin based" can answer Lausanne, and one asked for a postal address
+ * cannot. Fill the two blanks in the day there is a registered address, and
+ * every schema block on the site picks them up.
+ */
+export const organizationAddress = {
+  locality: "Lausanne",
+  region: "Vaud",
+  /** ISO 3166-1 alpha-2, which is what schema.org expects here. */
+  country: "CH",
+} as const;
+
 export type SiteConfig = typeof siteConfig;
 
 /**
@@ -89,9 +110,20 @@ export const mainNav: { key: "howItWorks" | "protection" | "download" | "faq"; h
 /**
  * Social profiles.
  *
- * Empty because no real profile URLs exist in this repo yet. Fill them in and
- * they should also go into `sameAs` on the Organization schema. That is the
- * property that tells a search engine those accounts and this site are the
- * same entity, which is currently the largest missing signal on the site.
+ * These are not decoration: `organizationJsonLd` reads this list straight into
+ * `sameAs`, which is the property that tells a search engine (or an assistant
+ * checking whether a business is real) that these accounts and this site are
+ * one entity rather than several. Adding a profile here is the whole job;
+ * nothing else needs editing.
+ *
+ * Two rules. Only accounts Welockin actually controls, and only URLs that
+ * resolve: a `sameAs` pointing at a dead handle is a worse signal than no
+ * `sameAs` at all, because it is a claim of identity that fails when checked.
+ * And bare profile URLs only. The share button on every one of these platforms
+ * hands you the address with `?utm_source=…` attached, and a tracking
+ * parameter here tells a search engine the canonical identity of the business
+ * is a tracked link, which is exactly the wrong claim.
  */
-export const socialLinks: { label: string; href: string }[] = [];
+export const socialLinks: { label: string; href: string }[] = [
+  { label: "Instagram", href: "https://www.instagram.com/welock_in" },
+];

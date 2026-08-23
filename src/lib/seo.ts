@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
 
-import { product, siteConfig, siteUrl } from "@/config/site";
+import {
+  organizationAddress,
+  product,
+  siteConfig,
+  siteUrl,
+  socialLinks,
+} from "@/config/site";
 import { defaultLocale, LOCALE_META, locales, type Locale } from "@/i18n/config";
 import { localePath } from "@/i18n/routing";
+import { hasMarkdown } from "@/lib/agentDocs";
+import { markdownPath } from "@/lib/markdownUrl";
 
 type SeoInput = {
   title?: string;
@@ -80,6 +88,20 @@ export function buildMetadata({
       // languages at each other while telling Google to ignore all of them is
       // a contradiction, not a signal.
       ...(noIndex ? {} : { languages: languageAlternates(path) }),
+      // The other representation of this same URL. The `Accept` header is the
+      // primary way to reach it (see proxy.ts), but a crawler that parses the
+      // document rather than negotiating for it needs the link to be in the
+      // document. Same reasoning as an RSS `<link rel="alternate">`.
+      ...(hasMarkdown(path)
+        ? {
+            types: {
+              "text/markdown": new URL(
+                markdownPath(localePath(path, locale)),
+                siteUrl,
+              ).toString(),
+            },
+          }
+        : {}),
     },
     openGraph: {
       type: "website",
@@ -150,12 +172,30 @@ export function organizationJsonLd(): JsonLd {
     description: siteConfig.description,
     email: siteConfig.contactEmail,
     foundingLocation: { "@type": "Place", name: "Lausanne, Switzerland" },
+    /* `contactPoint` answers "how do I reach them", `address` answers "who
+       are they and where". Assistants asked to verify that a business is real
+       look for the second, and an Organization node carrying only the first
+       reads as a landing page rather than a company. See the note on
+       `organizationAddress` for what is deliberately missing from it. */
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: organizationAddress.locality,
+      addressRegion: organizationAddress.region,
+      addressCountry: organizationAddress.country,
+    },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
       email: siteConfig.contactEmail,
       availableLanguage: ["English", "French"],
     },
+    /* The accounts that are this same organisation elsewhere. Omitted rather
+       than emitted empty when there are none: `sameAs: []` is a claim that
+       Welockin exists nowhere else, which is not what an empty list in the
+       config means. */
+    ...(socialLinks.length
+      ? { sameAs: socialLinks.map((profile) => profile.href) }
+      : {}),
   };
 }
 

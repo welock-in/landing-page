@@ -13,7 +13,13 @@ cp .env.example .env        # set NEXT_PUBLIC_SITE_URL
 npm run dev                 # http://localhost:3000
 ```
 
-Scripts: `dev`, `build`, `start`, `lint`.
+Scripts: `dev`, `build`, `start`, `lint`, `test`, `verify:agents`.
+
+```bash
+npm test                                        # unit tests (node:test)
+npm run build && npm start &                    # then, against the running server:
+npm run verify:agents -- http://localhost:3000  # every machine-readable endpoint
+```
 
 ## Architecture
 
@@ -60,10 +66,40 @@ MacBook) → `LockedEverywhere` → `Stats` → `Globe` → `Faq` → `VideoStor
 
 - `metadataBase`, title template, canonical URLs, Open Graph & Twitter cards
 - `robots.ts`, `sitemap.ts`, `manifest.ts`
-- Organization + WebSite JSON-LD in the root layout
+- Organization (with `contactPoint` and `address`) + WebSite JSON-LD in the
+  root layout
 - `prefers-reduced-motion` respected for all decorative animation
 
 Set `NEXT_PUBLIC_SITE_URL` per environment so canonicals/OG point at the right host.
+
+### Agents
+
+Every public page has two representations at one URL. A browser gets HTML; a
+client that sends `Accept: text/markdown` gets Markdown, per
+[acceptmarkdown.com](https://acceptmarkdown.com). Appending `.md` to a path
+does the same without a header (`/index.md`, `/download.md`, `/fr/faq.md`), and
+that URL is what the `Link: rel="alternate"` header and the `<link>` in the
+head point at.
+
+| Where | What |
+| --- | --- |
+| `src/lib/accept.ts` | `Accept` parsing and ranking (q-values, specificity, `q=0`) |
+| `src/lib/agentDocs.ts` | the Markdown for every page, generated from the catalogs |
+| `src/content/agentBrief.ts` | when to use Welockin, when not to, how to call it |
+| `src/proxy.ts` | negotiation, `Vary`, `Link`, and `406` |
+| `src/app/api/markdown/[[...slug]]/route.ts` | serves the Markdown, and the Markdown 404 |
+| `src/app/global-not-found.tsx` | the HTML 404, with a route map on it |
+
+`/llms.txt` and `/llms-full.txt` quote the same `agentBrief` module, so the
+three surfaces cannot drift apart. Nothing about the site's content is written
+twice: add a page and it needs an entry in `agentDocs.ts`, which
+`npm run verify:agents` will insist on by walking `sitemap.xml`.
+
+One known gap: Next sets `Vary` on app-page responses with `res.setHeader`
+(`build/templates/app-page.js`), which overwrites what the proxy set, so on a
+self-hosted `next start` the HTML half of a negotiated pair does not advertise
+`Vary: Accept`. The Markdown half, which is what caches actually need to key
+apart, always does. See the note on `RSC_VARY` in `src/proxy.ts`.
 
 ## Analytics
 

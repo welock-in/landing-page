@@ -46,3 +46,6 @@ next-env.d.ts
 # The ElevenLabs read is an intermediate: scripts/build-vo.sh bakes it into
 # public/videos/welock-draft-vo.mp4, which is the file that actually ships.
 public/videos/*-vo.mp3
+
+# unit-test build output (tsconfig.test.json)
+/.test-build/
