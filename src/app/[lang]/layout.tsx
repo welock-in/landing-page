@@ -3,6 +3,7 @@ import { Figtree, EB_Garamond } from "next/font/google";
 import { notFound } from "next/navigation";
 
 import { PostHogProvider } from "@/components/analytics/PostHogProvider";
+import { ReferralTracker } from "@/components/analytics/ReferralTracker";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { siteConfig, siteUrl } from "@/config/site";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -100,6 +101,10 @@ export default async function RootLayout({
             platform label: see OS_DETECT_SCRIPT. */}
         <script dangerouslySetInnerHTML={{ __html: OS_DETECT_SCRIPT }} />
         <PostHogProvider locale={lang} />
+        {/* Counts arrivals from the printed QR code (`?ref=qrcode`), for the
+            admin console. Separate from PostHog above on purpose: one number
+            the console owns, not a second analytics pipeline. */}
+        <ReferralTracker />
         <LocaleProvider locale={lang} common={dict.common}>
           {children}
         </LocaleProvider>
