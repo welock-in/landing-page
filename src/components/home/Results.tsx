@@ -2,242 +2,261 @@
 
 /* eslint-disable @next/next/no-img-element -- university marks and avatars are plain <img>, matching the design byte-for-byte */
 
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 
 import type { HomeCopy } from "./HomePage";
 import { LockInLink } from "./LockInLink";
-import { reducedMotion } from "./motion";
+import { useMarquee, type MarqueeSpeed } from "./useMarquee";
 
 /**
- * "Real results from real students": stat counters animate the first time
- * the grid is 30% visible: 1.1s exponential ease-out, 80ms stagger per card,
- * `data-format="time"` renders h:mm. Written to the DOM imperatively, as in
- * the design, so the tick never re-renders React. Reduced motion jumps
- * straight to the final values.
+ * Slow enough to finish reading a card before it leaves, rather than one lap
+ * per fixed number of seconds: seven quotes is a short list, and a lap-based
+ * pace would make it crawl.
+ */
+const SPEED: MarqueeSpeed = { pxPerSecond: 28 };
+
+/**
+ * Copies of the list laid end to end. The drift wraps after the first one, so
+ * the other two have to cover the widest viewport we care about — about
+ * 6600px of cards, which is past any desktop.
+ */
+const COPIES = 3;
+
+/**
+ * The face and the school behind each quote, in the order the quotes appear in
+ * `home.json → results.quotes`. The words themselves live in the catalogs.
+ */
+const TESTIMONIALS: {
+  avatar: string;
+  avatarAlt: string;
+  linkedin?: string;
+  mark: { src: string; alt: string; width: number; height: number };
+  /**
+   * Marks default to a wordmark capped at 22px. `tall` is for a portrait
+   * crest, `badge` for a square lockup on its own solid background — capped
+   * to a wordmark's height those read as a 22px speck, so they get a rounded
+   * tile instead. Swap a badge back to the default the day a transparent
+   * horizontal version of that logo lands.
+   */
+  markVariant?: "tall" | "badge";
+}[] = [
+  {
+    avatar: "/images/people/sarah-fourati.webp",
+    avatarAlt: "Sarah Fourati",
+    linkedin: "https://www.linkedin.com/in/sarah-fourati-7784b9293/",
+    mark: { src: "/images/logos/27_HEC.webp", alt: "HEC Paris", width: 240, height: 108 },
+  },
+  {
+    avatar: "/images/people/karim-assaf.webp",
+    avatarAlt: "Karim Assaf",
+    linkedin: "https://www.linkedin.com/in/karim-assaf-9a82a4223/",
+    mark: { src: "/images/logos/07_ETH.webp", alt: "ETH Zürich", width: 240, height: 54 },
+  },
+  {
+    avatar: "/images/people/hedi-fourati.webp",
+    avatarAlt: "Hedi Fourati",
+    mark: { src: "/images/polytechnique.webp", alt: "École Polytechnique", width: 68, height: 96 },
+    markVariant: "tall",
+  },
+  {
+    avatar: "/images/people/selim-haouala.webp",
+    avatarAlt: "Selim Haouala",
+    mark: { src: "/images/logos/22_EPFL.webp", alt: "EPFL", width: 236, height: 80 },
+  },
+  {
+    avatar: "/images/people/selim-msallem.webp",
+    avatarAlt: "Selim Msallem",
+    mark: { src: "/images/logos/27_HECMONTREAL.png", alt: "HEC Montréal", width: 400, height: 400 },
+    markVariant: "badge",
+  },
+  {
+    avatar: "/images/people/skander-gharbi.webp",
+    avatarAlt: "Skander el Gharbi",
+    mark: { src: "/images/logos/30_LyceeParc.png", alt: "Lycée du Parc", width: 447, height: 447 },
+    markVariant: "badge",
+  },
+  {
+    avatar: "/images/avatars/omar.svg",
+    avatarAlt: "",
+    // The square PNG in the same folder is black on white, so it would sit on
+    // the card as a white tile; this is its wordmark half, cut out onto alpha.
+    mark: { src: "/images/logos/29_ESSEC.webp", alt: "ESSEC Business School", width: 147, height: 71 },
+  },
+];
+
+/**
+ * Lines of quote a closed card shows. Handed to the stylesheet as
+ * `--rs-clamp`, which is what does the clamping, and used again below to work
+ * out which quotes are long enough to need a button.
+ */
+const CLAMP_LINES = 5;
+
+/**
+ * "Real results from real students": the quotes ride the same endless row as
+ * the university marquee above — drifting on their own, pausing under the
+ * cursor, draggable with a mouse and swipeable on a phone. The list is
+ * rendered several times over so the wrap never shows a seam.
+ *
+ * Quotes run long, and a row is only as short as its tallest card, so each one
+ * is clamped to {@link CLAMP_LINES} lines with a "read more" underneath. Only
+ * the cards that actually overflow get the button, which is measured rather
+ * than guessed: the same sentence wraps to four lines in English and six in
+ * German.
  */
 export function Results({ copy }: { copy: HomeCopy["results"] }) {
-  const gridRef = useRef<HTMLDivElement>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const loopStartRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    const grid = gridRef.current;
-    if (!grid) return;
-    const nums = Array.from(grid.querySelectorAll<HTMLElement>(".rs-num"));
-    if (!nums.length) return;
-    const reduce = reducedMotion();
-    const fmt = (format: string, v: number, suffix: string) => {
-      if (format === "time") {
-        let h = Math.floor(v);
-        let m = Math.round((v - h) * 60);
-        if (m === 60) {
-          h += 1;
-          m = 0;
-        }
-        return `${h}:${m < 10 ? "0" + m : m}`;
-      }
-      return `${Math.round(v)}${suffix || ""}`;
-    };
-    const ease = (p: number) => (p >= 1 ? 1 : 1 - Math.pow(2, -10 * p));
-    let started = false;
-    let rafId = 0;
-    const run = () => {
-      if (started) return;
-      started = true;
-      if (reduce) {
-        nums.forEach((el) => {
-          el.textContent = fmt(
-            el.dataset.format || "int",
-            parseFloat(el.dataset.target || "0"),
-            el.dataset.suffix || "",
-          );
-        });
-        return;
-      }
-      const dur = 1100;
-      const counters = nums.map((el, i) => ({
-        el,
-        target: parseFloat(el.dataset.target || "0"),
-        format: el.dataset.format || "int",
-        suffix: el.dataset.suffix || "",
-        delay: i * 80,
-        lastText: el.textContent || "",
-      }));
-      let t0: number | null = null;
-      const tick = (now: number) => {
-        if (t0 === null) t0 = now;
-        let running = false;
-        for (const c of counters) {
-          const elapsed = now - t0 - c.delay;
-          if (elapsed < 0) {
-            running = true;
-            continue;
-          }
-          const p = Math.min(elapsed / dur, 1);
-          const text = fmt(c.format, c.target * ease(p), c.suffix);
-          if (text !== c.lastText) {
-            c.el.textContent = text;
-            c.lastText = text;
-          }
-          if (p < 1) running = true;
-        }
-        if (running) rafId = requestAnimationFrame(tick);
-      };
-      rafId = requestAnimationFrame(tick);
-    };
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            run();
-            io.disconnect();
-          }
-        });
-      },
-      { threshold: 0.3 },
-    );
-    io.observe(grid);
-    return () => {
-      io.disconnect();
-      cancelAnimationFrame(rafId);
-    };
+  useMarquee(viewportRef, loopStartRef, SPEED);
+
+  /** Which quote is showing in full, by index — at most one at a time. */
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  /** Which quotes are long enough to be worth a button. */
+  const [clipped, setClipped] = useState<boolean[]>(() => TESTIMONIALS.map(() => false));
+
+  // Only the first copy of each card is measured; the other two are scenery.
+  const quoteRefs = useRef<(HTMLParagraphElement | null)[]>([]);
+
+  const measure = useCallback(() => {
+    setClipped((prev) => {
+      const next = quoteRefs.current.map((el, i) => {
+        if (!el) return prev[i] ?? false;
+        // Full text against the height the clamp allows, rather than the
+        // element's own clientHeight: an open card has no clamp on it, and
+        // measuring that would drop the very button that closes it again.
+        const line = Number.parseFloat(getComputedStyle(el).lineHeight);
+        if (!Number.isFinite(line)) return prev[i] ?? false;
+        return el.scrollHeight > line * CLAMP_LINES + 1;
+      });
+      return next.every((v, i) => v === prev[i]) ? prev : next;
+    });
   }, []);
 
+  useEffect(() => {
+    measure();
+    // Cards reflow on resize, and again when Figtree replaces the fallback
+    // font — a quote that fit in five lines can stop fitting either way.
+    const observer = new ResizeObserver(measure);
+    quoteRefs.current.forEach((el) => el && observer.observe(el));
+    document.fonts?.ready.then(measure).catch(() => {});
+    return () => observer.disconnect();
+  }, [measure]);
+
   return (
-    <section className="results" id="stats">
-      <div className="rs-wrap">
-        <h2 className="rs-head">
-          {copy.headLine1}
-          <br />
-          {copy.headLine2}
-        </h2>
-        <div className="rs-grid" ref={gridRef}>
-          <article className="rs-card" style={{ background: "#f9e94f" }}>
-            <div className="rs-num" data-target="2" data-format="time" data-suffix="">
-              0:00
-            </div>
-            <div className="rs-label">{copy.stats.hoursFocused}</div>
-            <div style={{ flex: 1 }} />
-            <div className="rs-mark">
-              <img src="/images/logos/22_EPFL.webp" alt="EPFL" width={236} height={80} loading="lazy" decoding="async" />
-            </div>
-          </article>
-          <article className="rs-card" style={{ background: "#bce9b2" }}>
-            <div className="rs-num" data-target="150" data-format="int" data-suffix="+">
-              0+
-            </div>
-            <div className="rs-label">{copy.stats.sessionsThisMonth}</div>
-            <div style={{ flex: 1 }} />
-            <div className="rs-mark">
-              <img src="/images/logos/07_ETH.webp" alt="ETH Zürich" width={240} height={54} loading="lazy" decoding="async" />
-            </div>
-          </article>
-          <article className="rs-card span2" style={{ background: "#faf7f1" }}>
-            <p className="rs-quote">
-              {copy.quotes[0].quote}
-            </p>
-            <div style={{ flex: 1 }} />
-            <div className="rs-foot">
-              <a
-                className="rs-who"
-                href="https://www.linkedin.com/in/sarah-fourati-7784b9293/"
-                target="_blank"
-                rel="noopener"
-              >
-                <img className="rs-av" src="/images/people/sarah-fourati.webp" alt="Sarah Fourati" width={96} height={96} loading="lazy" decoding="async" />
-                <div>
-                  <b>{copy.quotes[0].name}</b>
-                  <em>{copy.quotes[0].role}</em>
-                </div>
-              </a>
-              <div className="rs-mark">
-                <img src="/images/logos/27_HEC.webp" alt="HEC Paris" width={240} height={108} loading="lazy" decoding="async" />
-              </div>
-            </div>
-          </article>
-          <article className="rs-card span2" style={{ background: "#faf7f1" }}>
-            <p className="rs-quote">
-              {copy.quotes[1].quote}
-            </p>
-            <div style={{ flex: 1 }} />
-            <div className="rs-foot">
-              <a
-                className="rs-who"
-                href="https://www.linkedin.com/in/karim-assaf-9a82a4223/"
-                target="_blank"
-                rel="noopener"
-              >
-                <img className="rs-av" src="/images/people/karim-assaf.webp" alt="Karim Assaf" width={96} height={96} loading="lazy" decoding="async" />
-                <div>
-                  <b>{copy.quotes[1].name}</b>
-                  <em>{copy.quotes[1].role}</em>
-                </div>
-              </a>
-              <div className="rs-mark">
-                <img src="/images/logos/07_ETH.webp" alt="ETH Zürich" width={240} height={54} loading="lazy" decoding="async" />
-              </div>
-            </div>
-          </article>
-          <article className="rs-card" style={{ background: "#f9e94f" }}>
-            <div className="rs-num" data-target="92" data-format="int" data-suffix="%">
-              0%
-            </div>
-            <div className="rs-label">{copy.stats.sessionsCompleted}</div>
-            <div style={{ flex: 1 }} />
-            <div className="rs-mark">
-              <img src="/images/polytechnique.webp" alt="Polytechnique" width={68} height={96} loading="lazy" decoding="async" style={{ height: "38px" }} />
-            </div>
-          </article>
-          <article className="rs-card" style={{ background: "#f8cde7" }}>
-            <div className="rs-num" data-target="5" data-format="int" data-suffix="">
-              0
-            </div>
-            <div className="rs-label">{copy.stats.dayStreak}</div>
-            <div style={{ flex: 1 }} />
-            <div className="rs-mark">
-              <img src="/images/logos/04_Oxford.webp" alt="University of Oxford" width={114} height={136} loading="lazy" decoding="async" />
-            </div>
-          </article>
-          <article className="rs-card" style={{ background: "#dbd8f6" }}>
-            <div className="rs-num" data-target="4" data-format="int" data-suffix="x">
-              0x
-            </div>
-            <div className="rs-label">{copy.stats.moreDeepWork}</div>
-            <div style={{ flex: 1 }} />
-            <div className="rs-mark">
-              <img src="/images/logos/23_TUM.webp" alt="TU Munich" width={136} height={77} loading="lazy" decoding="async" />
-            </div>
-          </article>
-          <article className="rs-card" style={{ background: "#f8cde7" }}>
-            <div className="rs-num" data-target="37" data-format="int" data-suffix="%">
-              0%
-            </div>
-            <div className="rs-label">{copy.stats.lessScreenTime}</div>
-            <div style={{ flex: 1 }} />
-            <div className="rs-mark">
-              <img src="/images/logos/06_Cambridge.webp" alt="University of Cambridge" width={110} height={136} loading="lazy" decoding="async" />
-            </div>
-          </article>
-          <article className="rs-card span2" style={{ background: "#faf7f1" }}>
-            <p className="rs-quote">
-              {copy.quotes[2].quote}
-            </p>
-            <div style={{ flex: 1 }} />
-            <div className="rs-foot">
-              <div className="rs-who">
-                <img className="rs-av" src="/images/avatars/theo.svg" alt="" width={96} height={96} loading="lazy" decoding="async" />
-                <div>
-                  <b>{copy.quotes[2].name}</b>
-                  <em>{copy.quotes[2].role}</em>
-                </div>
-              </div>
-              <div className="rs-mark">
-                <img src="/images/polytechnique.webp" alt="Polytechnique" width={68} height={96} loading="lazy" decoding="async" style={{ height: "26px" }} />
-              </div>
-            </div>
-          </article>
+    <section
+      className="results"
+      id="stats"
+      style={{ "--rs-clamp": CLAMP_LINES } as CSSProperties}
+    >
+      <h2 className="rs-head" id="rs-head">
+        {copy.headLine1}
+        <br />
+        {copy.headLine2}
+      </h2>
+      <div
+        className="rs-marquee"
+        ref={viewportRef}
+        role="group"
+        aria-labelledby="rs-head"
+        // An open quote holds the row still, so it cannot slide out from
+        // under the person reading it on a phone, where there is no hover.
+        data-hold={openIndex !== null ? "true" : undefined}
+      >
+        <div className="rs-track">
+          {Array.from({ length: COPIES }, (_, lap) =>
+            TESTIMONIALS.map((person, i) => {
+              const quote = copy.quotes[i];
+              // Everything past the first copy is scenery: hidden from
+              // assistive tech, and out of the tab order so the row does not
+              // trap a keyboard in four identical passes of the same links.
+              const dupe = lap > 0;
+              const open = openIndex === i;
+              const who = (
+                <>
+                  <img
+                    className="rs-av"
+                    src={person.avatar}
+                    alt={dupe ? "" : person.avatarAlt}
+                    width={96}
+                    height={96}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div>
+                    <b>{quote.name}</b>
+                    <em>{quote.role}</em>
+                  </div>
+                </>
+              );
+              return (
+                <article
+                  key={`${lap}-${i}`}
+                  className={`rs-card rs-slide${open ? " rs-open" : ""}`}
+                  style={{ background: "#faf7f1" }}
+                  // The second copy's first card marks where one lap ends.
+                  ref={lap === 1 && i === 0 ? loopStartRef : undefined}
+                  aria-hidden={dupe || undefined}
+                >
+                  <p
+                    className="rs-quote"
+                    ref={
+                      lap === 0
+                        ? (el) => {
+                            quoteRefs.current[i] = el;
+                          }
+                        : undefined
+                    }
+                  >
+                    {quote.quote}
+                  </p>
+                  {/* `|| open` keeps the button there in the one state the
+                      measurement cannot see: a card that is already open. */}
+                  {(clipped[i] || open) && (
+                    <button
+                      type="button"
+                      className="rs-more"
+                      onClick={() => setOpenIndex(open ? null : i)}
+                      aria-expanded={open}
+                      tabIndex={dupe ? -1 : undefined}
+                    >
+                      {open ? copy.readLess : copy.readMore}
+                    </button>
+                  )}
+                  <div style={{ flex: 1 }} />
+                  <div className="rs-foot">
+                    {person.linkedin ? (
+                      <a
+                        className="rs-who"
+                        href={person.linkedin}
+                        target="_blank"
+                        rel="noopener"
+                        tabIndex={dupe ? -1 : undefined}
+                      >
+                        {who}
+                      </a>
+                    ) : (
+                      <div className="rs-who">{who}</div>
+                    )}
+                    <div className="rs-mark">
+                      <img
+                        className={person.markVariant ? `rs-${person.markVariant}` : undefined}
+                        src={person.mark.src}
+                        alt={dupe ? "" : person.mark.alt}
+                        width={person.mark.width}
+                        height={person.mark.height}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  </div>
+                </article>
+              );
+            }),
+          )}
         </div>
-        <div className="cta-row">
-          <LockInLink label="lockInNow" />
-        </div>
+      </div>
+      <div className="cta-row">
+        <LockInLink label="lockInNow" />
       </div>
     </section>
   );

@@ -93,29 +93,43 @@
   "results": {
     "headLine1": "Real results from",
     "headLine2": "real students",
-    "stats": {
-      "hoursFocused": "hours focused daily",
-      "sessionsThisMonth": "sessions this month",
-      "sessionsCompleted": "sessions completed",
-      "dayStreak": "day streak",
-      "moreDeepWork": "more deep work",
-      "lessScreenTime": "less screen time"
-    },
+    "readMore": "Read more",
+    "readLess": "Read less",
     "quotes": [
       {
-        "quote": "\u201cWelockin got me through my finals. I finish what I start now, and the doomscrolling is just gone.\u201d",
+        "quote": "\u201cGenuinely life-changing app. Nothing even remotely comes close to Welockin for blocking distractions across all my devices — Mac, iPhone, iPad, everything stays in sync.\u201d",
         "name": "Sarah Fourati",
         "role": "MSc in Management"
       },
       {
-        "quote": "\u201cI used to check my phone every five minutes. Now I can actually finish a study session without getting distracted.\u201d",
+        "quote": "\u201cAs a student, I find Welockin to be a game changer, and I have been using it for a few years. It blocks distracting websites and apps effectively, and it has made my study time far more efficient. I recommend it to anyone looking to get the most out of their focus.\u201d",
         "name": "Karim Assaf",
         "role": "MSc Nuclear Engineering"
       },
       {
-        "quote": "\u201cI set a hard lock for two hours and my phone disappears. Best 20 bucks I have spent as a student.\u201d",
-        "name": "Theo Marchand",
-        "role": "Prepa MP*"
+        "quote": "\u201cAmazing security. The locks are extremely difficult to bypass. It changed the way I focus, forever. 10/10.\u201d",
+        "name": "Hedi Fourati",
+        "role": "Engineering Programme"
+      },
+      {
+        "quote": "\u201cThe best blocker for PC. I needed to cut my screen time, and after a bit of research I bit the bullet on Welockin. Best decision I have made: it blocks the websites that waste my time, and it locks my phone at the same time.\u201d",
+        "name": "Selim Haouala",
+        "role": "BSc Engineering"
+      },
+      {
+        "quote": "\u201cThis app is the primary reason I can get good grades. I have real issues with dopamine addiction and I struggle to stop playing games or watching videos once I start. I wholeheartedly recommend Welockin if you need help focusing or want to take back control of a habit.\u201d",
+        "name": "Selim Msallem",
+        "role": "BBA"
+      },
+      {
+        "quote": "\u201cI would never have passed my year without this app. I have been using it for about a year and I have nothing bad to say about it.\u201d",
+        "name": "Skander el Gharbi",
+        "role": "Prepa ECG"
+      },
+      {
+        "quote": "\u201cPerfect if you need help to finally get productive on your computer. Not a miracle — I am very creative when I procrastinate — but at least you cannot wander aimlessly on social media any more.\u201d",
+        "name": "Omar Bouzguenda",
+        "role": "Grande École Programme"
       }
     ]
   },

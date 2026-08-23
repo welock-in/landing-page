@@ -104,29 +104,43 @@
   "results": {
     "headLine1": "Resultados reais de",
     "headLine2": "estudantes reais",
-    "stats": {
-      "hoursFocused": "horas de foco por dia",
-      "sessionsThisMonth": "sessões neste mês",
-      "sessionsCompleted": "sessões concluídas",
-      "dayStreak": "dias seguidos",
-      "moreDeepWork": "mais trabalho profundo",
-      "lessScreenTime": "menos tempo de tela"
-    },
+    "readMore": "Ver mais",
+    "readLess": "Ver menos",
     "quotes": [
       {
-        "quote": "“O Welockin me carregou até o fim das provas finais. Hoje eu termino o que começo, e o scroll infinito simplesmente sumiu.”",
+        "quote": "“Um app que muda a vida de verdade. Nada chega nem perto do Welockin para bloquear distrações em todos os meus aparelhos: Mac, iPhone, iPad, tudo fica sincronizado.”",
         "name": "Sarah Fourati",
         "role": "Mestrado em Administração"
       },
       {
-        "quote": "“Eu olhava o celular a cada cinco minutos. Agora consigo terminar uma sessão de estudo inteira sem me distrair.”",
+        "quote": "“Para um estudante, o Welockin muda o jogo, e eu uso ele há alguns anos. Ele bloqueia com eficácia os sites e apps que me distraem, e as minhas horas de estudo ficaram muito mais produtivas. Recomendo para qualquer pessoa que queira tirar o máximo da própria concentração.”",
         "name": "Karim Assaf",
         "role": "Mestrado em Engenharia Nuclear"
       },
       {
-        "quote": "“Ligo uma trava pesada por duas horas e o meu celular desaparece. O melhor dinheiro que já gastei como estudante.”",
-        "name": "Theo Marchand",
-        "role": "Curso preparatório MP*"
+        "quote": "“Segurança impressionante. As travas são extremamente difíceis de burlar. Mudou o meu jeito de me concentrar, para sempre. 10/10.”",
+        "name": "Hedi Fourati",
+        "role": "Curso de Engenharia"
+      },
+      {
+        "quote": "“O melhor bloqueador para PC. Eu precisava reduzir meu tempo de tela e, depois de pesquisar um pouco, resolvi encarar o Welockin. Melhor decisão que já tomei: ele bloqueia os sites que me fazem perder tempo e trava o celular ao mesmo tempo.”",
+        "name": "Selim Haouala",
+        "role": "Bacharelado em Engenharia"
+      },
+      {
+        "quote": "“Esse app é o principal motivo de eu conseguir boas notas. Tenho um problema sério de vício em dopamina e sofro para parar quando começo a jogar ou a ver vídeos. Recomendo o Welockin de coração se você precisa de ajuda para focar ou quer retomar o controle de um hábito.”",
+        "name": "Selim Msallem",
+        "role": "BBA"
+      },
+      {
+        "quote": "“Eu nunca teria passado de ano sem esse aplicativo. Uso ele há mais ou menos um ano e não tenho nada de ruim para falar.”",
+        "name": "Skander el Gharbi",
+        "role": "Curso preparatório ECG"
+      },
+      {
+        "quote": "“Perfeito para quem precisa de ajuda para finalmente render no computador. Não é milagre — sou muito criativo quando procrastino — mas pelo menos dá para não ficar vagando sem rumo nas redes sociais.”",
+        "name": "Omar Bouzguenda",
+        "role": "Programa Grande École"
       }
     ]
   },

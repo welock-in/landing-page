@@ -102,29 +102,43 @@
   "results": {
     "headLine1": "Echte Ergebnisse von",
     "headLine2": "echten Studierenden",
-    "stats": {
-      "hoursFocused": "Stunden Fokus pro Tag",
-      "sessionsThisMonth": "Sessions diesen Monat",
-      "sessionsCompleted": "Sessions durchgezogen",
-      "dayStreak": "Tage am Stück",
-      "moreDeepWork": "mehr konzentriertes Arbeiten",
-      "lessScreenTime": "weniger Bildschirmzeit"
-    },
+    "readMore": "Mehr anzeigen",
+    "readLess": "Weniger anzeigen",
     "quotes": [
       {
-        "quote": "„Welockin hat mich durch meine Abschlussprüfungen gebracht. Ich bringe jetzt zu Ende, was ich anfange, und das endlose Scrollen ist einfach weg.“",
+        "quote": "„Eine App, die wirklich das Leben verändert. Nichts kommt auch nur annähernd an Welockin heran, wenn es darum geht, Ablenkungen auf allen meinen Geräten zu blockieren: Mac, iPhone, iPad, alles bleibt synchron.“",
         "name": "Sarah Fourati",
         "role": "Master in Management"
       },
       {
-        "quote": "„Früher habe ich alle fünf Minuten aufs Handy geschaut. Jetzt schaffe ich tatsächlich eine ganze Lernsession, ohne mich ablenken zu lassen.“",
+        "quote": "„Im Studium war Welockin für mich ein echter Wendepunkt, und ich nutze es seit mehreren Jahren. Es blockiert ablenkende Websites und Apps zuverlässig, und meine Lernzeit ist dadurch deutlich effizienter geworden. Ich empfehle es jedem, der das Maximum aus seiner Konzentration holen will.“",
         "name": "Karim Assaf",
         "role": "Master Nukleartechnik"
       },
       {
-        "quote": "„Ich setze eine harte Sperre für zwei Stunden und mein Handy verschwindet. Das beste Geld, das ich als Student ausgegeben habe.“",
-        "name": "Theo Marchand",
-        "role": "Vorbereitungsklasse MP*"
+        "quote": "„Beeindruckende Sicherheit. Die Sperren sind extrem schwer zu umgehen. Das hat meine Konzentration für immer verändert. 10/10.“",
+        "name": "Hedi Fourati",
+        "role": "Ingenieurstudium"
+      },
+      {
+        "quote": "„Der beste Blocker für den PC. Ich musste meine Bildschirmzeit reduzieren, habe kurz recherchiert und mich für Welockin entschieden. Die beste Entscheidung überhaupt: Er blockiert die Seiten, die mir die Zeit stehlen, und sperrt gleichzeitig mein Handy.“",
+        "name": "Selim Haouala",
+        "role": "Bachelor Ingenieurwissenschaften"
+      },
+      {
+        "quote": "„Diese App ist der Hauptgrund, warum ich gute Noten schreibe. Ich habe echte Probleme mit Dopaminsucht und schaffe es kaum aufzuhören, wenn ich einmal anfange zu spielen oder Videos zu schauen. Ich empfehle Welockin von ganzem Herzen, wenn du Hilfe beim Fokussieren brauchst oder eine Gewohnheit wieder in den Griff bekommen willst.“",
+        "name": "Selim Msallem",
+        "role": "BBA"
+      },
+      {
+        "quote": "„Ohne diese App hätte ich mein Jahr nie bestanden. Ich nutze sie seit ungefähr einem Jahr und habe nichts Schlechtes darüber zu sagen.“",
+        "name": "Skander el Gharbi",
+        "role": "Vorbereitungsklasse ECG"
+      },
+      {
+        "quote": "„Perfekt für alle, die endlich Hilfe brauchen, um am Computer produktiv zu werden. Kein Wunder — ich bin sehr kreativ, wenn ich prokrastiniere — aber wenigstens kann man nicht mehr ziellos durch die sozialen Netzwerke treiben.“",
+        "name": "Omar Bouzguenda",
+        "role": "Grande-École-Programm"
       }
     ]
   },

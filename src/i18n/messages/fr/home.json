@@ -103,29 +103,43 @@
   "results": {
     "headLine1": "De vrais résultats,",
     "headLine2": "de vrais étudiants",
-    "stats": {
-      "hoursFocused": "heures de concentration par jour",
-      "sessionsThisMonth": "sessions ce mois-ci",
-      "sessionsCompleted": "sessions menées à terme",
-      "dayStreak": "jours d'affilée",
-      "moreDeepWork": "de travail de fond en plus",
-      "lessScreenTime": "de temps d'écran en moins"
-    },
+    "readMore": "Voir plus",
+    "readLess": "Voir moins",
     "quotes": [
       {
-        "quote": "« Welockin m'a fait tenir jusqu'au bout de mes partiels. Maintenant je termine ce que je commence, et le scroll compulsif a disparu. »",
+        "quote": "« Une appli qui change vraiment la vie. Rien ne s’approche de Welockin pour bloquer les distractions sur tous mes appareils : Mac, iPhone, iPad, tout reste synchronisé. »",
         "name": "Sarah Fourati",
         "role": "Master en Management"
       },
       {
-        "quote": "« Avant, je regardais mon téléphone toutes les cinq minutes. Aujourd'hui j'arrive vraiment à finir une session de révision sans me disperser. »",
+        "quote": "« Pour un étudiant, Welockin change tout, et je l’utilise depuis plusieurs années. Il bloque efficacement les sites et les applis qui me distraient, et mes heures de travail sont bien plus productives. Je le recommande à tous ceux qui veulent tirer le maximum de leur concentration. »",
         "name": "Karim Assaf",
         "role": "Master en Génie Nucléaire"
       },
       {
-        "quote": "« Je lance un verrou strict pendant deux heures et mon téléphone disparaît. Les 20 balles les mieux dépensées de ma vie d'étudiant. »",
-        "name": "Theo Marchand",
-        "role": "Prépa MP*"
+        "quote": "« Une sécurité impressionnante. Les verrous sont extrêmement difficiles à contourner. Ça a changé ma façon de me concentrer, définitivement. 10/10. »",
+        "name": "Hedi Fourati",
+        "role": "Cycle ingénieur"
+      },
+      {
+        "quote": "« Le meilleur bloqueur sur PC. Je devais réduire mon temps d’écran, et après quelques recherches je me suis lancé sur Welockin. La meilleure décision que j’aie prise : il bloque les sites qui me font perdre mon temps, et il verrouille mon téléphone en même temps. »",
+        "name": "Selim Haouala",
+        "role": "Bachelor en ingénierie"
+      },
+      {
+        "quote": "« Cette appli est la raison principale pour laquelle j’ai de bonnes notes. J’ai un vrai problème d’addiction à la dopamine et j’ai beaucoup de mal à m’arrêter une fois que je commence à jouer ou à regarder des vidéos. Je recommande Welockin de tout cœur si vous avez besoin d’aide pour vous concentrer ou reprendre le contrôle d’une habitude. »",
+        "name": "Selim Msallem",
+        "role": "BBA"
+      },
+      {
+        "quote": "« Je n’aurais jamais eu mon année sans cette application. Je l’utilise depuis environ un an et je n’ai rien à lui reprocher. »",
+        "name": "Skander el Gharbi",
+        "role": "Prépa ECG"
+      },
+      {
+        "quote": "« Parfait pour ceux qui ont besoin d’aide pour enfin être productifs sur leur ordinateur. Pas un miracle — je suis très créatif quand je procrastine — mais au moins on ne peut plus errer sans but sur les réseaux sociaux. »",
+        "name": "Omar Bouzguenda",
+        "role": "Programme Grande École"
       }
     ]
   },
