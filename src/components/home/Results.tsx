@@ -55,17 +55,20 @@ const TESTIMONIALS: {
   {
     avatar: "/images/people/hedi-fourati.webp",
     avatarAlt: "Hedi Fourati",
+    linkedin: "https://www.linkedin.com/in/hedi-fourati-49ba722a8/",
     mark: { src: "/images/polytechnique.webp", alt: "École Polytechnique", width: 68, height: 96 },
     markVariant: "tall",
   },
   {
     avatar: "/images/people/selim-haouala.webp",
     avatarAlt: "Selim Haouala",
+    linkedin: "https://www.linkedin.com/in/selim-haouala-40a75a3a7/",
     mark: { src: "/images/logos/22_EPFL.webp", alt: "EPFL", width: 236, height: 80 },
   },
   {
     avatar: "/images/people/selim-msallem.webp",
     avatarAlt: "Selim Msallem",
+    linkedin: "https://www.linkedin.com/in/selim-msallem-9a49a6292/",
     mark: { src: "/images/logos/27_HECMONTREAL.png", alt: "HEC Montréal", width: 400, height: 400 },
     markVariant: "badge",
   },
@@ -78,6 +81,7 @@ const TESTIMONIALS: {
   {
     avatar: "/images/avatars/omar.svg",
     avatarAlt: "",
+    linkedin: "https://www.linkedin.com/in/omar-bouzguenda-796767249/",
     // The square PNG in the same folder is black on white, so it would sit on
     // the card as a white tile; this is its wordmark half, cut out onto alpha.
     mark: { src: "/images/logos/29_ESSEC.webp", alt: "ESSEC Business School", width: 147, height: 71 },
