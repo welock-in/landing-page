@@ -236,10 +236,16 @@ section.results{background:var(--bg);padding:84px 24px 88px;}
 .rs-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:20px;}
 .rs-who{display:flex;align-items:center;gap:12px;min-width:0;text-decoration:none;color:inherit;border-radius:10px;transition:opacity .18s ease;}
 a.rs-who:hover{opacity:0.72;}
-a.rs-who:hover b{text-decoration:underline;text-underline-offset:2px;}
+a.rs-who:hover b span{text-decoration:underline;text-underline-offset:2px;}
 a.rs-who:focus-visible{outline:2.5px solid var(--red);outline-offset:3px;}
 .rs-av{width:40px;height:40px;border-radius:50%;object-fit:cover;flex:none;background:#ece6dc;}
-.rs-who b{display:block;font-family:var(--font-figtree),"Figtree",sans-serif;font-weight:600;font-size:16.5px;color:var(--ink);line-height:1.25;white-space:nowrap;}
+.rs-who b{display:flex;align-items:center;gap:6px;font-family:var(--font-figtree),"Figtree",sans-serif;font-weight:600;font-size:16.5px;color:var(--ink);line-height:1.25;white-space:nowrap;}
+/* The LinkedIn bug beside the name: what tells the row that a face and a
+   name are a link out to a profile. Sized in the component, a hair under the
+   name it sits beside, so it reads as a mark on that line rather than a
+   second thing to look at. Only the name is underlined on hover, which is
+   why it is wrapped in a span. */
+.rs-li{flex:none;display:block;}
 .rs-who em{display:block;font-style:normal;font-family:var(--font-figtree),"Figtree",sans-serif;font-weight:400;font-size:15.5px;color:var(--muted);line-height:1.25;}
 .rs-foot .rs-mark{flex:none;}
 .rs-foot .rs-mark img{height:22px;max-width:120px;}

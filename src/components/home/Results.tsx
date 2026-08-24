@@ -96,6 +96,30 @@ const TESTIMONIALS: {
 const CLAMP_LINES = 5;
 
 /**
+ * The LinkedIn bug, sized to sit level with a name. The face-and-name block
+ * has linked out to the profile since the names went in, but nothing said so:
+ * a face on a testimonial reads as decoration, and a bare name is not an
+ * invitation. The mark is the invitation. It is in brand blue on purpose,
+ * since the same footer already carries university marks in their own
+ * colours. A warm grey glyph at 15px would be exactly the hint nobody
+ * notices.
+ *
+ * Cards without a `linkedin` do not render it, so the mark never promises a
+ * profile that is not there.
+ */
+function LinkedInMark() {
+  return (
+    <svg className="rs-li" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+      <rect width="24" height="24" rx="4.6" fill="#0A66C2" />
+      <path
+        fill="#fff"
+        d="M7.5 9.6H4.3v9.9h3.2V9.6ZM5.9 4.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm14.3 15h-3.4v-4.9c0-1.2-.5-2-1.5-2-1.1 0-1.8.8-1.8 2v4.9h-3.3V9.6h3.3V11c.6-.9 1.5-1.6 3-1.6 2.3 0 3.7 1.4 3.7 4.3v5.8Z"
+      />
+    </svg>
+  );
+}
+
+/**
  * "Real results from real students": the quotes ride the same endless row as
  * the university marquee above — drifting on their own, pausing under the
  * cursor, draggable with a mouse and swipeable on a phone. The list is
@@ -187,7 +211,10 @@ export function Results({ copy }: { copy: HomeCopy["results"] }) {
                     decoding="async"
                   />
                   <div>
-                    <b>{quote.name}</b>
+                    <b>
+                      <span>{quote.name}</span>
+                      {person.linkedin && <LinkedInMark />}
+                    </b>
                     <em>{quote.role}</em>
                   </div>
                 </>
