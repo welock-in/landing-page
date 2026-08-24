@@ -243,8 +243,10 @@ a.rs-who:focus-visible{outline:2.5px solid var(--red);outline-offset:3px;}
 .rs-who em{display:block;font-style:normal;font-family:var(--font-figtree),"Figtree",sans-serif;font-weight:400;font-size:15.5px;color:var(--muted);line-height:1.25;}
 .rs-foot .rs-mark{flex:none;}
 .rs-foot .rs-mark img{height:22px;max-width:120px;}
-/* A portrait crest reads small at a wordmark's height, so it gets a little more. */
-.rs-foot .rs-mark img.rs-tall{height:26px;}
+/* A portrait crest reads small at a wordmark's height, so it gets a little more.
+   Narrow enough that even level with the badge tiles it carries less weight
+   than a wordmark does. */
+.rs-foot .rs-mark img.rs-tall{height:32px;}
 /* A square lockup on its own solid background cannot be a 22px wordmark; as a
    rounded tile it reads as a crest instead. The hairline keeps a white one
    from bleeding into the card. */

@@ -79,8 +79,8 @@ const TESTIMONIALS: {
     markVariant: "badge",
   },
   {
-    avatar: "/images/avatars/omar.svg",
-    avatarAlt: "",
+    avatar: "/images/people/omar-bouzguenda.webp",
+    avatarAlt: "Omar Bouzguenda",
     linkedin: "https://www.linkedin.com/in/omar-bouzguenda-796767249/",
     // The square PNG in the same folder is black on white, so it would sit on
     // the card as a white tile; this is its wordmark half, cut out onto alpha.
