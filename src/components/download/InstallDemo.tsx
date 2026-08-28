@@ -271,10 +271,12 @@ export function InstallPanel({
             playsInline
             preload="auto"
           >
-            {/* WebM first: same picture, fewer bytes, and both films' floors
-                are recent systems whose browsers all decode VP9, Safari on
-                Apple Silicon included. The MP4 is what everything older falls
-                back to. */}
+            {/* WebM first: same picture, fewer bytes. The macOS floor now
+                reaches back to Intel Macs on Monterey (the build is universal),
+                and Safari there still decodes VP9 — in software, which is fine
+                for a short demo film. The MP4 fallback stays for everything
+                older; do not drop it to save bandwidth without re-checking the
+                real support floor. */}
             <source src={film.webm} type="video/webm" />
             <source src={film.mp4} type="video/mp4" />
             {/* Offered in the captions menu, not `default`: each film's own

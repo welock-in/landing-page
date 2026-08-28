@@ -35,12 +35,16 @@ export const platformDownloads: PlatformDownload[] = [
   {
     slug: "macos",
     name: "macOS",
-    // Stated on the card rather than discovered in the browser, though the
-    // stakes are now low: the build is universal (arm64 + x86_64), so one DMG
-    // serves every Mac and there is nothing left to get wrong. Detection would
-    // still be the wrong instinct — a Mac's User-Agent reports Intel whatever
-    // silicon is underneath — but today both answers lead to the same file.
-    requirement: "For Apple Silicon and Intel Macs",
+    // The build is UNIVERSAL (one DMG, Apple Silicon + Intel), so the card
+    // names the only requirement a visitor could actually fail: the OS floor,
+    // which is tauri.conf.json's minimumSystemVersion in the macos repo. Keep
+    // the two in sync by hand — nothing checks them against each other. The
+    // arch reassurance lives in the note below. (It used to say "Apple Silicon
+    // (M1 and later)": a Mac's User-Agent reports Intel whatever silicon is
+    // underneath, so the card had to warn Intel users before the click. The
+    // universal build made the warning obsolete — both answers now lead to the
+    // same file.)
+    requirement: "For macOS 12 Monterey and later",
     // Same reasoning as Windows below, plus the platform: the API answers with
     // whichever build is currently live, and it hands a browser the .dmg rather
     // than the .app.tar.gz the updater consumes. Those are different files and
@@ -49,7 +53,7 @@ export const platformDownloads: PlatformDownload[] = [
     href: "https://app.connect.welock.in/api/updates/download/macos",
     status: "available",
     detects: "macos",
-    note: "Blocks apps, websites and notifications system-wide, and holds through a restart.",
+    note: "Blocks apps, websites and notifications system-wide, and holds through a restart. Runs on Apple Silicon and Intel Macs.",
   },
   {
     slug: "ios",
