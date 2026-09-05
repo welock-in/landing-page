@@ -675,6 +675,21 @@ export const faqCategories: FaqCategory[] = [
         keywords: "not blocked working slips through missed broken bug",
       },
       {
+        slug: "what-a-blocked-domain-covers",
+        question: "When I block a site, which addresses does that cover?",
+        answer:
+          "More than the address you typed. On Windows, blocking a site also covers its www., mobile and app subdomains, and known siblings: amazon.com covers amazon.fr and amazon.de, x.com covers twitter.com, youtube.com covers youtu.be. On macOS, every subdomain of a blocked site is covered. A regional or unusual address that still loads is worth an email so we can add it.",
+        detail: [
+          "Under a hard lock these extra addresses stay blocked with the site itself, so check the regional versions you rely on before arming one.",
+          "On Windows the sibling list is built into the app: typing amazon.fr or amazon.com gives the same result.",
+          "On Windows, typing a specific address such as music.youtube.com blocks only that address and its www. version, on purpose; on macOS its own subdomains are covered too.",
+          "What no filter catches: a site reached by its IP address, or an app that resolves names on its own.",
+        ],
+        description:
+          "Blocking a site also covers its common subdomains and, on Windows, known siblings such as amazon.fr for amazon.com or twitter.com for x.com.",
+        keywords: "subdomain regional country version alias sibling twitter x amazon.fr youtu.be covered",
+      },
+      {
         slug: "unblock-something-i-need",
         question: "Something is blocked that I need. How do I unblock just that?",
         answer:
@@ -682,6 +697,7 @@ export const faqCategories: FaqCategory[] = [
         detail: [
           "Under Nuclear Mode there is no exception mechanism, not even for support.",
           "Before arming a hard lock, walk through your week and check nothing essential is on the list.",
+          "On Windows a blocked site can also block known regional versions, such as amazon.de with amazon.com: check those too before arming a hard lock.",
           "Blocking a whole category can sweep up something you rely on; individual picks are safer for a first hard lock.",
         ],
         description:
