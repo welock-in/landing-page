@@ -678,17 +678,17 @@ export const faqCategories: FaqCategory[] = [
         slug: "what-a-blocked-domain-covers",
         question: "When I block a site, which addresses does that cover?",
         answer:
-          "More than the address you typed. Every subdomain of a blocked site is covered, and on Windows known siblings count too: amazon.com covers amazon.fr and amazon.de, x.com covers twitter.com, youtube.com covers youtu.be. Sign-in and developer endpoints other sites depend on, such as aws.amazon.com, keep working. Google, Apple and Microsoft are the exception: their subdomains sign your computer in, so their consumer services are blocked one by one instead.",
+          "The address you typed and everything under it. Block youtube.com and m.youtube.com, music.youtube.com and any address YouTube adds next are all covered, including ones nobody has listed anywhere. Block google.com and Gmail, Drive, Search and the rest go with it, because that is what blocking google.com means. What is NOT covered is a different site: amazon.fr is not under amazon.com, so block it too if you want it gone.",
         detail: [
-          "Under a hard lock these extra addresses stay blocked with the site itself, so check the regional versions you rely on before arming one.",
-          "On Windows the sibling list is built into the app: typing amazon.fr or amazon.com gives the same result.",
-          "Typing a specific address such as music.youtube.com blocks that address and its own subdomains, not the whole site, on purpose.",
-          "Blocking google.com blocks Gmail, Calendar, Meet, Maps, Photos, Play, Gemini and its other services one by one, and leaves sign-in, Drive and Docs alone: the same domain carries Windows sign-in, the Sign in with Google button of other sites, and the client that syncs your files. Same idea for apple.com and live.com.",
+          "Typing a narrower address blocks less, on purpose: music.youtube.com blocks that address and its own subdomains, and leaves the rest of YouTube alone.",
+          "Under a hard lock everything under the site stays blocked with it, sign-in pages included, so walk through your week before arming one.",
+          "Two exceptions, and only two. Addresses that sign your own computer in, and hosting or delivery networks whose subdomains are other people's websites: those are blocked at the exact address only, and the app tells you so when you add one.",
+          "A handful of addresses are refused outright, because blocking them would break captchas, sign-in or Windows Update on every other site of the machine. The app says so instead of accepting a line that would do nothing.",
           "What no filter catches: a site reached by its IP address, or an app that resolves names on its own.",
         ],
         description:
-          "Blocking a site covers its subdomains and, on Windows, known siblings such as amazon.fr for amazon.com. Google, Apple and Microsoft are the exception.",
-        keywords: "subdomain regional country version alias sibling twitter x amazon.fr youtu.be covered",
+          "Blocking a site blocks everything under it, listed or not. A different domain such as amazon.fr is a different site: block it too.",
+        keywords: "subdomain subdomains covered wildcard whole site regional country version amazon.fr music.youtube.com",
       },
       {
         slug: "unblock-something-i-need",
