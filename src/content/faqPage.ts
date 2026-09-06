@@ -678,12 +678,12 @@ export const faqCategories: FaqCategory[] = [
         slug: "what-a-blocked-domain-covers",
         question: "When I block a site, which addresses does that cover?",
         answer:
-          "More than the address you typed. Every subdomain of a blocked site is covered, and on Windows known siblings count too: amazon.com covers amazon.fr and amazon.de, x.com covers twitter.com, youtube.com covers youtu.be. Sign-in and developer endpoints other sites depend on, such as aws.amazon.com, keep working. The exception is Google, Apple and Microsoft: their subdomains sign your computer in, so we block their named consumer services instead.",
+          "More than the address you typed. Every subdomain of a blocked site is covered, and on Windows known siblings count too: amazon.com covers amazon.fr and amazon.de, x.com covers twitter.com, youtube.com covers youtu.be. Sign-in and developer endpoints other sites depend on, such as aws.amazon.com, keep working. Google, Apple and Microsoft are the exception: their subdomains sign your computer in, so their consumer services are blocked one by one instead.",
         detail: [
           "Under a hard lock these extra addresses stay blocked with the site itself, so check the regional versions you rely on before arming one.",
           "On Windows the sibling list is built into the app: typing amazon.fr or amazon.com gives the same result.",
           "Typing a specific address such as music.youtube.com blocks that address and its own subdomains, not the whole site, on purpose.",
-          "Blocking google.com blocks Gmail, Google News, Photos and Gemini, and leaves the rest of google.com alone: the same domain carries Windows sign-in and the Sign in with Google button of other sites. Same for apple.com and live.com.",
+          "Blocking google.com blocks Gmail, Calendar, Meet, Maps, Photos, Play, Gemini and its other services one by one, and leaves sign-in, Drive and Docs alone: the same domain carries Windows sign-in, the Sign in with Google button of other sites, and the client that syncs your files. Same idea for apple.com and live.com.",
           "What no filter catches: a site reached by its IP address, or an app that resolves names on its own.",
         ],
         description:
