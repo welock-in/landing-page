@@ -63,8 +63,21 @@ const enabled = Boolean(KEY && HOST) && process.env.NODE_ENV === "production";
  */
 let clientPromise: Promise<PostHogClient | null> | null = null;
 
+/**
+ * The block page is where a blocker app sends a tab it just stopped. Whoever
+ * lands there did not choose to, and which site they were on is exactly the
+ * kind of thing the privacy policy promises never to see. No SDK loads there:
+ * no pageview, no autocapture, no cookie. Left unset, `clientPromise` still
+ * initialises normally on the next page the visitor chooses to open.
+ */
+function isBlockPage(): boolean {
+  return /\/blocked\/?$/.test(window.location.pathname);
+}
+
 function load(): Promise<PostHogClient | null> {
-  if (!enabled || typeof window === "undefined") return Promise.resolve(null);
+  if (!enabled || typeof window === "undefined" || isBlockPage()) {
+    return Promise.resolve(null);
+  }
 
   clientPromise ??= import("posthog-js")
     .then(({ default: posthog }) => {
