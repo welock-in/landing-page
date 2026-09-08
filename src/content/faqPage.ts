@@ -678,17 +678,18 @@ export const faqCategories: FaqCategory[] = [
         slug: "what-a-blocked-domain-covers",
         question: "When I block a site, which addresses does that cover?",
         answer:
-          "The address you typed and everything under it. Block youtube.com and m.youtube.com, music.youtube.com and any address YouTube adds next are all covered, including ones nobody has listed anywhere. Block google.com and Gmail, Drive, Search and the rest go with it, because that is what blocking google.com means. What is NOT covered is a different site: amazon.fr is not under amazon.com, so block it too if you want it gone.",
+          "On Windows, the domain you enter includes that address and its subdomains. youtube.com includes music.youtube.com; vercel.app includes projects hosted under vercel.app. A narrower entry covers only its own branch. A separate domain such as amazon.fr is not a subdomain of amazon.com. DNS protection keeps limited technical exceptions, and an automatic visual layer adds protection in a compatible browser's active window.",
         detail: [
           "Typing a narrower address blocks less, on purpose: music.youtube.com blocks that address and its own subdomains, and leaves the rest of YouTube alone.",
-          "Under a hard lock everything under the site stays blocked with it, sign-in pages included, so walk through your week before arming one.",
-          "Two exceptions, and only two. Addresses that sign your own computer in, and hosting or delivery networks whose subdomains are other people's websites: those are blocked at the exact address only, and the app tells you so when you add one.",
-          "A handful of addresses are refused outright, because blocking them would break captchas, sign-in or Windows Update on every other site of the machine. The app says so instead of accepting a line that would do nothing.",
-          "What no filter catches: a site reached by its IP address, or an app that resolves names on its own.",
+          "Shared hosting follows the same rule. Entering vercel.app includes every project under that domain; entering project.vercel.app includes only that project and its own subdomains.",
+          "A small set of essential service addresses, such as those used to sign your computer in, remain protected through technical exceptions. Those exceptions do not limit an entire hosting platform to its exact address.",
+          "The visual layer runs automatically during an applicable blocking session and complements DNS protection. It acts in the active browser window when the address bar can be identified safely; it does not cover every browser or background tab.",
+          "Under a hard lock, your domain rules stay in place until the lock ends. Review the services you need before starting one; the technical exceptions still apply.",
+          "Coverage also depends on how a site or app connects. An app using its own name resolution may bypass system DNS protection, so neither layer is a guarantee against every access method.",
         ],
         description:
-          "Blocking a site blocks everything under it, listed or not. A different domain such as amazon.fr is a different site: block it too.",
-        keywords: "subdomain subdomains covered wildcard whole site regional country version amazon.fr music.youtube.com",
+          "On Windows, a domain includes its subdomains, even on shared hosting. Technical exceptions and browser support affect blocking.",
+        keywords: "subdomain subdomains covered wildcard whole site shared hosting vercel.app DNS visual browser regional country version amazon.fr music.youtube.com",
       },
       {
         slug: "unblock-something-i-need",
