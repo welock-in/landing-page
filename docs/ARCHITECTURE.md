@@ -50,6 +50,8 @@ Au commit documenté, iPhone/iPad a `status: available` **et `href: null`** : le
 
 `lib/apiProxy.ts` utilise `NEXT_PUBLIC_API_BASE_URL` ou l'URL backend par défaut qui inclut déjà `/api`. Il relaie le corps reçu, le User-Agent et la chaîne `x-forwarded-for`, puis le statut/texte/content-type amont. La validation, le quota et l'envoi effectif sont la responsabilité du backend. Un backend injoignable devient une réponse 502 ; le formulaire doit distinguer validation, limitation et indisponibilité. Aucun secret de transport email ne se configure dans le site.
 
+Limite actuelle pour les réponses sans corps : le proxy construit toujours `new Response(await upstream.text(), ...)`. Pour un statut 204, même une chaîne vide est un corps interdit par le constructeur `Response` ; ce chemin peut donc échouer au lieu de relayer le 204. Le refus du constructeur a été reproduit localement le 3 octobre 2026. Cette observation documente la source sans modifier son comportement ; une réponse réussie sans contenu reste un cas à qualifier lors d'une correction du proxy.
+
 La page de reset est propre à un token/utilisateur ; elle ne doit pas être décrite comme contenu marketing statique. `ThanksCard` ouvre `welockin://checkout/success` avec un `order_id` numérique validé en forme (1 à 20 chiffres), automatiquement après 400 ms et via un lien manuel de secours. Le client desktop transmet la demande au backend pour validation : ouvrir `/thanks` ou le scheme ne constitue pas une preuve de paiement et ne crée aucun droit dans le landing.
 
 ## SEO et analytics
