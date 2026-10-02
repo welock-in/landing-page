@@ -5,10 +5,25 @@ yourself out of.
 Built with **Next.js 16 (App Router) · React 19 · TypeScript · Tailwind v4**,
 optimised for SEO and structured to scale.
 
+## Documentation du dépôt
+
+Guide relu le **3 octobre 2026** sur `origin/main`, base `8c4a64e`. Les explications
+de fonctionnement et traduction ci-dessous sont conservées ; les nouveaux guides
+décrivent les chemins actuels et les limites de vérification.
+
+- [Architecture](docs/ARCHITECTURE.md) : routing localisé, HTML/Markdown, contenu, SEO et backend.
+- [Développement](docs/DEVELOPMENT.md) : installation Windows/macOS, variables et checks.
+- [Historique](CHANGELOG.md) : commits datés, distincts d'une publication.
+- [AGENTS.md](AGENTS.md) : guides Next de la version installée à lire avant du code.
+
+Le contenu est versionné dans `src/content` et `src/i18n/messages`, sans CMS
+distant. Les téléchargements sont pilotés par le backend ; l'état d'un lien dans
+ce site ne prouve pas l'installation ou la disponibilité actuelle du client.
+
 ## Getting started
 
 ```bash
-npm install
+npm ci
 cp .env.example .env        # set NEXT_PUBLIC_SITE_URL
 npm run dev                 # http://localhost:3000
 ```
@@ -17,7 +32,7 @@ Scripts: `dev`, `build`, `start`, `lint`, `test`, `verify:agents`.
 
 ```bash
 npm test                                        # unit tests (node:test)
-npm run build && npm start &                    # then, against the running server:
+npm run build                                   # then npm start in terminal 1
 npm run verify:agents -- http://localhost:3000  # every machine-readable endpoint
 ```
 
@@ -26,8 +41,13 @@ npm run verify:agents -- http://localhost:3000  # every machine-readable endpoin
 ```
 src/
 ├── app/                    # routes + SEO file conventions
-│   ├── layout.tsx          # fonts, <head> metadata, JSON-LD
-│   ├── page.tsx            # composes the landing sections
+│   ├── [lang]/layout.tsx   # root layout, fonts, metadata, JSON-LD, locale
+│   ├── [lang]/page.tsx     # composes HomePage
+│   ├── [lang]/faq/         # FAQ hub, category and question routes
+│   ├── api/                # backend POST proxies + Markdown handler
+│   ├── llms.txt/           # machine-readable route index
+│   ├── llms-full.txt/      # full agent brief
+│   ├── global-not-found.tsx # standalone HTML 404
 │   ├── globals.css         # design tokens + base styles
 │   ├── sitemap.ts          # generated sitemap.xml
 │   ├── robots.ts           # generated robots.txt
@@ -38,11 +58,14 @@ src/
 │   └── ui/                 # reusable primitives (Container, Breadcrumbs, DownloadButton, icons)
 ├── config/
 │   └── site.ts             # SINGLE SOURCE OF TRUTH: branding, nav, SEO copy
-├── content/                # typed content data (reviews, faqs, stats, pricing…)
+├── content/                # FAQ, platform download data, agent brief
+├── i18n/                   # locale registry, dictionaries, metadata and catalogs
+├── proxy.ts                # FAQ canonicalisation, locale, representation
 ├── lib/
 │   ├── seo.ts              # buildMetadata() + structured-data helpers
+│   ├── agentDocs.ts        # Markdown generated from page/content catalogs
+│   ├── apiProxy.ts         # same-origin POSTs to the account backend
 │   └── utils.ts            # cn(), absoluteUrl()
-└── types/  hooks/          # shared types & hooks (grow as needed)
 ```
 
 ### Conventions
@@ -54,13 +77,13 @@ src/
 - **Styling.** Brand palette as CSS custom properties in `globals.css` (also
   exposed to Tailwind via `@theme`). Each section owns a co-located CSS Module,
   faithful to the design and easy to maintain.
-- **Server-first.** Sections are React Server Components by default; only the
-  interactive ones (`Navbar`, `HowItWorks`, `LockedEverywhere`, `Stats`,
-  `Globe`, `Faq`) are `"use client"`. The whole page prerenders to static
-  HTML, great for SEO.
+- **Server/client boundary.** Pages and the locale layout prepare metadata and
+  copy on the server; many interactive Home sections are `"use client"` and
+  receive only their copy via props. Their presence does not itself make the
+  page dynamic; preserve Suspense around navigation/search-parameter readers.
 
-Sections, in order: `Hero` → `LogoCloud` → `HowItWorks` (scroll-driven sticky
-MacBook) → `LockedEverywhere` → `Stats` → `Globe` → `Faq` → `VideoStory`.
+Sections in `HomePage.tsx`, in order: `Hero` → `LogoCloud` → `BentoFeatures` →
+`Results` → `HowItWorks` → `LockedEverywhere` → `FaqSection` → `ShareBand`.
 
 ### SEO
 

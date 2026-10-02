@@ -27,6 +27,8 @@ export function markdownPath(path: string): string {
  */
 export function pagePathFromMarkdown(path: string): string | null {
   if (!path.endsWith(".md")) return null;
+  // Ici on convertit seulement la forme de l'URL ; le catalogue agent vérifie
+  // ensuite si cette page possède effectivement une représentation.
   const bare = path.slice(0, -".md".length);
   if (bare === "/index" || bare === "") return "/";
   return bare;

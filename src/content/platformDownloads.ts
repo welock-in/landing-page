@@ -117,6 +117,8 @@ export const platformDownloads: PlatformDownload[] = [
  * without checking first.
  */
 export function directDownloadHref(os: DownloadOs | null): string | null {
+  // Le statut marketing ne suffit pas : seul un href réel autorise le lien
+  // direct, notamment pour iOS qui peut encore avoir un href vide.
   if (os === null) return null;
   return platformDownloads.find((platform) => platform.detects === os)?.href ?? null;
 }

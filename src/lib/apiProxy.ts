@@ -63,6 +63,8 @@ export async function proxyPost(
   }
 
   return new Response(await upstream.text(), {
+    // Conserver aussi les refus et le 204 : répondre toujours 200 ferait
+    // perdre au formulaire les décisions de validation/limitation du backend.
     status: upstream.status,
     headers: {
       "content-type":
