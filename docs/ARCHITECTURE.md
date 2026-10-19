@@ -35,7 +35,7 @@ Les routes `/thanks`, `/blocked`, `/reset-password`, les requêtes hors GET/HEAD
 
 `platformDownloads.ts` est l'unique tableau des href/statuts. Les liens macOS/Windows pointent vers `/api/updates/download/macos` et `/windows` du backend : ils suivent la release publiée, sans coder son numéro ni l'URL de stockage. Le navigateur attend un installateur (DMG/EXE), pas l'archive dédiée à l'updater.
 
-Au commit documenté, iPhone/iPad a `status: available` **et `href: null`** : le CTA n'a pas de lien de store direct. Android est coming-soon et Linux not-planned. Ces déclarations locales ne prouvent pas la disponibilité publique des binaires. `directDownloadHref()` renvoie null quand il ne peut fournir un href ; le composant retombe sur `/download`.
+Depuis le 20 octobre 2026, iPhone/iPad a `href: "https://taap.it/welockin_"`, un lien court qui mène à la fiche App Store : le CTA, la carte `/download` et le lien iPhone du footer y envoient directement. Android est coming-soon et Linux not-planned. Ces déclarations locales ne prouvent pas la disponibilité publique des binaires. `directDownloadHref()` renvoie null quand il ne peut fournir un href ; le composant retombe sur `/download`.
 
 `platform.ts` écrit `data-os` avant le premier affichage ; le hook `useDetectedOs.ts` relit cette même valeur après hydratation. La détection iPad inclut les points de contact pour éviter de le confondre avec macOS. Une détection absente/inconnue donne un parcours générique. `installPlatforms.ts` définit macOS/Windows comme plateformes avec film ; son module reste accessible au serveur et au client.
 

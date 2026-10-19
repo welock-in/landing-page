@@ -86,8 +86,8 @@ type DownloadButtonProps = {
  *   publishing it. Nothing on the site names a version or a file.
  * - The platform comes from the attribute the label is chosen from, so the
  *   wording and the destination cannot disagree.
- * - Anything unresolved falls back to `/download`: no JS, a platform with no
- *   URL yet (iPhone today), a platform with no build at all (Android). The
+ * - Anything unresolved falls back to `/download`: no JS, or a platform with
+ *   no build at all (Android). The
  *   server renders that fallback, so the HTML a crawler reads still links to
  *   the page, and so does a visitor whose browser never ran the script.
  */

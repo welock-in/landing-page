@@ -18,6 +18,10 @@ Sélection de commits de `origin/main` au 3 octobre 2026, base `8c4a64e`. Les da
 | 2026-08-23 | `e363718` | Comptage des visiteurs venant d'un QR imprimé. |
 | 2026-08-22 | `c9bb20a` | Démonstration d'installation Windows depuis les liens EXE. |
 
+## 2026-10-20 — Lien App Store
+
+L'app iOS est publiée : l'entrée iPhone & iPad de `platformDownloads` pointe sur `https://taap.it/welockin_` (fiche App Store). Le CTA adaptatif sur iPhone/iPad, la carte `/download` et le lien iPhone du footer y mènent directement.
+
 ## 2026-10-03 — Documentation
 
 Navigation et carte README actualisées ; ajout des guides architecture/développement et de commentaires sur les contrats de téléchargement, d'URL Markdown et de proxy. Aucun comportement, configuration, lien produit ni numéro de version ne change.

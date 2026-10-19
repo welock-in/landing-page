@@ -4,7 +4,7 @@
  * `href` stays null until a platform genuinely has somewhere to send people:
  * inventing a URL would ship a broken primary conversion path that looks like it
  * works. Filling one in turns that card into a working button with no other
- * change. Windows is live; the rest are still waiting on a real URL.
+ * change. macOS, iPhone and Windows are live; Android and Linux have no URL.
  *
  * This file is also what the site-wide download CTA fires at, through
  * `directDownloadHref` at the bottom. That is deliberate: there is one list of
@@ -59,7 +59,10 @@ export const platformDownloads: PlatformDownload[] = [
     slug: "ios",
     name: "iPhone & iPad",
     requirement: "For iOS and iPadOS",
-    href: null,
+    // A taap.it smart link rather than the apps.apple.com URL itself: it lands
+    // on the App Store listing (id6796330736) and counts the clicks. Being a
+    // store page, not a file, the CTA navigates there instead of downloading.
+    href: "https://taap.it/welockin_",
     status: "available",
     detects: "ios",
     note: "The device most worth covering. A blocker that stops at your laptop leaves the door open.",
@@ -118,7 +121,7 @@ export const platformDownloads: PlatformDownload[] = [
  */
 export function directDownloadHref(os: DownloadOs | null): string | null {
   // Le statut marketing ne suffit pas : seul un href réel autorise le lien
-  // direct, notamment pour iOS qui peut encore avoir un href vide.
+  // direct (iOS en a un depuis la publication sur l'App Store, Android non).
   if (os === null) return null;
   return platformDownloads.find((platform) => platform.detects === os)?.href ?? null;
 }

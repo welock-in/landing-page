@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { LogoIcon } from "@/components/ui/icons";
+import { directDownloadHref } from "@/content/platformDownloads";
 import { useCommon, useLocalePath, type CommonDictionary } from "@/i18n/LocaleContext";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import switcher from "./LanguageSwitcher.module.css";
@@ -41,7 +42,10 @@ const COLUMNS = [
     title: "download",
     links: [
       { label: "macos", href: "/download#macos" },
-      { label: "iphoneIpad", href: "/download#ios" },
+      // Straight to the store: the desktop links lead to their cards on
+      // /download because a click there starts a file download, but iPhone's
+      // URL is a store page, so there is nothing for the card to add.
+      { label: "iphoneIpad", href: directDownloadHref("ios") ?? "/download#ios" },
       { label: "windows", href: "/download#windows" },
       { label: "androidSoon", href: "/faq/devices-and-platforms/android-support" },
       { label: "allDevices", href: "/faq/devices-and-platforms/supported-devices" },
@@ -166,7 +170,7 @@ export function Footer() {
               <ul>
                 {col.links.map((link) => (
                   <li key={link.href}>
-                    {link.href.startsWith("mailto:") ? (
+                    {/^(mailto:|https?:)/.test(link.href) ? (
                       <a href={link.href}>{t.links[link.label]}</a>
                     ) : (
                       <Link href={withLocale(link.href)}>{t.links[link.label]}</Link>
