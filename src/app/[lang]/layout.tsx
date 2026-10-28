@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Figtree, EB_Garamond } from "next/font/google";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 
 import { PostHogProvider } from "@/components/analytics/PostHogProvider";
 import { ReferralTracker } from "@/components/analytics/ReferralTracker";
@@ -101,6 +102,11 @@ export default async function RootLayout({
             platform label: see OS_DETECT_SCRIPT. */}
         <script dangerouslySetInnerHTML={{ __html: OS_DETECT_SCRIPT }} />
         <PostHogProvider locale={lang} />
+        <Script
+          src="https://aromatic-caribou-889.convex.site/api/a/am_nxSmpVacqVduOO8U"
+          strategy="afterInteractive"
+          async
+        />
         {/* Counts arrivals from the printed QR code (`?ref=qrcode`), for the
             admin console. Separate from PostHog above on purpose: one number
             the console owns, not a second analytics pipeline. */}
